@@ -1,2 +1,2 @@
 # GGG
-# Green Guardian Guild
+Green Guardian Guild
