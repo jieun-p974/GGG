@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <!-- 3. p태그를 이용하여 값 지정 -->
+   <bean id="bean" class="ex1_xml3_pvalue.MemberBean"
+   p:name="장아영" p:age="27" p:message="매우배고픈상태"
+  > 
+      <!--<constructor-arg>1.생성자로 값 지정</constructor-arg>
+   	  <property name="">2.setter 값지정</property> -->
+   </bean>
+   
+   <bean id="dao1" class="ex1_xml3_pvalue.MemberDAO" p:member-ref="bean"></bean>
+   
+   
+   
+   
+   </beans>
