@@ -1,2 +1,2 @@
 # GGG
-Green Guardian Guild
+안녕하세요 선배릠~! 올리브영 그만가셩!
