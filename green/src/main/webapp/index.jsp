@@ -3,23 +3,23 @@
 
 <html>
 <head>
-<title>Selper</title>
-<link rel="stylesheet" href="resources/style/main.css"
+<title>GGG</title>
+<link rel="stylesheet" href="resources/style/mains.css"
 	type="text/css">
 </head>
 <body>
 	<div class="fullpage">
 		<div class="Selper-header">
 			<h1>
-				Selper<span class="subComment">성공창업을 취한 첫걸음</span>
+				GGG<span class="subComment">할 수 있어?</span>
 			</h1>
 		</div>
 		<div class="mainContent">
-			<p>상권분석 / 업종분석 / 매출분석</p>
-			인구분석 / 지역분석
+			<p>ㅠㅜ</p>
+			
 		</div>
 		<div class="ImageDiv">
-			<img class="SelperImage" src="resources/images/marker.jpg">
+			<img class="SelperImage" src="resources/images/logo.png">
 		</div>
 		<div class="buttonDiv">
 			<button class="btnLogin">
