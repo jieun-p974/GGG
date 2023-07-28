@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   
+   <!-- DI 빈 정의
+   <bean id="ko" name="a,b,c" class="ex1_xml1.MessageBeanKoImpl"></bean>
+   <bean id="en" class="ex1_xml1.MessageBeanEnImpl"></bean>
+    -->
+    
+    <!-- 빈의 생성 범위   singleton:객체생성 한번가능/prototype: 매번 사용가능-->
+    <bean id="ko" name='a,b;c d' class="ex1_xml1.MessageBeanKoImpl" scope="singleton"></bean>
+<bean id="en" class="ex1_xml1.MessageBeanEnImpl" scope="prototype"></bean>
+   
+  
+   </beans>

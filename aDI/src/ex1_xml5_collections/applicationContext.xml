@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="mem" class="ex1_xml5_collections.MemberBean">
+		<!-- Set타입 매핑 -->
+		<property name="setInfo">
+			<set value-type="java.lang.String">
+				<value>배부르다</value>
+				<value>저녁은</value>
+				<value>가볍게...</value>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="daodao" class="ex1_xml5_collections.MemberDAO">
+	<property name="member" ref="mem"/>
+	
+	</bean>
+
+
+
+</beans>
