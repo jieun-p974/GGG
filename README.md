@@ -1,2 +1,2 @@
 # GGG
-Green Guardian Guild
+시원~~~한 맥주 한잔 하입시더!
