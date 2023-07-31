@@ -1,0 +1,65 @@
+.admin_chall {
+    display: grid;
+    grid-template-rows: 1fr 1fr auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.admin_title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.calendar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.month {
+    width: 5rem;
+    text-align: center;
+    font-family: 'S-CoreDream-3Light';
+    font-weight: bold;
+}
+.chall_lists {
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #508068;
+    text-align: center;
+}
+
+th {
+    border-top: none;
+    background: #445c4c;
+    color: #d6e2e0;
+    border: 1px solid #508068;
+}
+
+tr {
+    background-color: #f0edef;
+}
+
+tr:nth-child(odd):not(:first-child) {
+    background-color: #dde2e3;
+}
+
+td {
+    border: 1px solid #508068;
+    padding: 1%;
+}
+.add{
+    background-color: #445c4c;
+    color: #d6e2e0;
+    border-radius: 15px;
+    font-size: 1.3rem;
+}
+.modify{
+    background-color: #445c4c;
+    color: #d6e2e0;
+    border-radius: 15px;
+    font-size: 1.3rem;
+}
