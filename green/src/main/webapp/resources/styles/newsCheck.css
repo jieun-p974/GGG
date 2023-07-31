@@ -1,0 +1,27 @@
+.title{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.list{
+    width: 100%;
+}
+.news{
+    text-align: center;
+    margin-top: 3%;
+    width: 100%;
+}
+.thumnail{
+    border: 1px solid black;
+    width: 10rem;
+    height: 10rem;
+    margin: 2%;
+}
+table{
+    border-collapse: collapse;
+}
+tr{
+    border: 1px solid black;
+}
+th, td{
+    border : 1px solid black;
+}
