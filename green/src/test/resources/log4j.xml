@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.javaclass.basic">
+	<logger name="com.green.basic">
 		<level value="info" />
 	</logger>
 	
