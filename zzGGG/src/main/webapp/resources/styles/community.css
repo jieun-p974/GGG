@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+}
+.community-wrap {
+  background: #ffffff;
+  width: 95%;
+  height: auto;
+}
+.community{
+  display: grid;
+  background-color: #8AB6A9;
+  grid-template-columns: 1fr 8fr;
+  padding: 1%;
+  margin: 1%;
+}
+.profile{
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+}
+.emojis{
+  display:flex;
+  flex-direction: row;
+}
+.comments{
+  border-top: 1px solid black;
+  margin-top: 1%;
+}
+.tabs{
+  width: 100%;
+}
+.buttons{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2%;
+}
+button{
+  background-color: #445c4c;
+  color:#ffffff;
+  border-radius: 15px;
+  padding: 2%;
+  font-size: 1rem;
+}
+.searching{
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+}
+input{
+  width: 95%;
+}
+.ranks{
+  margin-top: 5%;
+  margin-left: 3%;
+  text-align: left;
+}
