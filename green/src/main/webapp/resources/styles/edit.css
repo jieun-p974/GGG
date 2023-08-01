@@ -19,7 +19,7 @@
 .edit_img {
   background: linear-gradient(to left, #ffffff, #ffffff);
   width: 80%;
-  height: 15rem;
+  height: auto;
   margin: 3% 0;
 }
 .text {

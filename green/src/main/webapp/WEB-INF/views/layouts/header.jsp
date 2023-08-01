@@ -26,6 +26,7 @@ function loginPop() {
 				<li><a href="../community/community.do">&nbsp&nbsp커뮤니티&nbsp&nbsp</a></li>
 				<li><a href="../member/mypage.do">&nbsp&nbsp마이페이지&nbsp&nbsp</a></li>
 				<li><a href="../news/newsList.do">&nbsp&nbsp뉴스</a></li>
+				<li><a href="../donation/donation.do">&nbsp&nbsp기부</a></li>
 			</ul>
 		</div>
 		<div class="login">

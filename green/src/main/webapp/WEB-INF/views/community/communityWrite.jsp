@@ -17,7 +17,7 @@
 		<div class="editContainer">
 			<div class="editing">
 				<div class="e_img">
-					<img class="edit_img" src="" />
+					<img class="edit_img" src="../../../resources/imgs/abc.jpg" />
 				</div>
 				<div class="text">
 					소중한 우리 자연, 소중한 우리 지구<br />오늘부터 함께 지켜보아요~!<br />
