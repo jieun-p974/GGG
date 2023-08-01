@@ -81,6 +81,6 @@ function searchPass()  {
             ", left=" + winl +
             ", top=" + wint
      );
-
 }
+
 </script>
