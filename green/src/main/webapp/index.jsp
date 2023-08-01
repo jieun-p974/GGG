@@ -11,6 +11,7 @@
 </head>
 <body>
 <div class="container">
+<a href="../challenge/adminChallenge.do">관리자 챌린지</a>
 <%@include file="WEB-INF/views/layouts/header.jsp" %>
     <div class="main">
       <div class="introduce">
@@ -58,7 +59,7 @@
           <div class="grade_content_txt">
             멸종 위기 동물에도 등급이 있다는 사실,<br />알고 계신가요?
           </div>
-          <img class="grade_content_img" src="imgs/grade.png" />
+          <img class="grade_content_img" src="/resources/imgs/grade.png" />
         </div>
       </div>
 
