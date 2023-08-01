@@ -9,6 +9,7 @@
 <link href="../../../resources/styles/adminChall.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<<<<<<< HEAD
 <title>챌린지 관리</title>
 </head>
 <body>
@@ -33,6 +34,37 @@
 					<option value="12">12월</option>
 				</select>
 				<button class="add">추가하기</button>
+=======
+<script type="text/javascript">
+	function insert() {
+		location.href = "challengeInsert.do"
+	}
+</script>
+<title>챌린지 관리</title>
+</head>
+<body>
+	<div class="container">
+		<%@include file="../layouts/header.jsp"%>
+		<div class="admin_chall">
+			<p class="admin_title">챌린지 리스트 관리</p>
+
+			<div class="calendar">
+				<select class="month" name="month" id="month">
+					<option value="1">1월</option>
+					<option value="2">2월</option>
+					<option value="3">3월</option>
+					<option value="4">4월</option>
+					<option value="5">5월</option>
+					<option value="6">6월</option>
+					<option value="7">7월</option>
+					<option value="8">8월</option>
+					<option value="9">9월</option>
+					<option value="10">10월</option>
+					<option value="11">11월</option>
+					<option value="12">12월</option>
+				</select>
+				<button class="add" id="add" onclick="insert()">추가하기</button>
+>>>>>>> refs/remotes/origin/main
 			</div>
 			<div class="chall_lists">
 				<table class="list">

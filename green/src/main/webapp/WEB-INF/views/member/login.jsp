@@ -60,7 +60,7 @@ function searchID()  {
      var height = 800;   
     var winl = (screen.availWidth - width) / 2;     
     var wint = (screen.availHeight - height) / 2;   
- window.open("searchID.jsp"    
+ window.open("searchID.do"    
             , "아이디찾기"                      
             , "width=" + width +             
             ", height=" + height +
@@ -74,7 +74,7 @@ function searchPass()  {
     var height = 900;     
     var winl = (screen.availWidth - width) / 2;     
     var wint = (screen.availHeight - height) / 2;   
-    window.open("searchPass.jsp"    
+    window.open("searchPass.do"    
             , "비밀번호찾기"                      
             , "width=" + width +             
             ", height=" + height +
