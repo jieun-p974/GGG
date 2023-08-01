@@ -30,7 +30,8 @@ public class ChallengeController {
 	@RequestMapping("/adminChallenge.do")
 	public void getChallengeList(Model model) {
 		List<ChallengeVO> list = null;
-		list = challengeService.
+		list = challengeService.getChallengeList();
+		model.addAttribute("list", list);
 	}
 	
 	// 등록

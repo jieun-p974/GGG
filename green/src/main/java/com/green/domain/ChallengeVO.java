@@ -1,6 +1,7 @@
 package com.green.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ChallengeVO {
 	/*
@@ -16,12 +17,16 @@ public class ChallengeVO {
 	
 	private int chal_no;
 	private String chal_name;
-	private LocalDate chal_regist_date;
+	private LocalDateTime chal_regist_date;
 	private LocalDate chal_start_date;
 	private LocalDate chal_end_date;
 	private String chal_ex;
 	private String difficulty;
 	private String chal_img;
+	
+	public ChallengeVO() {
+		
+	}
 	
 	public ChallengeVO(String chal_name, LocalDate chal_start_date, LocalDate chal_end_date, String chal_ex, String difficulty, String chal_img) {
 		this.chal_name = chal_name;
@@ -44,10 +49,10 @@ public class ChallengeVO {
 	public void setChal_name(String chal_name) {
 		this.chal_name = chal_name;
 	}
-	public LocalDate getChal_regist_date() {
+	public LocalDateTime getChal_regist_date() {
 		return chal_regist_date;
 	}
-	public void setChal_regist_date(LocalDate chal_regist_date) {
+	public void setChal_regist_date(LocalDateTime chal_regist_date) {
 		this.chal_regist_date = chal_regist_date;
 	}
 	public LocalDate getChal_start_date() {

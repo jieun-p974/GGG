@@ -6,4 +6,8 @@
 		INSERT INTO challenge (chal_name, chal_start_date, chal_end_date, chal_ex, difficulty,chal_img) 
 		VALUES (#{chal_name}, #{chal_start_date}, #{chal_end_date}, #{chal_ex}, #{difficulty}, #{chal_img})
 	</insert>
+	
+	<select id="getChallengeList" resultType="challenge">
+		SELECT * FROM challenge ORDER BY chal_no 
+	</select>
 </mapper>
