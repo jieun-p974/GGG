@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,11 @@
 <link href="../../../resources/styles/adminChall.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<script type="text/javascript">
+	function insert() {
+		location.href = "challengeInsert.do"
+	}
+</script>
 <title>챌린지 관리</title>
 </head>
 <body>
@@ -32,7 +39,7 @@
 					<option value="11">11월</option>
 					<option value="12">12월</option>
 				</select>
-				<button class="add">추가하기</button>
+				<button class="add" id="add" onclick="insert()">추가하기</button>
 			</div>
 			<div class="chall_lists">
 				<table class="list">
@@ -43,6 +50,15 @@
 						<th>챌린지 종료일</th>
 						<th>수정</th>
 					</tr>
+					<c:forEach items="${list}" var="chall">
+						<tr>
+							<td>${chall.chal_no}</td>
+							<td>${chall.chal_name}</td>
+							<td>${chall.chal_start_date}</td>
+							<td>${chall.chal_end_date}</td>
+							<td><button class="modify">수정</button></td>
+						</tr>	
+					</c:forEach>
 					<tr>
 						<td>1</td>
 						<td>쓰레기 줍기</td>
