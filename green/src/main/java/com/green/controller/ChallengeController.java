@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/challenge/")
 public class ChallengeController {
-	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
+	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("ì±Œëœì§€ ìš”ì²­");
+		System.out.println("Ã§·£Áö ¿äÃ»");
 		return "/challenge/"+url;
 	}
 }
