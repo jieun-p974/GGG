@@ -8,13 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/donation/")
 public class DonationController {
 
-   @RequestMapping(value="{url}.do")
-   public String url(@PathVariable String url) {
-      System.out.println("기부 요청"+url);
-      return "/donation/"+url;
-   }
-}
-
 	//화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
