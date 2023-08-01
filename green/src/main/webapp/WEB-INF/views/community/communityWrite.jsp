@@ -26,8 +26,8 @@
 				</div>
 			</div>
 			<div class="buttons">
-				<button class="modi">수정</button>
 				<button class="pic">사진 첨부</button>
+				<button class="modi">등록</button>
 			</div>
 		</div>
 	</div>
