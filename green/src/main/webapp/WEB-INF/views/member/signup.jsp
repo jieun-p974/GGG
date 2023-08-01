@@ -56,6 +56,6 @@
 <script type="text/javascript">
 	function hello() {
 		alert('가입을 축하합니다!');
-		window.location.href = "../../../index.html"
+		window.location.href = "../../index.jsp"
 	}
 </script>

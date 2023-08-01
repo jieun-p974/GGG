@@ -74,7 +74,8 @@
       <div class="tabs">
         <div class="buttons">
           <button class="myBtn">내 피드</button>
-          <button class="writeBtn">글쓰기</button>
+          <button class="writeBtn">
+          <a href="communityWrite.do">글쓰기</a></button>
         </div>
         <div class="searching">
           <input type="text" placeholder="search">
@@ -90,3 +91,4 @@
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>
+

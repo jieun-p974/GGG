@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/styles/header.css">
 <script type="text/javascript">
-	function loginPop() {
-		var width = 950;
-		var height = 1100;
-		var winl = (screen.availWidth - width) / 2;
-		var wint = (screen.availHeight - height) / 2;
-		window.open("member/login.do", "회원정보수정", "width=" + width + ", height="
-				+ height + ", left=" + winl + ", top=" + wint);
-	}
+function loginPop() {
+    var width = 950;
+    var height = 1100;
+    var winl = (screen.availWidth - width) / 2;
+    var wint = (screen.availHeight - height) / 2;
+    window.open("../member/login.do", "회원정보수정", "width=" + width + ", height="
+          + height + ", left=" + winl + ", top=" + wint);
+ }
 </script>
 </head>
 <body>

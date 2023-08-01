@@ -38,7 +38,7 @@
 				<ul class="menu_list">
 					<li><a onclick=searchID()>아이디 찾기&nbsp&nbsp&nbsp</a>|</li>
 					<li><a onclick=searchPass()>비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
-					<li><a href="../member/signup.jsp">회원가입</a></li>
+					<li><a href="../member/signup.do">회원가입</a></li>
 				</ul>
 			</div>
 			<button class="loginBtn" onclick="hello()">로그인</button>
