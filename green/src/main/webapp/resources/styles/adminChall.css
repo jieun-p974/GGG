@@ -56,10 +56,12 @@ td {
     color: #d6e2e0;
     border-radius: 15px;
     font-size: 1.3rem;
+    border:none;
 }
 .modify{
     background-color: #445c4c;
     color: #d6e2e0;
     border-radius: 15px;
     font-size: 1.3rem;
+    border:none;
 }

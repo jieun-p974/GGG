@@ -9,6 +9,11 @@
 <link href="../../../resources/styles/adminChall.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<script type="text/javascript">
+	function insert() {
+		location.href = "challengeInsert.do"
+	}
+</script>
 <title>챌린지 관리</title>
 </head>
 <body>
@@ -32,7 +37,7 @@
 					<option value="11">11월</option>
 					<option value="12">12월</option>
 				</select>
-				<button class="add">추가하기</button>
+				<button class="add" id="add" onclick="insert()">추가하기</button>
 			</div>
 			<div class="chall_lists">
 				<table class="list">
