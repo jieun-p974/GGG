@@ -1,5 +1,7 @@
 package com.green.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ public class ChallengeServiceImpl implements ChallengeService{
 	public void insertChallenge(ChallengeVO vo) {
 		// TODO Auto-generated method stub
 		challengeDAO.challengeWrite(vo);
+	}
+	@Override
+	public List<ChallengeVO> getChallengeList() {
+		// TODO Auto-generated method stub
+		return challengeDAO.getChallengeList();
 	}
 	
 }

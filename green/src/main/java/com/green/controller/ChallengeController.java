@@ -27,12 +27,21 @@ public class ChallengeController {
 	}
 	
 	// 챌린지 목록
+<<<<<<< HEAD
 //	@RequestMapping("/adminChallenge.do")
 //	public void getChallengeList(Model model) {
 //		List<ChallengeVO> list = null;
 //		list = challengeService.getChallengeList();
 //		model.addAllAttributes("list",list);
 //	}
+=======
+	@RequestMapping("/adminChallenge.do")
+	public void getChallengeList(Model model) {
+		List<ChallengeVO> list = null;
+		list = challengeService.getChallengeList();
+		model.addAttribute("list", list);
+	}
+>>>>>>> refs/remotes/origin/main
 	
 	// 등록
 	@RequestMapping(value="/save.do")

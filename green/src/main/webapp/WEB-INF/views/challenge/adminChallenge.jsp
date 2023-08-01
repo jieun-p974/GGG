@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,6 +77,15 @@
 						<th>챌린지 종료일</th>
 						<th>수정</th>
 					</tr>
+					<c:forEach items="${list}" var="chall">
+						<tr>
+							<td>${chall.chal_no}</td>
+							<td>${chall.chal_name}</td>
+							<td>${chall.chal_start_date}</td>
+							<td>${chall.chal_end_date}</td>
+							<td><button class="modify">수정</button></td>
+						</tr>	
+					</c:forEach>
 					<tr>
 						<td>1</td>
 						<td>쓰레기 줍기</td>
