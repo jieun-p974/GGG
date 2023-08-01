@@ -38,7 +38,7 @@
 				<ul class="menu_list">
 					<li><a onclick=searchID()>아이디 찾기&nbsp&nbsp&nbsp</a>|</li>
 					<li><a onclick=searchPass()>비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
-					<li><a href="../member/signup.jsp">회원가입</a></li>
+					<li><a href="../member/signup.do">회원가입</a></li>
 				</ul>
 			</div>
 			<button class="loginBtn" onclick="hello()">로그인</button>
@@ -60,7 +60,7 @@ function searchID()  {
      var height = 800;   
     var winl = (screen.availWidth - width) / 2;     
     var wint = (screen.availHeight - height) / 2;   
- window.open("searchID.jsp"    
+ window.open("searchID.do"    
             , "아이디찾기"                      
             , "width=" + width +             
             ", height=" + height +
@@ -74,7 +74,7 @@ function searchPass()  {
     var height = 900;     
     var winl = (screen.availWidth - width) / 2;     
     var wint = (screen.availHeight - height) / 2;   
-    window.open("searchPass.jsp"    
+    window.open("searchPass.do"    
             , "비밀번호찾기"                      
             , "width=" + width +             
             ", height=" + height +
@@ -83,4 +83,5 @@ function searchPass()  {
      );
 
 }
+
 </script>

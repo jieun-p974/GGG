@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DonationDAO">
+
+	<insert id="insertDona" parameterType="dona">
+		INSERT INTO DONATION(
+		don_name, don_ex, don_summary, don_point_sum, d_img1_nn)
+		VALUES(
+		#{don_name}, #{don_ex}, #{don_summary}, #{don_point_sum},#{d_img1_nn})
+	</insert>
+
+
+
+
+</mapper>

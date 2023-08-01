@@ -113,7 +113,7 @@
 							<li><a href="">시셰퍼드</a></li>
 						</ul>
 						<div class="buttons">
-							<button class="gibuBtn" onclick="window.open()">기부하러가기</button>
+							<button class="gibuBtn"><a href="../donation/donation.do">기부하러가기</a></button>
 							<button type="button" class="down2">
 								<img src="../../../resources/imgs/down.png">
 							</button>

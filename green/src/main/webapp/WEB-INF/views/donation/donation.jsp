@@ -19,7 +19,8 @@
       <div class="gibu_list">
         <div class="gibu">
           <div class="rectangel">
-            <img class="gibu_img" src="../../../resources/imgs/logo.png" />
+            <a href="donationDetail.do">
+            <img class="gibu_img" src="../../../resources/imgs/logo.png" /></a>
           </div>
           <div class="dona_text">
             <p class="dona">GGG</p>

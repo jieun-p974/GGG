@@ -9,6 +9,8 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="index" type="com.green.domain.IndexVO" />
+		<!-- 아영선배 여기에 vo 추가하셔서 alias 명을 변수명으로 쓰시는 거셔~ 여기에 적은거 친구를 맵퍼에서 사용하심 되셔 -->
+		<typeAlias alias="dona" type="com.green.domain.DonationVO"/>
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->

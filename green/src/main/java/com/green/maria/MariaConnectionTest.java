@@ -23,4 +23,4 @@ private static final String DRIVER = "org.mariadb.jdbc.Driver";
          e.printStackTrace();
       }
    }
-} 
+}   
