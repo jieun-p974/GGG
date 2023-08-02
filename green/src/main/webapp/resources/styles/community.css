@@ -9,6 +9,10 @@
   display: grid;
   grid-template-columns: 5fr 2fr;
 }
+
+.contents {
+	margin-left: 2%;
+}
 .community-wrap {
   background: #ffffff;
   width: 95%;
@@ -24,10 +28,20 @@
 .profile{
   border-radius: 50%;
   border: 1px solid black;
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   margin: 0 auto;
 }
+
+.b_img {
+    display: inline;
+}
+
+.board_img {
+    width: 25%;
+    height: auto;
+}
+
 .emojis{
   display:flex;
   flex-direction: row;

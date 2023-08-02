@@ -58,6 +58,15 @@
           </div>
           <div class="contents">
             <div class="id">jieunjjang</div>
+            <div class="b_img">
+				<img class="board_img" src="../../../resources/imgs/abc.jpg" />
+			</div>
+            <div class="b_img">
+				<img class="board_img" src="../../../resources/imgs/abc.jpg" />
+			</div>
+            <div class="b_img">
+				<img class="board_img" src="../../../resources/imgs/abc.jpg" />
+			</div>
             <div class="writing">다음달 동물 뭔지 너무 기대된다!<br />같이 도전할 @geegeegee 구함</div>
             <div class="emojis">
               <div class="heart">❤</div>

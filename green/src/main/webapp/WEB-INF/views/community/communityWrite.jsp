@@ -14,21 +14,26 @@
 <body>
 	<div class="container ">
 		<%@include file="../layouts/header.jsp"%>
-		<div class="editContainer">
-			<div class="editing">
-				<div class="e_img">
-					<img class="edit_img" src="../../../resources/imgs/abc.jpg" />
+		<div class="writeContainer">
+	<%--	<form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data">  --%>	
+			                <form action="save.do" method="post">
+				<div class="editing">
+					<div class="e_img">
+						<img class="edit_img" src="../../../resources/imgs/abc.jpg" />
+					</div>
+					<div class="text">
+						<textarea name="b_content" id="b_content" autofocus="autofocus"></textarea>
+					</div>
+					<div class="comm_img">
+						<label for="comm_img">사진 첨부하기</label>
+						<input type="file" name="comm_img" id="comm_img">
+					</div>
+					<div class="buttons">
+              			<button id="adding" type="submit">등록</button>
+              			<button id="cancel">취소</button>
+					</div>
 				</div>
-				<div class="text">
-					소중한 우리 자연, 소중한 우리 지구<br />오늘부터 함께 지켜보아요~!<br />
-					<br />
-					<br /> #환경운동<br />#환경운동파이팅<br />#환경운동해봐요
-				</div>
-			</div>
-			<div class="buttons">
-				<button class="pic">사진 첨부</button>
-				<button class="modi">등록</button>
-			</div>
+			</form>
 		</div>
 	</div>
 	<%@include file="../layouts/footer.jsp"%>
