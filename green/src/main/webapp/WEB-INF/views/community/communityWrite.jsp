@@ -9,6 +9,11 @@
 <link href="../../../resources/styles/edit.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<script type="text/javascript">
+function cancleWrite() {
+    location.href = "community.do"
+ }
+</script>
 <title>커뮤니티 글 작성</title>
 </head>
 <body>
@@ -30,7 +35,7 @@
 					</div>
 					<div class="buttons">
               			<button id="adding" type="submit">등록</button>
-              			<button id="cancel">취소</button>
+              			<button id="cancel" type="button" onclick="cancleWrite()">취소</button>
 					</div>
 				</div>
 			</form>

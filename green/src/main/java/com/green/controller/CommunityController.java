@@ -25,6 +25,7 @@ public class CommunityController {
 		return "/community/"+url;
 	}
 	
+	
 	// 등록
 	@RequestMapping(value="/save.do")
 	public String communityInsert(CommunityVO vo) throws IOException{

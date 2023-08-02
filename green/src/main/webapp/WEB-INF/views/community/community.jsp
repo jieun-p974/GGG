@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<c:if test="${sessionScope.userId == null }">
+	<script>
+		alert("로그인 하신 후 이용 가능합니다.");
+		location.href="../../index.jsp";
+	</script>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +18,9 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
-function insert() {
-    location.href = "communityWrite.do"
- }
+	function insert() {
+		location.href = "communityWrite.do"
+	}
 </script>
 <title>커뮤니티</title>
 </head>
@@ -30,6 +36,13 @@ function insert() {
 							<img src="" alt="" class="p_img" />
 							<!-- member 테이블에서 m_img 가져오기 -->
 						</div>
+						<c:if test="${sessionScope.userId == community.id}">
+						<div class="memBtns">
+							<button class="editBtn" id="editBtn">수정</button>
+							<button class="deleteBtn" id="deleteBtn">삭제</button>
+						</div>
+						</c:if>
+						
 						<div class="contents">
 							<p class="id">@${community.id}</p>
 							<div class="b_img">
@@ -49,13 +62,13 @@ function insert() {
 								ㄴ@geegeegee 무조건 합니다~
 								<!-- board_no 따서 reply 테이블에서 id,com_content 가져오기 -->
 							</div>
-							
+
 						</div>
 					</div>
 				</c:forEach>
 
 			</div>
-			
+
 			<div class="tabs">
 				<div class="buttons">
 					<button class="myBtn">내 피드</button>
@@ -69,7 +82,7 @@ function insert() {
 					#플로깅(10,500회)<br />
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 	<%@include file="../layouts/footer.jsp"%>
