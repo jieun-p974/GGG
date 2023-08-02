@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.main {
+  background: #ffffff;
+  width: 100%;
+  height: auto;
+  display: grid;
+  font-family: 'S-CoreDream-3Light';
+}
+
+.introduce {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(80, 128, 104, 1) 100%);
+  width: 100%;
+  height: 450px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.intro_video {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.intro_title {
+  color: #000000;
+  text-align: left;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.intro_content {
+  color: #000000;
+  text-align: left;
+  font-family: 'S-CoreDream-3Light';
+  width: 693px;
+  height: auto;
+}
+
+.grade {
+  background: #ededed;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.grade_animal {
+  display: grid;
+  justify-items: center;
+  margin: 3% 0;
+}
+
+.grade_img {
+  width: 192px;
+  height: 271px;
+}
+
+.grade_txt {
+  color: #cd9a00;
+  text-align: center;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 107px;
+  height: 23px;
+}
+
+.grade_content {
+  display: grid;
+}
+
+.grade_content_img {
+  width: 507px;
+  height: auto;
+}
+
+.grade_content_txt {
+  color: #989391;
+  text-align: right;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 1rem;
+}
+
+.hint {
+  background: #ffffff;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.hint-month {
+  background: #508068;
+  width: 100%;
+  height: 764px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hint_txt {
+  color: #000000;
+  text-align: left;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 3%;
+}
+
+.month {
+  color: #000000;
+  text-align: center;
+  margin: 3%;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.hint_shadow {
+  width: 538px;
+  height: 469px;
+}
+
+.hint_intro {
+  background-color: #8ab6a9;
+  width: 100%;
+  height: 764px;
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+}
+
+.hint_content {
+  color: #000000;
+  text-align: left;
+  margin: 10%;
+  width: 519px;
+  height: 267px;
+}
+
+span {
+  color: #000000;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.btn {
+  color: #000000;
+  width: 50%;
+  height: 3rem;
+}
