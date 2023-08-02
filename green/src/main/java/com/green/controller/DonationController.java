@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/donation/")
 public class DonationController {
+
 	//화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
@@ -14,3 +15,4 @@ public class DonationController {
 		return "/donation/"+url;
 	}
 }
+

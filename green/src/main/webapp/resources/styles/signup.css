@@ -14,7 +14,7 @@
     font-size: 2rem;
     font-weight: bold;
   }
-  /* ------------- 로그인정보 ------------- */
+  /* ------------- 濡쒓렇�씤�젙蹂� ------------- */
   .info {
     display: grid;
     grid-template-columns: 0.5fr 3fr;
@@ -30,7 +30,7 @@
     grid-template-columns: 5fr 1fr;
     width: 100%;
   }
-  /* ------------- 버튼 ------------- */
+  /* ------------- 踰꾪듉 ------------- */
   .btns {
     width: 100%;
     font-size: 0.9rem;
@@ -44,7 +44,7 @@
     font-size: 1.5rem;
     font-weight: 500;
   }
-  .signupBtn {
+  .confirm {
     background: #445C4C;
     border-radius: 999px;
     width: 170px;
@@ -63,10 +63,10 @@
   .idenBtn:focus {
     cursor: pointer;
   }
-  .signupBtn:hover {
+  .confirm:hover {
     background-color: #508068;
   }
   
-  .signupBtn:focus {
+  .confirm:focus {
     cursor: pointer;
   }
