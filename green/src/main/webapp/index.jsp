@@ -12,6 +12,7 @@
 <body>
 <div class="container">
 <a href="../challenge/adminChallenge.do">관리자 챌린지</a>
+<a href="../news/newsCheck.do">관리자 뉴스</a>
 <%@include file="WEB-INF/views/layouts/header.jsp" %>
     <div class="main">
       <div class="introduce">

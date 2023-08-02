@@ -9,7 +9,8 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="index" type="com.green.domain.IndexVO" />
-		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />   
+		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />
+		<typeAlias alias="news" type="com.green.domain.NewsVO" />   
 	</typeAliases>
 
 	

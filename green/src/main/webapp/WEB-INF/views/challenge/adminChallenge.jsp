@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +26,7 @@
 
 			<div class="calendar">
 				<select class="month" name="month" id="month">
+					<option value="all">전체</option>
 					<option value="1">1월</option>
 					<option value="2">2월</option>
 					<option value="3">3월</option>
@@ -56,23 +57,15 @@
 							<td>${chall.chal_name}</td>
 							<td>${chall.chal_start_date}</td>
 							<td>${chall.chal_end_date}</td>
-							<td><button class="modify">수정</button></td>
-						</tr>	
+							<td>
+								<button class="modify">
+								<a href="challengeModify.do?chal_no=${chall.chal_no}">
+								수정
+								</a>
+								</button>
+							</td>
+						</tr>
 					</c:forEach>
-					<tr>
-						<td>1</td>
-						<td>쓰레기 줍기</td>
-						<td>2023.07.01</td>
-						<td>2023.07.20</td>
-						<td><button class="modify">수정</button></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>마트갈때 장바구니 사용하기</td>
-						<td>2023.07.01</td>
-						<td>2023.07.20</td>
-						<td><button class="modify">수정</button></td>
-					</tr>
 				</table>
 			</div>
 		</div>
