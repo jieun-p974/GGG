@@ -50,8 +50,8 @@ public class DonationController {
 	
 	//디데이 뽑으려고
 
-	List<DonationVO>donationList=donationService.selectDona();
-	Map<DonationVO,Integer> dDayMap = new HashMap<DonationVO,Integer>();
+//	List<DonationVO>donationList=donationService.selectDona();
+//	Map<DonationVO,Integer> dDayMap = new HashMap<DonationVO,Integer>();
 
 }
 

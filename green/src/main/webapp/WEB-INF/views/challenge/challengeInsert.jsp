@@ -64,7 +64,7 @@
 		<div class="chall_insert">
 			<div class="insert_box">
 				<p class="title">챌린지 등록</p>
-				<form action="saveChallenge.do" method="post" enctype="multipart/form-data">
+				<form action="saveChallenge.do" method="post">
 					<div class="chal_name">
 						<label for="chal_name">챌린지명</label> <input type="text"
 							name="chal_name" id="chal_name">

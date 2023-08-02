@@ -26,6 +26,7 @@ function cancleWrite() {
 					<div class="e_img">
 						<img class="edit_img" src="../../../resources/imgs/abc.jpg" />
 					</div>
+					<input type="hidden" name="id" value="${userId}" />
 					<div class="text">
 						<textarea name="b_content" id="b_content" autofocus="autofocus"></textarea>
 					</div>

@@ -7,8 +7,8 @@
 <head>
 <%
 	String userId = (String) session.getAttribute("userId");
-String userName = (String) session.getAttribute("userName");
-System.out.println(userId);
+	String userName = (String) session.getAttribute("userName");
+	System.out.println(userId);
 %>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,11 +33,9 @@ System.out.println(userId);
 			return false;
 		}
 		
-		document.form.submit();//전송
-
+		document.form.submit();	//전송
 					
 	}
-
 
 function searchID()  {
     var width = 700;      
@@ -64,11 +62,8 @@ function searchPass()  {
             ", left=" + winl +
             ", top=" + wint
      );
-            ", top=" + wint )
 }
 
-
-</script>
 
 </script>
 
@@ -115,4 +110,3 @@ function searchPass()  {
 </body>
 </html>
 
-</script>
