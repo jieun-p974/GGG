@@ -19,14 +19,7 @@
 <link rel="stylesheet" href="/resources/styles/header.css">
 <script type="text/javascript">
 
-	function loginPop() {
-	    var width = 950;
-	    var height = 1100;
-	    var winl = (screen.availWidth - width) / 2;
-	    var wint = (screen.availHeight - height) / 2;
-	    window.open("../member/login.do", "로그인", "width=" + width + ", height="
-	          + height + ", left=" + winl + ", top=" + wint);
-	 }
+
 </script>
 </head>
 <body>
@@ -46,7 +39,7 @@
       
       <c:if test="${userId ne null}">
      	 <div class="login">
-    	 <button class="loginBtn" onclick="location.href='../member/login.do'"> 로그아웃</button>
+    	 <button class="loginBtn" onclick="location.href='../member/save5.do'"> 로그아웃</button>
     	 </div>
       </c:if>
          

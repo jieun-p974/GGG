@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:if test="${userId == null }">
+   <script>
+      alert("로그인 하신 후 이용 가능합니다.");
+      location.href="../../index.jsp";
+   </script>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>

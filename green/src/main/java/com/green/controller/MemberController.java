@@ -106,7 +106,7 @@ public class MemberController {
 	@RequestMapping("/save5.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/member/login";
+		return "redirect:/member/main.do";
 
 	}
 	
