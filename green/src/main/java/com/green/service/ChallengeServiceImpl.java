@@ -19,16 +19,12 @@ public class ChallengeServiceImpl implements ChallengeService{
 		// TODO Auto-generated method stub
 		challengeDAO.challengeWrite(vo);
 	}
-<<<<<<< HEAD
 	//get one
 	@Override
 	public ChallengeVO getChallengeDetail(ChallengeVO vo) {
 		return challengeDAO.getChallengeDetail(vo);
 	}
 	//get list
-=======
-	
->>>>>>> refs/remotes/origin/gaeun
 	@Override
 	public List<ChallengeVO> getChallengeList() {
 		// TODO Auto-generated method stub
