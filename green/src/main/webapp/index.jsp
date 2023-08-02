@@ -88,7 +88,7 @@
             </p>
           </div>
 
-          <button class="btn">지금 바로 챌린지 참여하러 가기!</button>
+          <button class="btn"><a href="../challenge/challengeList.do">지금 바로 챌린지 참여하러 가기!</a></button>
         </div>
 
       </div>

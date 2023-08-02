@@ -115,3 +115,4 @@ function searchPass()  {
 </body>
 </html>
 
+</script>
