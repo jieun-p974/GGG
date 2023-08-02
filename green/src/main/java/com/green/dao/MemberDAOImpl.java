@@ -12,10 +12,46 @@ public class MemberDAOImpl implements MemberDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	// ȸ������
-	public void insertMember(MemberVO vo)  {
-		System.out.println("===> Mybatis insertMember() ȣ��");
-		
+	@Override
+	public MemberVO idCheck(MemberVO vo) {
+		System.out.println("===> idCheck() 호출");
+		return mybatis.selectOne("member.idCheck", vo);
+	}
+	
+	@Override
+	public int memberInsert(MemberVO vo)  {
+		System.out.println("===> memberInsert() 호출");
+		return mybatis.insert("member.memberInsert", vo);
 	}
 
+	@Override
+	public MemberVO memberLogin(MemberVO vo) {
+		System.out.println("===> idCheck() 호출");
+		return (MemberVO) mybatis.selectOne("member.idCheck", vo);
+	}
+
+	@Override
+	public MemberVO memberInfo(MemberVO vo) {
+		System.out.println("===> memberInfo() 호출");
+		return mybatis.selectOne("member.memberInfo", vo);
+	}
+
+	@Override
+	public int memberUpdate(MemberVO vo) {
+		System.out.println("===> memberUpdate() 호출");
+		return mybatis.update("member.memberUpdate", vo);
+	}
+
+	@Override
+	public MemberVO login(MemberVO vo) {
+		System.out.println("===> login() 호출");
+		return mybatis.selectOne("member.login", vo);
+	}
+
+	@Override
+	public MemberVO adminLogin(MemberVO vo) {
+		System.out.println("===> adminLogin() 호출");
+		return mybatis.selectOne("member.adminLogin", vo);
+	}
+	
 }

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/news/")
 public class NewsController {
-	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
+	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("´º½º ¿äÃ»");
+		System.out.println("ë‰´ìŠ¤ ìš”ì²­");
 		return "/news/"+url;
 	}
 }

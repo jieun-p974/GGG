@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,53 +13,79 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>회원가입</title>
 </head>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">		
-	$(document).ready(function(){
+	$(function(){
 		
-			$("#submit").on("click", function(){
-				if($("#userId").val()==""){
+			$("#confirm").on("click", function(){
+				if($("#name").val()==""){
+					alert("이름을 입력해주세요.");
+					$("#name").focus();
+					return false;
+				}
+				if($("#id").val()==""){
 					alert("아이디를 입력해주세요.");
-					$("#userId").focus();
+					$("#id").focus();
 					return false;
 				}
-				if($("#userPass").val()==""){
+				if($("#password").val()==""){
 					alert("비밀번호를 입력해주세요.");
-					$("#userPass").focus();
+					$("#password").focus();
 					return false;
 				}
-				if($("#userName").val()==""){
-					alert("성명을 입력해주세요.");
-					$("#userName").focus();
+				if($("#passCheck").val()==""){
+					alert("비밀번호 확인란을 입력해주세요.");
+					$("#passCheck").focus();
 					return false;
 				}
+				if($("#passCheck").val()!=$("#password").val()){
+					alert("비밀번호가 일치하지 않습니다.");
+					$("#passCheck").focus();
+					return false;
+				}
+				if($("#tel").val()==""){
+					alert("전화번호를 입력해주세요.");
+					$("#tel").focus();
+					return false;
+				}
+				if($("#email").val()==""){
+					alert("이메일주소를 입력해주세요.");
+					$("#email").focus();
+					return false;
+				}
+				if($("#emailCheck").val()==""){
+					alert("인증번호를 입력해주세요.");
+					$("#emailCheck").focus();
+					return false;
+				}
+				
+			//		alert('가입을 축하합니다!');
+			//		window.close();
+					document.userinput.submit();
+				
 			});
-		})
-
-	function hello() {
-		alert('가입을 축하합니다!');
-		window.close();
-	}
+			
+		});
 
 </script>
 
 <body>
 	<div class="container ">
-	<form action="/member/signup" method="post">
+	<form method="post" action="save.do" name="userinput" id="userinput">
 		<%@include file="../layouts/header.jsp"%>
 			<div class="sign-up">
 				<div class="title">회원가입</div>
 				<div class="info">
 					<p class="label">이름</p>
-					<input class="insert" type="text" name="userName" id="userName"/>
+					<input class="insert" type="text" name="name" id="name"/>
 				</div>
 				<div class="info">
 					<p class="label">아이디</p>
-					<input class="insert" type="text" name="userID" id="userID"/>
+					<input class="insert" type="text" name="id" id="id"/>
 				</div>
 				<div class="info">
 					<p class="label">비밀번호</p>
-					<input class="insert" type="password" name="userPass" id="userPass"/>
+					<input class="insert" type="password" name="password" id="password"/>
 				</div>
 				<div class="info">
 					<p class="label">비밀번호 확인</p>
@@ -66,12 +94,12 @@
 				
 				<div class="info">
 					<p class="label">전화번호</p>
-					<input class="insert" type="text" name="userTel" id="userTel"/>
+					<input class="insert" type="text" name="tel" id="tel"/>
 				</div>
 				
 				<div class="info">
 					<p class="label">이메일</p>
-					<input class="insert" type="text" name="userEmail" id="userEmail"/>
+					<input class="insert" type="text" name="email" id="email"/>
 				</div>
 				<div class="info">
 					<p class="label">이메일 인증</p>
@@ -82,7 +110,7 @@
 				</div>
 	
 				<div class="btns">
-					<button id="submit" type="submit" class="signupBtn">회원가입</button>
+					<input type="button" id="confirm" class="confirm" value="회원가입">
 				</div>
 			</div>
 		</form>

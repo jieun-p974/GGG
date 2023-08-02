@@ -10,12 +10,7 @@
 	<typeAliases>
 		<typeAlias alias="index" type="com.green.domain.IndexVO" />
 		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />   
+		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
 	</typeAliases>
-
-	
-	<!-- Sql Mapper 설정 -->
-<!-- 	<mappers>
-		<mapper resource="mappings/board-mapping.xml"/>
-	</mappers> -->
 	
 </configuration> 

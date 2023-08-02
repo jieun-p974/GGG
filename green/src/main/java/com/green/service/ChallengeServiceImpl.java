@@ -17,6 +17,7 @@ public class ChallengeServiceImpl implements ChallengeService{
 		// TODO Auto-generated method stub
 		challengeDAO.challengeWrite(vo);
 	}
+	
 	@Override
 	public List<ChallengeVO> getChallengeList() {
 		// TODO Auto-generated method stub

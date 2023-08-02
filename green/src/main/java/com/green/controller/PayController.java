@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/pay/")
 public class PayController {
-	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
+	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("°áÁ¦ ¿äÃ»");
+		System.out.println("ê²°ì œ ìš”ì²­");
 		return "/pay/"+url;
 	}
 }

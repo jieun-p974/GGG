@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/dogam/")
 public class DogamController {
-	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
+	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("µµ°¨ ¿äÃ»");
+		System.out.println("ë„ê° ìš”ì²­");
 		return "/dogam/"+url;
 	}
 }

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/community/")
 public class CommunityController {
-	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
+	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("Ä¿¹Â´ÏÆ¼ ¿äÃ»");
+		System.out.println("ì»¤ë®¤ë‹ˆí‹° ìš”ì²­");
 		return "/community/"+url;
 	}
 }
