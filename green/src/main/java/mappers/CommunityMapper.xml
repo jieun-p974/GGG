@@ -4,11 +4,11 @@
 <mapper namespace="CommunityDAO">
 	<insert id="communityWrite" parameterType="community">
 		INSERT INTO board (id, b_content,b_img1,b_img2,b_img3)
-		VALUES('234', #{b_content}, #{b_img1}, #{b_img2}, #{b_img3})
+		VALUES('seul', #{b_content}, #{b_img1}, #{b_img2}, #{b_img3})
 	</insert>
 	
 	<select id="getCommunityList" resultType="community">
-		SELECT * FROM board ORDER BY board_no
+		SELECT * FROM board ORDER BY board_no desc
 	</select>
 	
 </mapper>
