@@ -16,11 +16,12 @@ import com.green.service.DonationService;
 @Controller
 @RequestMapping("/donation/")
 public class DonationController {
+
 	@Autowired
 	private DonationService donationService;
-
 	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "{url}.do")
+
 	public String url(@PathVariable String url) {
 		System.out.println("기부 요청" + url);
 		return "/donation/" + url;
@@ -49,7 +50,8 @@ public class DonationController {
 	
 	//디데이 뽑으려고
 
-	List<DonationVO>donationList=donationService.selectDona();
-	Map<DonationVO,Integer> dDayMap = new HashMap<DonationVO,Integer>();
+//	List<DonationVO>donationList=donationService.selectDona();
+//	Map<DonationVO,Integer> dDayMap = new HashMap<DonationVO,Integer>();
 
 }
+

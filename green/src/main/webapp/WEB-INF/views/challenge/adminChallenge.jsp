@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +23,7 @@
       <%@include file="../layouts/header.jsp"%>
       <div class="admin_chall">
          <p class="admin_title">챌린지 리스트 관리</p>
+
 
          <div class="calendar">
             <select class="month" name="month" id="month">

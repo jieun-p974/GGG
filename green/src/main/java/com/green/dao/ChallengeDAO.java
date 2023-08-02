@@ -8,4 +8,8 @@ public interface ChallengeDAO {
 	public void challengeWrite(ChallengeVO vo);
 
 	public List<ChallengeVO> getChallengeList();
+	
+	public ChallengeVO getChallengeDetail(ChallengeVO vo);
+	
+	public void updateChallenge(ChallengeVO vo);
 }
