@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,15 +19,22 @@ import com.green.service.ChallengeService;
 public class ChallengeController {
 	@Autowired
 	private ChallengeService challengeService;
-	
-	//화면만 이동(DB연결은 XX)
-	@RequestMapping(value="{url}.do")
+
+	// 화면만 이동(DB연결은 XX)
+	@RequestMapping(value = "{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("챌랜지 요청"+url);
-		return "/challenge/"+url;
+		System.out.println("챌랜지 요청" + url);
+		return "/challenge/" + url;
 	}
-	
-	// 챌린지 목록
+
+	// insert
+	@RequestMapping(value = "/saveChallenge.do")
+	public String challengeInsert(ChallengeVO vo) throws IOException {
+		challengeService.insertChallenge(vo);
+		return "redirect:adminChallenge.do";
+	}
+
+	// get challenge list - admin
 	@RequestMapping("/adminChallenge.do")
 	public void getChallengeList(Model model) {
 		List<ChallengeVO> list = null;
@@ -35,10 +43,19 @@ public class ChallengeController {
 	}
 
 	
-	// 등록
-	@RequestMapping(value="/save.do")
-	public String challengeInsert(ChallengeVO vo) throws IOException{
-		challengeService.insertChallenge(vo);
-		return "redirect:/adminChallenge.do";
+	// get challenge list - user
+
+	// get one
+	@RequestMapping("/challengeModify.do")
+	public void getChallengeDetail(ChallengeVO vo, Model model) {
+		model.addAttribute("chall", challengeService.getChallengeDetail(vo));
+
+	}
+
+	// modify
+	@RequestMapping(value = "/updateChallenge.do")
+	public String updateChallenge(@ModelAttribute("challenge") ChallengeVO vo) {
+		challengeService.updateChallenge(vo);
+		return "redirect:challengeModify.do?chal_no=" + vo.getChal_no();
 	}
 }

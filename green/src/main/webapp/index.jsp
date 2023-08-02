@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +10,16 @@
   <link rel="stylesheet" href="/resources/styles/index.css">
   <link rel="stylesheet" href="/resources/styles/footer.css">
 <title>GGG: 지구를 지켜라</title>
+     
 </head>
 <body>
 <div class="container">
 <a href="../challenge/adminChallenge.do">관리자 챌린지</a>
+<<<<<<< HEAD
+<a href="../news/newsCheck.do">관리자 뉴스</a>
+=======
+
+>>>>>>> refs/remotes/origin/gaeun
 <%@include file="WEB-INF/views/layouts/header.jsp" %>
     <div class="main">
       <div class="introduce">

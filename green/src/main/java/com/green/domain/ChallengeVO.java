@@ -1,5 +1,7 @@
 package com.green.domain;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -17,9 +19,9 @@ public class ChallengeVO {
 	
 	private int chal_no;
 	private String chal_name;
-	private LocalDateTime chal_regist_date;
-	private LocalDate chal_start_date;
-	private LocalDate chal_end_date;
+	private Date chal_regist_date;
+	private Date chal_start_date;
+	private Date chal_end_date;
 	private String chal_ex;
 	private String difficulty;
 	private String chal_img;
@@ -28,7 +30,7 @@ public class ChallengeVO {
 		
 	}
 	
-	public ChallengeVO(String chal_name, LocalDate chal_start_date, LocalDate chal_end_date, String chal_ex, String difficulty, String chal_img) {
+	public ChallengeVO(String chal_name, Date chal_start_date, Date chal_end_date, String chal_ex, String difficulty, String chal_img) {
 		this.chal_name = chal_name;
 		this.chal_start_date = chal_start_date;
 		this.chal_end_date = chal_end_date;
@@ -49,22 +51,22 @@ public class ChallengeVO {
 	public void setChal_name(String chal_name) {
 		this.chal_name = chal_name;
 	}
-	public LocalDateTime getChal_regist_date() {
+	public Date getChal_regist_date() {
 		return chal_regist_date;
 	}
-	public void setChal_regist_date(LocalDateTime chal_regist_date) {
+	public void setChal_regist_date(Date chal_regist_date) {
 		this.chal_regist_date = chal_regist_date;
 	}
-	public LocalDate getChal_start_date() {
+	public Date getChal_start_date() {
 		return chal_start_date;
 	}
-	public void setChal_start_date(LocalDate chal_start_date) {
+	public void setChal_start_date(Date chal_start_date) {
 		this.chal_start_date = chal_start_date;
 	}
-	public LocalDate getChal_end_date() {
+	public Date getChal_end_date() {
 		return chal_end_date;
 	}
-	public void setChal_end_date(LocalDate chal_end_date) {
+	public void setChal_end_date(Date chal_end_date) {
 		this.chal_end_date = chal_end_date;
 	}
 	public String getChal_ex() {
