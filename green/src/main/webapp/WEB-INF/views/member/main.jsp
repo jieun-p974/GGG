@@ -86,7 +86,7 @@
 
           <button class="btn">지금 바로 챌린지 참여하러 가기!</button>
         </div>
-
+ㄴ
       </div>
     </div>
   </div>
