@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,11 @@
 <link href="../../../resources/styles/donationGak.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<!-- 오늘 날짜 -->
+<jsp:useBean id="now" class="java.util.Date" />
 <title>Insert title here</title>
-</head> 
- 
+</head>
+
 <body>
 	<div class="container ">
 		<%@include file="../layouts/header.jsp"%>
@@ -25,16 +28,29 @@
 					<button class="donaBtn">기부하기</button>
 				</div>
 				<div class="barUpper">
-					<p class="nowPer">80%</p>
-					<div class="d_day">D-75</div>
+					<!-- 포인트 퍼센트 -->
+					<fmt:formatNumber type="percent"
+						value="${dona.don_point_sum/dona.don_goal}" var="percent"
+						pattern="0%" />
+					<p class="nowPer">${percent}</p>
+					<!-- 디데이 계산 -->
+					<fmt:parseNumber value="${now.time / (1000*60*60*24)}"
+						integerOnly="true" var="nowfmtTime" scope="request" />
+					<fmt:parseNumber value="${dona.don_end_day.time / (1000*60*60*24)}"
+						integerOnly="true" var="dbDtParse" scope="request" />
+
+					<div class="d_day">D-${dbDtParse - nowfmtTime + 1}</div>
+
 				</div>
 				<div class="bars">
 					<div class="totalbar"></div>
 					<div class="nowbar"></div>
 				</div>
 				<div class="barDown">
-					<div class="donadate">${dona.don_start_day} ~ ${dona.don_end_day}까지</div>
-					<div class="nowpoint">${dona.don_point_sum }/${dona.don_goal } Point</div>
+					<div class="donadate">${dona.don_start_day}~
+						${dona.don_end_day}까지</div>
+					<div class="nowpoint">${dona.don_point_sum }/${dona.don_goal }
+						Point</div>
 				</div>
 
 				<div class="buttons">
@@ -45,8 +61,7 @@
 			<div class="content">
 				<div class="logo_intro">
 					<img class="logos" src="../../../resources/imgs/logo4.png" />
-					<h1 class="ggg" value="${dona.don_name }">
-							${dona.don_summary}
+					<h1 class="ggg" value="${dona.don_name }">${dona.don_summary}
 					</h1>
 				</div>
 				<img class="pic" src="" />
