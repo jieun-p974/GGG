@@ -19,7 +19,8 @@
 			<div class="writing">
 				<form action="saveNews.do" method="post">
 				<label for="cat_no">카테고리</label> 
-				<select name="cat_no" id="cat_no" class="category">
+				<select name="cat_no"
+						id="cat_no" class="category">
 						<option value="all">전체</option>
 						<option value=1>동물</option>
 						<option value=2>문화</option>

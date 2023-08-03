@@ -42,6 +42,9 @@ public class ChallengeController {
 		model.addAttribute("list", list);
 	}
 
+	
+	// get challenge list - user
+
 	// get one
 	@RequestMapping("/challengeModify.do")
 	public void getChallengeDetail(ChallengeVO vo, Model model) {
