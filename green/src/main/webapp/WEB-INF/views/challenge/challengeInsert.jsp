@@ -30,7 +30,7 @@
              monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
              monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
              dateFormat: "yy-mm-dd",
-             maxDate: 0,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+             maxDate: 50,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
              onClose: function( selectedDate ) {    
                   //시작일(startDate) datepicker가 닫힐때
                   //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
@@ -64,7 +64,7 @@
 		<div class="chall_insert">
 			<div class="insert_box">
 				<p class="title">챌린지 등록</p>
-				<form action="saveChallenge.do" method="post" enctype="multipart/form-data">
+				<form action="saveChallenge.do" method="post">
 					<div class="chal_name">
 						<label for="chal_name">챌린지명</label> <input type="text"
 							name="chal_name" id="chal_name">
