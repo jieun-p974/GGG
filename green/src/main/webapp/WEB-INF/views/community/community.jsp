@@ -5,7 +5,7 @@
 <c:if test="${sessionScope.userId == null }">
 	<script>
 		alert("로그인 하신 후 이용 가능합니다.");
-		location.href="../../index.jsp";
+		location.href = "../../index.jsp";
 	</script>
 </c:if>
 <!DOCTYPE html>
@@ -32,36 +32,42 @@
 
 				<c:forEach items="${list}" var="community">
 					<div class="community">
-						<div class="profile">
-							<img src="" alt="" class="p_img" />
-							<!-- member 테이블에서 m_img 가져오기 -->
+						<div class="content_left">
+							<div class="profile">
+								<img src="" alt="" class="p_img" />
+								<!-- member 테이블에서 m_img 가져오기 -->
+
+							</div>
+							<c:if test="${sessionScope.userId == community.id}">
+								<div class="memBtns">
+									<button class="editBtn" id="editBtn">수정</button>
+									<button class="deleteBtn" id="deleteBtn">삭제</button>
+								</div>
+							</c:if>
+
 						</div>
-						<c:if test="${sessionScope.userId == community.id}">
-						<div class="memBtns">
-							<button class="editBtn" id="editBtn">수정</button>
-							<button class="deleteBtn" id="deleteBtn">삭제</button>
-						</div>
-						</c:if>
-						
 						<div class="contents">
-							<p class="id">@${community.id}</p>
+							<div class="content_top">
+								<p class="id">@${community.id}</p>
+								<div class="emojis">
+									<div class="heart">❤</div>
+									<div class="comment">💬</div>
+									<div class="share">공유</div>
+								</div>
+							</div>
 							<div class="b_img">
 								<img class="board_img" src="${community.b_img1}" /> <img
 									class="board_img" src="${community.b_img2}" /> <img
 									class="board_img" src="${community.b_img3}" />
 							</div>
 							<a class="writing">${community.b_content}</a>
-							<div class="emojis">
-								<div class="heart">❤</div>
-								<div class="comment">💬</div>
-								<div class="share">공유</div>
-							</div>
 
 							<div class="comments">
 								<!-- 반목문 돌려서 가져오기 -->
 								ㄴ@geegeegee 무조건 합니다~
 								<!-- board_no 따서 reply 테이블에서 id,com_content 가져오기 -->
 							</div>
+
 
 						</div>
 					</div>
