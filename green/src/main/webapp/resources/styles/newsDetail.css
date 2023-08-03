@@ -1,0 +1,14 @@
+.newsDetail{
+    display: grid;
+    width: 100%;
+}
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.news_content{
+    display: grid;
+    row-gap: 2%;
+    justify-items: center;
+}

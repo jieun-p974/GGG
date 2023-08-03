@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .login_container {
+    margin: auto;
+    display: grid;
+    width: 100%;
+  }
+  .title{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  /* ------------- 濡쒓렇�씤�젙蹂� ------------- */
+  .info {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr;
+    width: 80%;
+    font-size: 0.9rem;
+    padding: 3%;
+  }
+  .insert {
+    width: 100%;
+  }
+  .e-valid{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    width: 100%;
+  }
+  /* ------------- 踰꾪듉 ------------- */
+  .btns {
+    width: 100%;
+    font-size: 0.9rem;
+    display: grid;
+    justify-items: center;
+  }
+  .idenBtn{
+    background: #445C4C;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .confirm {
+    background: #445C4C;
+    border-radius: 999px;
+    width: 170px;
+    height: 70px;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: none;
+    margin-top: 50px;
+  }
+  .idenBtn:hover {
+    background-color: #508068;
+  }
+  
+  .idenBtn:focus {
+    cursor: pointer;
+  }
+  .confirm:hover {
+    background-color: #508068;
+  }
+  
+  .confirm:focus {
+    cursor: pointer;
+  }
