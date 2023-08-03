@@ -56,9 +56,15 @@
 								</div>
 							</div>
 							<div class="b_img">
-								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" /> <img
-									class="board_img" src="${community.b_img2}" /> <img
-									class="board_img" src="${community.b_img3}" />
+							<c:if test="${community.b_img1_addr != null}">
+								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" style="border: 1px solid black" />
+							</c:if>
+							<c:if test="${community.b_img2_addr != null}">
+								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img2_addr}" style="border: 1px solid black" />
+							</c:if>
+							<c:if test="${community.b_img3_addr != null}">
+								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img3_addr}" style="border: 1px solid black" />
+							</c:if>
 							</div>
 							<a class="writing">${community.b_content}</a>
 
