@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'S-CoreDream-3Light';
+}
+
+.container {
+  display: grid;
+  background-color: lightgray;
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+
+.title {
+  color: #000000;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 100%;
+  margin: 2% 0;
+}
+
+.name {
+  margin: 0 2%;
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+
+.goname {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  width: 97%;
+}
+
+.tel {
+  margin: 0 2%;
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+
+.gotel {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  width: 97%;
+}
+
+.email {
+  margin: 0 2%;
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+
+.gomail {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  width: 97%;
+}
+
+.month {
+  margin: 0 2%;
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+}
+.dojun_month{
+  display: grid;
+  grid-template-columns: 3fr 1fr 3fr;
+  font-size: 1.3rem;
+  align-items: center;
+  justify-items: center;
+}
+.startd {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  width: 90%;
+  height: 35px;
+  margin-right: 2%;
+}
+
+.giho {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.endd {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  width: 90%;
+  height: 35px;
+}
+.gogek {
+  color: #000000;
+  text-align: left;
+  margin: 0 2%
+}
+
+.gogekname {
+  color: #000000;
+  text-align: left;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.gotext {
+  color: #000000;
+  text-align: left;
+}
+
+.challenge {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  margin: 0 2%
+}
+
+.count {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.price {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+  margin: 0 2%
+}
+
+.chprice {
+  color: #000000;
+  text-align: left;
+  font-size: 1.3rem;
+}
+.btn{
+  width: 100%;
+  text-align: right;
+}
+.nextBtn {
+  background: #445C4C;
+  border-radius: 15px;
+  width: 213px;
+  height: 49px;
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+
+.nextBtn:hover {
+  background: #53BAB8;
+}
