@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <%
-	String userId = (String)session.getAttribute("userId");
-	String userName = (String)session.getAttribute("userName");
+	String userId = (String) session.getAttribute("userId");
+	String userName = (String) session.getAttribute("userName");
 	System.out.println(userId);
 %>
 <meta charset="UTF-8">
@@ -33,11 +33,9 @@
 			return false;
 		}
 		
-		document.form.submit();//전송
-
+		document.form.submit();	//전송
 					
 	}
-
 
 function searchID()  {
     var width = 700;      
@@ -62,49 +60,53 @@ function searchPass()  {
             , "width=" + width +             
             ", height=" + height +
             ", left=" + winl +
-            ", top=" + wint )
-
+            ", top=" + wint
+     );
 }
+
 
 </script>
 
 <body>
 	<div class="container">
-	<form name="form" action="save2.do" method="post" name="userinput">
-		<div class="login">
-			<img class="logo" src="../../../resources/imgs/logo.png" alt="로고">
+		<form name="form" action="save2.do" method="post" name="userinput">
+			<div class="login">
+				<img class="logo" src="../../../resources/imgs/logo.png" alt="로고">
 
-			<div class="info">
-				<p class="label">아이디&nbsp&nbsp</p>
-				<input class="insert" type="text" name="id" id="id">
-			</div>
-
-			<div class="info">
-				<p class="label">비밀번호&nbsp&nbsp</p>
-				<input class="insert" type="password" name="password" id="password">
-			</div>
-
-			<div class="check">
-				<div class="save">
-					<a> 로그인정보 저장</a> <input type="checkbox" name="save" id="save" checked>
+				<div class="info">
+					<p class="label">아이디&nbsp&nbsp</p>
+					<input class="insert" type="text" name="id" id="id">
 				</div>
 
-				<div class="admin">
-					<input type="checkbox" name="checkbox" id="checkbox" checked> <label
-						for="checkbox"><span></span></label>
+				<div class="info">
+					<p class="label">비밀번호&nbsp&nbsp</p>
+					<input class="insert" type="password" name="password" id="password">
 				</div>
-			</div>
-			<div class="menu">
-				<ul class="menu_list">
-					<li><a>아이디 찾기&nbsp&nbsp&nbsp</a>|</li>
-					<li><a>비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
-					<li><a href="../member/signup.do">회원가입</a></li>
 
-				</ul>
+				<div class="check">
+					<div class="save">
+						<a> 로그인정보 저장</a> <input type="checkbox" name="save" id="save"
+							checked>
+					</div>
+
+					<div class="admin">
+						<input type="checkbox" name="checkbox" id="checkbox" checked>
+						<label for="checkbox"><span></span></label>
+					</div>
+				</div>
+				<div class="menu">
+					<ul class="menu_list">
+						<li><a>아이디 찾기&nbsp&nbsp&nbsp</a>|</li>
+						<li><a>비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
+						<li><a href="../member/signup.do">회원가입</a></li>
+
+					</ul>
+				</div>
+				<input type="button" class="loginBtn" value="로그인" name="Submit"
+					id="Submit">
 			</div>
-			<input type="button" class="loginBtn" value="로그인"  name="Submit" id ="Submit">
-		</div>
-	</form>
+		</form>
 	</div>
-	</body>
+</body>
 </html>
+

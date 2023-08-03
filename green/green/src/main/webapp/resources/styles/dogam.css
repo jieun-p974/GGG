@@ -1,0 +1,281 @@
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  margin: auto;
+  background: #ffffff;
+  width: 1440px;
+  height: 2000px;
+  position: relative;
+  }
+
+/* ------------- 이달의동물 ------------- */
+ .section {
+  top: 90%;
+  position: fixed;
+  }
+
+.monthly_animal {
+  background: #508068;
+  width: 480px;
+  height: 800px;
+  position: fixed;
+  top : 20%;
+  }
+  
+.animal_info {
+  background: #ffffff;
+  width: 400px;
+  height: 550px;
+  left: 30%;
+  top: 18%;
+  margin: 0 auto;
+  }
+
+  
+.info_title1 {
+  color: #000000;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 50px;
+  }
+
+.info_title2 {
+  color: #000000;
+  font-size: 1.5rem;
+  text-align: center;
+  }
+
+.info_img {
+  width: 320px;
+  height: 320px;
+  left: 30%;
+  top: 30%;
+  margin: 50px 10px 10px 50px;
+  }
+
+.hint_title1 {
+  color: #ffffff;
+  font-size: 30px;
+  text-align: left;
+  position: absolute;
+  left: 40px;
+  top: 630px;
+  width: 421px;
+  height: 134px;
+  }
+
+.hint_title2 {
+  color: #ffffff;
+  font-size: 20px;
+  text-align: left;
+  position: absolute;
+  left: 40px;
+  top: 700px;
+  width: 421px;
+  height: 134px;
+  }
+
+
+.challBtn {
+  background: #8ab6a9;
+  border-radius: 999px;
+  width: 170px;
+  height: 70px;
+  text-align: center;
+  color : white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  position: absolute;
+  left :30%;
+  }
+
+  
+.challBtn:hover {
+    background-color: #508068;
+  }
+
+.challBtn:focus {
+    cursor: pointer;
+  }
+  
+.payBtn {
+  background: #8ab6a9;
+  border-radius: 999px;
+  width: 170px;
+  height: 70px;
+  text-align: center;
+  color : white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  position: relative;
+  left : 150%;
+  }
+
+  .payBtn:hover {
+    background-color: #508068;
+  }
+
+  .payBtn:focus {
+    cursor: pointer;
+  }
+
+/* ------------- 도감 ------------- */
+
+.animal_list {
+  background: #ffffff;
+  width: 830px;
+  height: 893px;
+  position: absolute;
+  left: 582px;
+  top: 280px;
+  }
+
+.txt1 {
+  color: #000000;
+  font-size: 30px;
+  position: absolute;
+  left: 350px;
+  top: -10px;
+  }
+  
+.txt2 {
+  color: #508068;
+  font-size: 45px;
+  position: absolute;
+  left: 500px;
+  top: -35px;
+  }
+  
+.img {
+  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 31px;
+  top: 33px;
+  }
+
+.text {
+  color: #000000;
+  font-size: 20px;
+  position: absolute;
+  top: 190px;
+  width: 250px;
+  text-align: center;
+  }
+
+.animal1 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 0px;
+  top: 100px;
+  }
+
+.animal2 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 300px;
+  top: 100px;
+}
+
+.animal3 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 600px;
+  top: 100px;
+}
+
+.animal4 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 0px;
+  top: 400px;
+}
+
+.animal5 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 300px;
+  top: 400px;
+}
+
+.animal6 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 600px;
+  top: 400px;
+}
+
+.animal7 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 0px;
+  top: 700px;
+}
+
+.animal8 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 300px;
+  top: 700px;
+}
+
+.animal9 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 600px;
+  top: 700px;
+}
+
+.animal10 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left:0px;
+  top: 1000px;
+}
+
+.animal11 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 300px;
+  top: 1000px;
+}
+
+.animal12 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 600px;
+  top: 1000px;
+}

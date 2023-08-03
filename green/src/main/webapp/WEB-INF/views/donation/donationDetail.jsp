@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,8 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>Insert title here</title>
-</head>
+</head> 
+ 
 <body>
 	<div class="container ">
 		<%@include file="../layouts/header.jsp"%>
@@ -29,8 +33,8 @@
 					<div class="nowbar"></div>
 				</div>
 				<div class="barDown">
-					<div class="donadate">2023.07.20 ~ 2023.09.03까지</div>
-					<div class="nowpoint">843,216/ 1,000,000 Point</div>
+					<div class="donadate">${dona.don_start_day} ~ ${dona.don_end_day}까지</div>
+					<div class="nowpoint">${dona.don_point_sum }/${dona.don_goal } Point</div>
 				</div>
 
 				<div class="buttons">
@@ -41,10 +45,8 @@
 			<div class="content">
 				<div class="logo_intro">
 					<img class="logos" src="../../../resources/imgs/logo4.png" />
-					<h1 class="ggg">
-						GGG는 작은 실천에서부터 지구, 환경, 동물을 지키자는 취지에서 시작된 단체입니다.<br />멸종위기동물과 함께하는
-						환경보호 챌린지, 기부 연계 등을 주 사업으로 하고 있습니다.<br />모금된 금액은 플로깅을 정기적으로 실시하고
-						있는 단체들에 지원될 예정입니다.
+					<h1 class="ggg" value="${dona.don_name }">
+							${dona.don_summary}
 					</h1>
 				</div>
 				<img class="pic" src="" />
