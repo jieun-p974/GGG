@@ -56,13 +56,13 @@
 								</div>
 							</div>
 							<div class="b_img">
-								<img class="board_img" src="${community.b_img1}" /> <img
+								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" /> <img
 									class="board_img" src="${community.b_img2}" /> <img
 									class="board_img" src="${community.b_img3}" />
 							</div>
 							<a class="writing">${community.b_content}</a>
 
-							<div class="comments">
+							<div cls="comments">
 								<!-- 반목문 돌려서 가져오기 -->
 								ㄴ@geegeegee 무조건 합니다~
 								<!-- board_no 따서 reply 테이블에서 id,com_content 가져오기 -->

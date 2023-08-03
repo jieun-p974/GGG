@@ -1,36 +1,82 @@
 package com.green.domain;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.UUID;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class CommunityVO {
 	/*
-	 * board_no		ì»¤ë®¤ë‹ˆí‹° ë²ˆí˜¸ int(5) auto_increment(pk)
-	 * id			íšŒì› id varchar(20)
-	 * b_content	ê¸€ë‚´ìš© varchar(500)
-	 * regist_date	ì‘ì„±ì¼ date default current_timestamp()
-	 * b_img1		ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€1 varchar(100)
-	 * b_img2		ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€2 varchar(100)
-	 * b_img3		ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€3 varchar(100)
-	 * */
-	
+	 * board_no Ä¿¹Â´ÏÆ¼ ¹øÈ£ int(5) auto_increment(pk) id È¸¿ø id varchar(20) b_content ±Û³»¿ë
+	 * varchar(500) regist_date ÀÛ¼ºÀÏ date default current_timestamp() b_img1 Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö1
+	 * varchar(100) b_img1_addr Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö°æ·Î1 varchar(100) b_img2 Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö2 varchar(100)
+	 * b_img3 Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö3 varchar(100)
+	 */
+
 	private int board_no;
 	private String id;
 	private String b_content;
 	private LocalDateTime regist_date;
 	private String b_img1;
+	private String b_img1_addr;
 	private String b_img2;
 	private String b_img3;
-	
+
+	MultipartFile file; // write.jsp¿¡ ÆÄÀÏÃ·ºÎ½Ã name="file"°ú µ¿ÀÏÇÑ º¯¼ö¸í
+
 	public CommunityVO() {
-		
+
 	}
-	
-	public CommunityVO(String id,String b_content, String b_img1, String b_img2, String b_img3) {
+
+	public CommunityVO(String id, String b_content, String b_img1, String b_img1_addr, String b_img2, String b_img3) {
 		this.id = id;
 		this.b_content = b_content;
 		this.b_img1 = b_img1;
+		this.b_img1_addr = b_img1_addr;
 		this.b_img2 = b_img2;
 		this.b_img3 = b_img3;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+
+		// ¾÷·Îµå ÆÄÀÏ Á¢±Ù
+		if (!file.isEmpty()) {
+			this.b_img1 = file.getOriginalFilename();
+
+			// ½ÇÁ¦ ÀúÀåµÈ ÆÄÀÏ¸í ¸¸µé±â
+			UUID uuid = UUID.randomUUID();
+			b_img1_addr = uuid.toString() + "_" + b_img1;
+
+			// ***********************************************
+			// ÇØ´ç °æ·Î·Î º¯°æ
+			File f = new File(
+					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img1_addr);
+
+			try {
+				file.transferTo(f);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public String getB_img1_addr() {
+		return b_img1_addr;
+	}
+
+	public void setB_img1_addr(String b_img1_addr) {
+		this.b_img1_addr = b_img1_addr;
 	}
 
 	public String getB_content() {
@@ -88,8 +134,5 @@ public class CommunityVO {
 	public void setB_img3(String b_img3) {
 		this.b_img3 = b_img3;
 	}
-	
 
-	
-	
 }

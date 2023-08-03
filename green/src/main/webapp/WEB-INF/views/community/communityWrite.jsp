@@ -21,7 +21,7 @@ function cancleWrite() {
 		<%@include file="../layouts/header.jsp"%>
 		<div class="writeContainer">
 	<%--	<form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data">  --%>	
-			                <form action="save.do" method="post">
+			                <form action="save.do" method="post" enctype="multipart/form-data">
 				<div class="editing">
 					<div class="e_img">
 						<img class="edit_img" src="../../../resources/imgs/abc.jpg" />
@@ -32,7 +32,7 @@ function cancleWrite() {
 					</div>
 					<div class="comm_img">
 						<label for="comm_img">사진 첨부하기</label>
-						<input type="file" name="comm_img" id="comm_img">
+						<input type="file" name="file" id="comm_img">
 					</div>
 					<div class="buttons">
               			<button id="adding" type="submit">등록</button>
