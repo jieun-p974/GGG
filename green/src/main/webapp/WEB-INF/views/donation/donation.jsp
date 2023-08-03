@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,10 @@
 								<div class="nowBar1"></div>
 							</div>
 							<div class="points">
-								<p class="percent">계산</p>
+								<fmt:formatNumber type="percent"
+									value="${dona.don_point_sum/dona.don_goal}" var="percent"
+									pattern="0%" />
+								<p class="percent">${percent}</p>
 								<p class="point">${dona.don_point_sum}P</p>
 							</div>
 						</div>
