@@ -1,5 +1,7 @@
 package com.green.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.green.domain.MemberVO;
 
 public interface MemberService {
@@ -14,5 +16,7 @@ public interface MemberService {
 	
 	public MemberVO login(MemberVO vo);
 	public MemberVO adminLogin(MemberVO vo);
+	
+	public String searchID(HttpServletResponse response, String email) throws Exception;
 
 }

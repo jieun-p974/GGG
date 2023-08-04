@@ -57,7 +57,11 @@
                      <td>${chall.chal_name}</td>
                      <td>${chall.chal_start_date}</td>
                      <td>${chall.chal_end_date}</td>
-                     <td><button class="modify">수정</button></td>
+                     <td><button class="modify">
+                        <a href="challengeModify.do?chal_no=${chall.chal_no}">
+                     	  수정
+                        </a>
+                        </button></td>
                   </tr>   
                </c:forEach>
             </table>
