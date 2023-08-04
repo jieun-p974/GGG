@@ -34,8 +34,8 @@ public class ChallengeController {
 		return "redirect:adminChallenge.do";
 	}
 
-	// get challenge list - admin
-	@RequestMapping("/adminChallenge.do")
+	// get challenge list - user or admin
+	@RequestMapping(value = {"challengeList.do","/adminChallenge.do"})
 	public void getChallengeList(Model model) {
 		List<ChallengeVO> list = null;
 		list = challengeService.getChallengeList();
