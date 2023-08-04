@@ -1,6 +1,11 @@
 package com.green.domain;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
+import java.util.UUID;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class MemberVO {
 
@@ -10,11 +15,48 @@ public class MemberVO {
 	private String name;
 	private String tel;
 	private String email;
+	private Date bday;
 	private Date sdate;
 	private String card_reg_YN;
 	private String account_reg_YN;
 	private int remainder_point;
 	private String m_img;
+	private String m_img_addr;
+	
+	public MemberVO() {}
+	
+	//*************************************************
+	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+		
+		// 업로드 파일 접근
+		if(! file.isEmpty()){
+			this.m_img = file.getOriginalFilename();
+			
+			// 실제 저장된 파일명 만들기
+			UUID uuid = UUID.randomUUID();
+			m_img_addr = uuid.toString() + "_" + m_img;
+			
+			//***********************************************
+			// 해당 경로로 변경
+			File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\member\\"+m_img_addr);
+			
+			try {
+				file.transferTo(f);
+				
+			} catch (IllegalStateException e) {				
+				e.printStackTrace();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	public String getId() {
 		return id;
@@ -63,8 +105,15 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public Date getBday() {
+		return bday;
+	}
 
-		
+	public void setBday(Date bday) {
+		this.bday = bday;
+	}
+
 	public Date getSdate() {
 		return sdate;
 	}
@@ -105,6 +154,15 @@ public class MemberVO {
 		this.m_img = m_img;
 	}
 
+	public String getM_img_addr() {
+		return m_img_addr;
+	}
+
+	public void setM_img_addr(String m_img_addr) {
+		this.m_img_addr = m_img_addr;
+	}
+
+	
 	
 
 	

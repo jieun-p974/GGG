@@ -40,16 +40,19 @@
 						integerOnly="true" var="dbDtParse" scope="request" />
 
 					<div class="d_day">D-${dbDtParse - nowfmtTime + 1}</div>
-
 				</div>
+				<!-- 프로그레스바 -->
 				<div class="bars">
-					<div class="totalbar"></div>
-					<div class="nowbar"></div>
+					<!-- <div class="totalbar"></div>
+					<div class="nowbar"> -->
+					<progress id=progress max=100 min=0 value="${dona.don_point_sum/dona.don_goal*100}"></progress>
+					<!-- </div> -->
 				</div>
+				
 				<div class="barDown">
 					<div class="donadate">${dona.don_start_day}~
 						${dona.don_end_day}까지</div>
-					<div class="nowpoint">${dona.don_point_sum }/${dona.don_goal }
+					<div class="nowpoint">${dona.don_point_sum } / ${dona.don_goal }
 						Point</div>
 				</div>
 

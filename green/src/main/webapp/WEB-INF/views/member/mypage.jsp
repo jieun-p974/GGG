@@ -19,9 +19,11 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>마이페이지</title>
-
+<jsp:useBean id="now" class="java.util.Date" />
 </head>
 <body>
+
+
 	<div class="container ">
 		<%@include file="../layouts/header.jsp"%>
 		<div class="mem_info">
@@ -41,12 +43,17 @@
 						</div>
 					</div>
 				</div>
-				<p class="member_count">GGG와 120일째 동행중</p>
+
+				<fmt:parseNumber var="today" value="${now.time / (1000*60*60*24)}" integerOnly="true" scope="request"/>
+				<fmt:parseDate var="sdate" value="${userSdate}" pattern="yyyy-MM-dd" />
+				<fmt:parseNumber var="sdate2" value="${sdate.time / (1000*60*60*24)}" integerOnly="true" scope="request"/>
+			
+			
+				<p class="member_count"> ${userName} 님 어서오세요! <br/><br/>
+				GGG와 함께한지 ${today-sdate2}일 째</p>
+
 				<button class="member_edit" onclick="location.href='infoEdit.do'">회원정보 수정</button>
-				<p class="member_point">
-					보유포인트 : 238p<br />
-					<br /> 보유도전권 : 무제한(∞)
-				</p>
+				<p class="member_point"> 보유포인트 : ${userPoint} p <br/><br/> 보유도전권 : </p>
 			</div>
 			<div class="infos">
 				<div class="section1">
@@ -54,12 +61,13 @@
 						<p class="info">아이디&nbsp&nbsp:&nbsp&nbsp${userId} </p>
 						<p class="info">전화번호&nbsp&nbsp:&nbsp&nbsp${userTel} </p>
 						<p class="info">이메일주소&nbsp&nbsp:&nbsp&nbsp${userEmail} </p>
-						<p class="info">가입일자&nbsp&nbsp:&nbsp&nbsp${userSdate}</p>
+						<p class="info">간편결제 카드등록 여부&nbsp&nbsp:&nbsp&nbsp${userCard}</p>
+						<p class="info">간편결제 등록 여부&nbsp&nbsp:&nbsp&nbsp${userAccount}</p>
+						
 					</div>
 					<div class="buttons">
 						<button class="cardBtn" onclick="cardRegist()">간편 카드 등록</button>
-						<button class="accountBtn" onclick="accountRegist()">간편계좌
-							등록</button>
+						<button class="accountBtn" onclick="accountRegist()">간편계좌 등록</button>
 					</div>
 				</div>
 
@@ -68,9 +76,7 @@
 						<img class="animal_img" src="" />
 						<div class="animal_name">
 							<p></p>
-							<button class="changeBtn">
-								개명
-								</buttton>
+							<button class="changeBtn"> 개명 </buttton>
 						</div>
 					</div>
 					<div class="ani_lv">
@@ -107,8 +113,12 @@
 							<li><a href="">가까운 거리는 걸어다니기(0/3)</a></li>
 						</ul>
 						<div class="buttons">
+							<button class="myChallBtn"
+								onclick="window.open('../challenge/myChallenge.do')">도전중인 챌린지
+							</button>
 							<button class="dojunBtn"
-								onclick="window.open('../challenge/challengeList.html')">챌린지참여하기</button>
+								onclick="window.open('../challenge/challengeList.do')">챌린지참여하기
+							</button>
 							<button type="button" class="down1">
 								<img src="../../imgs/down.png">
 							</button>

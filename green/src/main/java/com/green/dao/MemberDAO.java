@@ -24,4 +24,8 @@ public interface MemberDAO {
 	// 로그인
 	MemberVO login(MemberVO vo);
 	MemberVO adminLogin(MemberVO vo);
+	
+	// 아이디 찾기
+	String searchID(String email);
+	
 }

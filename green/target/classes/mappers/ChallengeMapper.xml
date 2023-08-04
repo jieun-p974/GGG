@@ -6,7 +6,7 @@
 	<insert id="challengeWrite" parameterType="challenge">
 		INSERT INTO challenge
 		(chal_name, chal_ex,difficulty,chal_img,chal_start_date,chal_end_date)
-		VALUES (#{chal_name},#{chal_ex}, #{difficulty}, #{chal_img},#{chal_start_date}, #{chal_end_date})
+		VALUES (#{chal_name},#{chal_ex}, #{difficulty}, #{chal_img}, #{chal_start_date}, #{chal_end_date})
 	</insert>
 
 	<!-- select one Challenge -->

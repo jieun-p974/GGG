@@ -5,6 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	String userId = (String) session.getAttribute("userId");
+	String userName = (String) session.getAttribute("userName");
+%>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/login.css">
@@ -27,7 +31,6 @@
 			document.form.password.focus();
 			return false;
 		}
-
 		
 		document.form.submit();	//전송
 					
@@ -37,11 +40,12 @@
 
 <body>
 	<div class="container">
-		<form name="form" action="loginSave.do" method="post" name="userinput">
+		<form name="form" action="adminLoginSave.do" method="post" name="userinput">
 			<div class="login">
 				<img class="logo" src="../../../resources/imgs/logo.png"
 				alt="로고" onclick="location.href='../../index.jsp'">
 
+<h1> 관리자 로그인 화면입니다.</h1>
 				<div class="info">
 					<p class="label">아이디&nbsp&nbsp</p>
 					<input class="insert" type="text" name="id" id="id">
@@ -53,12 +57,7 @@
 				</div>
 
 				<div class="menu">
-					<ul class="menu_list">
-						<li><a href="../member/searchID.do">아이디 찾기&nbsp&nbsp&nbsp</a>|</li>
-						<li><a href="../member/searchPass.do">비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
-						<li><a href="../member/signup.do">회원가입</a></li>
-					</ul>
-					<input type="button" class="adminBtn" value="관리자로그인" onclick="location.href='../member/adminLogin.do'">
+					<input type="button" class="adminBtn" value="회원로그인" onclick="location.href='../member/login.do'">
 				</div>
 				<input type="button" class="loginBtn" value="로그인" name="Submit" id="Submit">
 			</div>

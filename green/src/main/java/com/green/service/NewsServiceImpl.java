@@ -13,7 +13,7 @@ public class NewsServiceImpl implements NewsService{
 
 	@Autowired
 	private NewsDAO newsDAO;
-	//news list -user
+	//news list -user or admin
 	@Override
 	public List<NewsVO> getNewsList() {
 		// TODO Auto-generated method stub
