@@ -38,6 +38,7 @@
             힘들때면 환경을 지키고자하는 수많은 동료들과 커뮤니티에서
             소통해보세요!<br /><br />이제 준비가 되셨다면 텀블러에 커피를,
             다회용기에 음식을 포장하는 것에서부터 같이 시작해봅시다.<br /><br />
+            <button onclick="location.href='../pay/challengePay.do'">GGG와 함께 하기</button>
           </div>
         </div>
       </div>
