@@ -34,8 +34,11 @@
 							<p class="dona">${dona.don_name}</p>
 							<!-- 프로그래스바해서 진행도 따라서 표시하기 -->
 							<div class="bar">
-								<div class="totalBar1"></div>
-								<div class="nowBar1"></div>
+								<!-- 		<div class="totalBar1"></div>
+								<div class="nowBar1"></div> -->
+								<progress id=progress max=100 min=0
+									value="${dona.don_point_sum/dona.don_goal*100}"></progress>
+
 							</div>
 							<div class="points">
 								<fmt:formatNumber type="percent"
