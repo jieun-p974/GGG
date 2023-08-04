@@ -14,7 +14,6 @@ import com.green.domain.MemberVO;
 import com.green.service.PayService;
 
 @Controller
-
 @RequestMapping("/pay/")
 public class PayController { // 화면만 이동(DB연결은 XX)
 

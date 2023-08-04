@@ -23,11 +23,77 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	
-	private MemCardVO memCardVO;		//결제할때 조인하려고 만들었어요
-	private MemAccountVO memAccountVO;	//결제할때 조인하려고 만들었어요
+	private int mem_card_no;
+	private String card_num;
+	private String expiry_date;
+	private int CVC;
+	private String card_company;
+	private int pass_two;
+	
+	private int mem_acc_no;
+	private String acc_num;
+	private String bank;
+	
+//	private MemCardVO memCardVO;		//결제할때 조인하려고 만들었어요
+//	private MemAccountVO memAccountVO;	//결제할때 조인하려고 만들었어요
 	
 	public MemberVO() {}
 	
+	public int getMem_card_no() {
+		return mem_card_no;
+	}
+	public void setMem_card_no(int mem_card_no) {
+		this.mem_card_no = mem_card_no;
+	}
+	public String getCard_num() {
+		return card_num;
+	}
+	public void setCard_num(String card_num) {
+		this.card_num = card_num;
+	}
+	public String getExpiry_date() {
+		return expiry_date;
+	}
+	public void setExpiry_date(String expiry_date) {
+		this.expiry_date = expiry_date;
+	}
+	public int getCVC() {
+		return CVC;
+	}
+	public void setCVC(int cVC) {
+		CVC = cVC;
+	}
+	public String getCard_company() {
+		return card_company;
+	}
+	public void setCard_company(String card_company) {
+		this.card_company = card_company;
+	}
+	public int getPass_two() {
+		return pass_two;
+	}
+	public void setPass_two(int pass_two) {
+		this.pass_two = pass_two;
+	}
+	public int getMem_acc_no() {
+		return mem_acc_no;
+	}
+	public void setMem_acc_no(int mem_acc_no) {
+		this.mem_acc_no = mem_acc_no;
+	}
+	public String getAcc_num() {
+		return acc_num;
+	}
+	public void setAcc_num(String acc_num) {
+		this.acc_num = acc_num;
+	}
+	public String getBank() {
+		return bank;
+	}
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
+
 	//*************************************************
 	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	
@@ -165,18 +231,18 @@ public class MemberVO {
 	public void setM_img_addr(String m_img_addr) {
 		this.m_img_addr = m_img_addr;
 	}
-	public MemCardVO getMemCardVO() {
-		return memCardVO;
-	}
-	public void setMemCardVO(MemCardVO memCardVO) {
-		this.memCardVO = memCardVO;
-	}
-	public MemAccountVO getMemAccountVO() {
-		return memAccountVO;
-	}
-	public void setMemAccountVO(MemAccountVO memAccountVO) {
-		this.memAccountVO = memAccountVO;
-	}
+//	public MemCardVO getMemCardVO() {
+//		return memCardVO;
+//	}
+//	public void setMemCardVO(MemCardVO memCardVO) {
+//		this.memCardVO = memCardVO;
+//	}
+//	public MemAccountVO getMemAccountVO() {
+//		return memAccountVO;
+//	}
+//	public void setMemAccountVO(MemAccountVO memAccountVO) {
+//		this.memAccountVO = memAccountVO;
+//	}
 
 	
 	
