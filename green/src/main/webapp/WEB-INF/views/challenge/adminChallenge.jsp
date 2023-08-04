@@ -74,6 +74,9 @@
 			}
 		});
 	});
+	function insert() {
+		location.href = "challengeInsert.do"
+	}
 </script>
 <title>챌린지 관리</title>
 </head>
@@ -82,6 +85,7 @@
 		<%@include file="../layouts/header.jsp"%>
 		<div class="admin_chall">
 			<p class="admin_title">챌린지 리스트 관리</p>
+
 			<div class="calendar">
 				<select class="month" name="challList" id="challList">
 					<option value="all">전체</option>
@@ -111,7 +115,6 @@
 						</tbody>
 
 					</c:forEach>
-
 				</table>
 			</div>
 		</div>
