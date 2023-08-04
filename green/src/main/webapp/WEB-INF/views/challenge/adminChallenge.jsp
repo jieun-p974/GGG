@@ -113,7 +113,6 @@
 									<a href="challengeModify.do?chal_no=${chall.chal_no}"> 수정 </a>
 								</button></td>
 						</tbody>
-
 					</c:forEach>
 				</table>
 			</div>

@@ -1,5 +1,9 @@
 package com.green.service;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +42,31 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO adminLogin(MemberVO vo) {
 		return memberDAO.adminLogin(vo);
 	}
+
+	@Override
+	public String searchID(HttpServletResponse response, String email) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String id = memberDAO.searchID(email);
+		
+		if (id == null) {
+			out.println("<script>");
+			out.println("alert('가입된 아이디가 없습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			out.println("<script>");
+			out.println("var id = '"+id+"';");
+			out.print("alert(id + ' 으로 가입되어 있습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return id;
+		}
+	}
+
+	
 	
 }

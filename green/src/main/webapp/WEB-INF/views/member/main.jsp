@@ -14,8 +14,6 @@
 </head>
 <body>
 <div class="container">
-<a href="../challenge/adminChallenge.do">관리자 챌린지</a>
-
 <%@include file="../layouts/header.jsp" %>
     <div class="main">
       <div class="introduce">
@@ -85,9 +83,8 @@
             </p>
           </div>
 
-          <button class="btn">지금 바로 챌린지 참여하러 가기!</button>
+          <button class="btn" onclick="location.href='/challenge/challengeList.do'">지금 바로 챌린지 참여하러 가기!</button>
         </div>
-
       </div>
     </div>
   </div>
