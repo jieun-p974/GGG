@@ -12,15 +12,29 @@ import com.green.domain.ChallengeVO;
 public class ChallengeServiceImpl implements ChallengeService{
 	@Autowired
 	private ChallengeDAO challengeDAO;
+	
+	//insert
 	@Override
 	public void insertChallenge(ChallengeVO vo) {
 		// TODO Auto-generated method stub
 		challengeDAO.challengeWrite(vo);
 	}
+	//get one
+	@Override
+	public ChallengeVO getChallengeDetail(ChallengeVO vo) {
+		return challengeDAO.getChallengeDetail(vo);
+	}
+	//get list
 	@Override
 	public List<ChallengeVO> getChallengeList() {
 		// TODO Auto-generated method stub
 		return challengeDAO.getChallengeList();
+	}
+	// modify
+	@Override
+	public void updateChallenge(ChallengeVO vo) {
+		// TODO Auto-generated method stub
+		challengeDAO.updateChallenge(vo);
 	}
 	
 }

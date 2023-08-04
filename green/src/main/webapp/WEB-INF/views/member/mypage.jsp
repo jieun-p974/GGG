@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:if test="${userId == null }">
+   <script>
+      alert("로그인 하신 후 이용 가능합니다.");
+      location.href="../../index.jsp";
+   </script>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/header.css">
@@ -10,15 +19,16 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>마이페이지</title>
+
 </head>
 <body>
 	<div class="container ">
 		<%@include file="../layouts/header.jsp"%>
 		<div class="mem_info">
 			<div class="member">
-				<img class="member_img" src="" />
+				<img class="member_img" src="../../resources/imgs/default_mem_img.png" />
 				<div class="name_bel">
-					<label class="member_name">김미미 님</label>
+					<label class="member_name"> ${userName} 님 </label>
 					<div class="icon">
 						<svg class="icon_bell" width="32" height="37" viewBox="0 0 32 37"
 							fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +42,7 @@
 					</div>
 				</div>
 				<p class="member_count">GGG와 120일째 동행중</p>
-				<button class="member_edit" onclick=infoEdit()>회원정보 수정</button>
+				<button class="member_edit" onclick="location.href='infoEdit.do'">회원정보 수정</button>
 				<p class="member_point">
 					보유포인트 : 238p<br />
 					<br /> 보유도전권 : 무제한(∞)
@@ -41,10 +51,10 @@
 			<div class="infos">
 				<div class="section1">
 					<div class="memberInfo">
-						<p class="info">아이디 :</p>
-						<p class="info">전화번호 :</p>
-						<p class="info">이메일 :</p>
-						<p class="info">가입일 :</p>
+						<p class="info">아이디&nbsp&nbsp:&nbsp&nbsp${userId} </p>
+						<p class="info">전화번호&nbsp&nbsp:&nbsp&nbsp${userTel} </p>
+						<p class="info">이메일주소&nbsp&nbsp:&nbsp&nbsp${userEmail} </p>
+						<p class="info">가입일자&nbsp&nbsp:&nbsp&nbsp${userSdate}</p>
 					</div>
 					<div class="buttons">
 						<button class="cardBtn" onclick="cardRegist()">간편 카드 등록</button>
@@ -57,7 +67,7 @@
 					<div class="ani_info">
 						<img class="animal_img" src="" />
 						<div class="animal_name">
-							<p>이름 : 미미</p>
+							<p></p>
 							<button class="changeBtn">
 								개명
 								</buttton>
@@ -113,7 +123,7 @@
 							<li><a href="">시셰퍼드</a></li>
 						</ul>
 						<div class="buttons">
-							<button class="gibuBtn" onclick="window.open()">기부하러가기</button>
+							<button class="gibuBtn"><a href="../donation/donation.do">기부하러가기</a></button>
 							<button type="button" class="down2">
 								<img src="../../../resources/imgs/down.png">
 							</button>

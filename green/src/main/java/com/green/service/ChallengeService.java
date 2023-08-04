@@ -5,8 +5,15 @@ import java.util.List;
 import com.green.domain.ChallengeVO;
 
 public interface ChallengeService {
-	//글 등록
+	//insert
 	void insertChallenge(ChallengeVO vo);
-	//글 목록
+	
+	//get one
+	ChallengeVO getChallengeDetail(ChallengeVO vo);
+	
+	//list
 	List<ChallengeVO> getChallengeList();
+	
+	//modify
+	void updateChallenge(ChallengeVO vo);
 }

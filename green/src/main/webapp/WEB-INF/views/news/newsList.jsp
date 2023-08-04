@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,31 +30,16 @@
 			</div>
 			<div class="news">
 				<div class="list">
-					<a class="news_one" href="">
-						<div class="news_thum">
-							<img src="" alt="뉴스 썸네일" class="thumnail">
-						</div>
-						<div class="news_title">
-							작성일 : 2023.07.06<br />
-							<br /> 기사 제목 : 기후 위기가 바꿔 놓은 우리네 식탁
-						</div>
-					</a> <a class="news_one" href="">
-						<div class="news_thum">
-							<img src="" alt="뉴스 썸네일" class="thumnail">
-						</div>
-						<div class="news_title">
-							작성일 : 2023.07.11<br />
-							<br /> 기사 제목 : 푸바오로 보는 동물 외교의 현실
-						</div>
-					</a> <a class="news_one" href="">
-						<div class="news_thum">
-							<img src="" alt="뉴스 썸네일" class="thumnail">
-						</div>
-						<div class="news_title">
-							작성일 : 2023.07.14<br />
-							<br /> 기사 제목 : 이마트, 플라스틱 분리배출 경험 공간 마련
-						</div>
-					</a>
+					<c:forEach items="${list}" var="news">
+						<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">
+							<div class="news_thum">
+								<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">
+							</div>
+							<div class="news_title">
+								작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}
+							</div>
+						</a>
+					</c:forEach>
 				</div>
 			</div>
 		</div>

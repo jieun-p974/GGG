@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChallengeDAO">
+	<insert id="challengeWrite" parameterType="challenge">
+		INSERT INTO challenge (chal_name, chal_start_date, chal_end_date, chal_ex, difficulty,chal_img) 
+		VALUES (#{chal_name}, #{chal_start_date}, #{chal_end_date}, #{chal_ex}, #{difficulty}, #{chal_img})
+	</insert>
+	
+	<select id="getChallengeList" resultType="challenge">
+		SELECT * FROM challenge ORDER BY chal_no 
+	</select>
+</mapper>

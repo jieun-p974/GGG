@@ -16,6 +16,12 @@
 		<%@include file="../layouts/header.jsp"%>
 		<div class="login_container">
 			<p class="title">회원 정보</p>
+			
+			<div class="info">
+				<p class="label">이름&nbsp&nbsp</p>
+				<input class="insert" type="text" name="name" id="name" disabled>
+			</div>
+			
 			<div class="info">
 				<p class="label">아이디&nbsp&nbsp</p>
 				<input class="insert" type="text" name="id" id="id" disabled>
@@ -28,22 +34,17 @@
 
 			<div class="info">
 				<p class="label">비밀번호확인&nbsp&nbsp</p>
-				<input class="insert" type="password" name="pass" id="pass">
+				<input class="insert" type="password" name="password" id="password">
 			</div>
 
 			<div class="info">
 				<p class="label">전화번호&nbsp&nbsp</p>
-				<input class="insert" type="password" name="pass" id="pass">
+				<input class="insert" type="text" name="tel" id="tel">
 			</div>
 
 			<div class="info">
-				<p class="label">이름&nbsp&nbsp</p>
-				<input class="insert" type="password" name="pass" id="pass">
-			</div>
-
-			<div class="info">
-				<p class="label">주소&nbsp&nbsp</p>
-				<input class="insert" type="password" name="pass" id="pass">
+				<p class="label">이메일주소</p>
+				<input class="insert" type="text" name="email" id="email">
 			</div>
 
 			<div class="btns">
