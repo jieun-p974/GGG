@@ -71,7 +71,7 @@
 
 <body>
 	<div class="container ">
-	<form method="post" action="save.do" name="userinput" id="userinput">
+	<form method="post" action="signupSave.do" name="userinput" id="userinput" enctype="multipart/form-data">
 		<%@include file="../layouts/header.jsp"%>
 			<div class="sign-up">
 				<div class="title">회원가입</div>
@@ -108,6 +108,11 @@
 						<button class="idenBtn">인증</button>
 					</div>
 				</div>
+				
+				<div class="info">
+					<p class="label"> 프로필 사진 <br/>(선택)</p>
+					<input type="file" name="file" id="file"/>
+				</div>
 	
 				<div class="btns">
 					<input type="button" id="confirm" class="confirm" value="회원가입">
@@ -118,11 +123,3 @@
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>
-
-<script type="text/javascript">
-	function hello() {
-		alert('가입을 축하합니다!');
-		window.location.href = "../../index.jsp"
-	}
-</script>
-

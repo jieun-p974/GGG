@@ -1,8 +1,6 @@
 package com.green.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,11 +45,6 @@ public class DonationController {
 	public void detailDona(DonationVO vo,Model model) {
 		model.addAttribute("dona", donationService.getDona(vo));
 	}
-	
-	//디데이 뽑으려고
-
-//	List<DonationVO>donationList=donationService.selectDona();
-//	Map<DonationVO,Integer> dDayMap = new HashMap<DonationVO,Integer>();
 
 }
 

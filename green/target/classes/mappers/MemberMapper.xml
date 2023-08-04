@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
+
+	<!-- insert,delete,update는 리턴타입 필요없음 -->
+
 	<!-- 아이디 중복체크 -->
 	<select id="idCheck" parameterType="member" resultType="member">
 		select * from member where id = #{id}
@@ -12,27 +15,35 @@
 	
 	<!-- 회원가입 -->
 	<insert id="memberInsert" parameterType="member">
-	    insert into member (id, password, name, tel, email)
-	    values (#{id}, #{password}, #{name}, #{tel}, #{email})
+	    insert into member (id, password, name, tel, email 
+	    <if test='m_img != null'>, m_img, m_img_addr</if>)
+	    values (#{id}, #{password}, #{name}, #{tel}, #{email}
+	    <if test='m_img != null'>, #{m_img}, #{m_img_addr}</if>)
     </insert>
     
 	<!-- 회원정보 수정 -->
 	<select id="memberInfo" parameterType="member" resultType="member">
-		select id, password, name, tel, email from member where id = #{id}
+		select * from member where id = #{id}
 	</select>
 	
-	<update id="memberUpdate" parameterType="member"> <!-- insert,delete,update는 리턴타입 필요없음 -->
+	<update id="memberUpdate" parameterType="member"> 
 		update member set password = #{password},
 		tel = #{tel}, email = #{email} where id = #{id}
 	</update>
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultType="member">
-	select id, password FROM member where id=#{id} and password=#{password} where mem_type_no=1
+	select id, password FROM member where id=#{id} and password=#{password} and mem_type_no=1
 	</select>
 	
+	<!-- 관리자 로그인 -->
 	<select id="adminLogin" parameterType="member" resultType="member">
 	select id, password FROM member where id=#{id} and password=#{password} and mem_type_no=2
+	</select>
+	
+	<!-- ID찾기 -->
+	<select id="searchID" parameterType="String" resultType="String">
+	select id FROM member where email=#{email}
 	</select>
     
 </mapper>
