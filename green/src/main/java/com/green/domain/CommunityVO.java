@@ -32,8 +32,10 @@ public class CommunityVO {
 	private String b_img3;
 	private String b_img3_addr;
 
-	MultipartFile file; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
-
+	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	MultipartFile file2;
+	MultipartFile file3;
+	
 	public CommunityVO() {
 
 	}
@@ -49,17 +51,16 @@ public class CommunityVO {
 		this.b_img3_addr = b_img3_addr;
 	}
 
-
-	public MultipartFile getFile() {
-		return file;
+	public MultipartFile getFile1() {
+		return file1;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
 
 		// 업로드 파일 접근
-		if (!file.isEmpty()) {
-			this.b_img1 = file.getOriginalFilename();
+		if (!file1.isEmpty()) {
+			this.b_img1 = file1.getOriginalFilename();
 
 			// 실제 저장된 파일명 만들기
 			UUID uuid = UUID.randomUUID();
@@ -71,7 +72,71 @@ public class CommunityVO {
 					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img1_addr);
 
 			try {
-				file.transferTo(f);
+				file1.transferTo(f);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public MultipartFile getFile2() {
+		return file2;
+	}
+
+	public void setFile2(MultipartFile file2) {
+		this.file2 = file2;
+
+		// 업로드 파일 접근
+		if (!file2.isEmpty()) {
+			this.b_img2 = file2.getOriginalFilename();
+
+			// 실제 저장된 파일명 만들기
+			UUID uuid = UUID.randomUUID();
+			b_img2_addr = uuid.toString() + "_" + b_img2;
+
+			// ***********************************************
+			// 해당 경로로 변경
+			File f = new File(
+					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img2_addr);
+
+			try {
+				file2.transferTo(f);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public MultipartFile getFile3() {
+		return file3;
+	}
+
+	public void setFile3(MultipartFile file3) {
+		this.file3 = file3;
+
+		// 업로드 파일 접근
+		if (!file3.isEmpty()) {
+			this.b_img3 = file3.getOriginalFilename();
+
+			// 실제 저장된 파일명 만들기
+			UUID uuid = UUID.randomUUID();
+			b_img3_addr = uuid.toString() + "_" + b_img3;
+
+			// ***********************************************
+			// 해당 경로로 변경
+			File f = new File(
+					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img3_addr);
+
+			try {
+				file3.transferTo(f);
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();

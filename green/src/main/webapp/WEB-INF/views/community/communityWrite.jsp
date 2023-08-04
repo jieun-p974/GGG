@@ -31,10 +31,12 @@
 						<textarea name="b_content" id="b_content" autofocus="autofocus"></textarea>
 					</div>
 					<div class="comm_img">
-						<label for="comm_img">사진 첨부하기1</label> <input type="file"
-							name="file"> <label for="comm_img">사진 첨부하기2</label> <input
-							type="file" name="file"> <label for="comm_img">사진
-							첨부하기3</label> <input type="file" name="file">
+						<label for="comm_img">사진 첨부하기1</label>
+						<input type="file" name="file1">
+						<label for="comm_img">사진 첨부하기2</label>
+						<input type="file" name="file2">
+						<label for="comm_img">사진 첨부하기3</label>
+						<input type="file" name="file3">
 					</div>
 					<div class="buttons">
 						<button id="adding" type="submit">등록</button>

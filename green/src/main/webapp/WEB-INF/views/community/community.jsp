@@ -68,7 +68,7 @@
 							</div>
 							<a class="writing">${community.b_content}</a>
 
-							<div cls="comments">
+							<div class="comments">
 								<!-- 반목문 돌려서 가져오기 -->
 								ㄴ@geegeegee 무조건 합니다~
 								<!-- board_no 따서 reply 테이블에서 id,com_content 가져오기 -->
