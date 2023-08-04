@@ -1,5 +1,6 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -19,6 +20,12 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		System.out.println("Mybatis => chall insert");
 		mybatis.insert("ChallengeDAO.challengeWrite",vo);
 	}
+	
+	@Override
+	public void challengeSinchung(HashMap map) {
+		System.out.println("Mybatis => chall sinchung");
+		mybatis.insert("ChallengeDAO.challengeSinchung", map);
+	}
 
 	@Override
 	public List<ChallengeVO> getChallengeList() {
@@ -36,6 +43,12 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	public void updateChallenge(ChallengeVO vo) {
 		System.out.println("Mybatis=> chall modi");
 		mybatis.update("ChallengeDAO.updateChallenge",vo);
+	}
+
+	@Override
+	public List<String> getMyChallengeList(String userId) {
+		System.out.println("Mybatis => my challenge list");
+		return mybatis.selectList("ChallengeDAO.getMyChallengeList",userId);
 	}
 
 }

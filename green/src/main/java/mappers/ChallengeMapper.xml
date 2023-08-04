@@ -5,9 +5,14 @@
 	<!-- inserting Challenge -->
 	<insert id="challengeWrite" parameterType="challenge">
 		INSERT INTO challenge
-		(chal_name, chal_ex,difficulty,chal_img,chal_start_date,chal_end_date)
-		VALUES (#{chal_name},#{chal_ex}, #{difficulty}, #{chal_img}, #{chal_start_date}, #{chal_end_date})
+		(chal_name, chal_ex,chal_check_method, difficulty,chal_img,chal_start_date,chal_end_date)
+		VALUES (#{chal_name},#{chal_ex},#{chal_check_method}, #{difficulty}, #{chal_img}, #{chal_start_date}, #{chal_end_date})
 	</insert>
+	
+	<!-- challenge sinchung -->
+ 	<insert id="challengeSinchung" parameterType="hashmap">
+		INSERT INTO mem_chal (chal_no, id) VALUES (#{chal_no}, #{userId})
+	</insert> 
 
 	<!-- select one Challenge -->
 	<select id="getChallengeDetail" parameterType="challenge" resultType="challenge">
@@ -16,9 +21,6 @@
 
 	<!-- select Challenge List -->
 	<select id="getChallengeList" parameterType="challenge" resultType="challenge">
-<!-- 		SELECT * FROM challenge
-		WHERE DATE_FORMAT(chal_start_date,'%Y-%m') = DATE_FORMAT(#{chal_start_date},'%Y-%m')
-		ORDER BY chal_no  -->
 		SELECT * FROM challenge ORDER BY chal_no
 	</select>
 
@@ -29,8 +31,23 @@
 		chal_start_date=#{chal_start_date},
 		chal_end_date=#{chal_end_date},
 		chal_ex=#{chal_ex},
+		chal_check_method=#{chal_check_method},
 		difficulty=#{difficulty},
 		chal_img=#{chal_img}
 		WHERE chal_no=#{chal_no};
 	</update>
+	
+	<!-- select my challenge ing-->
+	<resultMap id="memChall" type="memChallenge">
+		<result column="chal_no" property="chal_no" />
+		<result column="chal_name" property="chal_name" />
+		<result column="id" property="id" />
+		<collection property="" />
+	</resultMap>
+		
+	<select id="getMyChallengeListYet" parameterType="string" resultType="memChall">
+		SELECT c.chal_no as chalNo,chal_name as chalName,difficulty,id
+		FROM challenge c, mem_chal
+		WHERE c.chal_no = m.chal_no AND id = #{userId} AND completion_YN = 'N',success_YN = 'N'
+	</select>
 </mapper>

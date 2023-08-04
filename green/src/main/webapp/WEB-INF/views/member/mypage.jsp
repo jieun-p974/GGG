@@ -120,10 +120,10 @@
 						</ul>
 						<div class="buttons">
 							<button class="myChallBtn"
-								onclick="window.open('../challenge/myChallenge.do')">도전중인 챌린지
+								onclick="location.href='../challenge/myChallenge.do'">도전중인 챌린지
 							</button>
 							<button class="dojunBtn"
-								onclick="window.open('../challenge/challengeList.do')">챌린지참여하기
+								onclick="location.href='../challenge/challengeList.do'">챌린지참여하기
 							</button>
 							<button type="button" class="down1">
 								<img src="../../imgs/down.png">
