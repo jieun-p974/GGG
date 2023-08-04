@@ -23,6 +23,9 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	
+	private MemCardVO memCardVO;		//결제할때 조인하려고 만들었어요
+	private MemAccountVO memAccountVO;	//결제할때 조인하려고 만들었어요
+	
 	public MemberVO() {}
 	
 	//*************************************************
@@ -158,8 +161,21 @@ public class MemberVO {
 		return m_img_addr;
 	}
 
+	//결제할때 조인하려고 만들었어요
 	public void setM_img_addr(String m_img_addr) {
 		this.m_img_addr = m_img_addr;
+	}
+	public MemCardVO getMemCardVO() {
+		return memCardVO;
+	}
+	public void setMemCardVO(MemCardVO memCardVO) {
+		this.memCardVO = memCardVO;
+	}
+	public MemAccountVO getMemAccountVO() {
+		return memAccountVO;
+	}
+	public void setMemAccountVO(MemAccountVO memAccountVO) {
+		this.memAccountVO = memAccountVO;
 	}
 
 	

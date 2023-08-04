@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,14 +59,12 @@
 						<input type="radio" name="chk_method" id="check_sa"
 							checked="check">간편 계좌
 						<div class="accounts">
+						<c:forEach items="${list}" var="pay">
 							<div class="a a1">
-								<p class="bank_name">우리은행</p>
-								<p class="account_num">1002-****-**42</p>
+								<p class="bank_name">${pay.bank}</p>
+								<p class="account_num">${pay.acc_num}</p>
 							</div>
-							<div class="a a2">
-								<p class="bank_name">신한은행</p>
-								<p class="account_num">1002-****-**42</p>
-							</div>
+							</c:forEach>
 						</div>
 					</div>
 					<div class="simple_card">

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PayDAO">
+<!-- mem 결제수단 select one-->
+<select id="getPay" parameterType="string" resultType="member">
+select m.name, c.card_num, c.card_company, a.acc_num, a.bank 
+from member m, mem_card c, mem_account a 
+where m.id=c.id and m.id=a.id AND m.id=#{id}
+</select>
+
+<!-- 조인  member,mem_card,mem_account -->
+<!-- <resultMap type="com.green.domain.MemberVO" id="memberVO">
+<result property="name" column="name"/>
+<result property="id" column="id"/>
+<collection property="memAccount" resultMap="memAcVO"/>
+<collection property="memCard" resultMap="memCardVO"/>
+
+</resultMap>
+
+<resultMap type="com.green.domain.MemAccountVO" id="memAcVO">
+<result property="id" column="id"/>
+<result property="card_num" column="card_num"/>
+<result property="card_company" column="card_company"/>
+</resultMap>
+
+<resultMap type="com.green.domain.MemCardVO" id="memCardVO">
+<result property="id" column="id"/>
+<result property="acc_num" column="acc_num"/>
+<result property="bank" column="bank"/>
+</resultMap>
+
+<select id="memAccount" resultType="com.green.domain.MemAccountVO">
+select * from mem_account;
+</select>
+
+<select id="memCard" resultType="com.green.domain.MemCardVO">
+select * from mem_card;
+</select> -->
+</mapper>   
