@@ -25,6 +25,12 @@ public class MemberVO {
 	
 	public MemberVO() {}
 	
+	public MemberVO(String id, String email) {
+		this.id = id;
+		this.email = email;
+	}
+	
+	
 	//*************************************************
 	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	
@@ -161,10 +167,6 @@ public class MemberVO {
 	public void setM_img_addr(String m_img_addr) {
 		this.m_img_addr = m_img_addr;
 	}
-
-	
-	
-
 	
 	
 }

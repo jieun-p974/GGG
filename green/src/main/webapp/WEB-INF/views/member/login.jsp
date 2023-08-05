@@ -27,11 +27,12 @@
 			document.form.password.focus();
 			return false;
 		}
-
 		
 		document.form.submit();	//전송
 					
 	}
+	
+	  
 
 </script>
 

@@ -9,8 +9,12 @@ String userId = (String) session.getAttribute("userId");
 String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
-String userSdate = (String) session.getAttribute("userSdate");
 String userBday = (String) session.getAttribute("userBday");
+String userSdate = (String) session.getAttribute("userSdate");
+String userCard = (String) session.getAttribute("userCard");
+String userAccount = (String) session.getAttribute("userAccount");
+String userImg = (String) session.getAttribute("userImg");
+String userImgAddr = (String) session.getAttribute("userImgAddr");
 
 System.out.println("현재 세션 : " + userId);
 %>
@@ -24,11 +28,11 @@ System.out.println("현재 세션 : " + userId);
 		</div>
 		<div class="menu_grop">
 			<ul class="menu_list">
-				<li><a href="../challenge/challengeList.do">챌린지&nbsp&nbsp</a></li>
-				<li><a href="../community/community.do">&nbsp&nbsp커뮤니티&nbsp&nbsp</a></li>
-				<li><a href="../member/mypage.do">&nbsp&nbsp마이페이지&nbsp&nbsp</a></li>
-				<li><a href="../news/newsList.do">&nbsp&nbsp뉴스</a></li>
-				<li><a href="../donation/donation.do">&nbsp&nbsp기부</a></li>
+				<li><a href="../community/community.do">그린커뮤니티&nbsp&nbsp</a></li>
+				<li><a href="../challenge/challengeList.do">&nbsp&nbsp챌린지&nbsp&nbsp</a></li>
+				<li><a href="../donation/donation.do">&nbsp&nbsp기부&nbsp&nbsp</a></li>
+				<li><a href="../news/newsList.do">&nbsp&nbsp뉴스&nbsp&nbsp</a></li>
+				<li><a href="../member/mypage.do">&nbsp&nbsp마이페이지</a></li>
 			</ul>
 		</div>
 

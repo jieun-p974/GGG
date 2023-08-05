@@ -59,5 +59,13 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("===> searhID() 호출");
 		return mybatis.selectOne("member.searchID", email);
 	}
+
+	@Override
+	public String searchPass(String email) {
+		System.out.println("===> searhID() 호출");
+		return mybatis.selectOne("member.searchPass", email);
+	}
+
+
 	
 }
