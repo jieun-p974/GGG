@@ -34,11 +34,11 @@ $(document).ready(function() {
 			$("#passCheck").focus();
 			return false;
 		}
-		/* 		
+		 		
 		document.userinput.submit();//전송
 		alert("회원정보가 수정되었습니다.");
 		location.href = "../member/mypage.do"; 
-		*/
+		
 	});
 	
 	
