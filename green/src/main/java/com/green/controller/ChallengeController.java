@@ -3,6 +3,7 @@ package com.green.controller;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,23 +34,29 @@ public class ChallengeController {
 		challengeService.insertChallenge(vo);
 		return "redirect:adminChallenge.do";
 	}
+	
+	// challenge sinchung
+	@RequestMapping(value="/sinchung.do")
+	public String challenegeSinchung(String chal_no, String userId)throws IOException{
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("chal_no", chal_no);
+		map.put("userId", userId);
+		challengeService.challengeSinchung(map);
+		return "redirect:/challenge/myChallenge.do";
+	}
 
-	// get challenge list - admin
-	@RequestMapping("/adminChallenge.do")
+	// get challenge list - user or admin
+	@RequestMapping(value = {"challengeList.do","/adminChallenge.do"})
 	public void getChallengeList(Model model) {
 		List<ChallengeVO> list = null;
 		list = challengeService.getChallengeList();
 		model.addAttribute("list", list);
 	}
 
-	
-	// get challenge list - user
-
 	// get one
-	@RequestMapping("/challengeModify.do")
+	@RequestMapping(value= {"/challengeModify.do","challengeDetail.do"})
 	public void getChallengeDetail(ChallengeVO vo, Model model) {
 		model.addAttribute("chall", challengeService.getChallengeDetail(vo));
-
 	}
 
 	// modify
@@ -58,4 +65,13 @@ public class ChallengeController {
 		challengeService.updateChallenge(vo);
 		return "redirect:challengeModify.do?chal_no=" + vo.getChal_no();
 	}
+	
+	// my challenge
+	
+	 @RequestMapping(value = "/myChallenge.do") 
+	 public void getMyChallenge(Model model,String userId) { 
+		 List<String> list = null; 
+		 list =	challengeService.getMyChallengeList(userId);
+		 model.addAttribute("myChall", list); 
+	 }
 }

@@ -24,7 +24,9 @@ System.out.println("현재 세션 : " + userId);
 <body>
 	<div class="header">
 		<div>
-			<a href="../../index.jsp"> <img class="logo" src="../../resources/imgs/logo.png" /></a>
+			<a href="../../index.jsp">
+				<img class="logo" src="../../resources/imgs/logo.png" />
+			</a>
 		</div>
 		<div class="menu_grop">
 			<ul class="menu_list">

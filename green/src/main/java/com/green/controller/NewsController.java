@@ -27,7 +27,7 @@ public class NewsController {
 		return "/news/" + url;
 	}
 
-	// news list -user
+	// news list -user or admin
 	@RequestMapping(value = {"/newsList.do","/newsCheck.do"})
 	public void getNewsList(Model model) {
 		List<NewsVO> list = null;

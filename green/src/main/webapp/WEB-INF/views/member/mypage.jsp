@@ -53,10 +53,7 @@
 				🌏&nbspGGG와 함께한지 ${today-sdate2}일 째&nbsp🌏</p>
 
 				<button class="member_edit" onclick="location.href='infoEdit.do'">회원정보 수정</button>
-				<p class="member_point">
-					보유포인트 : ${userPoint} p <br/><br/> 
-					보유도전권 : 
-				</p>
+				<p class="member_point"> 보유포인트 : ${userPoint} p <br/><br/> 보유도전권 : </p>
 			</div>
 			<div class="infos">
 				<div class="section1">
@@ -70,8 +67,7 @@
 					</div>
 					<div class="buttons">
 						<button class="cardBtn" onclick="cardRegist()">간편 카드 등록</button>
-						<button class="accountBtn" onclick="accountRegist()">간편계좌
-							등록</button>
+						<button class="accountBtn" onclick="accountRegist()">간편계좌 등록</button>
 					</div>
 				</div>
 
@@ -80,9 +76,7 @@
 						<img class="animal_img" src="" />
 						<div class="animal_name">
 							<p></p>
-							<button class="changeBtn">
-								개명
-								</buttton>
+							<button class="changeBtn"> 개명 </buttton>
 						</div>
 					</div>
 					<div class="ani_lv">

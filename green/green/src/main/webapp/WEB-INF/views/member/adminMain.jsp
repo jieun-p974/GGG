@@ -8,12 +8,14 @@
 <link rel="stylesheet" href="../../../resources/styles/header.css">
 <link href="../../../resources/styles/adminMain.css" rel="stylesheet"
 	type="text/css">
+	
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>관리자 메인</title>
 </head>
 <body>
 	<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
+		<h4 style="fontcolor=red"> ${userId} ${userName} ${sessionTime} 접속  </h4>
+		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="admin_main">
 			<div class="main">
 				<div class="gongji">공지</div>
@@ -39,7 +41,7 @@
 							<td>기부처 추가 관련 공지</td>
 						</tr>
 					</table>
-					<button class="post">글 작성</button>
+					<button class="post" onclick="location.href='../community/notification.do'">글 작성</button>
 				</div>
 			</div>
 			<div class="main2">
@@ -67,7 +69,7 @@
 								<td>기부처 추가 관련 공지</td>
 							</tr>
 						</table>
-						<button class="post">인증 관리</button>
+						<button class="post" onclick="location.href='../challenge/adminChallenge.do'">인증 관리</button>
 					</div>
 				</div>
 				<div class="commuList">
@@ -94,7 +96,7 @@
 								<td>기부처 추가 관련 공지</td>
 							</tr>
 						</table>
-						<button class="post">게시글 관리</button>
+						<button class="post" onclick="location.href='../community/community.do'">게시글 관리</button>
 					</div>
 				</div>
 				<div class="newsList">
@@ -121,7 +123,7 @@
 								<td>기부처 추가 관련 공지</td>
 							</tr>
 						</table>
-						<button class="post">뉴스 관리</button>
+						<button class="post" onclick="location.href='../news/newsWrite.do'">뉴스 작성</button>
 					</div>
 				</div>
 			</div>
