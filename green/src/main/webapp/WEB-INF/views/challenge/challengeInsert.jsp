@@ -55,16 +55,51 @@
              }    
 		 });
 	});
+	
+	function check() {
+		if(document.form.chal_name.value==""){
+			alert("챌린지 명을 입력하세요.")
+			document.form.chal_name.focus();
+			return false;
+		}
+		
+		if(document.form.chal_start_date.value==""){
+			alert("챌린지 시작일을 입력하세요.")
+			document.form.chal_start_date.focus();
+			return false;
+		}
+
+		if(document.form.chal_end_date.value==""){
+			alert("챌린지 종료일을 입력하세요.")
+			document.form.chal_end_date.focus();
+			return false;
+		}
+		
+		if(document.form.chal_ex.value==""){
+			alert("챌린지 설명을 입력하세요.")
+			document.form.chal_ex.focus();
+			return false;
+		}
+		
+		if(document.form.chal_check_method.value==""){
+			alert("챌린지 인증방법을 입력하세요.")
+			document.form.chal_check_method.focus();
+			return false;
+		}
+		
+		document.form.submit();	//전송
+					
+	}
 </script>
 <title>챌린지 등록</title>
 </head>
 <body>
 	<div class="container">
-		<%@include file="../layouts/header.jsp"%>
+		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="chall_insert">
 			<div class="insert_box">
 				<p class="title">챌린지 등록</p>
-				<form action="saveChallenge.do" method="post">
+				<form action="saveChallenge.do" method="post" name="form" id="form">
 					<div class="chal_name">
 						<label for="chal_name">챌린지명</label> <input type="text"
 							name="chal_name" id="chal_name">
@@ -80,6 +115,10 @@
 					<div class="chal_ex">
 						<label for="chal_ex">챌린지 설명</label>
 						<textarea name="chal_ex" id="chal_ex" placeholder="챌린지 설명을 적어주세요"></textarea>
+					</div>
+					<div class="chal_check_method">
+						<label for="chal_check_method">챌린지 인증방법</label>
+						<textarea name="chal_check_method" id="chal_check_method" placeholder="챌린지 인증방법을 적어주세요."></textarea>
 					</div>
 					<div class="difficulty">
 						<label for="difficulty">챌린지 난이도</label> <select name="difficulty"
@@ -97,7 +136,7 @@
 					</div>
 					<div class="buttons">
 						<button id="adding" type="submit">등록</button>
-						<button id="cancel" type="button">취소</button>
+						<button id="cancel" type="reset">취소</button>
 					</div>
 				</form>
 			</div>

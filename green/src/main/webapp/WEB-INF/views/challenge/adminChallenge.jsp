@@ -82,7 +82,7 @@
 </head>
 <body>
 	<div class="container">
-		<%@include file="../layouts/header.jsp"%>
+		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="admin_chall">
 			<p class="admin_title">챌린지 리스트 관리</p>
 

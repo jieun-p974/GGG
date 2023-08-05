@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,12 @@ public class ChallengeServiceImpl implements ChallengeService{
 		// TODO Auto-generated method stub
 		challengeDAO.challengeWrite(vo);
 	}
+	
+	//challenge sinchung
+	public void challengeSinchung(HashMap map) {
+		challengeDAO.challengeSinchung(map);
+	}
+	
 	//get one
 	@Override
 	public ChallengeVO getChallengeDetail(ChallengeVO vo) {
@@ -35,6 +42,13 @@ public class ChallengeServiceImpl implements ChallengeService{
 	public void updateChallenge(ChallengeVO vo) {
 		// TODO Auto-generated method stub
 		challengeDAO.updateChallenge(vo);
+	}
+
+	//get my challenge list
+	@Override
+	public List<String> getMyChallengeList(String userId) {
+		// TODO Auto-generated method stub
+		return challengeDAO.getMyChallengeList(userId);
 	}
 	
 }

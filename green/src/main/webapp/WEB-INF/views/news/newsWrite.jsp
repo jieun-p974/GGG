@@ -27,7 +27,7 @@
 </head>
 <body>
 	<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
+		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="newsWriting">
 			<div class="title">관리자 뉴스 작성 페이지</div>
 			<div class="writing">
