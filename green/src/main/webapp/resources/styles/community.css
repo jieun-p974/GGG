@@ -24,7 +24,7 @@
     height: auto;
     display: grid;
     background-color: #8AB6A9;
-    grid-template-columns: 1fr 8fr;
+    grid-template-columns: 2fr 8fr;
     padding: 1%;
     margin: 1%;
     justify-items: stretch;
@@ -37,8 +37,8 @@
 .profile{
   border-radius: 50%;
   border: 1px solid black;
-  width: 5rem;
-  height: 5rem;
+  width: 10rem;
+  height: 10rem;
   margin: 0 auto;
 }
 .memBtns {
@@ -50,6 +50,8 @@
 }
 .content_top {
     display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
 }
 .id {
     font-family: 'S-CoreDream-3Light';
@@ -57,6 +59,7 @@
     margin-top: 1%;
     margin-bottom: 1%;
     width: 15%;
+    /* font-size: 1.5rem; */
 }
 .emojis {
     display: flex;
@@ -78,6 +81,9 @@
 
 .writing {
     display: block;
+    border: 1px solid black;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .comments{
