@@ -11,8 +11,7 @@ public class DonationVO {
 	private String don_summary;
 	private int don_point_sum;
 	private String d_img1_nn;
-	private String d_img2;
-	private String d_img3;
+	private String d_img1_addr; //
 	private int don_goal;
 	private Date don_start_day;
 	private Date don_end_day;
@@ -21,15 +20,14 @@ public class DonationVO {
 		
 	}
 	public DonationVO(int don_no,String don_name,String don_ex,String don_summary,int don_point_sum,String d_img1_nn,
-			String d_img2,String d_img3,int don_goal,Date don_start_day,Date don_end_day) {
+			String d_img1_addr,int don_goal,Date don_start_day,Date don_end_day) {
 		this.don_no=don_no;
 		this.don_name=don_name;
 		this.don_ex=don_ex;
 		this.don_summary=don_summary;
 		this.don_point_sum=don_point_sum;
 		this.d_img1_nn=d_img1_nn;
-		this.d_img2=d_img2;
-		this.d_img3=d_img3;
+		this.d_img1_addr=d_img1_addr;
 		this.don_goal=don_goal;
 		this.don_start_day=don_start_day;
 		this.don_end_day=don_end_day;
@@ -71,17 +69,11 @@ public class DonationVO {
 	public void setD_img1_nn(String d_img1_nn) {
 		this.d_img1_nn = d_img1_nn;
 	}
-	public String getD_img2() {
-		return d_img2;
+	public String getD_img1_addr() {
+		return d_img1_addr;
 	}
-	public void setD_img2(String d_img2) {
-		this.d_img2 = d_img2;
-	}
-	public String getD_img3() {
-		return d_img3;
-	}
-	public void setD_img3(String d_img3) {
-		this.d_img3 = d_img3;
+	public void setD_img1_addr(String d_img1_addr) {
+		this.d_img1_addr = d_img1_addr;
 	}
 	public int getDon_goal() {
 		return don_goal;
