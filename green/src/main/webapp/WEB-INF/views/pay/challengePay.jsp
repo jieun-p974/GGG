@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +34,7 @@
 							aria-expanded="true" aria-controls="collapseOne">
 							<div class="btn_content">
 								<p>결제자</p>
-								<p>박지은(010-2***-8***)</p>
+								<p>${userName}(${userTel})</p>
 							</div>
 						</button>
 					</h2>
@@ -57,23 +59,23 @@
 						<input type="radio" name="chk_method" id="check_sa"
 							checked="check">간편 계좌
 						<div class="accounts">
-							<div class="a a1">
-								<p class="bank_name">우리은행</p>
-								<p class="account_num">1002-****-**42</p>
-							</div>
-							<div class="a a2">
-								<p class="bank_name">신한은행</p>
-								<p class="account_num">1002-****-**42</p>
-							</div>
+							<c:forEach items="${list}" var="pay">
+								<div class="a a1">
+									<p class="bank_name" id="bank" name="bank">은행: ${pay.bank}</p>
+									<p class="account_num">계좌번호: ${pay.acc_num}</p>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 					<div class="simple_card">
 						<input type="radio" name="chk_method" id="check_sc">간편 카드
 						<div class="cards">
+						<c:forEach items="${list}" var="pay">
 							<div class="c c1">
-								<p class="card_com">신한카드</p>
-								<p class="card_name">네이버페이 체크(3278)</p>
+								<p class="card_com">카드사: ${pay.card_company }</p>
+								<p class="card_name">카드번호: ${pay.card_num }</p>
 							</div>
+							</c:forEach>
 						</div>
 					</div>
 					<div class="accout_pay">

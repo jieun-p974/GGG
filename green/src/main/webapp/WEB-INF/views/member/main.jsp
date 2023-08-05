@@ -14,8 +14,7 @@
 </head>
 <body>
 <div class="container">
-
-<%@include file="WEB-INF/views/layouts/header.jsp" %>
+<%@include file="../layouts/header.jsp" %>
     <div class="main">
       <div class="introduce">
         <video class="intro_video" autoplay muted>
@@ -58,6 +57,7 @@
           <img class="grade_img" src="" />
           <div class="grade_txt">위급등급</div>
         </div>
+
         <div class="grade_content">
           <div class="grade_content_txt">
             멸종 위기 동물에도 등급이 있다는 사실,<br />알고 계신가요?
@@ -85,10 +85,9 @@
 
           <button class="btn" onclick="location.href='/challenge/challengeList.do'">지금 바로 챌린지 참여하러 가기!</button>
         </div>
-
       </div>
     </div>
   </div>
-<%@include file="WEB-INF/views/layouts/footer.jsp" %>
+<%@include file="../layouts/footer.jsp" %>
 </body>
 </html>
