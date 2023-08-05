@@ -10,9 +10,9 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
-function cancleWrite() {
-    location.href = "community.do"
- }
+	function cancleWrite() {
+		location.href = "community.do"
+	}
 </script>
 <title>커뮤니티 글 작성</title>
 </head>
@@ -20,8 +20,8 @@ function cancleWrite() {
 	<div class="container ">
 		<%@include file="../layouts/header.jsp"%>
 		<div class="writeContainer">
-	<%--	<form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data">  --%>	
-			                <form action="save.do" method="post">
+			<%--	<form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data">  --%>
+			<form action="save.do" method="post" enctype="multipart/form-data">
 				<div class="editing">
 					<div class="e_img">
 						<img class="edit_img" src="../../../resources/imgs/abc.jpg" />
@@ -31,12 +31,16 @@ function cancleWrite() {
 						<textarea name="b_content" id="b_content" autofocus="autofocus"></textarea>
 					</div>
 					<div class="comm_img">
-						<label for="comm_img">사진 첨부하기</label>
-						<input type="file" name="comm_img" id="comm_img">
+						<label for="comm_img">사진 첨부하기1</label>
+						<input type="file" name="file1">
+						<label for="comm_img">사진 첨부하기2</label>
+						<input type="file" name="file2">
+						<label for="comm_img">사진 첨부하기3</label>
+						<input type="file" name="file3">
 					</div>
 					<div class="buttons">
-              			<button id="adding" type="submit">등록</button>
-              			<button id="cancel" type="button" onclick="cancleWrite()">취소</button>
+						<button id="adding" type="submit">등록</button>
+						<button id="cancel" type="button" onclick="cancleWrite()">취소</button>
 					</div>
 				</div>
 			</form>
@@ -44,4 +48,4 @@ function cancleWrite() {
 	</div>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
-</html>    
+</html>

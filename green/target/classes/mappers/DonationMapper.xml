@@ -10,7 +10,7 @@
 		#{don_name}, #{don_ex}, #{don_summary}, #{don_point_sum},#{d_img1_nn})
 	</insert>
 
-	<!-- 기부처 메인페이지 -->
+	<!-- 기부처 메인페이지  select one-->
 	<select id="selectDona" resultType="dona">
 		SELECT * FROM donation ORDER
 		BY don_no

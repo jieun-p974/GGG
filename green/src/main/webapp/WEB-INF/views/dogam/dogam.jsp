@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/newsWrite.css" rel="stylesheet"
+<link href="../../../resources/styles/dogam.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>도감</title>

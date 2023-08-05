@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.green.domain.CommunityVO;
 import com.green.service.CommunityService;
 
-@Controller
+@Controller 
 @RequestMapping("/community/")
 public class CommunityController {
 	@Autowired
