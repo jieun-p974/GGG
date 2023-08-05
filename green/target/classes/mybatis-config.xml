@@ -12,14 +12,8 @@
 		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />
 		<typeAlias alias="news" type="com.green.domain.NewsVO" />   
 		<typeAlias alias="dona" type="com.green.domain.DonationVO"/>
-<<<<<<< HEAD
-
 		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />   
-		
 		<typeAlias alias="memChallenge" type="com.green.domain.MemChallengeVO"/>
-
-=======
->>>>>>> refs/remotes/origin/gaeun
 		<typeAlias alias="community" type="com.green.domain.CommunityVO" />   
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
 	</typeAliases>

@@ -38,11 +38,6 @@
   <property name="maxInMemorySize" value="104857600"/>
 </bean>
        
-<<<<<<< HEAD
-</beans>
-=======
 
+</beans>
        
-</beans>
-
->>>>>>> refs/remotes/origin/gaeun

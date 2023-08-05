@@ -26,20 +26,11 @@
 			document.form.password.focus();
 			return false;
 		}
-<<<<<<< HEAD
-		document.form.submit(); //전송
-=======
 		
 		document.form.submit();	//전송
-					
->>>>>>> refs/remotes/origin/gaeun
-	}
-<<<<<<< HEAD
-=======
-	
-	  
 
->>>>>>> refs/remotes/origin/gaeun
+	}
+
 </script>
 
 <body>
