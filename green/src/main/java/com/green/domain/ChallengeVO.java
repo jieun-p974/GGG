@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ChallengeVO {
 	/*
@@ -28,6 +29,16 @@ public class ChallengeVO {
 	private String difficulty;
 	private String chal_img;
 	
+	private List<ChallengeVO> chall_list;
+	
+	public List<ChallengeVO> getChall_list() {
+		return chall_list;
+	}
+
+	public void setChall_list(List<ChallengeVO> chall_list) {
+		this.chall_list = chall_list;
+	}
+
 	public ChallengeVO() {
 		
 	}

@@ -5,12 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.green.domain.ChallengeVO;
 import com.green.service.ChallengeService;
@@ -37,12 +40,22 @@ public class ChallengeController {
 	
 	// challenge sinchung
 	@RequestMapping(value="/sinchung.do")
-	public String challenegeSinchung(String chal_no, String userId)throws IOException{
+	public String challenegeSinchung(String chal_no, String userId, RedirectAttributes rd)throws IOException{
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("chal_no", chal_no);
 		map.put("userId", userId);
-		challengeService.challengeSinchung(map);
-		return "redirect:/challenge/myChallenge.do";
+		int result = challengeService.challengeSinchung(map);
+		
+		if(result > 0 ) {
+			rd.addFlashAttribute("msg", "신청이 완료되었습니다.");
+			rd.addFlashAttribute("url", "/challenge/myChallenge.do?userId="+userId);
+			
+			return "redirect:/challenge/challengeDetail.do?chal_no="+chal_no;
+		}
+		rd.addFlashAttribute("msg", "이미 신청한 챌린지 입니다.");
+		rd.addFlashAttribute("url", "/challenge/challengeList.do");
+		
+		return "redirect:/challenge/challengeDetail.do?chal_no="+chal_no;
 	}
 
 	// get challenge list - user or admin
@@ -67,10 +80,10 @@ public class ChallengeController {
 	}
 	
 	// my challenge
-	
 	 @RequestMapping(value = "/myChallenge.do") 
 	 public void getMyChallenge(Model model,String userId) { 
-		 List<String> list = null; 
+		 System.out.println("컨트롤러"+userId);
+		 List<ChallengeVO> list = null; 
 		 list =	challengeService.getMyChallengeList(userId);
 		 model.addAttribute("myChall", list); 
 	 }
