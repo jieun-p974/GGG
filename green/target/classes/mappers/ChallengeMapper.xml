@@ -37,7 +37,7 @@
 		WHERE chal_no=#{chal_no};
 	</update>
 	
-	<!-- select my challenge ing-->
+	<!-- select my challenge ing
 	<resultMap id="memChall" type="memChallenge">
 		<result column="chal_no" property="chal_no" />
 		<result column="chal_name" property="chal_name" />
@@ -49,5 +49,5 @@
 		SELECT c.chal_no as chalNo,chal_name as chalName,difficulty,id
 		FROM challenge c, mem_chal
 		WHERE c.chal_no = m.chal_no AND id = #{userId} AND completion_YN = 'N',success_YN = 'N'
-	</select>
+	</select>-->
 </mapper>
