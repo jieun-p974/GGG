@@ -21,11 +21,6 @@
 	}
 
 	function check() {
-		if(document.form.id.value==""){
-			alert("아이디를 입력하세요.")
-			document.form.id.focus();
-			return false;
-		}
 		if(document.form.email.value==""){
 			alert("이메일주소를 입력하세요.")
 			document.form.email.focus();
@@ -38,26 +33,42 @@
 <body>
 	<div class="container">
 		<div class="searchPass">
-	<form name="form" action="searchPassSave.do" method="post" name="userinput" id="userinput">
-	
+
 			<div class="info">
 				<p class="label">아이디</p>
 				<input class="insert" type="text" name="id" id="id">
 			</div>
 
-	        <div class= "info">
-	            <p class="label">이메일주소</p>
-	            <input class="insert" type="email" name="email" id="email" placeholder="123@abc.com">
-	        </div>
-        
-		<!-- 	<div class="info">
+			<div class="info">
+				<p class="label">이름</p>
+				<input class="insert" type="text" name="name" id="name">
+			</div>
+
+			<div class="info">
+				<p class="label">휴대전화</p>
+				<input class="insert" type="tel" name="tel" id="tel"
+					placeholder="010-xxxx-xxxx">
+			</div>
+
+			<div class="info">
+				<p class="label">생년월일</p>
+				<input class="insert" type="date" name="bdate" id="bdate">
+			</div>
+
+			<div class="info">
 				<p class="label">이메일 인증</p>
 				<input type="text" name="emailCheck" id="emailCheck">
 				<button class="idenBtn">인증</button>
-			</div> -->
-        <input type="button" class="searchBtn" value="찾기" name="Submit" id="Submit">
-		</form>
+			</div>
+
+			<button class="searchBtn" onclick="search()">찾기</button>
 		</div>
 	</div>
 </body>
 </html>
+<script type="text/javascript">
+    function search()  {
+        alert('비밀번호는' + ' 어쩌고저쩌고 ' + '입니다');
+        window.location.href="../../../index.html"
+    }
+</script>

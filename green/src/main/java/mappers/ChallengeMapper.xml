@@ -38,6 +38,7 @@
 	</update>
 	
 	<!-- select my challenge ing-->
+	<!-- 
 	<resultMap id="memChall" type="memChallenge">
 		<result column="chal_no" property="chal_no" />
 		<result column="chal_name" property="chal_name" />
@@ -50,4 +51,5 @@
 		FROM challenge c, mem_chal
 		WHERE c.chal_no = m.chal_no AND id = #{userId} AND completion_YN = 'N',success_YN = 'N'
 	</select>
+ -->
 </mapper>

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,12 +29,9 @@ public class MemberController {
       return "/member/"+url;
    }	
    
-   @Autowired
-	private MemberService memberService; 
+	 @Autowired
+	   private MemberService memberService; 
 	 
-   
-   
-  
   // 회원가입  
    @RequestMapping("/signupSave.do")
    public ModelAndView userInsert(MemberVO vo) {
@@ -80,7 +76,6 @@ public class MemberController {
 			session.setAttribute("userAccount", memberVo.getAccount_reg_YN());
 			session.setAttribute("userPoint", memberVo.getRemainder_point());
 			session.setAttribute("userImg", memberVo.getM_img());
-			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
 			session.setAttribute("userVo", memberVo);
 		}
 
@@ -114,36 +109,37 @@ public class MemberController {
 				session.setAttribute("userAccount", memberVo.getAccount_reg_YN());
 				session.setAttribute("userPoint", memberVo.getRemainder_point());
 				session.setAttribute("userImg", memberVo.getM_img());
-				session.setAttribute("userImgAddr", memberVo.getM_img_addr());
 				session.setAttribute("userVo", memberVo);
 			}
 
 			return "redirect:/member/adminMain.do";
 		}
 		
-		
-		@RequestMapping(value = "/idCheck.do", produces = "application/text; charset=utf8")
-		// 화면에서 보낸 결과 한글 깨짐 해결 -> produces = "application/text; charset=utf8"
-		@ResponseBody // --> 이것으로 비동기화 통신을을 함 ( 페이지전환되지 않도록)
-		public String idchekc(MemberVO vo) // 인자로 사용자아이디(String)만 받아도 된다
-		{
-
-			// 컨트롤러에서는 디비 연동을 하지 않고 연결만 하기에 모델(Business Login) DAO을 호출
-
-			MemberVO memberVo = memberService.idCheck_Login(vo);
-			String result = "ID 사용 가능합니다.";
-			if (memberVo != null)
-				result = "중복된 아이디 입니다.";
-			return result;
-		}
-		
+	
+	// 아이디 중복 체크
+	@RequestMapping(value = "/idcheck.do", produces = "application/text; charset=utf8")
+	@ResponseBody // 비동기 통신
+	public String idchekc(MemberVO vo) // 인자로 사용자아이디(String)만 받아도 된다
+	{
+		MemberVO memberVo = memberService.idCheck_Login(vo);
+		String result = "ID 사용 가능합니다.";
+		if (memberVo != null)
+			result = "중복된 아이디 입니다.";
+		return result;
+	}
 
 	// 회원정보 수정
 	@RequestMapping("/infoEditSave.do")
-	public String userUpdate(@ModelAttribute("member") MemberVO memberVo) {
-		memberService.memberUpdate(memberVo);
-		System.out.println("여기에용"+memberVo.getId());
-		return "redirect:/member/mypage.do";
+	public ModelAndView userUpdate(MemberVO memberVo) {
+		int result = memberService.memberUpdate(memberVo);
+		String message = "변경되지 않았습니다";
+		if (result > 0)
+			message = memberVo.getId() + "님, 회원정보가 변경되었습니다.";
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member");
+		mv.addObject("message", message);
+		mv.addObject("result", result);
+		return mv;
 	}
 	
 	// 로그아웃
@@ -153,7 +149,7 @@ public class MemberController {
 		return "redirect:/member/main.do";
 	}
 	
-	// 아이디 찾기 폼
+// 아이디 찾기 폼
 	@RequestMapping(value = "/searchIDsave.do")
 	public String searchID() throws Exception{
 		return "/member/searchID";
@@ -165,35 +161,6 @@ public class MemberController {
 		md.addAttribute("id", memberService.searchID(response, email));
 		return "/member/searchID";
 	}
-	
-	// 비번 찾기 폼
-	@RequestMapping(value = "/searchPassSave.do")
-	public String searchPass() throws Exception{
-		return "/member/searchPass";
-	}
-	
-	// 비번 찾기
-	@RequestMapping(value = "/searchPassSave.do", method = RequestMethod.POST)
-	public String searchPass(HttpServletResponse response, @RequestParam("email") String email, Model md) throws Exception{
-		md.addAttribute("pw", memberService.searchPass(response, email));
-		return "/member/searchPass";
-	}
-	 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 }
