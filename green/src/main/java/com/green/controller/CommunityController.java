@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.green.domain.ChallengeVO;
 import com.green.domain.CommunityVO;
 import com.green.service.CommunityService;
 
@@ -26,19 +28,32 @@ public class CommunityController {
 	}
 	
 	
-	// 등록
+	// community insert
 	@RequestMapping(value="/save.do")
 	public String communityInsert(CommunityVO vo) throws IOException{
 		communityService.insertCommunity(vo);
 		return "redirect:/community/community.do";
 	}
 	
-	// 커뮤니티 목록
+	// community list
 	@RequestMapping("/community.do")
 	public void getChallengeList(Model model) {
 		List<CommunityVO> list = null;
 		list = communityService.getCommunityList();
 		model.addAttribute("list", list);
+	}
+	
+	// get one
+	@RequestMapping(value= {"/communityModify.do","communityDetail.do"})
+	public void getCommunityDetail(CommunityVO vo, Model model) {
+		model.addAttribute("comm", communityService.getCommunityDetail(vo));
+	}
+	
+	// modify
+	@RequestMapping(value = "/updateCommunity.do")
+	public String updateCommunity(@ModelAttribute("community") CommunityVO vo) {
+		communityService.updateCommunity(vo);
+		return "redirect:communityModify.do?board_no=" + vo.getBoard_no();
 	}
 	
 }

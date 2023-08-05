@@ -14,8 +14,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/community.css" rel="stylesheet"
-	type="text/css">
+<link href="../../../resources/styles/community.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
 	function insert() {
@@ -40,7 +39,9 @@
 							</div>
 							<c:if test="${sessionScope.userId == community.id}">
 								<div class="memBtns">
-									<button class="editBtn" id="editBtn">수정</button>
+									<button class="editBtn" id="editBtn">
+										<a href="communityModify.do?board_no=${community.board_no}">수정하기</a>
+									</button>
 									<button class="deleteBtn" id="deleteBtn">삭제</button>
 								</div>
 							</c:if>

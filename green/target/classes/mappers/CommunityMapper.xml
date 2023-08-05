@@ -11,4 +11,21 @@
 		SELECT * FROM board ORDER BY board_no desc
 	</select>
 	
+	<!-- select one Community -->
+	<select id="getCommunityDetail" parameterType="community" resultType="community">
+		SELECT * FROM board WHERE board_no = #{board_no}
+	</select>
+	
+	<update id="updateCommunity" parameterType="community">
+		UPDATE board SET 
+		b_content=#{b_content},
+		b_img1=#{b_img1},
+		b_img1_addr=#{b_img1_addr},
+		b_img2=#{b_img2},
+		b_img2_addr=#{b_img2_addr},
+		b_img3=#{b_img3},
+		b_img3_addr=#{b_img3_addr}		
+		WHERE board_no = #{board_no};
+	</update>
+	
 </mapper>

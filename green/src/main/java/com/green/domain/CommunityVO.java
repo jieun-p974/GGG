@@ -40,7 +40,8 @@ public class CommunityVO {
 
 	}
 
-	public CommunityVO(String id, String b_content, String b_img1, String b_img1_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr) {
+	public CommunityVO(int board_no ,String id, String b_content, String b_img1, String b_img1_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr) {
+		this.board_no = board_no;
 		this.id = id;
 		this.b_content = b_content;
 		this.b_img1 = b_img1;

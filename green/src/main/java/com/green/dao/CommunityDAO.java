@@ -8,4 +8,9 @@ public interface CommunityDAO {
 	public void communityWrite(CommunityVO vo);
 
 	public List<CommunityVO> getCommunityList();
+
+	public CommunityVO getCommunityDetail(CommunityVO vo);
+
+	public void updateCommunity(CommunityVO vo);
+
 }
