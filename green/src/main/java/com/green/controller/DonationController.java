@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.green.domain.DonationVO;
+import com.green.domain.NewsVO;
 import com.green.service.DonationService;
 
 @Controller
@@ -26,14 +28,28 @@ public class DonationController {
 	}
 
 	// 등록
-//	@RequestMapping(value = "/save.do")
-//	public String DonationInsert(DonationVO vo) throws Exception {
-//		donationService.insertDona(vo);
-//		return "redirect:/donationDetail.do";
-//	}
-
+	@RequestMapping(value = "/save.do")
+	public String donationInsert(DonationVO vo) throws Exception {
+		donationService.insertDona(vo);
+		return "redirect:donation/adDonationList.do";
+	}
+	
+	//수정
+	@RequestMapping(value="/modifyDona.do")
+	public String updateDona(@ModelAttribute("dona") DonationVO vo) {
+		donationService.updateDona(vo);
+		return "redirect:/donation/donationModify.do?don_no="+vo.getDon_no();
+	}
+	
+	//삭제
+	@RequestMapping(value="/deleteDona.do")
+	public String deleteDona(DonationVO vo) {
+		donationService.deleteDona(vo);
+		return "redirect:/donation/adDonationList.do";
+	}
+	
 	// 리스트 출력
-	@RequestMapping(value = "/donation.do")
+	@RequestMapping(value = {"/donation.do","/adDonationList.do"})
 	public void selectDona(Model model) {
 		List<DonationVO> list = null;
 		list = donationService.selectDona();

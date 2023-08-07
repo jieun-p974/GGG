@@ -40,43 +40,25 @@
 		WHERE chal_no=#{chal_no};
 	</update>
 	
-<<<<<<< HEAD
-	<!-- select my challenge ing
-	<resultMap id="memChall" type="memChallenge">
-		<result column="chal_no" property="chal_no" />
-		<result column="chal_name" property="chal_name" />
-		<result column="id" property="id" />
-		<collection property="" />
-=======
-<!-- 	<select id="selectMyChall" parameterType="string" resultType="challenge">
-		SELECT c.chal_no AS chal_no, chal_name
-		FROM mem_chal, challenge c
-		WHERE id = #{id} AND completion_YN = 'N' AND mem_chal.chal_no = c.chal_no;
-	</select> -->
-	
 	<!-- select my challenge ing-->
- 	<resultMap type="challenge" id="myChall">
+<!--  	<resultMap type="challenge" id="myChall">
 		<result column="chal_no" property="chal_no"/>
 		<result column="chal_name" property="chal_name"/>
 		<result column="id" property="id"/>
 		<collection property="chall_list" ofType="challenge">
 			<result column="chal_name" property="chal_name" jdbcType="VARCHAR" />
 		</collection>
->>>>>>> refs/remotes/origin/main
 	</resultMap>
-<<<<<<< HEAD
 		
 	<select id="getMyChallengeListYet" parameterType="string" resultType="memChall">
 		SELECT c.chal_no as chalNo,chal_name as chalName,difficulty,id
 		FROM challenge c, mem_chal
 		WHERE c.chal_no = m.chal_no AND id = #{userId} AND completion_YN = 'N',success_YN = 'N'
-	</select>-->
-=======
+	</select>
 	
 	<select id="myChallList" resultMap="myChall">
 		SELECT c.chal_no as chal_no,chal_name
 		FROM mem_chal, challenge c
 		WHERE id = #{userId} AND completion_YN = 'N' AND success_YN = 'N' AND mem_chal.chal_no = c.chal_no;
-	</select>
->>>>>>> refs/remotes/origin/main
+	</select> -->
 </mapper>
