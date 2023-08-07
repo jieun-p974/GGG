@@ -27,7 +27,6 @@ public class CommunityController {
 		return "/community/"+url;
 	}
 	
-	
 	// community insert
 	@RequestMapping(value="/save.do")
 	public String communityInsert(CommunityVO vo) throws IOException{
@@ -44,7 +43,7 @@ public class CommunityController {
 	}
 	
 	// get one
-	@RequestMapping(value= {"/communityModify.do","communityDetail.do"})
+	@RequestMapping(value= {"/communityModify.do","/communityDetail.do"})
 	public void getCommunityDetail(CommunityVO vo, Model model) {
 		model.addAttribute("comm", communityService.getCommunityDetail(vo));
 	}
@@ -53,7 +52,14 @@ public class CommunityController {
 	@RequestMapping(value = "/updateCommunity.do")
 	public String updateCommunity(@ModelAttribute("community") CommunityVO vo) {
 		communityService.updateCommunity(vo);
-		return "redirect:communityModify.do?board_no=" + vo.getBoard_no();
+		return "redirect:/community/community.do";
+	}
+	
+	// delete
+	@RequestMapping(value = "/deleteCommunity.do")
+	public String deleteCommunity(CommunityVO vo) {
+		communityService.deleteCommunity(vo);
+		return "redirect:/community/community.do";
 	}
 	
 }

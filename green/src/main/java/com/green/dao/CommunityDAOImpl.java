@@ -30,8 +30,15 @@ public class CommunityDAOImpl implements CommunityDAO {
 		System.out.println("Mybatis=> community detail");
 		return mybatis.selectOne("CommunityDAO.getCommunityDetail", vo);
 	}
+	
 	public void updateCommunity(CommunityVO vo) {
 		System.out.println("Mybatis=> community modify");
 		mybatis.update("CommunityDAO.updateCommunity", vo);
 	}
+	
+	public void deleteCommunity(CommunityVO vo) {
+		System.out.println("Mybatis=> community delete");
+		mybatis.update("CommunityDAO.deleteCommunity", vo);
+	}
+	
 }

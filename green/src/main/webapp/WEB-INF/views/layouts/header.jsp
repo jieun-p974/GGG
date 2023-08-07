@@ -15,7 +15,7 @@ String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");
 String userImg = (String) session.getAttribute("userImg");
 String userImgAddr = (String) session.getAttribute("userImgAddr");
-
+int userType =  (Integer)session.getAttribute("userType");
 System.out.println("현재 세션 : " + userId);
 %>
 <meta charset="UTF-8">

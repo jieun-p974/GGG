@@ -37,14 +37,19 @@
 								<!-- member 테이블에서 m_img 가져오기 -->
 
 							</div>
-							<c:if test="${sessionScope.userId == community.id}">
-								<div class="memBtns">
-									<button class="editBtn" id="editBtn">
-										<a href="communityModify.do?board_no=${community.board_no}">수정하기</a>
+							<div class="memBtns">
+								<c:if test="${sessionScope.userId == community.id}">
+									<button class="edit" >
+										<a href="communityModify.do?board_no=${community.board_no}" class="btn">수정하기</a>
 									</button>
-									<button class="deleteBtn" id="deleteBtn">삭제</button>
-								</div>
-							</c:if>
+								</c:if>
+								<c:if
+									test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
+									<button class="edit" >
+										<a href="deleteCommunity.do?board_no=${community.board_no}" class="btn">삭제하기</a>
+									</button>
+								</c:if>
+							</div>
 
 						</div>
 						<div class="contents">
@@ -57,15 +62,21 @@
 								</div>
 							</div>
 							<div class="b_img">
-							<c:if test="${community.b_img1_addr != null}">
-								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" style="border: 1px solid black" />
-							</c:if>
-							<c:if test="${community.b_img2_addr != null}">
-								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img2_addr}" style="border: 1px solid black" />
-							</c:if>
-							<c:if test="${community.b_img3_addr != null}">
-								<img class="board_img" src="/resources/imgs/communityImg/${community.b_img3_addr}" style="border: 1px solid black" />
-							</c:if>
+								<c:if test="${community.b_img1_addr != null}">
+									<img class="board_img"
+										src="/resources/imgs/communityImg/${community.b_img1_addr}"
+										style="border: 1px solid black" />
+								</c:if>
+								<c:if test="${community.b_img2_addr != null}">
+									<img class="board_img"
+										src="/resources/imgs/communityImg/${community.b_img2_addr}"
+										style="border: 1px solid black" />
+								</c:if>
+								<c:if test="${community.b_img3_addr != null}">
+									<img class="board_img"
+										src="/resources/imgs/communityImg/${community.b_img3_addr}"
+										style="border: 1px solid black" />
+								</c:if>
 							</div>
 							<a class="writing">${community.b_content}</a>
 

@@ -41,4 +41,11 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.updateCommunity(vo);
 	}
 	
+	//my board delete
+	@Override
+	public void deleteCommunity(CommunityVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.deleteCommunity(vo);
+	}
+	
 }

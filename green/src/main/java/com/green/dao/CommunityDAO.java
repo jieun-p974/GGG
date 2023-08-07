@@ -13,4 +13,6 @@ public interface CommunityDAO {
 
 	public void updateCommunity(CommunityVO vo);
 
+	public void deleteCommunity(CommunityVO vo);
+
 }
