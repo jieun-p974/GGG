@@ -23,6 +23,16 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	
+	//내 챌린지 조인
+	private ChallengeVO challengeVO;
+	
+	public ChallengeVO getChallengeVO() {
+		return challengeVO;
+	}
+	public void setChallengeVO(ChallengeVO challengeVO) {
+		this.challengeVO = challengeVO;
+	}
+
 	public MemberVO() {}
 	
 	//*************************************************

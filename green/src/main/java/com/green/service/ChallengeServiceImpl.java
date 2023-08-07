@@ -22,8 +22,9 @@ public class ChallengeServiceImpl implements ChallengeService{
 	}
 	
 	//challenge sinchung
-	public void challengeSinchung(HashMap map) {
-		challengeDAO.challengeSinchung(map);
+	public int challengeSinchung(HashMap map) {
+		int res = challengeDAO.challengeSinchung(map);
+		return res;
 	}
 	
 	//get one
@@ -46,9 +47,10 @@ public class ChallengeServiceImpl implements ChallengeService{
 
 	//get my challenge list
 	@Override
-	public List<String> getMyChallengeList(String userId) {
+	public List<ChallengeVO> getMyChallengeList(String userId) {
 		// TODO Auto-generated method stub
-		return challengeDAO.getMyChallengeList(userId);
+		List<ChallengeVO> list = challengeDAO.getMyChallengeList(userId);
+		return list;
 	}
 	
 }

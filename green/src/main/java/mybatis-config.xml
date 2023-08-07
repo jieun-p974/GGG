@@ -15,6 +15,7 @@
 		<typeAlias alias="memChallenge" type="com.green.domain.MemChallengeVO"/>
 		<typeAlias alias="community" type="com.green.domain.CommunityVO" />   
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
+		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />   
 	</typeAliases>
 	
 </configuration> 

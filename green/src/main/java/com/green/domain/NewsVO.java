@@ -18,7 +18,7 @@ public class NewsVO {
 	private int news_no;
 	private String id_manager;
 	private int cat_no;
-	private String n_title;
+	private String n_title;	
 	private String n_content;
 	private String n_content2;
 	private String n_content3;

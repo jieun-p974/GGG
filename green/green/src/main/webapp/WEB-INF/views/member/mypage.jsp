@@ -84,7 +84,7 @@
 								<p class="exp_end">성체</p>
 							</div>
 							<button class="dogamBtn"
-								onclick="window.open('../dogam/dogam.html')">도감확인</button>
+								onclick="window.open('../dogam/dogam.do')">도감확인</button>
 						</div>
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 							<li><a href="">시셰퍼드</a></li>
 						</ul>
 						<div class="buttons">
-							<button class="gibuBtn" onclick="window.open()">기부하러가기</button>
+							<button class="gibuBtn" onclick="window.open()">기부하러가기ㄱ</button>
 							<button type="button" class="down2">
 								<img src="../../../resources/imgs/down.png">
 							</button>
