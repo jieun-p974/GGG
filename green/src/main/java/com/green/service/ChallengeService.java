@@ -10,7 +10,7 @@ public interface ChallengeService {
 	void insertChallenge(ChallengeVO vo);
 	
 	//challenge sinchung
-	void challengeSinchung(HashMap map);
+	int challengeSinchung(HashMap map);
 	
 	//get one
 	ChallengeVO getChallengeDetail(ChallengeVO vo);
@@ -22,5 +22,5 @@ public interface ChallengeService {
 	void updateChallenge(ChallengeVO vo);
 	
 	//my challenge list
-	List<String> getMyChallengeList(String userId);
+	List<ChallengeVO> getMyChallengeList(String userId);
 }

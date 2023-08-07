@@ -11,7 +11,10 @@
 	
 	<!-- challenge sinchung -->
  	<insert id="challengeSinchung" parameterType="hashmap">
-		INSERT INTO mem_chal (chal_no, id) VALUES (#{chal_no}, #{userId})
+		<!-- INSERT INTO mem_chal (chal_no, id) VALUES (#{chal_no}, #{userId}) -->
+		INSERT INTO mem_chal (chal_no, id,apply_date) SELECT #{chal_no},#{userId},NOW() FROM dual
+		WHERE NOT EXISTS
+		(SELECT chal_no FROM mem_chal WHERE chal_no=#{chal_no} AND id=#{userId});
 	</insert> 
 
 	<!-- select one Challenge -->
@@ -37,17 +40,25 @@
 		WHERE chal_no=#{chal_no};
 	</update>
 	
-	<!-- select my challenge ing-->
-<!-- 	<resultMap id="memChall" type="memChallenge">
-		<result column="chal_no" property="chal_no" />
-		<result column="chal_name" property="chal_name" />
-		<result column="id" property="id" />
-		<collection property="" />
-	</resultMap>
-		
-	<select id="getMyChallengeListYet" parameterType="string" resultType="memChall">
-		SELECT c.chal_no as chalNo,chal_name as chalName,difficulty,id
-		FROM challenge c, mem_chal
-		WHERE c.chal_no = m.chal_no AND id = #{userId} AND completion_YN = 'N',success_YN = 'N'
+<!-- 	<select id="selectMyChall" parameterType="string" resultType="challenge">
+		SELECT c.chal_no AS chal_no, chal_name
+		FROM mem_chal, challenge c
+		WHERE id = #{id} AND completion_YN = 'N' AND mem_chal.chal_no = c.chal_no;
 	</select> -->
+	
+	<!-- select my challenge ing-->
+ 	<resultMap type="challenge" id="myChall">
+		<result column="chal_no" property="chal_no"/>
+		<result column="chal_name" property="chal_name"/>
+		<result column="id" property="id"/>
+		<collection property="chall_list" ofType="challenge">
+			<result column="chal_name" property="chal_name" jdbcType="VARCHAR" />
+		</collection>
+	</resultMap>
+	
+	<select id="myChallList" resultMap="myChall">
+		SELECT c.chal_no as chal_no,chal_name
+		FROM mem_chal, challenge c
+		WHERE id = #{userId} AND completion_YN = 'N' AND success_YN = 'N' AND mem_chal.chal_no = c.chal_no;
+	</select>
 </mapper>
