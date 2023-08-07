@@ -22,9 +22,10 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	}
 	
 	@Override
-	public void challengeSinchung(HashMap map) {
+	public int challengeSinchung(HashMap map) {
 		System.out.println("Mybatis => chall sinchung");
-		mybatis.insert("ChallengeDAO.challengeSinchung", map);
+		int rst= mybatis.insert("ChallengeDAO.challengeSinchung", map);
+		return rst;
 	}
 
 	@Override
@@ -46,9 +47,9 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	}
 
 	@Override
-	public List<String> getMyChallengeList(String userId) {
+	public List<ChallengeVO> getMyChallengeList(String userId) {
 		System.out.println("Mybatis => my challenge list");
-		return mybatis.selectList("ChallengeDAO.getMyChallengeList",userId);
+		return mybatis.selectList("ChallengeDAO.myChallList",userId);
 	}
 
 }

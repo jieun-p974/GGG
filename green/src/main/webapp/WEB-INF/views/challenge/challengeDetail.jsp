@@ -14,6 +14,17 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
+var msg= "<c:out value='${msg}' />"
+var url= "<c:out value='${url}' />"
+
+console.log(msg);
+console.log(url);
+if(msg.length >0 && url.length >0){
+	
+	alert(msg);
+	location.href=url;
+}
+
 $(function(){
 	var html2 = "";
 	var star2 = "";

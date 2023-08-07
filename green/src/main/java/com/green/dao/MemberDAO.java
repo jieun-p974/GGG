@@ -28,7 +28,4 @@ public interface MemberDAO {
 	// 아이디 찾기
 	String searchID(String email);
 	
-	// 비밀번호 찾기
-	String searchPass(String email);
-	
 }

@@ -16,7 +16,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">		
 	$(function(){
-		// 사용자의 자료 입력여부를 검사하는 함수
+		
 			$("#confirm").on("click", function(){
 				if($("#name").val()==""){
 					alert("이름을 입력해주세요.");
@@ -43,13 +43,6 @@
 					$("#passCheck").focus();
 					return false;
 				}
-				
-				if($("#bday").val()==""){
-					alert("생년월일을 입력해주세요.");
-					$("#bday").focus();
-					return false;
-				}
-				
 				if($("#tel").val()==""){
 					alert("전화번호를 입력해주세요.");
 					$("#tel").focus();
@@ -66,31 +59,14 @@
 					return false;
 				}
 				
+			//		alert('가입을 축하합니다!');
+			//		window.close();
 					document.userinput.submit();
-					alert('가입을 축하합니다!');
+				
 			});
-		
-			// 아이디 중복체크
-			$('#id').keyup(function() {		
-				// 로그인 프로세스 호출
-				$.ajax({
-					type : 'post', // 전송방식
-					async : true, // 비동신통신
-					url : 'idCheck.do', // **** 요청
-					contentType : 'application/x-www-form-urlencoded;charset=UTF-8', // 한글
-					data : "id=" + $("#id").val(), // 클라이언트에서 보내는 데이타
-					success : function(resultData) { // 성공하면 함수연결
-						// alert("resultData = "+resultData)
-						$('#idCheckResult').html(resultData);
-					}
-				});
-			})	
 			
-	
-		}); //끝
+		});
 
-	
-        
 </script>
 
 <body>
@@ -106,8 +82,6 @@
 				<div class="info">
 					<p class="label">아이디</p>
 					<input class="insert" type="text" name="id" id="id"/>
-					<!-- 아이디 중복체크 -->
-					<span id="idCheckResult" style="font-size: 1rem; width: 150px; color: red;"></span>
 				</div>
 				<div class="info">
 					<p class="label">비밀번호</p>
@@ -119,25 +93,19 @@
 				</div>
 				
 				<div class="info">
-					<p class="label">생년월일</p>
-					<input class="insert" type="date" name="bday" id="bday"/>
-				</div>
-				
-				<div class="info">
 					<p class="label">전화번호</p>
 					<input class="insert" type="text" name="tel" id="tel"/>
 				</div>
 				
 				<div class="info">
 					<p class="label">이메일</p>
-					<input class="insert" type="text" name="email" id="email"/>				
+					<input class="insert" type="text" name="email" id="email"/>
 				</div>
-				
 				<div class="info">
 					<p class="label">이메일 인증</p>
 					<div class="e-valid">
-						<input type="number" name="emailCheck" id="emailCheck" placeholder="  인증번호를 입력하세요. "/>
-						<button type="submit" class="idenBtn" name="idenBtn" id="idenBtn">인증번호 발송</button>
+						<input type="text" name="emailCheck" id="emailCheck"/>
+						<button class="idenBtn">인증</button>
 					</div>
 				</div>
 				
