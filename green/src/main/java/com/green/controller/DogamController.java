@@ -19,7 +19,6 @@ public class DogamController {
 	@Autowired
 	private DogamService dogamService;
 	
-	
 	//화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
@@ -52,11 +51,8 @@ public class DogamController {
 	// img insert
 	@RequestMapping(value="/modiDogam.do")
 	public String dogamImgInsert(DogamVO vo) throws IOException{
-		System.out.println("컨트롤러 돌리기전 "+vo.getDo_title());
 		dogamService.dogamImgInsert(vo);
-		System.out.println("컨트롤러 돌리고 나서 "+vo.getDo_title());
-		//return "redirect:/dogam/dogamModify.do?do_no="+vo.getDo_no();
-		return "redirect:/dogam/dogamCheck.do";
+		return "redirect:/dogam/dogamModify.do?do_no="+vo.getDo_no();
 	}
 	
 	// delete

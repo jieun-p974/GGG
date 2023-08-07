@@ -38,10 +38,11 @@ $('#do_lev').change(function() {
 					<input type="text" id="do_title" name="do_title" value="${dogam.do_title}" readonly/>
 						
 				<label for="do_lev">레벨</label> 
-				<input type="radio" name="do_lev" id="do_lev" value="1">1
-				<input type="radio" name="do_lev" id="do_lev" value="2">2
-				<input type="radio" name="do_lev" id="do_lev" value="3">3
-					
+				<select name="do_lev" id="do_lev">
+				<option value=1> 1 </option>
+				<option value=2> 2 </option>
+				<option value=3> 3 </option>
+				</select>	
 					<input type="file" id="file" name="file">
 					<div class="buttons" style="margin-top:2%">
 						<button>취소</button>
