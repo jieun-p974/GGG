@@ -41,4 +41,8 @@ public class CommunityDAOImpl implements CommunityDAO {
 		mybatis.update("CommunityDAO.deleteCommunity", vo);
 	}
 	
+	public List<CommunityVO> getMyCommunityList(String id) {
+		System.out.println("Mybatis=> my community");
+		return mybatis.selectList("CommunityDAO.getMyCommunityList", id);
+	}
 }

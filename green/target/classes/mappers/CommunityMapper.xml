@@ -11,6 +11,10 @@
 		SELECT * FROM board ORDER BY board_no desc
 	</select>
 	
+	<select id="getMyCommunityList" resultType="community">
+		SELECT * FROM board WHERE id = #{id} ORDER BY board_no desc	
+	</select>
+	
 	<!-- select one Community -->
 	<select id="getCommunityDetail" parameterType="community" resultType="community">
 		SELECT * FROM board WHERE board_no = #{board_no}

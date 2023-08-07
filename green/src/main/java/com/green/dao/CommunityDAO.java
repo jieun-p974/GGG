@@ -15,4 +15,7 @@ public interface CommunityDAO {
 
 	public void deleteCommunity(CommunityVO vo);
 
+	public List<CommunityVO> getMyCommunityList(String id);
+
+
 }

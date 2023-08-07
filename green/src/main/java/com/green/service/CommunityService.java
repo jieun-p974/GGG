@@ -19,4 +19,9 @@ public interface CommunityService {
 
 	//delete
 	void deleteCommunity(CommunityVO vo);
+
+	//my Community
+	List<CommunityVO> getMyCommunityList(String id);
+	
+
 }

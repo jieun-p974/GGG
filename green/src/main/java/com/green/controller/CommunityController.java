@@ -36,9 +36,13 @@ public class CommunityController {
 	
 	// community list
 	@RequestMapping("/community.do")
-	public void getChallengeList(Model model) {
+	public void getChallengeList(Model model,String id) {
 		List<CommunityVO> list = null;
-		list = communityService.getCommunityList();
+		if (id != null) {
+			list = communityService.getMyCommunityList(id);
+		} else {
+			list = communityService.getCommunityList();
+		}
 		model.addAttribute("list", list);
 	}
 	

@@ -30,19 +30,22 @@
 					</div>
 					<div class="comm_img">
 						<label for="comm_img">사진 첨부하기1</label>
-						<input type="file" name="file1" onchange="readURL1(this)" value="${comm.b_img1_addr}">
+						<input type="file" name="file1" onchange="readURL1(this)" />
+						<input type="hidden" name="b_img1_addr" value="${comm.b_img1_addr}" />
 						<div id="previewDiv1">
-						<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img1_addr}" style="border: 1px solid black" />
+							<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img1_addr}" style="border: 1px solid black" />
 						</div>
 						<label for="comm_img">사진 첨부하기2</label>
-						<input type="file" name="file2" onchange="readURL2(this)" value="${comm.b_img2_addr}">
+						<input type="file" name="file2" onchange="readURL2(this)" />
+						<input type="hidden" name="b_img2_addr" value="${comm.b_img2_addr}" />
 						<div id="previewDiv2">
-						<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img2_addr}" style="border: 1px solid black" />
+							<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img2_addr}" style="border: 1px solid black" />
 						</div>
 						<label for="comm_img">사진 첨부하기3</label>
-						<input type="file" name="file3" onchange="readURL3(this)" value="${comm.b_img3_addr}">
+						<input type="file" name="file3" onchange="readURL3(this)" />
+						<input type="hidden" name="b_img3_addr" value="${comm.b_img3_addr}" />
 						<div id="previewDiv3">
-						<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img3_addr}" style="border: 1px solid black" />
+							<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img3_addr}" style="border: 1px solid black" />
 						</div>
 					</div>
 					<div class="buttons">

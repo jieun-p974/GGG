@@ -33,9 +33,9 @@
 					<div class="community">
 						<div class="content_left">
 							<div class="profile">
-								<img src="" alt="" class="p_img" />
 								<!-- member 테이블에서 m_img 가져오기 -->
-
+							<!-- 	<img class="p_img" src="/resources/imgs/member/${userImgAddr}"/>    -->
+								<img src="" alt="" class="p_img" />
 							</div>
 							<div class="memBtns">
 								<c:if test="${sessionScope.userId == community.id}">
@@ -78,7 +78,7 @@
 										style="border: 1px solid black" />
 								</c:if>
 							</div>
-							<a class="writing">${community.b_content}</a>
+							<pre class="writing"><c:out value="${community.b_content}" /></pre>
 
 							<div class="comments">
 								<!-- 반목문 돌려서 가져오기 -->
@@ -95,7 +95,9 @@
 
 			<div class="tabs">
 				<div class="buttons">
-					<button class="myBtn">내 피드</button>
+					<button class="myBtn" >
+						<a href="community.do?id=${sessionScope.userId}" class="myBtn">내 피드</a>
+					</button>
 					<button class="writeBtn" id="writeBtn" onclick="insert()">글쓰기</button>
 				</div>
 				<div class="searching">

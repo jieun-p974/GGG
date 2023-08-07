@@ -77,6 +77,7 @@ public class MemberController {
 			session.setAttribute("userPoint", memberVo.getRemainder_point());
 			session.setAttribute("userImg", memberVo.getM_img());
 			session.setAttribute("userVo", memberVo);
+			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
 		}
 
 		return "redirect:/member/mypage.do";
