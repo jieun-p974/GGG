@@ -8,7 +8,7 @@ import com.green.domain.ChallengeVO;
 public interface ChallengeDAO {
 	public void challengeWrite(ChallengeVO vo);
 
-	public void challengeSinchung(HashMap map);
+	public int challengeSinchung(HashMap map);
 	
 	public List<ChallengeVO> getChallengeList();
 	
@@ -16,5 +16,5 @@ public interface ChallengeDAO {
 	
 	public void updateChallenge(ChallengeVO vo);
 	
-	public List<String> getMyChallengeList(String userId);
+	public List<ChallengeVO> getMyChallengeList(String userId);
 }
