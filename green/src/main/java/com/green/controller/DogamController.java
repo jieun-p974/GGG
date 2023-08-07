@@ -52,7 +52,8 @@ public class DogamController {
 	@RequestMapping(value="/modiDogam.do")
 	public String dogamImgInsert(DogamVO vo) throws IOException{
 		dogamService.dogamImgInsert(vo);
-		return "redirect:/dogam/dogamModify.do?do_no="+vo.getDo_no();
+		//return "redirect:/dogam/dogamModify.do?do_no="+vo.getDo_no();
+		return "redirect:/dogam/dogamCheck.do";
 	}
 	
 	// delete

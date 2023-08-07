@@ -43,7 +43,7 @@ $('#do_lev').change(function() {
 				<option value=2> 2 </option>
 				<option value=3> 3 </option>
 				</select>	
-					<input type="file" id="file" name="file">
+					<input type="file" id="file" name="file"/>
 					<div class="buttons" style="margin-top:2%">
 						<button>취소</button>
 						<button type="submit">수정하기</button>
