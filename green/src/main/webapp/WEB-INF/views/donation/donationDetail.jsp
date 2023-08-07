@@ -62,12 +62,12 @@
 				</div>
 			</div>
 			<div class="content">
-				<div class="logo_intro">
-					<img class="logos" src="../../../resources/imgs/logo4.png" />
-					<h1 class="ggg" value="${dona.don_name }">${dona.don_summary}
+			 <div class="logo_intro">
+					<img class="logos" src="../../../resources/imgs/logo4.png" /> 
+ 					<h1 class="ggg" value="${dona.don_name }">${dona.don_summary}
 					</h1>
 				</div>
-				<img class="pic" src="" />
+				<img class="pic" src="/resources/imgs/donaImg/${dona.d_img1_addr}" />
 			</div>
 		</div>
 	</div>
