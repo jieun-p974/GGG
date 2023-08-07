@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DogamDAO">
+	
+	<!-- dogam list -->
+	<select id="getDogamList" resultType="dogam">
+		SELECT * FROM dogam ORDER BY do_no
+	</select>
+
+	<!-- news detail -->
+	<select id="getDogam" parameterType="dogam" resultType="dogam">
+		SELECT * FROM dogam WHERE do_no=#{do_no}
+	</select>
+	
+	<!-- dogam insert -->
+	<insert id="dogamInsert" parameterType="dogam">
+		INSERT INTO dogam (do_title, do_content)
+		VALUES (#{do_title}, #{do_content})
+	</insert>
+		
+	<!-- dogam img insert -->
+	<insert id="dogamImgInsert" parameterType="dogam">
+		INSERT INTO lv_dogam (do_no, do_lev, do_img, do_img_addr)
+		VALUES (#{do_no}, #{do_lev}, #{do_img}, #{do_img_addr})
+	</insert>	
+		
+	<!-- dogam delete -->
+	<delete id="dogamDelete" parameterType="dogam">
+		DELETE FROM dogam WHERE do_no = #{do_no}
+	</delete>
+	
+</mapper>

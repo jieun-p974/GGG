@@ -18,9 +18,6 @@
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
-window.onload = function(){
-	document.getElementById('adding').onclick = check;				
-}
 	$(function(){
 		 $.datepicker.setDefaults($.datepicker.regional['ko']);
 		 $("#chal_start_date").datepicker({
