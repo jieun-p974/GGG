@@ -8,7 +8,7 @@
 	</insert>
 	
 	<select id="getCommunityList" resultType="community">
-		SELECT * FROM board ORDER BY board_no desc
+		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr FROM board b, member m WHERE m.id= b.id ORDER BY b.board_no desc
 	</select>
 	
 	<select id="getMyCommunityList" resultType="community">

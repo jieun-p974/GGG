@@ -34,8 +34,7 @@
 						<div class="content_left">
 							<div class="profile">
 								<!-- member 테이블에서 m_img 가져오기 -->
-							<!-- 	<img class="p_img" src="/resources/imgs/member/${userImgAddr}"/>    -->
-								<img src="" alt="" class="p_img" />
+							 	<img class="p_img" src="/resources/imgs/member/${community.m_img_addr}"/> 
 							</div>
 							<div class="memBtns">
 								<c:if test="${sessionScope.userId == community.id}">
