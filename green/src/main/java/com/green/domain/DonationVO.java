@@ -17,6 +17,24 @@ public class DonationVO {
 	private Date don_start_day;
 	private Date don_end_day;
 	
+	public DonationVO() {
+		
+	}
+	public DonationVO(int don_no,String don_name,String don_ex,String don_summary,int don_point_sum,String d_img1_nn,
+			String d_img2,String d_img3,int don_goal,Date don_start_day,Date don_end_day) {
+		this.don_no=don_no;
+		this.don_name=don_name;
+		this.don_ex=don_ex;
+		this.don_summary=don_summary;
+		this.don_point_sum=don_point_sum;
+		this.d_img1_nn=d_img1_nn;
+		this.d_img2=d_img2;
+		this.d_img3=d_img3;
+		this.don_goal=don_goal;
+		this.don_start_day=don_start_day;
+		this.don_end_day=don_end_day;
+	}
+	
 	public int getDon_no() {
 		return don_no;
 	}

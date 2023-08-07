@@ -36,7 +36,7 @@
             힘들때면 환경을 지키고자하는 수많은 동료들과 커뮤니티에서
             소통해보세요!<br /><br />이제 준비가 되셨다면 텀블러에 커피를,
             다회용기에 음식을 포장하는 것에서부터 같이 시작해봅시다.<br /><br />
-            <button onclick="location.href='../pay/challengePay.do'">GGG와 함께 하기</button>
+            <button onclick="location.href='../pay/challengePay.do?userId=${userId}'">GGG와 함께 하기</button>
           </div>
         </div>
       </div>
@@ -58,7 +58,6 @@
           <img class="grade_img" src="" />
           <div class="grade_txt">위급등급</div>
         </div>
-
         <div class="grade_content">
           <div class="grade_content_txt">
             멸종 위기 동물에도 등급이 있다는 사실,<br />알고 계신가요?

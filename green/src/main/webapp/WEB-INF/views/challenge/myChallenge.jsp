@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +20,9 @@
 			<div class="now-chall">
 				<p class="now_txt">내 도전목록</p>
 				<ul class="now_lists">
-					<li class="now_list">마트갈때 장바구니 들고가기</li>
-					<li class="now_list">주말마다 플로깅하기</li>
-					<li class="now_list">가나다라마바사</li>
+					<c:forEach items="${myChall}" var="c">
+					<li class="now_list">${c.chal_name}</li>
+					</c:forEach>
 				</ul>
 			</div>
 			<div class="completed">

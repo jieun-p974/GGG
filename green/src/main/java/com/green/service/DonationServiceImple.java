@@ -19,11 +19,13 @@ public class DonationServiceImple implements DonationService {
 //		donationDAO.insertDona(vo);
 //	}
 
+	//List 
 	@Override
 	public List<DonationVO> selectDona() {
 		return donationDAO.selectDona();
 	}
 
+	//get one
 	@Override
 	public DonationVO getDona(DonationVO vo) {
 		return donationDAO.getDona(vo);

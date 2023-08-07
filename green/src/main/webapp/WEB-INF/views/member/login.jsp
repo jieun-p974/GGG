@@ -11,26 +11,24 @@
 <title>로그인</title>
 </head>
 <script>
-	window.onload = function(){
-		document.getElementById('Submit').onclick = check;	
+	window.onload = function() {
+		document.getElementById('Submit').onclick = check;
 	}
 
 	function check() {
-		if(document.form.id.value==""){
+		if (document.form.id.value == "") {
 			alert("ID를 입력하세요.")
 			document.form.id.focus();
 			return false;
 		}
-		
-		if(document.form.password.value==""){
+		if (document.form.password.value == "") {
 			alert("패스워드를 입력하세요.")
 			document.form.password.focus();
 			return false;
 		}
-
 		
 		document.form.submit();	//전송
-					
+
 	}
 
 </script>
@@ -39,9 +37,7 @@
 	<div class="container">
 		<form name="form" action="loginSave.do" method="post" name="userinput">
 			<div class="login">
-				<img class="logo" src="../../../resources/imgs/logo.png"
-				alt="로고" onclick="location.href='../../index.jsp'">
-
+				<img class="logo" src="../../../resources/imgs/logo.png" alt="로고" onclick="location.href='../../index.jsp'">
 				<div class="info">
 					<p class="label">아이디&nbsp&nbsp</p>
 					<input class="insert" type="text" name="id" id="id">

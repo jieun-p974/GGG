@@ -11,14 +11,10 @@
 		<typeAlias alias="index" type="com.green.domain.IndexVO" />
 		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />
 		<typeAlias alias="news" type="com.green.domain.NewsVO" />   
-
-		<!-- 아영선배 여기에 vo 추가하셔서 alias 명을 변수명으로 쓰시는 거셔~ 여기에 적은거 친구를 맵퍼에서 사용하심 되셔 -->
 		<typeAlias alias="dona" type="com.green.domain.DonationVO"/>
-
 		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />   
-
+		<typeAlias alias="memChallenge" type="com.green.domain.MemChallengeVO"/>
 		<typeAlias alias="community" type="com.green.domain.CommunityVO" />   
-
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
 	</typeAliases>
 	

@@ -65,17 +65,6 @@ thead {
   margin-bottom: 2%;
 }
 
-.main2 {
-  display: grid;
-  background: #445c4c;
-  width: 100%;
-  height: auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-  padding: 2% 0;
-}
-
 .checkList {
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;
@@ -94,6 +83,19 @@ thead {
   justify-items: end;
   row-gap: 5%;
 }
+
+.main2 {
+  display: grid;
+  background: #445c4c;
+  width: 100%;
+  height: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  padding: 2% 0;
+}
+
+
 
 .commuList {
   display: grid;

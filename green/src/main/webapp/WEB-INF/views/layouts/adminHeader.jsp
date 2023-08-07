@@ -9,7 +9,10 @@ String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
 String userSdate = (String) session.getAttribute("userSdate");
-String userBday = (String) session.getAttribute("userBday");
+String userCard = (String) session.getAttribute("userCard");
+String userAccount = (String) session.getAttribute("userAccount");
+String userImg = (String) session.getAttribute("userImg");
+String userImgAddr = (String) session.getAttribute("userImgAddr");
 
 System.out.println("현재 세션 : " + userId);
 %>
@@ -23,15 +26,18 @@ System.out.println("현재 세션 : " + userId);
 <body>
 	<div class="header">
 		<div>
-			<a href="adminMain.do"> <img class="logo" src="../../resources/imgs/logo.png" /></a>
+			<a href="../member/adminMain.do"> <img class="logo" src="../../resources/imgs/logo.png" /></a>
 		</div>
 		
 		<div class="menu_grop">
 			<ul class="menu_list">
-				<li><a href="../challenge/adminChallenge.do">챌린지관리&nbsp&nbsp</a></li>
-				<li><a href="../community/community.do">&nbsp&nbsp커뮤니티 관리&nbsp&nbsp</a></li>
+				<li><a href="../community/community.do">커뮤니티 관리&nbsp&nbsp</a></li>
+				<li><a href="../challenge/adminChallenge.do">&nbsp&nbsp챌린지관리&nbsp&nbsp</a></li>
+				<li><a href="../dogam/adminDogam.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
+				<li><a href="../donation/donation.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
 				<li><a href="../news/newsCheck.do">&nbsp&nbsp뉴스관리</a></li>
-				<li><a href="../donation/donation.do">&nbsp&nbsp기부관리</a></li>
+
+
 			</ul>
 		</div>
 		

@@ -132,7 +132,7 @@
 </head>
 <body>
 	<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
+		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="newsCheckList">
 			<div class="title">뉴스 관리 페이지</div>
 			<div class="top">

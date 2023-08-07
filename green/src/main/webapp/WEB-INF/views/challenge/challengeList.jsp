@@ -23,20 +23,20 @@ $(function(){
 	<c:forEach items="${list}" var="chall">
 	var star2 = "";
 	
-	for(var i = 0; i < ${chall.difficulty}; i++){
+	for(var i = 0; i < ${chall.difficulty}; i++) {
 		star2 += "★";
 	}
-	for(var i = 0; i < 5-${chall.difficulty}; i++){
+	for(var i = 0; i < 5-${chall.difficulty}; i++) {
 		star2 += "☆";
 	}
 	html2 += '<div class="c_list">';
-	html2 += '<div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+	html2 += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
 	html2 += '<p class="c_list_txt">${chall.chal_name}</p>';
 	html2 += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 	html2 += '<p class="c_list_lv">난이도 : ';
 	html2 += star2;
 	html2 += '</p>';
-	html2 += '</div>';
+	html2 += '</a></div>';
 </c:forEach>
 $("#chall").empty();
 $("#chall").append(html2);
@@ -59,13 +59,13 @@ $("#chall").append(html2);
 					star += "☆";
 				}
 				html += '<div class="c_list">';
-				html += '<div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
 				html += '<p class="c_list_txt">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
 				html += '</p>';
-				html += '</div>';
+				html += '</a></div>';
 			</c:if>
 			</c:forEach>
 			$("#chall").empty();
@@ -83,13 +83,13 @@ $("#chall").append(html2);
 					star += "☆";
 				}
 				html += '<div class="c_list">';
-				html += '<div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
 				html += '<p class="c_list_txt">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
 				html += '</p>';
-				html += '</div>';
+				html += '</a></div>';
 			</c:if>
 			</c:forEach>
 			$("#chall").empty();
@@ -106,13 +106,13 @@ $("#chall").append(html2);
 					star += "☆";
 				}
 				html += '<div class="c_list">';
-				html += '<div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
 				html += '<p class="c_list_txt">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
 				html += '</p>';
-				html += '</div>';
+				html += '</a></div>';
 			</c:forEach>
 			$("#chall").empty();
 			$("#chall").append(html);
