@@ -18,11 +18,12 @@ public class NewsVO {
 	private int news_no;
 	private String id_manager;
 	private int cat_no;
-	private String n_title;
+	private String n_title;	
 	private String n_content;
+	private String n_content2;
+	private String n_content3;
 	private LocalDateTime n_reg_date;
 	private String n_img1_nn;
-	private String n_img1_addr;
 	
 	public NewsVO() {
 		
@@ -60,6 +61,22 @@ public class NewsVO {
 		this.n_content = n_content;
 	}
 
+	public String getN_content2() {
+		return n_content2;
+	}
+
+	public void setN_content2(String n_content2) {
+		this.n_content2 = n_content2;
+	}
+
+	public String getN_content3() {
+		return n_content3;
+	}
+
+	public void setN_content3(String n_content3) {
+		this.n_content3 = n_content3;
+	}
+
 	public String getN_title() {
 		return n_title;
 	}
@@ -83,13 +100,4 @@ public class NewsVO {
 	public void setN_img1_nn(String n_img1_nn) {
 		this.n_img1_nn = n_img1_nn;
 	}
-
-	public String getN_img1_addr() {
-		return n_img1_addr;
-	}
-
-	public void setN_img1_addr(String n_img1_addr) {
-		this.n_img1_addr = n_img1_addr;
-	}
-	
 }

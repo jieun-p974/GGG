@@ -18,6 +18,7 @@ public class PayDAOImpl implements PayDAO{
 		System.out.println("getPay");
 		List<MemberVO> list= mybatis.selectList("payDAO.getPay",userId);
 		System.out.println(userId);
+		System.out.println(list.get(0).getAcc_num());
 		return list;
 	}
 

@@ -42,6 +42,10 @@
 						</tr>
 					</table>
 					<button class="post" onclick="location.href='../community/notification.do'">글 작성</button>
+				
+					<button class="post" onclick="location.href='../dogam/dogamWrite.do'">도감추가</button>
+				
+				
 				</div>
 			</div>
 			<div class="main2">
