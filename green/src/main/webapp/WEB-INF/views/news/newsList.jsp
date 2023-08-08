@@ -25,7 +25,7 @@
 					<c:if test="${news.cat_no == 1}">
 						html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 						html+='<div class="news_thum">';
-						html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+						html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 						html+='</div>';
 						html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 						html+='</a>';
@@ -38,7 +38,7 @@
 					<c:if test="${news.cat_no == 2}">
 						html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 						html+='<div class="news_thum">';
-						html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+						html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 						html+='</div>';
 						html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 						html+='</a>';
@@ -51,7 +51,7 @@
 				<c:if test="${news.cat_no == 3}">
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<div class="news_thum">';
-					html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 					html+='</div>';
 					html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 					html+='</a>';
@@ -64,7 +64,7 @@
 				<c:if test="${news.cat_no == 4}">
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<div class="news_thum">';
-					html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 					html+='</div>';
 					html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 					html+='</a>';
@@ -78,7 +78,7 @@
 				<c:if test="${news.cat_no == 5}">
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<div class="news_thum">';
-					html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 					html+='</div>';
 					html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 					html+='</a>';
@@ -91,7 +91,7 @@
 				<c:if test="${news.cat_no == 6}">
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<div class="news_thum">';
-					html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 					html+='</div>';
 					html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 					html+='</a>';
@@ -103,7 +103,7 @@
 				<c:forEach items="${list}" var="news">
 				html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 				html+='<div class="news_thum">';
-				html+='<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">';
+				html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
 				html+='</div>';
 				html+='<div class="news_title">작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}</div>';
 				html+='</a>';
@@ -136,7 +136,7 @@
 					<c:forEach items="${list}" var="news">
 						<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">
 							<div class="news_thum">
-								<img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail">
+								<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">
 							</div>
 							<div class="news_title">
 								작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}

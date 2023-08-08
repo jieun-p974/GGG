@@ -26,7 +26,7 @@ $(function(){
 		<div class="newsWriting">
             <div class="title">관리자 뉴스 작성 페이지</div>
 			<div class="writing">
-				<form action="modifyNews.do" method="post">
+				<form action="modifyNews.do" method="post" enctype="multipart/form-data">
 				<input name="news_no" type="hidden" value="${news.news_no}" />
 				<label for="cat_no">카테고리</label> 
 				<select name="cat_no" id="cat_no" class="category" value="${news.cat_no}">
@@ -44,7 +44,7 @@ $(function(){
 					<input type="text" id="n_title" name="n_title" value="${news.n_title}">
 					<textarea name="n_content" id="n_content" placeholder="내용을 입력해 주세요."
 						style="margin-top: 1%">${news.n_content}</textarea>
-					<input type="file" id="n_img1_nn" name="n_img1_nn">
+					<input type="file" id="file" name="file" value="/resources/imgs/newsImg/${news.n_img1_addr}">
 					<div class="buttons" style="margin-top:2%">
 						<button>취소</button>
 						<button type="submit">수정하기</button>
