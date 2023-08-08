@@ -81,7 +81,7 @@ public class ChallengeController {
 	
 	// my challenge
 	 @RequestMapping(value = "/myChallenge.do") 
-	 public void getMyChallenge(Model model,String userId) { 
+	 public void getMyChallenge(    Model model,String userId) { 
 		 System.out.println("컨트롤러"+userId);
 		 List<ChallengeVO> list = null; 
 		 list =	challengeService.getMyChallengeList(userId);

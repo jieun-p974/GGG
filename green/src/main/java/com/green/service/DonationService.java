@@ -6,8 +6,13 @@ import com.green.domain.DonationVO;
 
 public interface DonationService {
 
-	//기부 등록
-	//void insertDona(DonationVO vo);
+	//기부처 등록
+	void insertDona(DonationVO vo);
+	//기부처 수정
+    void updateDona(DonationVO vo);
+	
+	//기부처 삭제
+	void deleteDona(DonationVO vo);
 	
 	//select
 	List<DonationVO> selectDona();

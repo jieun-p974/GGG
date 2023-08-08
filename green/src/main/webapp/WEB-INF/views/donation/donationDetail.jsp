@@ -25,7 +25,7 @@
 			<div class="main">
 				<div class="title">
 					<p>용기 있는 행동에 힘을 보태고 싶습니다.</p>
-					<button class="donaBtn">기부하기</button>
+					<button class="donaBtn"><a href="goDonation.do">기부하기</a></button>
 				</div>
 				<div class="barUpper">
 					<!-- 포인트 퍼센트 -->
@@ -36,7 +36,7 @@
 					<!-- 디데이 계산 -->
 					<fmt:parseNumber value="${now.time / (1000*60*60*24)}"
 						integerOnly="true" var="nowfmtTime" scope="request" />
-					<fmt:parseNumber value="${dona.don_end_day.time / (1000*60*60*24)}"
+					<fmt:parseNumber value="${dona.don_end_date.time / (1000*60*60*24)}"
 						integerOnly="true" var="dbDtParse" scope="request" />
 
 					<div class="d_day">D-${dbDtParse - nowfmtTime + 1}</div>
@@ -50,8 +50,8 @@
 				</div>
 				
 				<div class="barDown">
-					<div class="donadate">${dona.don_start_day}~
-						${dona.don_end_day}까지</div>
+					<div class="donadate">${dona.don_start_date}~
+						${dona.don_end_date}까지</div>
 					<div class="nowpoint">${dona.don_point_sum } / ${dona.don_goal }
 						Point</div>
 				</div>
@@ -62,12 +62,12 @@
 				</div>
 			</div>
 			<div class="content">
-				<div class="logo_intro">
-					<img class="logos" src="../../../resources/imgs/logo4.png" />
-					<h1 class="ggg" value="${dona.don_name }">${dona.don_summary}
+			 <div class="logo_intro">
+					<img class="logos" src="../../../resources/imgs/logo4.png" /> 
+ 					<h1 class="ggg" value="${dona.don_name }">${dona.don_ex}
 					</h1>
 				</div>
-				<img class="pic" src="" />
+				<img class="pic" src="/resources/imgs/donaImg/${dona.d_img1_addr}" />
 			</div>
 		</div>
 	</div>
