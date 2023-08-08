@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.green.domain.DonationVO;
+import com.green.domain.MemberVO;
 import com.green.domain.NewsVO;
 import com.green.service.DonationService;
 
@@ -37,10 +39,13 @@ public class DonationController {
 	//수정
 	@RequestMapping(value="/updateDona.do")
 	public String updateDona(@ModelAttribute("dona") DonationVO vo) {
+		System.out.println("control"+vo.getDon_name());
+		System.out.println("control"+vo.getDon_start_date());
 		donationService.updateDona(vo);
-		return "redirect:donationModify.do?don_no="+vo.getDon_no();
+		//return "redirect:donationModify.do?don_no="+vo.getDon_no();
+		return "redirect:adDonationList.do";
 	}
-	
+		
 	//삭제
 	@RequestMapping(value="/deleteDona.do")
 	public String deleteDona(DonationVO vo) {

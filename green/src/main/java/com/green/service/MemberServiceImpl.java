@@ -67,6 +67,12 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
+	@Override
+	public void goDona(MemberVO vo) {
+		 memberDAO.goDona(vo);
+		
+	}
+
 	
 	
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,6 @@
 <link href="../../../resources/styles/challengeInsert.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
-	window.onload = function() {
-		document.getElementById('adding').onclick = check;
-	}
 	function cancleInsert() {
 		location.href = "adDonationList.do"
 	}
@@ -59,9 +57,7 @@
 						$("#startDate").datepicker("option", "maxDate", selectedDate);
 					}
 				});
-			});
-
-
+			}); 
 </script>
 <title>기부처 등록</title>
 </head>
@@ -71,7 +67,7 @@
 		<div class="dona_insert">
 			<div class="insert_box">
 				<p class="title">기부처 수정</p>
-				<form action="updateDona.do" method="post">
+				<form action="updateDona.do" method="post" enctype="multipart/form-data">
 				<input name="don_no" type="hidden" value="${dona.don_no}">
 					<div class="don_name">
 						<label for="don_name">기부처명</label> 
@@ -79,11 +75,11 @@
 					</div>
 					<div class="don_start_date">
 						<label for="don_start_date">기부 시작일</label>
-						<input type="text" name="don_start_date" id="don_start_date" value="${dona.don_start_date}"  autocomplete="off">
+						<input type="text" name="don_start_date" id="don_start_date" value="${dona.don_start_date}" autocomplete="off">
 					</div>
 					<div class="don_end_date">
 						<label for="don_end_date">기부 종료일</label>
-						<input type="text" name="don_end_date" id="don_end_date" value="${dona.don_end_date}"  autocomplete="off">
+						<input type="text" name="don_end_date" id="don_end_date" value="${dona.don_end_date}" autocomplete="off">
 					</div>
 					<div class="don_goal">
 						<label for="don_goal">목표 포인트</label>

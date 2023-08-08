@@ -18,5 +18,7 @@ public interface MemberService {
 	public MemberVO adminLogin(MemberVO vo);
 	
 	public String searchID(HttpServletResponse response, String email) throws Exception;
+	
+	void goDona(MemberVO vo);
 
 }

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -161,6 +162,10 @@ public class MemberController {
 		md.addAttribute("id", memberService.searchID(response, email));
 		return "/member/searchID";
 	}
-	
+	@RequestMapping("/goDonation.do")
+	public String goDona(@ModelAttribute("member") MemberVO vo) {
+		memberService.goDona(vo);
+		return "/";
+	}
 
 }

@@ -10,6 +10,7 @@ public interface DonationService {
 	void insertDona(DonationVO vo);
 	//기부처 수정
     void updateDona(DonationVO vo);
+	
 	//기부처 삭제
 	void deleteDona(DonationVO vo);
 	

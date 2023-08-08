@@ -25,7 +25,7 @@
 			<div class="main">
 				<div class="title">
 					<p>용기 있는 행동에 힘을 보태고 싶습니다.</p>
-					<button class="donaBtn">기부하기</button>
+					<button class="donaBtn"><a href="goDonation.do">기부하기</a></button>
 				</div>
 				<div class="barUpper">
 					<!-- 포인트 퍼센트 -->

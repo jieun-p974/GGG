@@ -35,6 +35,7 @@ public class DonationDAOImple implements DonationDAO{
 	@Override
 	public void updateDona(DonationVO vo) {
 		System.out.println("mybatis==>updateDona");
+		System.out.println("dao"+vo.getDon_name());
 		mybatis.update("DonationDAO.updateDona",vo);
 	}
 
@@ -44,5 +45,7 @@ public class DonationDAOImple implements DonationDAO{
 		System.out.println("mybatis==>deleteDona");
 		mybatis.delete("DonationDAO.deleteDona",vo);
 	}
+
+
 
 }

@@ -14,7 +14,7 @@
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
-	console.log("저기요...");
+
 </script>
 <title>Insert title here</title>
 </head>
@@ -25,6 +25,7 @@
 			<p class="title">열심히 모은 포인트를 지구를 위해 사용해 보세요</p>
 			<div class="gibu_list">
 				<c:forEach items="${list}" var="dona">
+				<c:set var="total" value="${total+dona.don_point_sum}"/>
 					<div class="gibu">
 						<div class="rectangel">
 							<a href="donationDetail.do?don_no=${dona.don_no}"> 
@@ -56,7 +57,8 @@
 				<p class="nowTxt">여러분의 참여로 이만큼 모였어요</p>
 			</div>
 			<div class="dona_now_txt">
-				<p class="txt">총 기부 포인트 899,922P</p>
+	
+				<p class="txt">총 기부 포인트 <c:out value="${total}"/>P</p>
 				<p class="txt">기부 참여 인원 11,521명</p>
 			</div>
 		</div>
