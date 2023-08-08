@@ -28,7 +28,7 @@
 		<%@include file="../layouts/header.jsp"%>
 		<div class="mem_info">
 			<div class="member">
-				<img class="member_img" src="../../resources/imgs/default_mem_img.png" />
+				<img class="member_img" src="/resources/imgs/member/${userImgAddr}"/>
 				<div class="name_bel">
 					<label class="member_name"> ${userName} 님 </label>
 					<div class="icon">
@@ -49,9 +49,8 @@
 				<fmt:parseNumber var="sdate2" value="${sdate.time / (1000*60*60*24)}" integerOnly="true" scope="request"/>
 			
 			
-				<p class="member_count"> ${userName} 님 어서오세요! <br/><br/>
-				GGG와 함께한지 ${today-sdate2}일 째</p>
-
+            	<p class="member_count"> ${userId}&nbsp회원님&nbsp환영합니다! <br/><br/>
+          		  🌏&nbspGGG와 함께한지 ${today-sdate2}일 째&nbsp🌏</p>
 				<button class="member_edit" onclick="location.href='infoEdit.do'">회원정보 수정</button>
 				<p class="member_point">
 					보유포인트 : ${userPoint} p <br/><br/> 
@@ -69,9 +68,8 @@
 						
 					</div>
 					<div class="buttons">
-						<button class="cardBtn" onclick="cardRegist()">간편 카드 등록</button>
-						<button class="accountBtn" onclick="accountRegist()">간편계좌
-							등록</button>
+						<button class="cardBtn" onclick="location.href='../member/cardRegist.do?userId=${userId}'">간편카드 등록</button>
+						<button class="accountBtn" onclick="location.href='../member/accountRegist.do?userId=${userId}'">간편계좌 등록</button>
 					</div>
 				</div>
 
@@ -105,8 +103,8 @@
 								<p class="exp_now">Lv.2</p>
 								<p class="exp_end">성체</p>
 							</div>
-							<button class="dogamBtn"
-								onclick="window.open('../dogam/dogam.html')">도감확인</button>
+							<button class="dogamBtn" onclick="location.href='../dogam/dogam.do'">도감전체보기</button>
+							<button class="dogamBtn" onclick="location.href='../dogam/myDogam.do'">내도감보기</button>
 						</div>
 					</div>
 				</div>

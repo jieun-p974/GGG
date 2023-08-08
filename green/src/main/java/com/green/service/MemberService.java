@@ -16,8 +16,6 @@ public interface MemberService {
 	
 	public MemberVO login(MemberVO vo);
 	
-	public MemberVO adminLogin(MemberVO vo);
-	
 	public String searchID(HttpServletResponse response, String email) throws Exception;
 
 	public String searchPass(HttpServletResponse response, String email) throws Exception;

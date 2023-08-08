@@ -14,7 +14,19 @@ public class DogamServiceImpl implements DogamService {
 	@Autowired
 	private DogamDAO dogamDAO;
 
-	// get list
+	// get admin list
+	@Override
+	public List<DogamVO> getAdminDogam() {
+		return dogamDAO.getAdminDogam();
+	}
+	
+	// get admin list with img
+	@Override
+	public List<DogamVO> getAdminImgDogam(int do_no) {
+		return dogamDAO.getAdminImgDogam(do_no);
+	}
+	
+	// get dogam list
 	@Override
 	public List<DogamVO> getDogamList() {
 		return dogamDAO.getDogamList();
@@ -38,6 +50,12 @@ public class DogamServiceImpl implements DogamService {
 		dogamDAO.dogamImgInsert(vo);
 	}
 	
+	// update
+	@Override
+	public void dogamUpdate(DogamVO vo) {
+		dogamDAO.dogamUpdate(vo);
+	}
+	
 	// delete
 	@Override
 	public void dogamDelete(DogamVO vo) {
@@ -47,5 +65,5 @@ public class DogamServiceImpl implements DogamService {
 
 
 
-
+	
 }

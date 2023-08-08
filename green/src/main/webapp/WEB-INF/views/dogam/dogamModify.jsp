@@ -12,41 +12,26 @@
 <link href="../../../resources/styles/newsWrite.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
-<script type="text/javascript">
-/* $(function(){
-	var checkLv = "${dogam.do_lev}";
-	$("#do_lev").val(checkLv);
-}); */
 
-$('#do_lev').change(function() {
-	var value = document.getElementById('do_lev');
-	alert(value.val());
-});
-</script>
 <title>도감 수정</title>
 </head>
 <body>
 	<div class="container">
 		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="newsWriting">
-            <div class="title">관리자 도감 사진 첨부 페이지</div>
+            <div class="title">도감 수정 페이지</div>
 			<div class="writing">
-				<form action="modiDogam.do" method="post">
+				<form action="modifyDogam.do" method="post" id="dogamInput">
 				<input name="do_no" type="hidden" value="${dogam.do_no}" />
 			
-				<label for="do_name">동물 이름</label> 
-					<input type="text" id="do_title" name="do_title" value="${dogam.do_title}" readonly/>
-						
-				<label for="do_lev">레벨</label> 
-				<select name="do_lev" id="do_lev">
-				<option value=1> 1 </option>
-				<option value=2> 2 </option>
-				<option value=3> 3 </option>
-				</select>	
-					<input type="file" id="file" name="file"/>
+				<label for="do_title">동물 이름</label> 
+					<input type="text" id="do_title" name="do_title" value="${dogam.do_title}"/><br/><br/>
+				
+					<textarea type="text" id="do_content" name="do_content">${dogam.do_content}</textarea>
+				
 					<div class="buttons" style="margin-top:2%">
-						<button>취소</button>
-						<button type="submit">수정하기</button>
+						<button type="reset">취소</button>
+						<button id="write" type="submit">수정하기</button>
 					</div>
 				</form>
             </div>

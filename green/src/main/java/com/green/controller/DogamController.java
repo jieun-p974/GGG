@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.green.domain.DogamVO;
+import com.green.domain.NewsVO;
 import com.green.service.DogamService;
 
 @Controller
@@ -22,25 +25,40 @@ public class DogamController {
 	//화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("도감 요청");
 		return "/dogam/"+url;
 	}
 	
-	// get list -user or admin
-	@RequestMapping(value = {"/dogam.do","/dogamCheck.do"})
+	// get admin list
+	@RequestMapping(value = "/dogamCheck.do")
+	public void getAdminDogam(Model model) {
+		List<DogamVO> list = null;
+		list = dogamService.getAdminDogam();
+		model.addAttribute("list", list);
+	}
+	
+	// get admin list with img
+	@RequestMapping(value = {"/dogamCheckImg.do", "/dogamDetail.do"})
+	public void getAdminImgDogam(Model model, int do_no) {
+		List<DogamVO> list = null;
+		list = dogamService.getAdminImgDogam(do_no);
+		model.addAttribute("list", list);
+	}
+	
+	// get dogam list
+	@RequestMapping(value = {"/dogam.do", "/myDogam.do"})
 	public void getDogamList(Model model) {
 		List<DogamVO> list = null;
 		list = dogamService.getDogamList();
 		model.addAttribute("list", list);
-		System.out.println("요청 ");
 	}
 	
-	// get detail -user or admin
-	@RequestMapping(value = {"/dogamDetail.do","/dogamModify.do"})
-	public void getNews(DogamVO vo, Model model) {
+	// get dogam detail
+	@RequestMapping(value = {"/dogamModify.do"})
+	public void getDogam(DogamVO vo, Model model) {
 		model.addAttribute("dogam", dogamService.getDogam(vo));
 	}
 	
+
 	// insert
 	@RequestMapping(value="/saveDogam.do")
 	public String dogamInsert(DogamVO vo) throws IOException{
@@ -49,10 +67,16 @@ public class DogamController {
 	}
 	
 	// img insert
-	@RequestMapping(value="/modiDogam.do")
+	@RequestMapping(value="/saveImgDogam.do")
 	public String dogamImgInsert(DogamVO vo) throws IOException{
 		dogamService.dogamImgInsert(vo);
-		//return "redirect:/dogam/dogamModify.do?do_no="+vo.getDo_no();
+		return "redirect:/dogam/dogamCheck.do";
+	}
+	
+	// update
+	@RequestMapping(value="/modifyDogam.do")
+	public String dogamUpdate(@ModelAttribute("dogam") DogamVO vo) {
+		dogamService.dogamUpdate(vo);
 		return "redirect:/dogam/dogamCheck.do";
 	}
 	

@@ -28,7 +28,6 @@
 			return false;
 		}
 
-		
 		document.form.submit();	//전송
 					
 	}
@@ -58,7 +57,6 @@
 						<li><a href="../member/searchPass.do">비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
 						<li><a href="../member/signup.do">회원가입</a></li>
 					</ul>
-					<input type="button" class="adminBtn" value="관리자로그인" onclick="location.href='../member/adminLogin.do'">
 				</div>
 				<input type="button" class="loginBtn" value="로그인" name="Submit" id="Submit">
 			</div>

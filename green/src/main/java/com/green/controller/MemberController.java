@@ -33,9 +33,6 @@ public class MemberController {
    @Autowired
 	private MemberService memberService; 
 	 
-   
-   
-  
   // 회원가입  
    @RequestMapping("/signupSave.do")
    public ModelAndView userInsert(MemberVO vo) {
@@ -50,9 +47,7 @@ public class MemberController {
 	   mv.addObject("result", result);
 	   return mv;
    }
-  
-
-   
+     
    // 로그인 
 	@RequestMapping("/loginSave.do") // 가라페이지로 이동
 	public String login(MemberVO vo, HttpSession session) { 
@@ -66,7 +61,7 @@ public class MemberController {
 		else {
 			System.out.println("[" + result.getId() + "] 로그인 접속 ");
 			// 세션에 저장
-			session.setMaxInactiveInterval(60*30); //세션유지시간 30분
+			session.setMaxInactiveInterval(60*60); //세션유지시간 60분
 			session.setAttribute("sessionTime", new Date().toLocaleString());
 			session.setAttribute("userId", memberVo.getId());
 			session.setAttribute("userType", memberVo.getMem_type_no());
@@ -84,43 +79,8 @@ public class MemberController {
 			session.setAttribute("userVo", memberVo);
 		}
 
-		return "redirect:/member/mypage.do";
+		return "redirect:/member/main.do";
 	}
-	
-	   // 관리자로그인 
-		@RequestMapping("/adminLoginSave.do") // 가라페이지로 이동
-		public String adminLogin(MemberVO vo, HttpSession session) { 
-			// DB연결 확인
-			MemberVO result = memberService.idCheck_Login(vo);
-			MemberVO admin = memberService.adminLogin(vo);
-			MemberVO memberVo = memberService.memberInfo(vo);
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-			if (result == null || result.getId() == null) {
-				return "/member/adminLogin"; 		}
-			else {
-				System.out.println("[" + result.getId() + "] 로그인 접속 ");
-				// 세션에 저장
-				session.setMaxInactiveInterval(60*60); //세션유지시간 60분
-				session.setAttribute("sessionTime", new Date().toLocaleString());
-				session.setAttribute("userId", memberVo.getId());
-				session.setAttribute("userType", memberVo.getMem_type_no());
-				session.setAttribute("userPass", memberVo.getPassword());
-				session.setAttribute("userName", memberVo.getName());
-				session.setAttribute("userTel", memberVo.getTel());
-				session.setAttribute("userEmail", memberVo.getEmail());
-				session.setAttribute("userBday", simpleDateFormat.format(memberVo.getBday()).toString());
-				session.setAttribute("userSdate", simpleDateFormat.format(memberVo.getSdate()).toString());
-				session.setAttribute("userCard", memberVo.getCard_reg_YN());
-				session.setAttribute("userAccount", memberVo.getAccount_reg_YN());
-				session.setAttribute("userPoint", memberVo.getRemainder_point());
-				session.setAttribute("userImg", memberVo.getM_img());
-				session.setAttribute("userImgAddr", memberVo.getM_img_addr());
-				session.setAttribute("userVo", memberVo);
-			}
-
-			return "redirect:/member/adminMain.do";
-		}
-		
 		
 		@RequestMapping(value = "/idCheck.do", produces = "application/text; charset=utf8")
 		// 화면에서 보낸 결과 한글 깨짐 해결 -> produces = "application/text; charset=utf8"
