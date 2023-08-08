@@ -49,8 +49,8 @@
 							<td>${dona.don_name}</td>
 							<td>${dona.don_start_date}</td>
 							<td>${dona.don_end_date}</td>
-							<td><button><a href="donaModify.do?don_no=${dona.don_no}"> 수정 </a></button></td>
-							<td><button><a href="donaDelete.do?don_no=${dona.don_no}"> 삭제 </a></button></td>
+							<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}"> 수정 </a></button></td>
+							<td><button><a href="donaDelete.do?don_no=${dona.don_no}">삭제 </a></button></td>
 						</tbody>
 					</c:forEach>
 				</table>

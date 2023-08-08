@@ -27,8 +27,11 @@
 	<!-- 기부처 update -->
 	<update id="updateDona" parameterType="dona">
 	UPDATE donation SET
-	don_no=#{don_no}, don_name=#{don_name},
-	don_summary=#{don_summary},d_img1_nn=#{d_img1_nn}
+	don_name=#{don_name},
+	don_start_date=#{don_start_date},don_end_date=#{dona.don_end_date},
+	don_goal=#{don_goal},
+	don_ex=#{don_ex},don_summary=#{don_summary},
+	d_img1_nn=#{d_img1_nn}
 	WHERE don_no = #{don_no}
 	</update>
 	

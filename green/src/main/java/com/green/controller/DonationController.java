@@ -31,14 +31,14 @@ public class DonationController {
 	@RequestMapping(value = "/save.do")
 	public String donationInsert(DonationVO vo) throws Exception {
 		donationService.insertDona(vo);
-		return "redirect:donation/adDonationList.do";
+		return "redirect:adDonationList.do";
 	}
 	
 	//수정
-	@RequestMapping(value="/modifyDona.do")
+	@RequestMapping(value="/updateDona.do")
 	public String updateDona(@ModelAttribute("dona") DonationVO vo) {
 		donationService.updateDona(vo);
-		return "redirect:/donation/donationModify.do?don_no="+vo.getDon_no();
+		return "redirect:donationModify.do?don_no="+vo.getDon_no();
 	}
 	
 	//삭제
@@ -56,8 +56,8 @@ public class DonationController {
 		model.addAttribute("list", list);
 	}
 	
-	//기부처 상세 페이지
-	@RequestMapping("/donationDetail.do")
+	//기부처 하나만 가져옴
+	@RequestMapping(value={"/donationDetail.do","/donationModify.do"})
 	public void detailDona(DonationVO vo,Model model) {
 		model.addAttribute("dona", donationService.getDona(vo));
 	}

@@ -55,7 +55,7 @@ public class DonationVO {
 					// ***********************************************
 					// 해당 경로로 변경
 					File f = new File(
-							"C:\\Users\\koreavc\\Desktop\\gitGGG\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\donaImg" + d_img1_addr);
+							"C:\\Users\\koreavc\\Desktop\\gitGGG\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\donaImg\\" + d_img1_addr);
 					try {
 						file.transferTo(f);
 

@@ -27,8 +27,8 @@
 				<c:forEach items="${list}" var="dona">
 					<div class="gibu">
 						<div class="rectangel">
-							<a href="donationDetail.do?don_no=${dona.don_no}"> <img
-								class="gibu_img" src="${dona.d_img1_nn}" /></a>
+							<a href="donationDetail.do?don_no=${dona.don_no}"> 
+							<img class="gibu_img" src="/resources/imgs/donaImg/${dona.d_img1_addr}" /></a>
 						</div>
 						<div class="dona_text">
 							<p class="dona">${dona.don_name}</p>

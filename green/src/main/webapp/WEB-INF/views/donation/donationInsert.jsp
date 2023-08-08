@@ -69,23 +69,23 @@
 			return false;
 		}
 
-//		if (document.form.don_start_date.value == "") {
-//			alert("기부처 시작일을 입력하세요.")
-//			document.form.don_start_date.focus();
-//			return false;
-//		}
+		if (document.form.don_start_date.value == "") {
+			alert("기부처 시작일을 입력하세요.")
+			document.form.don_start_date.focus();
+			return false;
+	    }
 
-//		if (document.form.don_end_date.value == "") {
-//			alert("기부처 종료일을 입력하세요.")
-//			document.form.don_end_date.focus();
-//			return false;
-//		}
+		if (document.form.don_end_date.value == "") {
+		alert("기부처 종료일을 입력하세요.")
+		document.form.don_end_date.focus();
+			return false;
+		}
 
-//		if (document.form.don_ex.value == "") {
-//			alert("기부처 설명을 입력하세요.")
-//			document.form.don_ex.focus();
-//			return false;
-//		}
+		if (document.form.don_ex.value == "") {
+			alert("기부처 설명을 입력하세요.")
+			document.form.don_ex.focus();
+			return false;
+		}
 
 		if (document.form.don_summary.value == "") {
 			alert("기부처 간단소개를 입력하세요.")
@@ -130,7 +130,6 @@
 						<label for="don_summary">기부 간단소개</label>
 						<textarea name="don_summary" id="don_summary" placeholder="기부처의 간단소개를 적어주세요."></textarea>
 					</div>
-
 					<div class=d_img1_nn">
 						<label for="d_img1_nn">챌린지 이미지</label>
 						<input type="file" name="file" >
