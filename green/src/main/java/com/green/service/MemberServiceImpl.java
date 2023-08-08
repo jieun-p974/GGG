@@ -39,11 +39,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO adminLogin(MemberVO vo) {
-		return memberDAO.adminLogin(vo);
-	}
-
-	@Override
 	public String searchID(HttpServletResponse response, String email) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();

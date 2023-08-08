@@ -23,7 +23,7 @@ $(function(){
 	<c:forEach items="${list}" var="chall">
 	var star2 = "";
 	
-	for(var i = 0; i < ${chall.difficulty}; i++) {
+	for(var i = 0; i < ${chall.difficulty}; i++) { 
 		star2 += "★";
 	}
 	for(var i = 0; i < 5-${chall.difficulty}; i++) {

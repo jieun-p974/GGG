@@ -35,12 +35,7 @@
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultType="member">
-	select id, password FROM member where id=#{id} and password=#{password} and mem_type_no=1
-	</select>
-	
-	<!-- 관리자 로그인 -->
-	<select id="adminLogin" parameterType="member" resultType="member">
-	select id, password FROM member where id=#{id} and password=#{password} and mem_type_no=2
+	select id, password FROM member where id=#{id} and password=#{password}
 	</select>
 	
 	<!-- ID찾기 -->
