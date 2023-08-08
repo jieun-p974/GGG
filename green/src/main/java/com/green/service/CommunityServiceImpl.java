@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.green.dao.CommunityDAO;
-import com.green.domain.ChallengeVO;
 import com.green.domain.CommunityVO;
 
 @Service("CommunityService")
@@ -26,6 +25,13 @@ public class CommunityServiceImpl implements CommunityService{
 	public List<CommunityVO> getCommunityList() {
 		// TODO Auto-generated method stub
 		return communityDAO.getCommunityList();
+	}
+	
+	// Reply List
+	@Override
+	public List<CommunityVO> getReplyList(int board_no) {
+		// TODO Auto-generated method stub
+		return communityDAO.getReplyList(board_no);
 	}
 	
 	//get one
@@ -53,6 +59,13 @@ public class CommunityServiceImpl implements CommunityService{
 	public List<CommunityVO> getMyCommunityList(String id) {
 		// TODO Auto-generated method stub
 		return communityDAO.getMyCommunityList(id);
+	}
+	
+	//insert reply
+	@Override
+	public void insertReply(CommunityVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.replyWrite(vo);
 	}
 	
 }

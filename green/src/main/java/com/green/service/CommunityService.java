@@ -23,5 +23,9 @@ public interface CommunityService {
 	//my Community
 	List<CommunityVO> getMyCommunityList(String id);
 	
+	void insertReply(CommunityVO vo);
+
+	//reply list
+	List<CommunityVO> getReplyList(int board_no);
 
 }

@@ -2,17 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CommunityDAO">
+
+	<!-- insert community -->
 	<insert id="communityWrite" parameterType="community">
 		INSERT INTO board (id, b_content,b_img1,b_img1_addr,b_img2,b_img2_addr,b_img3,b_img3_addr)
 		VALUES(#{id}, #{b_content}, #{b_img1}, #{b_img1_addr}, #{b_img2}, #{b_img2_addr}, #{b_img3}, #{b_img3_addr})
 	</insert>
 	
+	<!-- insert reply -->
+	<insert id="replyWrite" parameterType="community">
+		INSERT INTO reply (id, board_no, com_content) 
+		VALUES(#{id},#{board_no},#{com_content})
+	</insert>
+	
+	<!-- show all list -->
 	<select id="getCommunityList" resultType="community">
-		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr FROM board b, member m WHERE m.id= b.id ORDER BY b.board_no desc
+		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
+		FROM board b, member m 
+		WHERE m.id= b.id 
+		ORDER BY b.regist_date desc
 	</select>
 	
+	<!-- show my list -->
 	<select id="getMyCommunityList" resultType="community">
 		SELECT * FROM board WHERE id = #{id} ORDER BY board_no desc	
+	</select>
+	
+	<!-- show reply -->
+	<select id="getReplyList" resultType="community">
+		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
+		FROM reply r, member m 
+		WHERE m.id = r.id AND r.board_no = #{board_no} 
+		ORDER BY com_no desc
 	</select>
 	
 	<!-- select one Community -->
@@ -27,10 +49,12 @@
 		<if test="b_img1_addr != null">,
 		b_img1=#{b_img1},
 		b_img1_addr=#{b_img1_addr}
-		</if><if test="b_img2_addr != null">,
+		</if>
+		<if test="b_img2_addr != null">,
 		b_img2=#{b_img2},
 		b_img2_addr=#{b_img2_addr}
-		</if><if test="b_img3_addr != null">,
+		</if>
+		<if test="b_img3_addr != null">,
 		b_img3=#{b_img3},
 		b_img3_addr=#{b_img3_addr}
 		</if>		

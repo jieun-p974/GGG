@@ -45,4 +45,17 @@ public class CommunityDAOImpl implements CommunityDAO {
 		System.out.println("Mybatis=> my community");
 		return mybatis.selectList("CommunityDAO.getMyCommunityList", id);
 	}
+	
+	public List<CommunityVO> getReplyList(int board_no) {
+		System.out.println("Mybatis=> reply list");
+		return mybatis.selectList("CommunityDAO.getReplyList", board_no);
+	}
+	
+	@Override
+	public void replyWrite(CommunityVO vo) {
+		System.out.println("Mybatis => reply insert");
+		mybatis.insert("CommunityDAO.replyWrite",vo);
+	}
+	
+	
 }

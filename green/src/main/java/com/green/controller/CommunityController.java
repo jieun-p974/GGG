@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.green.domain.ChallengeVO;
 import com.green.domain.CommunityVO;
@@ -36,7 +39,7 @@ public class CommunityController {
 	
 	// community list
 	@RequestMapping("/community.do")
-	public void getChallengeList(Model model,String id) {
+	public void getCommunityList(Model model,String id) {
 		List<CommunityVO> list = null;
 		if (id != null) {
 			list = communityService.getMyCommunityList(id);
@@ -44,6 +47,23 @@ public class CommunityController {
 			list = communityService.getCommunityList();
 		}
 		model.addAttribute("list", list);
+	}
+	
+	// reply list
+	@ResponseBody
+	@RequestMapping(value = "/getReply.do", produces = "application/json;charset=utf-8", method = RequestMethod.GET)
+	public Model getReplyList(@RequestParam("boardNo") int board_no, Model model) {
+		System.out.println("컨트롤러, 게시판 번호 = " + board_no);
+		
+		board_no = (board_no == 0) ? 1 : board_no;
+		List<CommunityVO> list2 = communityService.getReplyList(board_no);
+		if (!list2.isEmpty()) {
+			return model.addAttribute("listRe", list2);
+
+		}
+
+		return null;
+
 	}
 	
 	// get one
@@ -66,4 +86,10 @@ public class CommunityController {
 		return "redirect:/community/community.do";
 	}
 	
+	//reply insert
+	@RequestMapping(value="/reply.do")
+	public String replyInsert(CommunityVO vo) throws IOException{
+		communityService.insertReply(vo);
+		return "redirect:/community/community.do";
+	}
 }
