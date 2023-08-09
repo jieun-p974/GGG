@@ -52,8 +52,10 @@
 		<result column="chal_name" property="chal_name" />
 		<result column="id" property="id" />
 		<collection property="" />
+		</resultMap>
 
  	<resultMap type="challenge" id="myChall">
+ 	</resultMap>
 	<!-- select my challenge ing-->
 <!--  	<resultMap type="challenge" id="myChall">
 		<result column="chal_no" property="chal_no"/>
