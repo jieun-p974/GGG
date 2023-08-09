@@ -26,16 +26,22 @@ System.out.println("현재 세션 : " + userId);
 <body>
 	<div class="header">
 		<div>
-			<a href="../member/adminMain.do"> <img class="logo" src="../../resources/imgs/logo.png" /></a>
+			<a href="../member/main.do"> <img class="logo" src="../../resources/imgs/logo.png" /></a>
 		</div>
 		
 		<div class="menu_grop">
 			<ul class="menu_list">
 				<li><a href="../community/community.do">커뮤니티 관리&nbsp&nbsp</a></li>
 				<li><a href="../challenge/adminChallenge.do">&nbsp&nbsp챌린지관리&nbsp&nbsp</a></li>
+<<<<<<< HEAD
 				<li><a href="../dogam/dogamCheck.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
 				<li><a href="../donation/donation.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
+=======
+				<li><a href="../dogam/adminDogam.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
+				<li><a href="../donation/adDonationList.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
+>>>>>>> refs/remotes/origin/ayoung
 				<li><a href="../news/newsCheck.do">&nbsp&nbsp뉴스관리</a></li>
+				
 
 
 			</ul>

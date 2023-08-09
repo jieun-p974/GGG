@@ -15,38 +15,40 @@
 	function insert() {
 		location.href = "dogamWrite.do"
 	}
-
+	
 </script>
-<title>뉴스 관리</title>
+<title>도감 관리</title>
 </head>
 <body>
 	<div class="container ">
 		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="newsCheckList">
-			<div class="title">뉴스 관리 페이지</div>
+			<div class="title">도감 관리 페이지</div>
 			<div class="top">
 			
-			<button class="add" id="add" onclick="insert()">추가하기</button>
+			<button class="add" id="add" onclick="insert()">동물추가하기</button>
+			<a> * 사진을 보려면 행을 클릭하세요. </a>
 			</div>
 			<div class="list">
-				<table class="news" id="dogamList">
+				<table class="do" id="do">
 					<thead>	
-						<th>관리번호</th>
-						<th>이름</th>
-						<th>설명</th>
-						<th>사진추가</th>
-						<th>삭제</th>
+						<th class="do-th-1">NO</th>
+						<th class="do-th-2">이름</th>
+						<th class="do-th-3">설명</th>
+						<th class="do-th-btn">사진</th>
+						<th class="do-th-btn">수정</th>
+						<th class="do-th-btn">삭제</th>
 					</thead>
 					<c:forEach items="${list}" var="dogam">
 					<tbody>
-						<td>${dogam.do_no}</td>
-						<td> ${dogam.do_title}</td>
-						<td> ${dogam.do_content}</td>
-						<td><button><a href="dogamModify.do?do_no=${dogam.do_no}">사진추가</a></button></td>
+						<td><a href="dogamCheckImg.do?do_no=${dogam.do_no}">${dogam.do_no}</a></td>
+						<td><a href="dogamCheckImg.do?do_no=${dogam.do_no}">${dogam.do_title}</a></td>
+						<td><a href="dogamCheckImg.do?do_no=${dogam.do_no}">${dogam.do_content}</a></td>
+						<td><button><a href="dogamImg.do?do_no=${dogam.do_no}">추가</a></button></td>
+						<td><button><a href="dogamModify.do?do_no=${dogam.do_no}">수정</a></button></td>
 						<td><button><a href="deleteDogam.do?do_no=${dogam.do_no}">삭제</a></button></td>
 					</tbody>
 					</c:forEach>
-					
 				</table>
 			</div>
 		</div>

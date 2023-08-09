@@ -49,12 +49,6 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberVO adminLogin(MemberVO vo) {
-		System.out.println("===> adminLogin() 호출");
-		return mybatis.selectOne("member.adminLogin", vo);
-	}
-
-	@Override
 	public String searchID(String email) {
 		System.out.println("===> searhID() 호출");
 		return mybatis.selectOne("member.searchID", email);
@@ -65,7 +59,12 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("===> searhID() 호출");
 		return mybatis.selectOne("member.searchPass", email);
 	}
-
-
+	
+	@Override
+	public void goDona(MemberVO vo) {
+		System.out.println("==>goDona()호출");
+		mybatis.update("MemberDAO.goDona",vo);
+		
+	}
 	
 }

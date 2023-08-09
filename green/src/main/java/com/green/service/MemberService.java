@@ -6,7 +6,7 @@ import com.green.domain.MemberVO;
 
 public interface MemberService {
 
-	public MemberVO idCheck_Login(MemberVO vo);
+public MemberVO idCheck_Login(MemberVO vo);
 	
 	public int memberInsert(MemberVO vo);
 	
@@ -16,9 +16,10 @@ public interface MemberService {
 	
 	public MemberVO login(MemberVO vo);
 	
-	public MemberVO adminLogin(MemberVO vo);
-	
 	public String searchID(HttpServletResponse response, String email) throws Exception;
 
 	public String searchPass(HttpServletResponse response, String email) throws Exception;
+	
+	void goDona(MemberVO vo);
+
 }

@@ -13,12 +13,7 @@ public class DonationDAOImple implements DonationDAO{
 	
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
-	/*
-	 * @Override public void insertDona(DonationVO vo) {
-	 * System.out.println("=>My batis insertDona() 호출");
-	 * mybatis.insert("DonationDAO.insertDona",vo); }
-	 */
+
 	@Override
 	public List<DonationVO> selectDona() {
 		System.out.println("=>My batis selectDona() 호출");
@@ -30,5 +25,27 @@ public class DonationDAOImple implements DonationDAO{
 		System.out.println("=>My batis detailDona() 호출");
 		return (DonationVO) mybatis.selectOne("DonationDAO.getDona",vo);
 	}
+
+	@Override
+	public void donationInsert(DonationVO vo) {
+		System.out.println("mybatis==>insertDona");
+		mybatis.insert("DonationDAO.donationInsert",vo);
+	}
+
+	@Override
+	public void updateDona(DonationVO vo) {
+		System.out.println("mybatis==>updateDona");
+		System.out.println("dao"+vo.getDon_name());
+		mybatis.update("DonationDAO.updateDona",vo);
+	}
+
+	@Override
+	public void deleteDona(DonationVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("mybatis==>deleteDona");
+		mybatis.delete("DonationDAO.deleteDona",vo);
+	}
+
+
 
 }

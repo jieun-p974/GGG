@@ -39,11 +39,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO adminLogin(MemberVO vo) {
-		return memberDAO.adminLogin(vo);
-	}
-
-	@Override
 	public String searchID(HttpServletResponse response, String email) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -66,7 +61,7 @@ public class MemberServiceImpl implements MemberService {
 			return id;
 		}
 	}
-
+	
 	@Override
 	public String searchPass(HttpServletResponse response, String email) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
@@ -89,6 +84,12 @@ public class MemberServiceImpl implements MemberService {
 			out.close();
 			return pw;
 		}
+	}
+
+	@Override
+	public void goDona(MemberVO vo) {
+		 memberDAO.goDona(vo);
+		
 	}
 
 	
