@@ -3,12 +3,13 @@ package com.green.service;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.ReplyVO;
 
 public interface CommunityService {
-	//글 등록
+	//community insert
 	void insertCommunity(CommunityVO vo);
 	
-	//글 목록
+	//community list
 	List<CommunityVO> getCommunityList();
 	
 	//get one
@@ -23,9 +24,10 @@ public interface CommunityService {
 	//my Community
 	List<CommunityVO> getMyCommunityList(String id);
 	
-	void insertReply(CommunityVO vo);
+	//reply insert
+	void insertReply(ReplyVO vo);
 
 	//reply list
-	List<CommunityVO> getReplyList(int board_no);
+	List<ReplyVO> getReplyList(int board_no);
 
 }

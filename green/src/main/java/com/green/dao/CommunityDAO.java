@@ -3,6 +3,7 @@ package com.green.dao;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.ReplyVO;
 
 public interface CommunityDAO {
 	
@@ -18,9 +19,9 @@ public interface CommunityDAO {
 
 	public List<CommunityVO> getMyCommunityList(String id);
 	
-	public void replyWrite(CommunityVO vo);
+	public void replyWrite(ReplyVO vo);
 
-	public List<CommunityVO> getReplyList(int board_no);
+	public List<ReplyVO> getReplyList(int board_no);
 
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.green.dao.CommunityDAO;
 import com.green.domain.CommunityVO;
+import com.green.domain.ReplyVO;
 
 @Service("CommunityService")
 public class CommunityServiceImpl implements CommunityService{
@@ -29,7 +30,7 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	// Reply List
 	@Override
-	public List<CommunityVO> getReplyList(int board_no) {
+	public List<ReplyVO> getReplyList(int board_no) {
 		// TODO Auto-generated method stub
 		return communityDAO.getReplyList(board_no);
 	}
@@ -63,7 +64,7 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//insert reply
 	@Override
-	public void insertReply(CommunityVO vo) {
+	public void insertReply(ReplyVO vo) {
 		// TODO Auto-generated method stub
 		communityDAO.replyWrite(vo);
 	}

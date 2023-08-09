@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.green.domain.ChallengeVO;
 import com.green.domain.CommunityVO;
+import com.green.domain.ReplyVO;
 import com.green.service.CommunityService;
 
 @Controller 
@@ -23,10 +22,10 @@ public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
 	
-	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
+	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("ì»¤ë®¤ë‹ˆí‹° ìš”ì²­"+url);
+		System.out.println("Ä¿¹Â´ÏÆ¼ ¿äÃ»"+url);
 		return "/community/"+url;
 	}
 	
@@ -50,20 +49,13 @@ public class CommunityController {
 	}
 	
 	// reply list
+	@RequestMapping(value="/getReply.do", method = RequestMethod.GET)
 	@ResponseBody
-	@RequestMapping(value = "/getReply.do", produces = "application/json;charset=utf-8", method = RequestMethod.GET)
-	public Model getReplyList(@RequestParam("boardNo") int board_no, Model model) {
-		System.out.println("ì»¨íŠ¸ë¡¤ëŸ¬, ê²Œì‹œíŒ ë²ˆí˜¸ = " + board_no);
-		
-		board_no = (board_no == 0) ? 1 : board_no;
-		List<CommunityVO> list2 = communityService.getReplyList(board_no);
-		if (!list2.isEmpty()) {
-			return model.addAttribute("listRe", list2);
-
-		}
-
-		return null;
-
+	public void getReplyList(int board_no, Model model) {
+		System.out.println("ÄÁÆ®·Ñ·¯, °Ô½ÃÆÇ ¹øÈ£ = " + board_no);
+		List<ReplyVO> listRe = null;
+		listRe = communityService.getReplyList(board_no);
+		model.addAttribute("listRe", listRe);
 	}
 	
 	// get one
@@ -88,8 +80,11 @@ public class CommunityController {
 	
 	//reply insert
 	@RequestMapping(value="/reply.do")
-	public String replyInsert(CommunityVO vo) throws IOException{
+	public String replyInsert(ReplyVO vo) throws IOException{
 		communityService.insertReply(vo);
 		return "redirect:/community/community.do";
 	}
+	
+	
+	
 }

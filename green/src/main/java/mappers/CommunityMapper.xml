@@ -26,7 +26,11 @@
 	
 	<!-- show my list -->
 	<select id="getMyCommunityList" resultType="community">
-		SELECT * FROM board WHERE id = #{id} ORDER BY board_no desc	
+		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
+		FROM board b, member m 
+		WHERE b.id = #{id} and m.id= b.id 
+		ORDER BY b.regist_date desc
 	</select>
 	
 	<!-- show reply -->
@@ -36,7 +40,7 @@
 		WHERE m.id = r.id AND r.board_no = #{board_no} 
 		ORDER BY com_no desc
 	</select>
-	
+
 	<!-- select one Community -->
 	<select id="getCommunityDetail" parameterType="community" resultType="community">
 		SELECT * FROM board WHERE board_no = #{board_no}

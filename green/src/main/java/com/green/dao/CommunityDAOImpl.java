@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.ReplyVO;
 
 @Repository("communityDAO")
 public class CommunityDAOImpl implements CommunityDAO {
@@ -46,13 +47,13 @@ public class CommunityDAOImpl implements CommunityDAO {
 		return mybatis.selectList("CommunityDAO.getMyCommunityList", id);
 	}
 	
-	public List<CommunityVO> getReplyList(int board_no) {
+	public List<ReplyVO> getReplyList(int board_no) {
 		System.out.println("Mybatis=> reply list");
 		return mybatis.selectList("CommunityDAO.getReplyList", board_no);
 	}
 	
 	@Override
-	public void replyWrite(CommunityVO vo) {
+	public void replyWrite(ReplyVO vo) {
 		System.out.println("Mybatis => reply insert");
 		mybatis.insert("CommunityDAO.replyWrite",vo);
 	}

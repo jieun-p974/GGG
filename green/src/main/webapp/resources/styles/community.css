@@ -145,6 +145,14 @@
     font-family: 'S-CoreDream-3Light';
 }
 
+.comment {
+border-radius: 50%;
+width: 2rem;
+height: 2rem;
+background-color: #009688;
+text-decoration: none;
+}
+
 .comments{
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -159,8 +167,8 @@
   width: 100%;
   display: grid;
   height: 3rem;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 10%;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 3%;
 }
 button{
   background-color: #445c4c;
@@ -183,3 +191,4 @@ input{
   margin-left: 3%;
   text-align: left;
 }
+

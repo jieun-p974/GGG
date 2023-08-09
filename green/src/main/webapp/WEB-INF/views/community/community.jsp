@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="../../../resources/styles/header.css">
 <link href="../../../resources/styles/community.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="css/jquery.beefup.css">
+<script src="js/jquery.beefup.min.js"></script>
 <script type="text/javascript">
 	function insert() {
 		location.href = "communityWrite.do"
@@ -43,8 +45,8 @@
 								<p class="id">@${community.id}</p>
 								<div class="emojis">
 									<div class="heart">❤</div>
-									<button id="comment" type="button">
-										<a href="getReply.do?board_no=${community.board_no}">💬</a>
+									<button class="comment" type="button">
+										<a class="comment" href="getReply.do?board_no=${community.board_no}">💬</a>
 									</button>
 									<div class="share">공유</div>
 								</div>
@@ -84,40 +86,39 @@
 						<!-- 댓글 달기 -->
 						<div class="comments">
 							<!-- 댓글작성 창 -->
-							<form action="reply.do" method="post" >
+							<form action="reply.do" method="post">
 								<div class="replyWrite">
 									<img class="reply_img" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
 									<p class="reply_id">@${sessionScope.userId}</p>
 									<input type="hidden" name="id" value="${userId}" />
 									<input type="hidden" name="board_no" value="${community.board_no}" />
 									<input name="com_content" class="com_content" type="text" placeholder="댓글 입력">
-									<button class="replyBtn" type="submit" >댓글등록</button>
+									<button class="replyBtn" type="submit">댓글등록</button>
 								</div>
 							</form>
 							<!-- 게시 글에 달린 댓글 출력 댓글보기 버튼에 toggle -->
 							<c:if test="${community.board_no != null}">
-							<c:forEach items="${listRe}" var="community">
-								<div class="reply">
-									<input type="hidden" name="board_no" value="${community.board_no}" />
-									<img class="p_img" src="/resources/imgs/member/${community.m_img_addr}" />
-									<p class="reply_id">@${community.id}</p>
-									<p class="com_content">${community.com_content}</p>
-								</div>
-							</c:forEach>
+								<c:forEach items="${listRe}" var="community">
+									<div class="reply">
+										<input type="hidden" name="board_no" value="${community.board_no}" />
+										<img class="p_img" src="/resources/imgs/member/${community.m_img_addr}" />
+										<p class="reply_id">@${community.id}</p>
+										<p class="com_content">${community.com_content}</p>
+									</div>
+								</c:forEach>
 							</c:if>
-							
-							<table align="center" width="500" border="1" id="rtb">
-								<thead>
-									<td colspan="4"><b id="rCount">댓글목록</b></td>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>
-
 						</div>
 					</div>
+					<c:forEach items="${listRe}" var="community">
+						<table align="center" width="500" border="1" id="rtb">
+							<thead>
+								<td colspan="4"><b id="rCount">댓글목록</b></td>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</c:forEach>
 				</c:forEach>
-
 			</div>
 			<!-- 오른쪽 고정  -->
 			<div class="tabs">
@@ -125,18 +126,25 @@
 					<button class="myBtn">
 						<a href="community.do?id=${sessionScope.userId}" class="myBtn">내 피드</a>
 					</button>
+					<button class="myBtn">
+						<a href="community.do" class="myBtn">전체 피드</a>
+					</button>
 					<button class="writeBtn" id="writeBtn" onclick="insert()">글쓰기</button>
 				</div>
-				<div class="searching">
-					<input type="text" placeholder="search">
-				</div>
+				
+						<div class="searching">
+							<button class="button" type="submit">
+								<input type="text" placeholder="search">검색
+							</button>
+						</div>
+
 				<div class="ranks">
 					1위 #환경보호(100,200회)<br />
 					2위 #제로웨이스트(50,123회)<br />
 					3위 #플로깅(10,500회)<br />
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 	<%@include file="../layouts/footer.jsp"%>
@@ -145,7 +153,7 @@
 	function getReplyList() {
 		var board = "${community.board_no}";
 		$.ajax({
-					url : "getReply.do",
+					url : "getReply.do?board_no=${community.board_no}",
 					data : {
 						"board_no" : board_no
 					},
@@ -158,50 +166,33 @@
 							console.log(result);
 							for ( var i in result) {
 								var $tr = $("<tr>");
-								var $rWriter = $("<td width='100'>").text(
-										result[i].replyWirter);
-								var $rContent = $("<td>").text(
-										result[i].replyContents);
-								var $rCreatDate = $("<td width='100'>").text(
-										result[i].rCreateDate);
-								var $btnArea = $("<td width='80'>")
-										.append(
-												"<a href='modifyreply(${community.board_no})'>수정</a>")
-										.append("<a href='#'>삭제</a>");
-
-								$tr.append($rWriter);
-								$tr.append($rContent);
-								$tr.append($rCreatDate);
-								$tr.append($btnArea);
+								var $id = $("<td width='100'>").text(
+										result[i].id);
+								var $com_content = $("<td>").text(
+										result[i].com_content);
+		//						var $btnArea = $("<td width='80'>")
+		//								.append("<a href='modifyreply(${reply.com_no})'>수정</a>")
+		//								.append("<a href='#'>삭제</a>");
+								$tr.append($id);
+								$tr.append($com_content);
+		//						$tr.append($btnArea);
 								$tableBody.append($tr);
-
 							}
 						}
-
 					},
 					error : function() {
 						console.log("요청실패");
-
 					}
 				})
 		var $tableBody = $('#rtb tbody');
 		for ( var i in result) {
 			var $tr = $("<tr>");
-			var $rWriter = $("<td width='100'>").text(result[i].replyWirter);
-			var $rContent = $("<td>").text(result[i].replyContents);
-			var $rCreatDate = $("<td width='100'>").text(result[i].rCreateDate);
-			var $btnArea = $("<td width='80'>").append(
-					"<a href='modifyreply(${community.board_no})'>수정</a>").append(
-					"<a href='#'>삭제</a>");
-
-			$tr.append($rWriter);
-			$tr.append($rContent);
-			$tr.append($rCreatDate);
-			$tr.append($btnArea);
+			var $id = $("<td width='100'>").text(result[i].id);
+			var $com_content = $("<td>").text(result[i].com_content);
+			$tr.append($id);
+			$tr.append($com_content);
 			$tableBody.append($tr);
-
 		}
-
 	}
 </script>
 </html>

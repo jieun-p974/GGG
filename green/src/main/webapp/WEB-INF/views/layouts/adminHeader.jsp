@@ -33,7 +33,7 @@ System.out.println("현재 세션 : " + userId);
 			<ul class="menu_list">
 				<li><a href="../community/community.do">커뮤니티 관리&nbsp&nbsp</a></li>
 				<li><a href="../challenge/adminChallenge.do">&nbsp&nbsp챌린지관리&nbsp&nbsp</a></li>
-				<li><a href="../dogam/adminDogam.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
+				<li><a href="../dogam/dogamCheck.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
 				<li><a href="../donation/adDonationList.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
 				<li><a href="../news/newsCheck.do">&nbsp&nbsp뉴스관리</a></li>
 				
