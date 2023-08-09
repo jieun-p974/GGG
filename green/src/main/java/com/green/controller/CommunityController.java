@@ -52,16 +52,18 @@ public class CommunityController {
 	// reply list
 	@ResponseBody
 	@RequestMapping(value = "/getReply.do", produces = "application/json;charset=utf-8", method = RequestMethod.GET)
-	public String getReplyList(@RequestParam("board_no") int board_no, Model model) {
+	public Model getReplyList(@RequestParam("boardNo") int board_no, Model model) {
 		System.out.println("컨트롤러, 게시판 번호 = " + board_no);
 		
 		board_no = (board_no == 0) ? 1 : board_no;
 		List<CommunityVO> list2 = communityService.getReplyList(board_no);
 		if (!list2.isEmpty()) {
-			model.addAttribute("listRe", list2);
-			return "redirect:/community/community.do";
+			return model.addAttribute("listRe", list2);
+
 		}
-		return "redirect:/community/community.do";
+
+		return null;
+
 	}
 	
 	// get one

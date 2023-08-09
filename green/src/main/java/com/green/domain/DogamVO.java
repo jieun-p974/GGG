@@ -119,9 +119,7 @@ public class DogamVO {
 
 	public void setDo_exp(int do_exp) {
 		this.do_exp = do_exp;
-	};
-	
-	
+	}
 	
 	public String getImg1() {
 		return img1;

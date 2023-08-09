@@ -45,17 +45,7 @@
 		FROM mem_chal, challenge c
 		WHERE id = #{id} AND completion_YN = 'N' AND mem_chal.chal_no = c.chal_no;
 	</select> -->
-
-	<!-- select my challenge ing--> 
-	<resultMap id="memChall" type="memChallenge">
-		<result column="chal_no" property="chal_no" />
-		<result column="chal_name" property="chal_name" />
-		<result column="id" property="id" />
-		<collection property="" />
-		</resultMap>
-
- 	<resultMap type="challenge" id="myChall">
- 	</resultMap>
+	
 	<!-- select challenge for certification -->
 	<select id="getChallengeCheck" parameterType="hashmap" resultType="hashmap">
 		SELECT cer_no, m.m_c_no AS m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN
