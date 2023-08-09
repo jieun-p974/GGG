@@ -12,10 +12,11 @@
 		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />
 		<typeAlias alias="news" type="com.green.domain.NewsVO" />   
 		<typeAlias alias="dona" type="com.green.domain.DonationVO"/>
-		<typeAlias alias="challenge" type="com.green.domain.ChallengeVO" />   
 		<typeAlias alias="memChallenge" type="com.green.domain.MemChallengeVO"/>
+		<typeAlias alias="checkChallenge" type="com.green.domain.ChallengeCheckVO"/>
 		<typeAlias alias="community" type="com.green.domain.CommunityVO" />   
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
+		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />   
 	</typeAliases>
 	
 </configuration> 

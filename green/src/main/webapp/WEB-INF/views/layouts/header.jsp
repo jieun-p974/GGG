@@ -15,7 +15,7 @@ String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");
 String userImg = (String) session.getAttribute("userImg");
 String userImgAddr = (String) session.getAttribute("userImgAddr");
-
+int userType =  (Integer)session.getAttribute("userType");
 System.out.println("현재 세션 : " + userId);
 %>
 <meta charset="UTF-8">
@@ -34,7 +34,13 @@ System.out.println("현재 세션 : " + userId);
 				<li><a href="../challenge/challengeList.do">&nbsp&nbsp챌린지&nbsp&nbsp</a></li>
 				<li><a href="../donation/donation.do">&nbsp&nbsp기부&nbsp&nbsp</a></li>
 				<li><a href="../news/newsList.do">&nbsp&nbsp뉴스&nbsp&nbsp</a></li>
+				<c:if test="${userType == 1}">
 				<li><a href="../member/mypage.do">&nbsp&nbsp마이페이지</a></li>
+				</c:if>
+				<c:if test="${userType == 2}">
+				<li><a href="../member/mypage.do">&nbsp&nbsp마이페이지&nbsp&nbsp</a></li>
+				<li><a href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
+				</c:if>
 			</ul>
 		</div>
 

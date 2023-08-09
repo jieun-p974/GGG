@@ -47,7 +47,7 @@ function check() {
 		<div class="newsWriting">
 			<div class="title">관리자 뉴스 작성 페이지</div>
 			<div class="writing">
-				<form action="saveNews.do" method="post" id="newsInput" name="form">
+				<form action="saveNews.do" method="post" id="newsInput" name="form" enctype="multipart/form-data">
 				<label for="cat_no">카테고리</label> 
 				<select name="cat_no" id="cat_no" class="category">
 						<option value="all">전체</option>
@@ -59,16 +59,24 @@ function check() {
 						<option value=6>정치</option>
 					</select><br/><br/>
 					<label for="id_manager">작성자</label> 
+<<<<<<< HEAD
+					<input type="text" name="id_manager" id="id_manager" value="${userId}" readonly />
+=======
+<<<<<<< HEAD
+					<input type="text" name="id_manager" id="id_manager" disabled="disabled"> 
+=======
 
 <!-- 					<input type="text" name="id_manager" id="id_manager" readonly> 
  -->
 					<input type="text" name="id_manager" id="id_manager" value="${userId}" readonly />
 
+>>>>>>> refs/remotes/origin/ayoung
+>>>>>>> refs/remotes/origin/seul
 					<label for="n_title">기사 제목</label> 
 					<input type="text" id="n_title" name="n_title">
 					<textarea name="n_content" id="n_content" placeholder="내용을 입력해 주세요."
 						style="margin-top: 1%"></textarea>
-					<input type="file" id="n_img1_nn" name="n_img1_nn">
+					<input type="file" id="file" name="file">
 					<div class="buttons" style="margin-top:2%">
 						<button type="reset">취소</button>
 						<button id="write" type="button">등록</button>

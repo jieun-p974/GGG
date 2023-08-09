@@ -5,8 +5,8 @@
 	<!-- inserting Challenge -->
 	<insert id="challengeWrite" parameterType="challenge">
 		INSERT INTO challenge
-		(chal_name, chal_ex,chal_check_method, difficulty,chal_img,chal_start_date,chal_end_date)
-		VALUES (#{chal_name},#{chal_ex},#{chal_check_method}, #{difficulty}, #{chal_img}, #{chal_start_date}, #{chal_end_date})
+		(chal_name, chal_ex,chal_check_method, difficulty,chal_start_date,chal_end_date,chal_img,chal_img_addr)
+		VALUES (#{chal_name},#{chal_ex},#{chal_check_method}, #{difficulty}, #{chal_start_date}, #{chal_end_date},#{chal_img},#{chal_img_addr})
 	</insert>
 	
 	<!-- challenge sinchung -->
@@ -35,13 +35,31 @@
 		chal_end_date=#{chal_end_date},
 		chal_ex=#{chal_ex},
 		chal_check_method=#{chal_check_method},
-		difficulty=#{difficulty},
-		chal_img=#{chal_img}
+		difficulty=#{difficulty}
+		<if test='chal_img != null'>, chal_img = #{chal_img}, chal_img_addr = #{chal_img_addr}</if>
 		WHERE chal_no=#{chal_no};
 	</update>
 	
+<!-- 	<select id="selectMyChall" parameterType="string" resultType="challenge">
+		SELECT c.chal_no AS chal_no, chal_name
+		FROM mem_chal, challenge c
+		WHERE id = #{id} AND completion_YN = 'N' AND mem_chal.chal_no = c.chal_no;
+	</select> -->
+	
+	<!-- select challenge for certification -->
+	<select id="getChallengeCheck" parameterType="hashmap" resultType="hashmap">
+		SELECT cer_no, m.m_c_no AS m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN
+		FROM certification c, challenge chal, mem_chal m
+		WHERE c.m_c_no = m.m_c_no AND m.chal_no = chal.chal_no AND chal.chal_no=${chal_no} AND id = '${id}'
+	</select>
+	
+	<!-- select m_c_no -->
+	<select id="getmcNo" parameterType="hashmap" resultType="hashmap">
+		SELECT m_c_no FROM mem_chal WHERE chal_no=${chal_no} AND id = '${id}'
+	</select>
+	
 	<!-- select my challenge ing-->
-<!--  	<resultMap type="challenge" id="myChall">
+  	<resultMap type="challenge" id="myChall">
 		<result column="chal_no" property="chal_no"/>
 		<result column="chal_name" property="chal_name"/>
 		<result column="id" property="id"/>
@@ -49,16 +67,30 @@
 			<result column="chal_name" property="chal_name" jdbcType="VARCHAR" />
 		</collection>
 	</resultMap>
-		
-	<select id="getMyChallengeListYet" parameterType="string" resultType="memChall">
-		SELECT c.chal_no as chalNo,chal_name as chalName,difficulty,id
-		FROM challenge c, mem_chal
-		WHERE c.chal_no = m.chal_no AND id = #{userId} AND completion_YN = 'N',success_YN = 'N'
-	</select>
 	
 	<select id="myChallList" resultMap="myChall">
-		SELECT c.chal_no as chal_no,chal_name
+		SELECT c.chal_no as chal_no,chal_name, m_c_no
 		FROM mem_chal, challenge c
 		WHERE id = #{userId} AND completion_YN = 'N' AND success_YN = 'N' AND mem_chal.chal_no = c.chal_no;
-	</select> -->
+	</select>
+	
+	<select id="completeList" resultMap="myChall">
+		SELECT DISTINCT c.chal_no as chal_no,chal_name, m_c_no
+		FROM mem_chal, challenge c
+		WHERE id = #{userId} AND success_YN = 'Y' AND mem_chal.chal_no = c.chal_no;
+	</select>
+	
+	<!-- 인증 갯수 -->
+	<select id="countCheck" parameterType="hashmap" resultType="Integer">
+		SELECT COUNT(m.m_c_no)
+		FROM certification c, challenge chal, mem_chal m
+		WHERE c.m_c_no = m.m_c_no AND m.chal_no = chal.chal_no AND chal.chal_no=${chal_no} AND id ='${id}'
+		GROUP BY m.m_c_no
+	</select>
+	
+	<!-- 인증하기 -->
+	<insert id="insertCertification" parameterType="checkChallenge">
+		INSERT INTO certification (m_c_no, cer_img1_nn, cer_img1_addr, pass_YN) 
+		VALUE (#{m_c_no}, #{cer_img1_nn},#{cer_img1_nn},'N')
+	</insert>
 </mapper>

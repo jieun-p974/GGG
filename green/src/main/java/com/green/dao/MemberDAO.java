@@ -23,10 +23,12 @@ public interface MemberDAO {
 
 	// 로그인
 	MemberVO login(MemberVO vo);
-	MemberVO adminLogin(MemberVO vo);
 	
 	// 아이디 찾기
 	String searchID(String email);
+	
+	// 비밀번호 찾기
+	String searchPass(String email);
 	
 	//기부시 포인트 사용
 	public void goDona(MemberVO vo);

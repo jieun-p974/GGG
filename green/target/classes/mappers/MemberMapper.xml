@@ -21,29 +21,31 @@
 	    <if test='m_img != null'>, #{m_img}, #{m_img_addr}</if>)
     </insert>
     
-	<!-- 회원정보 수정 -->
+	<!-- 회원정보 불러오기 -->
 	<select id="memberInfo" parameterType="member" resultType="member">
 		select * from member where id = #{id}
 	</select>
 	
+	<!-- 회원정보 수정 -->
 	<update id="memberUpdate" parameterType="member"> 
-		update member set password = #{password},
-		tel = #{tel}, email = #{email} where id = #{id}
+		update member set name=#{name}, password = #{password}, tel = #{tel}
+	 <if test='m_img != null'>, m_img = #{m_img}, m_img_addr = #{m_img_addr} </if>
+		where id = #{id}
 	</update>
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="member" resultType="member">
-	select id, password FROM member where id=#{id} and password=#{password} and mem_type_no=1
-	</select>
-	
-	<!-- 관리자 로그인 -->
-	<select id="adminLogin" parameterType="member" resultType="member">
-	select id, password FROM member where id=#{id} and password=#{password} and mem_type_no=2
+	select id, password FROM member where id=#{id} and password=#{password}
 	</select>
 	
 	<!-- ID찾기 -->
 	<select id="searchID" parameterType="String" resultType="String">
 	select id FROM member where email=#{email}
+	</select>
+    
+    <!-- PW찾기 -->
+	<select id="searchPass" parameterType="String" resultType="String">
+	select password FROM member	where email=#{email}
 	</select>
 	
 	<!-- 포인트 사용(기부시) -->

@@ -17,8 +17,6 @@
 var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
 
-console.log(msg);
-console.log(url);
 if(msg.length >0 && url.length >0){
 	
 	alert(msg);
@@ -36,6 +34,8 @@ $(function(){
 		star2 += "☆";
 	}
 	$("#d_level").append(star2);
+	
+	${""}
 });
 </script>
 <title>뉴스 상세</title>
@@ -51,7 +51,7 @@ $(function(){
 			</div>
 
 			<div class="chall_detail">
-				<img class="detail_img" src="" />
+				<img class="detail_img" src="/resources/imgs/challImg/${chall.chal_img_addr}" />
 				<div class="detail_content">
 					<p class="d_title">챌린지: ${chall.chal_name}</p>
 					<p class="d_gigan">기 간: ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>
@@ -64,16 +64,14 @@ $(function(){
 
 			<div class="checking">
 				<div class="checking_content">
-					<p class="span_t check">&lt;인증방법&gt;</p>
-					<c:set var="methods" value="${chall.chal_check_method}"/>
-					<c:set var="keywordArr" value="${fn:split(methods,'.')}"/>
+					<p class="span_t check">&lt;인증횟수&gt;</p>
+					<p>챌린지를 진행하는 동안 총 ${chall.chal_check_su} 회 인증하셔야 합니다.</p>
 					<c:forEach var="word" items="${keywordArr}">
 						${word}<br/><br/>
 					</c:forEach>
 				</div>
 				<div class="check_btn">
 					<button><a href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}">신청하기</a></button>
-					<!-- <button onclick="sinchung()">신청하기</button> -->
 				</div>
 			</div>
 		</div>

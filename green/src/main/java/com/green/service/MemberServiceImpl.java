@@ -39,11 +39,6 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO adminLogin(MemberVO vo) {
-		return memberDAO.adminLogin(vo);
-	}
-
-	@Override
 	public String searchID(HttpServletResponse response, String email) throws Exception {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -64,6 +59,30 @@ public class MemberServiceImpl implements MemberService {
 			out.println("</script>");
 			out.close();
 			return id;
+		}
+	}
+	
+	@Override
+	public String searchPass(HttpServletResponse response, String email) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String pw = memberDAO.searchPass(email);
+		
+		if (pw == null) {
+			out.println("<script>");
+			out.println("alert('입력한 정보가 일치하지 않습니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return null;
+		} else {
+			out.println("<script>");
+			out.println("var pw = '"+pw+"';");
+			out.print("alert('비밀번호는 ' + pw + '입니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			return pw;
 		}
 	}
 

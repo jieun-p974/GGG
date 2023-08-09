@@ -1,20 +1,20 @@
 package com.green.domain;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.UUID;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class NewsVO {
 	/*
-	 * news_no      뉴스번호 int(5) auto_increment(pk) notnull
-	 * id_manager   작성자 아이디 varchar(20) notnull
-	 * cat_no       카테고리번호 int(5) notnull
-	 * n_title      뉴스제목 varchar(100) notnull
-	 * n_content    뉴스내용 varchar(1000) notnull
-	 * n_content2      뉴스내용2 varchar(1000)
-	 * n_content3      뉴스내용3 varchar(1000)
-	 * n_reg_date   뉴스작성일 date notnull
-	 * n_img1_nn    이미지1 varchar(100) notnull
-	 * */
-	
+	 * news_no 뉴스번호 int(5) auto_increment(pk) notnull id_manager 작성자 아이디 varchar(20)
+	 * notnull cat_no 카테고리번호 int(5) notnull n_title 뉴스제목 varchar(100) notnull
+	 * n_content 뉴스내용 varchar(2000) notnull n_reg_date 뉴스작성일 date notnull n_img1_nn
+	 * 이미지1 varchar(100) notnull n_img1_addr 이미지1 경로 varchar(100)
+	 */
+
 	private int news_no;
 	private String id_manager;
 	private int cat_no;
@@ -23,9 +23,11 @@ public class NewsVO {
 	private LocalDateTime n_reg_date;
 	private String n_img1_nn;
 	private String n_img1_addr;
-	
+
+	MultipartFile file;
+
 	public NewsVO() {
-		
+
 	}
 
 	public int getNews_no() {
@@ -91,5 +93,37 @@ public class NewsVO {
 	public void setN_img1_addr(String n_img1_addr) {
 		this.n_img1_addr = n_img1_addr;
 	}
-	
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+
+		// 업로드 파일 접근
+		if (!file.isEmpty()) {
+			this.n_img1_nn = file.getOriginalFilename();
+
+			// 실제 저장된 파일명 만들기
+			UUID uuid = UUID.randomUUID();
+			n_img1_addr = uuid.toString() + "_" + n_img1_nn;
+
+			// ***********************************************
+			// 해당 경로로 변경
+			File f = new File("C:\\Users\\1\\Desktop\\gitGGG\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\newsImg\\"
+					+ n_img1_addr);
+
+			try {
+				file.transferTo(f);
+
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

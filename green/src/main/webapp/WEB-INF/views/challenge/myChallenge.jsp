@@ -21,16 +21,16 @@
 				<p class="now_txt">내 도전목록</p>
 				<ul class="now_lists">
 					<c:forEach items="${myChall}" var="c">
-					<li class="now_list">${c.chal_name}</li>
+					<li class="now_list"><a href="checkChallenge.do?chal_no=${c.chal_no}&id=${userId}">${c.chal_name}</a></li>
 					</c:forEach>
 				</ul>
 			</div>
 			<div class="completed">
 				<p class="com_txt">완료 목록</p>
 				<ul class="com_lists">
-					<li class="com_list">카페나 음식점에서 다회용기 포장</li>
-					<li class="com_list">가나다</li>
-					<li class="com_list">라마바사</li>
+					<c:forEach items="${complete}" var="com">
+					<li class="now_list">${com.chal_name}</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>

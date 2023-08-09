@@ -31,6 +31,8 @@ public class CommunityVO {
 	private String b_img2_addr;
 	private String b_img3;
 	private String b_img3_addr;
+	private String m_img_addr;
+	private String com_content;
 
 	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	MultipartFile file2;
@@ -40,7 +42,8 @@ public class CommunityVO {
 
 	}
 
-	public CommunityVO(String id, String b_content, String b_img1, String b_img1_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr) {
+	public CommunityVO(int board_no ,String id, String b_content, String b_img1,String m_img_addr, String b_img1_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr,String com_content) {
+		this.board_no = board_no;
 		this.id = id;
 		this.b_content = b_content;
 		this.b_img1 = b_img1;
@@ -49,6 +52,7 @@ public class CommunityVO {
 		this.b_img2_addr = b_img2_addr;
 		this.b_img3 = b_img3;
 		this.b_img3_addr = b_img3_addr;
+		this.com_content = com_content;
 	}
 
 	public MultipartFile getFile1() {
@@ -82,7 +86,8 @@ public class CommunityVO {
 			}
 		}
 	}
-	
+
+
 	public MultipartFile getFile2() {
 		return file2;
 	}
@@ -169,6 +174,14 @@ public class CommunityVO {
 	public void setB_img3_addr(String b_img3_addr) {
 		this.b_img3_addr = b_img3_addr;
 	}
+	
+	public String getM_img_addr() {
+		return m_img_addr;
+	}
+
+	public void setM_img_addr(String m_img_addr) {
+		this.m_img_addr = m_img_addr;
+	}
 
 	public String getB_content() {
 		return b_content;
@@ -225,5 +238,14 @@ public class CommunityVO {
 	public void setB_img3(String b_img3) {
 		this.b_img3 = b_img3;
 	}
+
+	public String getCom_content() {
+		return com_content;
+	}
+
+	public void setCom_content(String com_content) {
+		this.com_content = com_content;
+	}
+	
 
 }

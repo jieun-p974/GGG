@@ -23,8 +23,8 @@
 	<!-- news update -->
 	<update id="newsUpdate" parameterType="news">
 		UPDATE news SET 
-		cat_no=#{cat_no}, n_title=#{n_title},
-		n_content=#{n_content},n_img1_nn=#{n_img1_nn}
+		cat_no=#{cat_no}, n_title=#{n_title},n_content=#{n_content}
+		<if test='n_img1_nn != null'>,n_img1_nn=#{n_img1_nn}, n_img1_addr = #{n_img1_addr} </if>
 		WHERE news_no = #{news_no}
 	</update>
 	

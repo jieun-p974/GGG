@@ -23,6 +23,7 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	
+	//결제수단 조인
 	private int mem_card_no;
 	private String card_num;
 	private String expiry_date;
@@ -99,7 +100,7 @@ public class MemberVO {
 	public void setChallengeVO(ChallengeVO challengeVO) {
 		this.challengeVO = challengeVO;
 	}
-	
+
 	public MemberVO() {}
 	
 	//*************************************************
@@ -111,7 +112,7 @@ public class MemberVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 		
-		// 업로드 파일 접근
+		// 업로드 파일 접근	
 		if(! file.isEmpty()){
 			this.m_img = file.getOriginalFilename();
 			
@@ -239,9 +240,5 @@ public class MemberVO {
 		this.m_img_addr = m_img_addr;
 	}
 
-	
-	
-
-	
 	
 }

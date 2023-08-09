@@ -11,6 +11,45 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>마이페이지 | 회원정보수정</title>
 </head>
+<<<<<<< HEAD
+=======
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">		
+$(document).ready(function() {
+
+	$("#editBtn").on("click", function() {
+		
+		if ($("#password").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+			$("#password").focus();
+			return false;
+		}
+		
+		if ($("#passCheck").val() == "") {
+			alert("비밀번호 확인란을 입력해주세요.");
+			$("#passCheck").focus();
+			return false;
+		}
+		
+		if($("#password").val()!=$("#passCheck").val()){
+			alert("비밀번호가 일치하지 않습니다.");
+			$("#passCheck").focus();
+			return false;
+		}
+		 		
+		document.userinput.submit();//전송
+		alert("회원정보가 수정되었습니다.");
+		location.href = "../member/mypage.do"; 
+		
+	});
+	
+	
+})
+
+	
+</script>
+
+>>>>>>> refs/remotes/origin/main
 <body>
 	<div class="container">
 		<%@include file="../layouts/header.jsp"%>

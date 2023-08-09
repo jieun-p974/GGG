@@ -23,14 +23,18 @@ $(function(){
 	<c:forEach items="${list}" var="chall">
 	var star2 = "";
 	
-	for(var i = 0; i < ${chall.difficulty}; i++) {
+	for(var i = 0; i < ${chall.difficulty}; i++) { 
 		star2 += "★";
 	}
 	for(var i = 0; i < 5-${chall.difficulty}; i++) {
 		star2 += "☆";
 	}
 	html2 += '<div class="c_list">';
-	html2 += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+	html2 += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
+	html2 +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
+/* 	<c:if test="${chall.chal_img_addr != null}">
+	html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>'
+	</c:if> */
 	html2 += '<p class="c_list_txt">${chall.chal_name}</p>';
 	html2 += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 	html2 += '<p class="c_list_lv">난이도 : ';
@@ -59,7 +63,11 @@ $("#chall").append(html2);
 					star += "☆";
 				}
 				html += '<div class="c_list">';
-				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
+				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
+/* 				<c:if test="${chall.chal_img_addr != null}">
+				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>'
+				</c:if> */
 				html += '<p class="c_list_txt">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
@@ -83,7 +91,11 @@ $("#chall").append(html2);
 					star += "☆";
 				}
 				html += '<div class="c_list">';
-				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
+				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
+/* 				<c:if test="${chall.chal_img_addr != null}">
+				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>'
+				</c:if> */
 				html += '<p class="c_list_txt">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
@@ -106,7 +118,11 @@ $("#chall").append(html2);
 					star += "☆";
 				}
 				html += '<div class="c_list">';
-				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}"><div class="c_list_img"><img alt="챌린지 사진" src="${chall.chal_img}"></div>';
+				html += '<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
+				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
+/* 				<c:if test="${chall.chal_img_addr != null}">
+				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>'
+				</c:if> */
 				html += '<p class="c_list_txt">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
@@ -120,7 +136,7 @@ $("#chall").append(html2);
 	});
 });
 </script>
-<title>뉴스 목록</title>
+<title>챌린지 목록</title>
 </head>
 <body>
 	<div class="container ">
