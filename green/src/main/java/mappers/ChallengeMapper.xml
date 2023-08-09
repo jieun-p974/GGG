@@ -40,7 +40,6 @@
 		WHERE chal_no=#{chal_no};
 	</update>
 	
-<<<<<<< HEAD
 <!-- 	<select id="selectMyChall" parameterType="string" resultType="challenge">
 		SELECT c.chal_no AS chal_no, chal_name
 		FROM mem_chal, challenge c
@@ -48,7 +47,6 @@
 	</select> -->
 	
 	<!-- select my challenge ing--> 
-	<!-- 
 	<resultMap id="memChall" type="memChallenge">
 		<result column="chal_no" property="chal_no" />
 		<result column="chal_name" property="chal_name" />
@@ -56,10 +54,8 @@
 		<collection property="" />
 
  	<resultMap type="challenge" id="myChall">
-=======
 	<!-- select my challenge ing-->
 <!--  	<resultMap type="challenge" id="myChall">
->>>>>>> refs/remotes/origin/ayoung
 		<result column="chal_no" property="chal_no"/>
 		<result column="chal_name" property="chal_name"/>
 		<result column="id" property="id"/>
@@ -79,10 +75,6 @@
 		SELECT c.chal_no as chal_no,chal_name
 		FROM mem_chal, challenge c
 		WHERE id = #{userId} AND completion_YN = 'N' AND success_YN = 'N' AND mem_chal.chal_no = c.chal_no;
-<<<<<<< HEAD
 	</select>
- -->
-=======
 	</select> -->
->>>>>>> refs/remotes/origin/ayoung
 </mapper>
