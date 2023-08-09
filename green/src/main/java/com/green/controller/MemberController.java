@@ -141,19 +141,11 @@ public class MemberController {
 	 
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("/goDonation.do")
+	public String goDona(@ModelAttribute("member") MemberVO vo) {
+		memberService.goDona(vo);
+		return "/";
+	}
 	
 
 }

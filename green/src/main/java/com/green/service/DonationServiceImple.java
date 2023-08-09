@@ -13,11 +13,6 @@ public class DonationServiceImple implements DonationService {
 	@Autowired
 	private DonationDAO donationDAO;
 
-//	@Override
-//	public void insertDona(DonationVO vo) {
-//		// TODO Auto-generated method stub
-//		donationDAO.insertDona(vo);
-//	}
 
 	//List 
 	@Override
@@ -30,5 +25,23 @@ public class DonationServiceImple implements DonationService {
 	public DonationVO getDona(DonationVO vo) {
 		return donationDAO.getDona(vo);
 	}
+
+	@Override
+	public void insertDona(DonationVO vo) {
+		donationDAO.donationInsert(vo);
+	}
+
+	@Override
+	public void updateDona(DonationVO vo) {
+		System.out.println("서비스"+vo.getDon_name());
+		donationDAO.updateDona(vo);
+	}
+
+	@Override
+	public void deleteDona(DonationVO vo) {
+		donationDAO.deleteDona(vo);
+	}
+
+
 
 }

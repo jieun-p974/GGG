@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>마이페이지 | 회원정보수정</title>
 </head>
+<<<<<<< HEAD
+=======
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">		
 $(document).ready(function() {
@@ -47,56 +49,47 @@ $(document).ready(function() {
 	
 </script>
 
+>>>>>>> refs/remotes/origin/main
 <body>
 	<div class="container">
-	<form method="post" action="infoEditSave.do?id=${userId}" name="userinput" id="userinput" enctype="multipart/form-data">
-	
 		<%@include file="../layouts/header.jsp"%>
 		<div class="login_container">
 			<p class="title">회원 정보</p>
 			
-		
+			<div class="info">
+				<p class="label">이름&nbsp&nbsp</p>
+				<input class="insert" type="text" name="name" id="name" disabled>
+			</div>
 			
 			<div class="info">
 				<p class="label">아이디&nbsp&nbsp</p>
-				<input class="insert" type="text" name="id" id="id" value="${userId}" disabled>
+				<input class="insert" type="text" name="id" id="id" disabled>
 			</div>
 
 			<div class="info">
-				<p class="label">이메일주소</p>
-				<input class="insert" type="text" name="email" id="email" value="${userEmail}" disabled>
-			</div>
-			
-				<div class="info">
-				<p class="label">이름&nbsp&nbsp</p>
-				<input class="insert" type="text" name="name" id="name" value="${userName}">
-			</div>
-			
-			<div class="info">
 				<p class="label">비밀번호&nbsp&nbsp</p>
-				<input class="insert" type="password" name="password" id="password" placeholder="비밀번호를 입력하세요.">
+				<input class="insert" type="password" name="pass" id="pass">
 			</div>
 
 			<div class="info">
 				<p class="label">비밀번호확인&nbsp&nbsp</p>
-				<input class="insert" type="password" name="passCheck" id="passCheck" placeholder="비밀번호를 입력하세요.">
+				<input class="insert" type="password" name="password" id="password">
 			</div>
 
 			<div class="info">
 				<p class="label">전화번호&nbsp&nbsp</p>
-				<input class="insert" type="text" name="tel" id="tel" value="${userTel}">
+				<input class="insert" type="text" name="tel" id="tel">
 			</div>
 
-				<div class="info">
-					<p class="label"> 프로필 사진 <br/>(선택)</p>
-					<input type="file" name="file" id="file" value="/resources/imgs/member/${userImgAddr}"/>
-				</div>
-				
+			<div class="info">
+				<p class="label">이메일주소</p>
+				<input class="insert" type="text" name="email" id="email">
+			</div>
+
 			<div class="btns">
-				<button type="submit" class="editBtn" id="editBtn">수정하기</button>
+				<button class="editBtn">수정하기</button>
 			</div>
 		</div>
-		</form>
 	</div>
 	<%@include file="../layouts/footer.jsp"%>
 </body>

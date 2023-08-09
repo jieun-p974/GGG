@@ -30,4 +30,6 @@ public interface MemberDAO {
 	// 비밀번호 찾기
 	String searchPass(String email);
 	
+	//기부시 포인트 사용
+	public void goDona(MemberVO vo);
 }

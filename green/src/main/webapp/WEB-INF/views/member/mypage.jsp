@@ -47,8 +47,8 @@
 				<fmt:parseNumber var="today" value="${now.time / (1000*60*60*24)}" integerOnly="true" scope="request"/>
 				<fmt:parseDate var="sdate" value="${userSdate}" pattern="yyyy-MM-dd" />
 				<fmt:parseNumber var="sdate2" value="${sdate.time / (1000*60*60*24)}" integerOnly="true" scope="request"/>
-				<p class="member_count"> ${userId}&nbsp회원님&nbsp환영합니다! <br/><br/>
-				🌏&nbspGGG와 함께한지 ${today-sdate2}일 째&nbsp🌏</p>
+			
+			
             	<p class="member_count"> ${userId}&nbsp회원님&nbsp환영합니다! <br/><br/>
           		  🌏&nbspGGG와 함께한지 ${today-sdate2}일 째&nbsp🌏</p>
 				<button class="member_edit" onclick="location.href='infoEdit.do'">회원정보 수정</button>
@@ -121,7 +121,7 @@
 								onclick="location.href='../challenge/myChallenge.do?userId=${userId}'">도전중인 챌린지
 							</button>
 							<button class="dojunBtn"
-								onclick="window.open('../challenge/challengeList.do')">챌린지참여하기
+								onclick="location.href='../challenge/challengeList.do'">챌린지참여하기
 							</button>
 							<button type="button" class="down1">
 								<img src="../../imgs/down.png">

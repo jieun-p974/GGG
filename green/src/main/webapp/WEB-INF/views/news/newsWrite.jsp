@@ -59,7 +59,19 @@ function check() {
 						<option value=6>정치</option>
 					</select><br/><br/>
 					<label for="id_manager">작성자</label> 
+<<<<<<< HEAD
 					<input type="text" name="id_manager" id="id_manager" value="${userId}" readonly />
+=======
+<<<<<<< HEAD
+					<input type="text" name="id_manager" id="id_manager" disabled="disabled"> 
+=======
+
+<!-- 					<input type="text" name="id_manager" id="id_manager" readonly> 
+ -->
+					<input type="text" name="id_manager" id="id_manager" value="${userId}" readonly />
+
+>>>>>>> refs/remotes/origin/ayoung
+>>>>>>> refs/remotes/origin/seul
 					<label for="n_title">기사 제목</label> 
 					<input type="text" id="n_title" name="n_title">
 					<textarea name="n_content" id="n_content" placeholder="내용을 입력해 주세요."

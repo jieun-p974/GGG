@@ -47,9 +47,9 @@
 			<div class="kind">
 				<p class="txt">결제권 종류</p>
 				<select name="dojun_kind" id="dojun_kind">
-					<option value="three">3회 도전권</option>
-					<option value="three">7회 도전권</option>
-					<option value="three">무제한 도전권</option>
+					<option value="three">3회 도전권 (3000원)</option>
+					<option value="three">7회 도전권 (7000원)</option>
+					<option value="three">무제한 도전권 (10,000원)</option>
 				</select>
 			</div>
 			<div class="pay_method">
