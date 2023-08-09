@@ -14,6 +14,9 @@
 </head>
 <body>
 <div class="container">
+<c:if test="${userType == 2}">
+<h4 style="fontcolor=red"> ${userId} ${userName} ${sessionTime} 접속  </h4>
+</c:if>
 <%@include file="../layouts/header.jsp" %>
     <div class="main">
       <div class="introduce">
@@ -84,6 +87,7 @@
           </div>
 
           <button class="btn" onclick="location.href='/challenge/challengeList.do'">지금 바로 챌린지 참여하러 가기!</button>
+          <button class="btn" onclick="location.href='/dogam/dogam.do'">동물캐릭터 도감 보러가기</button>
         </div>
       </div>
     </div>

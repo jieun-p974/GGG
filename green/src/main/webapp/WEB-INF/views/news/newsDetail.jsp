@@ -36,15 +36,9 @@
                 <div class="date">작성일 : ${news.n_reg_date}</div>
 			</div>
 			<div class="news_content">
-				<img src="${news.n_img1_nn}" alt="사진" class="img">
+				<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="사진" class="img">
 				<p class="content">
 					${news.n_content}
-				</p>
-				<p class="content">
-					${news.n_content2}
-				</p>
-				<p class="content">
-					${news.n_content3}
 				</p>
 			</div>
 		</div>

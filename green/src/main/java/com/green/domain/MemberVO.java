@@ -23,6 +23,7 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	
+	//결제수단 조인
 	private int mem_card_no;
 	private String card_num;
 	private String expiry_date;
@@ -239,9 +240,5 @@ public class MemberVO {
 		this.m_img_addr = m_img_addr;
 	}
 
-	
-	
-
-	
 	
 }

@@ -30,8 +30,8 @@ public class MemberController {
       return "/member/"+url;
    }	
    
-	 @Autowired
-	   private MemberService memberService; 
+   @Autowired
+	private MemberService memberService; 
 	 
   // 회원가입  
    @RequestMapping("/signupSave.do")
@@ -47,9 +47,7 @@ public class MemberController {
 	   mv.addObject("result", result);
 	   return mv;
    }
-  
-
-   
+     
    // 로그인 
 	@RequestMapping("/loginSave.do") // 가라페이지로 이동
 	public String login(MemberVO vo, HttpSession session) { 
@@ -63,7 +61,7 @@ public class MemberController {
 		else {
 			System.out.println("[" + result.getId() + "] 로그인 접속 ");
 			// 세션에 저장
-			session.setMaxInactiveInterval(60*30); //세션유지시간 30분
+			session.setMaxInactiveInterval(60*60); //세션유지시간 60분
 			session.setAttribute("sessionTime", new Date().toLocaleString());
 			session.setAttribute("userId", memberVo.getId());
 			session.setAttribute("userType", memberVo.getMem_type_no());
@@ -77,71 +75,35 @@ public class MemberController {
 			session.setAttribute("userAccount", memberVo.getAccount_reg_YN());
 			session.setAttribute("userPoint", memberVo.getRemainder_point());
 			session.setAttribute("userImg", memberVo.getM_img());
-			session.setAttribute("userVo", memberVo);
 			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
+			session.setAttribute("userVo", memberVo);
 		}
 
-		return "redirect:/member/mypage.do";
+		return "redirect:/member/main.do";
 	}
-	
-	   // 관리자로그인 
-		@RequestMapping("/adminLoginSave.do") // 가라페이지로 이동
-		public String adminLogin(MemberVO vo, HttpSession session) { 
-			// DB연결 확인
-			MemberVO result = memberService.idCheck_Login(vo);
-			MemberVO admin = memberService.adminLogin(vo);
-			MemberVO memberVo = memberService.memberInfo(vo);
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
-			if (result == null || result.getId() == null) {
-				return "/member/adminLogin"; 		}
-			else {
-				System.out.println("[" + result.getId() + "] 로그인 접속 ");
-				// 세션에 저장
-				session.setMaxInactiveInterval(60*60); //세션유지시간 60분
-				session.setAttribute("sessionTime", new Date().toLocaleString());
-				session.setAttribute("userId", memberVo.getId());
-				session.setAttribute("userType", memberVo.getMem_type_no());
-				session.setAttribute("userPass", memberVo.getPassword());
-				session.setAttribute("userName", memberVo.getName());
-				session.setAttribute("userTel", memberVo.getTel());
-				session.setAttribute("userEmail", memberVo.getEmail());
-				session.setAttribute("userBday", simpleDateFormat.format(memberVo.getBday()).toString());
-				session.setAttribute("userSdate", simpleDateFormat.format(memberVo.getSdate()).toString());
-				session.setAttribute("userCard", memberVo.getCard_reg_YN());
-				session.setAttribute("userAccount", memberVo.getAccount_reg_YN());
-				session.setAttribute("userPoint", memberVo.getRemainder_point());
-				session.setAttribute("userImg", memberVo.getM_img());
-				session.setAttribute("userVo", memberVo);
-			}
+		
+		@RequestMapping(value = "/idCheck.do", produces = "application/text; charset=utf8")
+		// 화면에서 보낸 결과 한글 깨짐 해결 -> produces = "application/text; charset=utf8"
+		@ResponseBody // --> 이것으로 비동기화 통신을을 함 ( 페이지전환되지 않도록)
+		public String idchekc(MemberVO vo) // 인자로 사용자아이디(String)만 받아도 된다
+		{
 
-			return "redirect:/member/adminMain.do";
+			// 컨트롤러에서는 디비 연동을 하지 않고 연결만 하기에 모델(Business Login) DAO을 호출
+
+			MemberVO memberVo = memberService.idCheck_Login(vo);
+			String result = "ID 사용 가능합니다.";
+			if (memberVo != null)
+				result = "중복된 아이디 입니다.";
+			return result;
 		}
 		
-	
-	// 아이디 중복 체크
-	@RequestMapping(value = "/idcheck.do", produces = "application/text; charset=utf8")
-	@ResponseBody // 비동기 통신
-	public String idchekc(MemberVO vo) // 인자로 사용자아이디(String)만 받아도 된다
-	{
-		MemberVO memberVo = memberService.idCheck_Login(vo);
-		String result = "ID 사용 가능합니다.";
-		if (memberVo != null)
-			result = "중복된 아이디 입니다.";
-		return result;
-	}
 
 	// 회원정보 수정
 	@RequestMapping("/infoEditSave.do")
-	public ModelAndView userUpdate(MemberVO memberVo) {
-		int result = memberService.memberUpdate(memberVo);
-		String message = "변경되지 않았습니다";
-		if (result > 0)
-			message = memberVo.getId() + "님, 회원정보가 변경되었습니다.";
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member");
-		mv.addObject("message", message);
-		mv.addObject("result", result);
-		return mv;
+	public String userUpdate(@ModelAttribute("member") MemberVO memberVo) {
+		memberService.memberUpdate(memberVo);
+		System.out.println("여기에용"+memberVo.getId());
+		return "redirect:/member/mypage.do";
 	}
 	
 	// 로그아웃
@@ -151,7 +113,7 @@ public class MemberController {
 		return "redirect:/member/main.do";
 	}
 	
-// 아이디 찾기 폼
+	// 아이디 찾기 폼
 	@RequestMapping(value = "/searchIDsave.do")
 	public String searchID() throws Exception{
 		return "/member/searchID";
@@ -163,10 +125,27 @@ public class MemberController {
 		md.addAttribute("id", memberService.searchID(response, email));
 		return "/member/searchID";
 	}
+	
+	// 비번 찾기 폼
+	@RequestMapping(value = "/searchPassSave.do")
+	public String searchPass() throws Exception{
+		return "/member/searchPass";
+	}
+	
+	// 비번 찾기
+	@RequestMapping(value = "/searchPassSave.do", method = RequestMethod.POST)
+	public String searchPass(HttpServletResponse response, @RequestParam("email") String email, Model md) throws Exception{
+		md.addAttribute("pw", memberService.searchPass(response, email));
+		return "/member/searchPass";
+	}
+	 
+
+	
 	@RequestMapping("/goDonation.do")
 	public String goDona(@ModelAttribute("member") MemberVO vo) {
 		memberService.goDona(vo);
 		return "/";
 	}
+	
 
 }

@@ -66,7 +66,7 @@
 		<div class="chall_insert">
             <div class="insert_box">
             <p class="title">챌린지 수정</p>
-                <form action="updateChallenge.do" method="post">
+                <form action="updateChallenge.do" method="post" enctype="multipart/form-data">
                 	<input name="chal_no" type="hidden" value="${chall.chal_no}">
                     <div class="chal_name">
                         <label for="chal_name">챌린지명</label>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="chal_img">
                         <label for="chal_img">챌린지 이미지</label>
-                        <input type="file" name="chal_img" id="chal_img">
+                        <input type="file" name="file" id="file" value="/resources/imgs/challImg/${chall.chal_img_addr}">
                     </div>
                     <div class="buttons">
                         <button id="adding" type="submit">수정하기</button>

@@ -99,7 +99,7 @@
 		<div class="chall_insert">
 			<div class="insert_box">
 				<p class="title">챌린지 등록</p>
-				<form action="saveChallenge.do" method="post" name="form" id="form">
+				<form action="saveChallenge.do" method="post" name="form" id="form" enctype="multipart/form-data">
 					<div class="chal_name">
 						<label for="chal_name">챌린지명</label> <input type="text"
 							name="chal_name" id="chal_name">
@@ -121,8 +121,8 @@
 						<textarea name="chal_check_method" id="chal_check_method" placeholder="챌린지 인증방법을 적어주세요."></textarea>
 					</div>
 					<div class="difficulty">
-						<label for="difficulty">챌린지 난이도</label> <select name="difficulty"
-							id="difficulty">
+						<label for="difficulty">챌린지 난이도</label> 
+						<select name="difficulty" id="difficulty">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -131,8 +131,8 @@
 						</select>
 					</div>
 					<div class="chal_img">
-						<label for="chal_img">챌린지 이미지</label> <input type="file"
-							name="chal_img" id="chal_img">
+						<label for="chal_img">챌린지 이미지</label> 
+						<input type="file" name="file" id="file">
 					</div>
 					<div class="buttons">
 						<button id="adding" type="submit">등록</button>

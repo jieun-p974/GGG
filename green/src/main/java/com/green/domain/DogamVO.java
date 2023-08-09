@@ -25,15 +25,20 @@ public class DogamVO {
 	private String do_choice_YN;
 	private int do_exp;
 	
+	private String img1;
+	private String img2;
+	private String img3;
+	private int nowLv;
+	
 	public DogamVO() {}
 
+	
 	public int getDo_no() {
 		return do_no;
 	}
 
 	public void setDo_no(int do_no) {
 		this.do_no = do_no;
-		System.out.println(do_no);
 	}
 
 	public String getDo_title() {
@@ -66,7 +71,6 @@ public class DogamVO {
 
 	public void setDo_lev(int do_lev) {
 		this.do_lev = do_lev;
-		System.out.println(do_lev+"여기");
 	}
 
 	public String getDo_img() {
@@ -118,6 +122,41 @@ public class DogamVO {
 	};
 	
 	
+	
+	public String getImg1() {
+		return img1;
+	}
+
+	public void setImg1(String img1) {
+		this.img1 = img1;
+	}
+
+	public String getImg2() {
+		return img2;
+	}
+
+	public void setImg2(String img2) {
+		this.img2 = img2;
+	}
+
+	public String getImg3() {
+		return img3;
+	}
+
+	public void setImg3(String img3) {
+		this.img3 = img3;
+	}
+
+	public int getNowLv() {
+		return nowLv;
+	}
+
+	public void setNowLv(int nowLv) {
+		this.nowLv = nowLv;
+	}
+
+
+
 	//*************************************************
 	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	
