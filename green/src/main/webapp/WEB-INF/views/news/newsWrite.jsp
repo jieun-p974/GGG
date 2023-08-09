@@ -60,11 +60,6 @@ function check() {
 					</select><br/><br/>
 					<label for="id_manager">작성자</label> 
 					<input type="text" name="id_manager" id="id_manager" value="${userId}" readonly />
-					<input type="text" name="id_manager" id="id_manager" disabled="disabled"> 
-
-<!-- 					<input type="text" name="id_manager" id="id_manager" readonly> 
- -->
-					<input type="text" name="id_manager" id="id_manager" value="${userId}" readonly />
 
 					<label for="n_title">기사 제목</label> 
 					<input type="text" id="n_title" name="n_title">

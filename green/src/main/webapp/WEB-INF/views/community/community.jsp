@@ -95,7 +95,7 @@
 								</div>
 							</form>
 							<!-- 게시 글에 달린 댓글 출력 댓글보기 버튼에 toggle -->
-							<!-- 
+							<c:if test="${community.board_no != null}">
 							<c:forEach items="${listRe}" var="community">
 								<div class="reply">
 									<input type="hidden" name="board_no" value="${community.board_no}" />
@@ -104,7 +104,7 @@
 									<p class="com_content">${community.com_content}</p>
 								</div>
 							</c:forEach>
-							 -->
+							</c:if>
 							
 							<table align="center" width="500" border="1" id="rtb">
 								<thead>
@@ -145,31 +145,34 @@
 	function getReplyList() {
 		var board = "${community.board_no}";
 		$.ajax({
-					url : "/community.do",
+					url : "getReply.do",
 					data : {
 						"board_no" : board_no
 					},
 					type : "get",
-					success : function(listRe) { //댓글목록 불러오는 함수
+					success : function(result) { //댓글목록 불러오는 함수
 						var $tableBody = $('#rtb tbody'); //$는 의미없음 그냥 변수명 중 하나
 						$tableBody.html(''); //tbody를 초기화 시켜야 댓글 목록의 중첩을 막을수 있음 아니면 등록할떄마다 append로 이어짐
-	//					$('#rCount').text("댓글 (" + result.length + ")") //댓글수 출력
+						$('#rCount').text("댓글 (" + result.length + ")") //댓글수 출력
 						if (result != null) {
 							console.log(result);
-							for ( var i in listRe) {
+							for ( var i in result) {
 								var $tr = $("<tr>");
-								var $id = $("<td width='100'>").text(
-										listRe[i].id);
-								var $com_content = $("<td>").text(
-										listRe[i].com_content);
-//								var $btnArea = $("<td width='80'>")
-	//									.append(
-		//										"<a href='modifyreply(${community.board_no})'>수정</a>")
-		//								.append("<a href='#'>삭제</a>");
+								var $rWriter = $("<td width='100'>").text(
+										result[i].replyWirter);
+								var $rContent = $("<td>").text(
+										result[i].replyContents);
+								var $rCreatDate = $("<td width='100'>").text(
+										result[i].rCreateDate);
+								var $btnArea = $("<td width='80'>")
+										.append(
+												"<a href='modifyreply(${community.board_no})'>수정</a>")
+										.append("<a href='#'>삭제</a>");
 
-								$tr.append($id);
-								$tr.append($com_content);
-		//						$tr.append($btnArea);
+								$tr.append($rWriter);
+								$tr.append($rContent);
+								$tr.append($rCreatDate);
+								$tr.append($btnArea);
 								$tableBody.append($tr);
 
 							}
@@ -181,22 +184,23 @@
 
 					}
 				})
-			
-//		var $tableBody = $('#rtb tbody');
-//		for ( var i in result) {
-//			var $tr = $("<tr>");
-//			var $rWriter = $("<td width='100'>").text(result[i].replyWirter);
-//			var $rContent = $("<td>").text(result[i].replyContents);
-//			var $btnArea = $("<td width='80'>").append(
-//					"<a href='modifyreply(${community.board_no})'>수정</a>").append(
-//					"<a href='#'>삭제</a>");
+		var $tableBody = $('#rtb tbody');
+		for ( var i in result) {
+			var $tr = $("<tr>");
+			var $rWriter = $("<td width='100'>").text(result[i].replyWirter);
+			var $rContent = $("<td>").text(result[i].replyContents);
+			var $rCreatDate = $("<td width='100'>").text(result[i].rCreateDate);
+			var $btnArea = $("<td width='80'>").append(
+					"<a href='modifyreply(${community.board_no})'>수정</a>").append(
+					"<a href='#'>삭제</a>");
 
-//			$tr.append($rWriter);
-//			$tr.append($rContent);
-//			$tr.append($btnArea);
-//			$tableBody.append($tr);
+			$tr.append($rWriter);
+			$tr.append($rContent);
+			$tr.append($rCreatDate);
+			$tr.append($btnArea);
+			$tableBody.append($tr);
 
-//		}
+		}
 
 	}
 </script>
