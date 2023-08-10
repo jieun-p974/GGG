@@ -36,6 +36,7 @@
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
+					html += '<td><button class="modify"><a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a></button></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -51,6 +52,7 @@
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
+					html += '<td><button class="modify"><a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a></button></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -66,6 +68,7 @@
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
+					html += '<td><button class="modify"><a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a></button></td>';
 					html += '</tbody>';
 				
 				</c:forEach>
@@ -74,9 +77,6 @@
 			}
 		});
 	});
-	function insert() {
-		location.href = "challengeInsert.do"
-	}
 </script>
 <title>챌린지 관리</title>
 </head>
@@ -84,7 +84,7 @@
 	<div class="container">
 		<%@include file="../layouts/adminHeader.jsp"%>
 		<div class="admin_chall">
-			<p class="admin_title">챌린지 리스트 관리</p>
+			<p class="admin_title">챌린지 관리 리스트</p>
 
 			<div class="calendar">
 				<select class="month" name="challList" id="challList">
@@ -102,6 +102,7 @@
 						<th>챌린지 시작일</th>
 						<th>챌린지 종료일</th>
 						<th>수정</th>
+						<th>인증관리</th>
 					</thead>
 					<c:forEach items="${list}" var="chall">
 						<tbody>
@@ -111,7 +112,12 @@
 							<td>${chall.chal_end_date}</td>
 							<td><button class="modify">
 									<a href="challengeModify.do?chal_no=${chall.chal_no}"> 수정 </a>
-								</button></td>
+								</button>
+							</td>
+							<td><button class="modify">
+									<a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a>
+								</button>
+							</td>
 						</tbody>
 					</c:forEach>
 				</table>

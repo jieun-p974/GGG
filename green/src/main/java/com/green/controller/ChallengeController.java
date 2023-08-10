@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.green.domain.ChallengeCheckVO;
@@ -115,8 +116,26 @@ public class ChallengeController {
 	//certification table insert
 	@RequestMapping(value="/goCertification.do")
 	public String insertCertification(ChallengeCheckVO vo) throws IOException {
-		System.out.println(vo.getM_c_no());
+		System.out.println(vo.getCer_img1_addr());
 		challengeService.insertCertification(vo);
-		return "redirect:/challenge/challengeCertification.do";
+		MemChallengeVO reVo = challengeService.redirectCheckPage(vo);
+		return "redirect:/challenge/checkChallenge.do?chal_no="+reVo.getChal_no()+"&id="+reVo.getId();
+	}
+	
+	//관리자 인증 체크 리스트
+	@RequestMapping(value="/adminChallengeCertList")
+	public void adminCerCheckList(Model model,String chal_name) {
+		List<ChallengeCheckVO> list = challengeService.adminCerCheckList();
+		model.addAttribute("cerList", list);
+		model.addAttribute("chal_name", chal_name);
+	}
+	
+	//체크한것만 전달하기
+	@RequestMapping(value="/yesChecked.do")
+	public String yesCheckedList(@RequestParam List<String> valueArr) {
+		HashMap<String, List<String>> arr = new HashMap<String, List<String>>();
+		arr.put("arr", valueArr);
+		challengeService.updatePassYN(arr);
+		return "redirect:/challenge/adminChallengeCertList.do";
 	}
 }

@@ -38,4 +38,13 @@ public interface ChallengeService {
 	
 	//insertCertification
 	void insertCertification(ChallengeCheckVO vo);
+	
+	//redirect할때 필요한 정보
+	MemChallengeVO redirectCheckPage(ChallengeCheckVO vo);
+	
+	//관리자 인증 체크 리스트
+	List<ChallengeCheckVO> adminCerCheckList();
+	
+	//인증 여부 변경
+	void updatePassYN(HashMap arr);
 }

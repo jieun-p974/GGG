@@ -84,4 +84,23 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		mybatis.insert("ChallengeDAO.insertCertification",vo);
 	}
 
+	@Override
+	public MemChallengeVO redirectCheckPage(ChallengeCheckVO vo) {
+		System.out.println("Mybatis => redirect 정보");
+		return mybatis.selectOne("ChallengeDAO.redirectCheckPage", vo);
+	}
+
+	//관리자 인증체크 리스트 출력
+	@Override
+	public List<ChallengeCheckVO> adminCerCheckList() {
+		System.out.println("Mybatis => admin certification check list");
+		return mybatis.selectList("ChallengeDAO.adminCerCheckList");
+	}
+
+	@Override
+	public void updatePassYN(HashMap<String, List<String>> arr) {
+		System.out.println("Mybatis => updatePassYN");
+		mybatis.update("ChallengeDAO.updatePassYN",arr);
+	}
+
 }

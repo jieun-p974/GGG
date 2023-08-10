@@ -13,6 +13,7 @@
     margin: auto;
 }
 
+
 .login {
     background: #c0cabf;
     width: 570px;
@@ -45,7 +46,9 @@
 }
 
 .insert{
+
     grid-column: auto / span 2;
+    background-color:#c0cabf;
 }
 
 /* ------------- 메뉴바 ------------- */
