@@ -5,6 +5,16 @@ public class HeartVO {
 	private String id;
 	private int board_no;
 	
+	public HeartVO() {
+		
+	}
+	
+	public HeartVO(int like_no, String id, int board_no) {
+		this.like_no = like_no;
+		this.id = id;
+		this.board_no = board_no;
+		
+	}
 	
 	public int getLike_no() {
 		return like_no;

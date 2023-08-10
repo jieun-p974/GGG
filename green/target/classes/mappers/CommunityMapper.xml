@@ -24,7 +24,7 @@
 		ORDER BY b.regist_date desc
 	</select>
 	
-	<!-- show my list -->
+	<!-- show id search list -->
 	<select id="getMyCommunityList" resultType="community">
 		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
 				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
@@ -34,7 +34,7 @@
 	</select>
 	
 	<!-- show reply -->
-	<select id="getReplyList" resultType="community">
+	<select id="getReplyList" resultType="reply">
 		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
 		FROM reply r, member m 
 		WHERE m.id = r.id AND r.board_no = #{board_no} 
@@ -69,5 +69,11 @@
 	<delete id="deleteCommunity" parameterType="community">
 		DELETE FROM board WHERE board_no = #{board_no}
 	</delete>
+	
+	<!-- insertLike -->
+	<insert id="likeInsert" parameterType="community">
+		INSERT INTO b_m_like (like_no, id, board_no)
+		VALUES(#{like_no}, #{id}, #{board_no})
+	</insert>
 	
 </mapper>

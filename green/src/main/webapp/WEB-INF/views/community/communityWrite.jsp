@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +9,9 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
 	function cancleWrite() {
 		location.href = "community.do"
 	}
-	
 </script>
 <title>커뮤니티 글 작성</title>
 </head>
@@ -59,7 +56,7 @@
             }
             reader.readAsDataURL(obj.files[0]);
             reader.onload = function (e) {
-                let img = $('<img class="previewImg"/>');
+                let img = $('<img class="previewImg" />');
                 $(img).attr('src', e.target.result);
                 $('#previewDiv1').append(img);
             }

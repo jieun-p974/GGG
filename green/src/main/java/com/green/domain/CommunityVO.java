@@ -27,13 +27,14 @@ public class CommunityVO {
 	private LocalDateTime regist_date;
 	private String b_img1;
 	private String b_img1_addr;
-
-
 	private String b_img2;
 	private String b_img2_addr;
 	private String b_img3;
 	private String b_img3_addr;
 	private String m_img_addr;
+	private String com_content;
+	private int com_no;
+	private int like_no;
 
 	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	MultipartFile file2;
@@ -43,8 +44,8 @@ public class CommunityVO {
 
 	}
 
-	public CommunityVO(int board_no ,String id, String b_content, String b_img1,String m_img_addr, 
-			String b_img1_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr) {
+	public CommunityVO(int board_no ,String id, String b_content, String b_img1, String b_img1_addr, int com_no,int like_no,
+			String m_img_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr, String com_content) {
 		this.board_no = board_no;
 		this.id = id;
 		this.b_content = b_content;
@@ -54,6 +55,10 @@ public class CommunityVO {
 		this.b_img2_addr = b_img2_addr;
 		this.b_img3 = b_img3;
 		this.b_img3_addr = b_img3_addr;
+		this.m_img_addr = m_img_addr;
+		this.com_content = com_content;
+		this.com_no = com_no;
+		this.like_no = like_no;
 	}
 
 	public MultipartFile getFile1() {
@@ -75,14 +80,11 @@ public class CommunityVO {
 			// 해당 경로로 변경
 			File f = new File(
 					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img1_addr);
-
 			try {
 				file1.transferTo(f);
-
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-
 				e.printStackTrace();
 			}
 		}
@@ -239,6 +241,29 @@ public class CommunityVO {
 	public void setB_img3(String b_img3) {
 		this.b_img3 = b_img3;
 	}
+	
+	public String getCom_content() {
+		return com_content;
+	}
 
+	public void setCom_content(String com_content) {
+		this.com_content = com_content;
+	}
+	
+	public int getCom_no() {
+		return com_no;
+	}
+
+	public void setCom_no(int com_no) {
+		this.com_no = com_no;
+	}
+	
+	public int getLike_no() {
+		return like_no;
+	}
+
+	public void setLike_no(int like_no) {
+		this.like_no = like_no;
+	}
 
 }

@@ -3,6 +3,7 @@ package com.green.service;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
 import com.green.domain.ReplyVO;
 
 public interface CommunityService {
@@ -28,6 +29,9 @@ public interface CommunityService {
 	void insertReply(ReplyVO vo);
 
 	//reply list
-	List<ReplyVO> getReplyList(int board_no);
+	List<ReplyVO> getReplyList(Integer board_no);
+
+	void insertLike(HeartVO vo);
+
 
 }

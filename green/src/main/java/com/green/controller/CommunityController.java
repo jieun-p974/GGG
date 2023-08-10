@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
 import com.green.domain.ReplyVO;
 import com.green.service.CommunityService;
 
@@ -22,10 +24,10 @@ public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
 	
-	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
+	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("Ä¿¹Â´ÏÆ¼ ¿äÃ»"+url);
+		System.out.println("ì»¤ë®¤ë‹ˆí‹° ìš”ì²­"+url);
 		return "/community/"+url;
 	}
 	
@@ -36,26 +38,28 @@ public class CommunityController {
 		return "redirect:/community/community.do";
 	}
 	
-	// community list
+	// community list (all, my)
 	@RequestMapping("/community.do")
 	public void getCommunityList(Model model,String id) {
 		List<CommunityVO> list = null;
 		if (id != null) {
 			list = communityService.getMyCommunityList(id);
+			
 		} else {
 			list = communityService.getCommunityList();
 		}
 		model.addAttribute("list", list);
 	}
 	
+
 	// reply list
-	@RequestMapping(value="/getReply.do", method = RequestMethod.GET)
 	@ResponseBody
-	public void getReplyList(int board_no, Model model) {
-		System.out.println("ÄÁÆ®·Ñ·¯, °Ô½ÃÆÇ ¹øÈ£ = " + board_no);
-		List<ReplyVO> listRe = null;
-		listRe = communityService.getReplyList(board_no);
-		model.addAttribute("listRe", listRe);
+	@RequestMapping(value="/getReply.do")
+	public void getReplyList(Integer board_no, Model model) {
+		System.out.println("ì»¨íŠ¸ë¡¤ëŸ¬, ê²Œì‹œíŒ ë²ˆí˜¸ = " + board_no);
+		List<ReplyVO> list2 = null;
+		list2 = communityService.getReplyList(board_no);
+		model.addAttribute("reply", list2);
 	}
 	
 	// get one
@@ -85,6 +89,11 @@ public class CommunityController {
 		return "redirect:/community/community.do";
 	}
 	
-	
+	//click like
+	@RequestMapping(value="/like.do")
+	public String likeInsert(HeartVO vo) throws IOException{
+		communityService.insertLike(vo);
+		return "redirect:/community/community.do";
+	}
 	
 }

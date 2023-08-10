@@ -44,9 +44,12 @@
 							<div class="content_top">
 								<p class="id">@${community.id}</p>
 								<div class="emojis">
-									<div class="heart">❤</div>
-									<button class="comment" type="button">
-										<a class="comment" href="getReply.do?board_no=${community.board_no}">💬</a>
+									<button class="heart">
+										<a href="like.do?board_no=${community.board_no}&id=${sessionScope.userId}" class="heart">❤</a>
+									</button>
+									<button class="comment" type="button" onclick="getReplyList()">
+										<input type="hidden" name="board_no" value="${community.board_no}" />
+										<a class="comment">💬</a>
 									</button>
 									<div class="share">공유</div>
 								</div>
@@ -92,32 +95,23 @@
 									<p class="reply_id">@${sessionScope.userId}</p>
 									<input type="hidden" name="id" value="${userId}" />
 									<input type="hidden" name="board_no" value="${community.board_no}" />
-									<input name="com_content" class="com_content" type="text" placeholder="댓글 입력">
+									<input name="com_content" class="com_content" type="text" placeholder=" 댓글 입력">
 									<button class="replyBtn" type="submit">댓글등록</button>
 								</div>
 							</form>
-							<!-- 게시 글에 달린 댓글 출력 댓글보기 버튼에 toggle -->
-							<c:if test="${community.board_no != null}">
-								<c:forEach items="${listRe}" var="community">
-									<div class="reply">
-										<input type="hidden" name="board_no" value="${community.board_no}" />
-										<img class="p_img" src="/resources/imgs/member/${community.m_img_addr}" />
-										<p class="reply_id">@${community.id}</p>
-										<p class="com_content">${community.com_content}</p>
-									</div>
-								</c:forEach>
-							</c:if>
+		
 						</div>
 					</div>
-					<c:forEach items="${listRe}" var="community">
-						<table align="center" width="500" border="1" id="rtb">
-							<thead>
-								<td colspan="4"><b id="rCount">댓글목록</b></td>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
+		<%-- 			
+					<c:forEach items="${list}" var="reply">
+							<div class="reply">
+									<!-- member 테이블에서 m_img 가져오기 (프로필 사진) -->
+									<img class="r_img" src="/resources/imgs/member/${reply.m_img_addr}" />
+								<p class="rid">@${reply.id}</p>
+									<p class="rcom_content"> ${reply.com_content}</p>
+							</div>
 					</c:forEach>
+						 --%>
 				</c:forEach>
 			</div>
 			<!-- 오른쪽 고정  -->
@@ -132,12 +126,15 @@
 					<button class="writeBtn" id="writeBtn" onclick="insert()">글쓰기</button>
 				</div>
 				
-						<div class="searching">
-							<button class="button" type="submit">
-								<input type="text" placeholder="search">검색
-							</button>
-						</div>
-
+				<form action="community.do" class="search">
+					<select name="searchOption" class="searchOption">
+						<option value="id">ID</option>
+						<option value="hashTag">hashTag</option>
+					</select>
+					<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" >
+					<button class="searching">검색</button>
+				</form>
+				
 				<div class="ranks">
 					1위 #환경보호(100,200회)<br />
 					2위 #제로웨이스트(50,123회)<br />
@@ -145,55 +142,15 @@
 				</div>
 			</div>
 
+			</div>
+
 		</div>
-	</div>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 <script>
-	function getReplyList() {
-		var board = "${community.board_no}";
-		$.ajax({
-					url : "getReply.do?board_no=${community.board_no}",
-					data : {
-						"board_no" : board_no
-					},
-					type : "get",
-					success : function(result) { //댓글목록 불러오는 함수
-						var $tableBody = $('#rtb tbody'); //$는 의미없음 그냥 변수명 중 하나
-						$tableBody.html(''); //tbody를 초기화 시켜야 댓글 목록의 중첩을 막을수 있음 아니면 등록할떄마다 append로 이어짐
-						$('#rCount').text("댓글 (" + result.length + ")") //댓글수 출력
-						if (result != null) {
-							console.log(result);
-							for ( var i in result) {
-								var $tr = $("<tr>");
-								var $id = $("<td width='100'>").text(
-										result[i].id);
-								var $com_content = $("<td>").text(
-										result[i].com_content);
-		//						var $btnArea = $("<td width='80'>")
-		//								.append("<a href='modifyreply(${reply.com_no})'>수정</a>")
-		//								.append("<a href='#'>삭제</a>");
-								$tr.append($id);
-								$tr.append($com_content);
-		//						$tr.append($btnArea);
-								$tableBody.append($tr);
-							}
-						}
-					},
-					error : function() {
-						console.log("요청실패");
-					}
-				})
-		var $tableBody = $('#rtb tbody');
-		for ( var i in result) {
-			var $tr = $("<tr>");
-			var $id = $("<td width='100'>").text(result[i].id);
-			var $com_content = $("<td>").text(result[i].com_content);
-			$tr.append($id);
-			$tr.append($com_content);
-			$tableBody.append($tr);
-		}
-	}
+
+
+
 </script>
 </html>
 
