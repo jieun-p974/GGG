@@ -1,6 +1,7 @@
 package com.green.service;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -87,8 +88,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void goDona(MemberVO vo) {
-		 memberDAO.goDona(vo);
+	public void goDona(HashMap<String, Object> map) {
+		 memberDAO.goDona(map);
 		
 	}
 

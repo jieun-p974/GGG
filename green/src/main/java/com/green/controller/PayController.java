@@ -29,8 +29,11 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 	@RequestMapping(value="/challengePay.do")
 	public void getPay(Model model, String userId) {
 		List<MemberVO> list = null;
+		List<MemberVO> list2 = null;
 		list = payService.getPay(userId);
+		list2 = payService.getPay2(userId);
 		model.addAttribute("list", list);
-		System.out.println("간편결제 list");
+		model.addAttribute("list2", list2);
 	}
+	
 }

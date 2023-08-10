@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.DonationVO;
@@ -19,4 +20,7 @@ public interface DonationService {
 	
 	//기부처 상세 페이지 조회
 	DonationVO getDona(DonationVO vo);
+	
+	// 기부 포인트 계산
+	void goDona(HashMap<String, Object> map);
 }

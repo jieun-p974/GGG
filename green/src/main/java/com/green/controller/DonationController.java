@@ -1,5 +1,6 @@
 package com.green.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.green.domain.DonationVO;
 import com.green.domain.MemberVO;
 import com.green.domain.NewsVO;
 import com.green.service.DonationService;
+import com.green.service.MemberService;
 
 @Controller
 @RequestMapping("/donation/")
@@ -21,6 +24,9 @@ public class DonationController {
 
 	@Autowired
 	private DonationService donationService;
+	@Autowired
+	private MemberService memberService;
+	
 	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "{url}.do")
 
@@ -65,6 +71,28 @@ public class DonationController {
 	@RequestMapping(value={"/donationDetail.do","/donationModify.do"})
 	public void detailDona(DonationVO vo,Model model) {
 		model.addAttribute("dona", donationService.getDona(vo));
+	}
+
+	//기부하기 페이지갈때 사용
+	@RequestMapping(value="/goDonation.do")
+	public void goDonationPage(MemberVO vo,int don_no, Model model) {
+		MemberVO memberVo = memberService.memberInfo(vo);
+		model.addAttribute("meminfo", memberVo);
+		model.addAttribute("don_no", don_no);
+	}
+
+	//기부할때 작동
+	@RequestMapping(value="/goDona.do", produces = "application/text; charset=utf8")
+	// 화면에서 보낸 결과 한글 깨짐 해결 -> produces = "application/text; charset=utf8"
+	@ResponseBody // --> 이것으로 비동기화 통신을을 함 ( 페이지전환되지 않도록)
+	public void goDona(String id, Integer givePoint,int don_no, Model model) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("givePoint", givePoint);
+		map.put("id", id);
+		map.put("don_no", don_no);
+		System.out.println(map);
+		donationService.goDona(map);
+		memberService.goDona(map);
 	}
 
 }

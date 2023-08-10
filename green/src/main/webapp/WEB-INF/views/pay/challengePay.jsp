@@ -2,11 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -20,6 +22,20 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
+<script type="text/javascript">
+function go() {
+	if ($('#check_a').prop('checked') == true){
+		location.href = "accountInput.do";
+	}else if($('#check_c').prop('checked') == true){
+		location.href = "card.do";
+	}else if($('#check_sa').prop('checked') == true){
+		location.href = "accountInput.do";
+	}else if($('#check_sc').prop('checked') == true){
+		location.href = "card.do";
+	}
+}
+</script>	
+	
 <title>도전권 결제</title>
 </head>
 <body>
@@ -56,26 +72,27 @@
 				<p class="txt">결제수단</p>
 				<div class="selecting">
 					<div class="simple_account">
-						<input type="radio" name="chk_method" id="check_sa"
-							checked="check">간편 계좌
+						<input type="radio" name="chk_method" id="check_sa" checked="check">간편 계좌
 						<div class="accounts">
-							<c:forEach items="${list}" var="pay">
+							<c:forEach items="${list}" var="payb">
 								<div class="a a1">
-									<p class="bank_name" id="bank" name="bank">은행: ${pay.bank}</p>
-									<p class="account_num">계좌번호: ${pay.acc_num}</p>
+									<p class="bank_name" id="bank" name="bank">은행: ${payb.bank}</p>
+									<p class="account_num">계좌번호: ${payb.acc_num}</p>
 								</div>
 							</c:forEach>
+							<button class="plusC"><a href=".do">간편계좌 추가 등록</a></button>
 						</div>
 					</div>
 					<div class="simple_card">
 						<input type="radio" name="chk_method" id="check_sc">간편 카드
 						<div class="cards">
-						<c:forEach items="${list}" var="pay">
+						<c:forEach items="${list2}" var="payc" >
 							<div class="c c1">
-								<p class="card_com">카드사: ${pay.card_company }</p>
-								<p class="card_name">카드번호: ${pay.card_num }</p>
+								<p class="card_com">카드사: ${payc.card_company }</p>
+								<p class="card_name">카드번호: ${payc.card_num }</p>
 							</div>
-							</c:forEach>
+						</c:forEach>
+							<button class="plusC"><a href=".do">간편카드 추가 등록</a></button>
 						</div>
 					</div>
 					<div class="accout_pay">
@@ -84,9 +101,10 @@
 					<div class="card_pay">
 						<input type="radio" name="chk_method" id="check_c">일반 카드
 					</div>
+					
 				</div>
 				<div class="btn">
-					<button class="payBtn">결제하기</button>
+					<button class="payBtn" onclick="go()">결제하기</button>
 				</div>
 			</div>
 		</div>

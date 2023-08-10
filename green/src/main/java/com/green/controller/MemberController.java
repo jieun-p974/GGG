@@ -138,14 +138,5 @@ public class MemberController {
 		md.addAttribute("pw", memberService.searchPass(response, email));
 		return "/member/searchPass";
 	}
-	 
-
-	
-	@RequestMapping("/goDonation.do")
-	public String goDona(@ModelAttribute("member") MemberVO vo) {
-		memberService.goDona(vo);
-		return "/";
-	}
-	
 
 }

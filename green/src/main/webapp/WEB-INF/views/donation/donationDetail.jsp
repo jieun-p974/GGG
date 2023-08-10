@@ -25,7 +25,7 @@
 			<div class="main">
 				<div class="title">
 					<p>용기 있는 행동에 힘을 보태고 싶습니다.</p>
-					<button class="donaBtn"><a href="goDonation.do">기부하기</a></button>
+					<button class="donaBtn"><a href="goDonation.do?id=${userId}&don_no=${dona.don_no}">기부하기</a></button>
 				</div>
 				<div class="barUpper">
 					<!-- 포인트 퍼센트 -->
@@ -58,7 +58,7 @@
 
 				<div class="buttons">
 					<button class="introduce">모금함 소개</button>
-					<button class="news">소식</button>
+					<!-- <button class="news">소식</button> -->
 				</div>
 			</div>
 			<div class="content">

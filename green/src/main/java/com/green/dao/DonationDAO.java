@@ -1,5 +1,6 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.DonationVO;
@@ -14,5 +15,7 @@ public interface DonationDAO{
 
 	//디테일 기부처 
 	public DonationVO getDona(DonationVO vo);
+	
+	public void goDona(HashMap<String, Object> map);
 	
 }

@@ -16,6 +16,64 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
 
+$(function() {	
+	$("#donaList").change(function(){
+		var selected = $("#donaList").val();
+		var html = "";
+		<%-- 오늘 날짜랑 비교 --%>
+		<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
+		
+		if (selected == 'ing') {
+			console.log("진행중인 기부");
+			<c:forEach items="${list}" var="dona">
+			<c:if test="${dona.don_end_date > today}">
+				html += '<tbody>';
+				html += '<td>${dona.don_no}</td>';
+				html += '<td>${dona.don_name}</td>';
+				html += '<td>${dona.don_start_date}</td>';
+				html += '<td>${dona.don_end_date}</td>';
+				html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
+				html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+				html += '</tbody>';
+			</c:if>
+			</c:forEach>
+			$("tbody").remove();
+			$("#dona_list").append(html);
+		} else if (selected == 'end') {
+			console.log("종료된 기부");
+			<c:forEach items="${list}" var="dona">
+			<c:if test="${dona.don_end_date < today}">
+				html += '<tbody>';
+				html += '<td>${dona.don_no}</td>';
+				html += '<td>${dona.don_name}</td>';
+				html += '<td>${dona.don_start_date}</td>';
+				html += '<td>${dona.don_end_date}</td>';
+				html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
+				html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+				html += '</tbody>';
+			</c:if>
+			</c:forEach>
+			$("tbody").remove();
+			$("#dona_list").append(html);
+		} else {
+			console.log("기부처 전체");
+			<c:forEach items="${list}" var="dona">
+			
+				html += '<tbody>';
+				html += '<td>${dona.don_no}</td>';
+				html += '<td>${dona.don_name}</td>';
+				html += '<td>${dona.don_start_date}</td>';
+				html += '<td>${dona.don_end_date}</td>';
+				html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
+				html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+				html += '</tbody>';
+			
+			</c:forEach>
+			$("tbody").remove();
+			$("#dona_list").append(html);
+		}
+	});
+});
 </script>
 <title>관리자 기부처 리스트</title>
 </head>

@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,12 @@ public class DonationServiceImple implements DonationService {
 	@Override
 	public void deleteDona(DonationVO vo) {
 		donationDAO.deleteDona(vo);
+	}
+
+	@Override
+	public void goDona(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		donationDAO.goDona(map);
 	}
 
 

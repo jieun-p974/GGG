@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -61,9 +63,9 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	
 	@Override
-	public void goDona(MemberVO vo) {
+	public void goDona(HashMap<String, Object> map) {
 		System.out.println("==>goDona()호출");
-		mybatis.update("MemberDAO.goDona",vo);
+		mybatis.update("member.goDona",map);
 		
 	}
 	
