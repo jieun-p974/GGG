@@ -12,15 +12,60 @@ import com.green.domain.CommunityVO;
 public class CommunityServiceImpl implements CommunityService{
 	@Autowired
 	private CommunityDAO communityDAO;
+	
+	//insert
 	@Override
 	public void insertCommunity(CommunityVO vo) {
 		// TODO Auto-generated method stub
 		communityDAO.communityWrite(vo);
 	}
+	
+	//get Community List
 	@Override
 	public List<CommunityVO> getCommunityList() {
 		// TODO Auto-generated method stub
 		return communityDAO.getCommunityList();
+	}
+	
+	// Reply List
+	@Override
+	public List<CommunityVO> getReplyList(int board_no) {
+		// TODO Auto-generated method stub
+		return communityDAO.getReplyList(board_no);
+	}
+	
+	//get one
+	@Override
+	public CommunityVO getCommunityDetail(CommunityVO vo) {
+		return communityDAO.getCommunityDetail(vo);
+	}
+	
+	//my board modify
+	@Override
+	public void updateCommunity(CommunityVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.updateCommunity(vo);
+	}
+	
+	//my board delete
+	@Override
+	public void deleteCommunity(CommunityVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.deleteCommunity(vo);
+	}
+	
+	//my community
+	@Override
+	public List<CommunityVO> getMyCommunityList(String id) {
+		// TODO Auto-generated method stub
+		return communityDAO.getMyCommunityList(id);
+	}
+	
+	//insert reply
+	@Override
+	public void insertReply(CommunityVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.replyWrite(vo);
 	}
 	
 }

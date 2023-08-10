@@ -16,7 +16,10 @@ public class PayDAOImpl implements PayDAO{
 	@Override
 	public List<MemberVO> getPay(String userId) {
 		List<MemberVO> list= mybatis.selectList("payDAO.getPay",userId);
+		System.out.println(userId);
+//		System.out.println(list.get(0).getAcc_num());
 		return list;
 	}
+
 
 }

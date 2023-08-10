@@ -2,12 +2,15 @@ package com.green.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.green.domain.ChallengeCheckVO;
 import com.green.domain.ChallengeVO;
+import com.green.domain.MemChallengeVO;
 
 @Repository("challengeDAO")
 public class ChallengeDAOImpl implements ChallengeDAO {
@@ -39,7 +42,7 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		System.out.println("Mybatis=> chall detail");
 		return mybatis.selectOne("ChallengeDAO.getChallengeDetail", vo);
 	}
-
+	
 	@Override
 	public void updateChallenge(ChallengeVO vo) {
 		System.out.println("Mybatis=> chall modi");
@@ -50,6 +53,35 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	public List<ChallengeVO> getMyChallengeList(String userId) {
 		System.out.println("Mybatis => my challenge list");
 		return mybatis.selectList("ChallengeDAO.myChallList",userId);
+	}
+
+	@Override
+	public List<ChallengeVO> getCompleteList(String userId) {
+		System.out.println("Mybatis => my complete list");
+		return mybatis.selectList("ChallengeDAO.completeList",userId);
+	}
+	
+	@Override
+	public List<HashMap<String, Object>> getCheck(HashMap param) {
+		System.out.println("Mybatis => my challenge check list");
+		List<HashMap<String, Object>> list = mybatis.selectList("ChallengeDAO.getmcNo",param);
+		return list;
+	}
+
+	@Override
+	public Integer countCheck(HashMap param) {
+		System.out.println("Mybatis => check");
+		Integer res = mybatis.selectOne("ChallengeDAO.countCheck",param);
+		if(res == null) {
+			res= 0;
+		}
+		return res;
+	}
+
+	@Override
+	public void insertCertification(ChallengeCheckVO vo) {
+		System.out.println("Mybatis => insert certification");
+		mybatis.insert("ChallengeDAO.insertCertification",vo);
 	}
 
 }

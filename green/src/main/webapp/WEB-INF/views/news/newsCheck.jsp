@@ -26,7 +26,7 @@
 					<c:if test="${news.cat_no == 1}">
 						html += '<tbody>';
 						html += '<td>${news.news_no}</td>';
-						html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+						html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 						html += '<td> ${news.n_title}</td>';
 						html += '<td> ${news.n_reg_date}</td>';				
 						html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -41,7 +41,7 @@
 				<c:if test="${news.cat_no == 2}">
 					html += '<tbody>';
 					html += '<td>${news.news_no}</td>';
-					html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+					html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 					html += '<td> ${news.n_title}</td>';
 					html += '<td> ${news.n_reg_date}</td>';				
 					html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -56,7 +56,7 @@
 				<c:if test="${news.cat_no == 3}">
 					html += '<tbody>';
 					html += '<td>${news.news_no}</td>';
-					html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+					html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 					html += '<td> ${news.n_title}</td>';
 					html += '<td> ${news.n_reg_date}</td>';				
 					html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -71,7 +71,7 @@
 				<c:if test="${news.cat_no == 4}">
 					html += '<tbody>';
 					html += '<td>${news.news_no}</td>';
-					html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+					html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 					html += '<td> ${news.n_title}</td>';
 					html += '<td> ${news.n_reg_date}</td>';				
 					html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -86,7 +86,7 @@
 				<c:if test="${news.cat_no == 5}">
 					html += '<tbody>';
 					html += '<td>${news.news_no}</td>';
-					html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+					html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 					html += '<td> ${news.n_title}</td>';
 					html += '<td> ${news.n_reg_date}</td>';				
 					html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -101,7 +101,7 @@
 				<c:if test="${news.cat_no == 6}">
 					html += '<tbody>';
 					html += '<td>${news.news_no}</td>';
-					html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+					html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 					html += '<td> ${news.n_title}</td>';
 					html += '<td> ${news.n_reg_date}</td>';				
 					html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -115,7 +115,7 @@
 				<c:forEach items="${list}" var="news">
 					html += '<tbody>';
 					html += '<td>${news.news_no}</td>';
-					html += '<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>';
+					html += '<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
 					html += '<td> ${news.n_title}</td>';
 					html += '<td> ${news.n_reg_date}</td>';				
 					html += '<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>';
@@ -160,7 +160,7 @@
 					<c:forEach items="${list}" var="news">
 					<tbody>
 						<td>${news.news_no}</td>
-						<td><img src="${news.n_img1_nn}" alt="뉴스 썸네일" class="thumnail"></td>
+						<td><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>
 						<td> ${news.n_title}</td>
 						<td> ${news.n_reg_date}</td>
 						<td><button><a href="newsModify.do?news_no=${news.news_no}">수정</a></button></td>

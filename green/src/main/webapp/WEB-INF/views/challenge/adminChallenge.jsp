@@ -23,7 +23,7 @@
 		$("#challList").change(function(){
 			var selected = $("#challList").val();
 			var html = "";
-			<!-- 오늘 날짜랑 비교 -->
+			<%-- 오늘 날짜랑 비교 --%>
 			<fmt:formatDate var="today" value="${now}" pattern="yyyy-MM-dd" />
 			
 			if (selected == 'ing') {

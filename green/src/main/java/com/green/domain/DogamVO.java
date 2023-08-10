@@ -25,11 +25,17 @@ public class DogamVO {
 	private String do_choice_YN;
 	private int do_exp;
 	
+	// point_level 테이블
+	private int level_no;
+	private int lev_mim_point;
+	private int lev_max_point;
+	
 	private String img1;
 	private String img2;
 	private String img3;
 	private int nowLv;
 	
+
 	public DogamVO() {}
 
 	
@@ -120,9 +126,31 @@ public class DogamVO {
 	public void setDo_exp(int do_exp) {
 		this.do_exp = do_exp;
 	};
-	
-	
-	
+		
+	public int getLevel_no() {
+		return level_no;
+	}
+
+	public void setLevel_no(int level_no) {
+		this.level_no = level_no;
+	}
+
+	public int getLev_mim_point() {
+		return lev_mim_point;
+	}
+
+	public void setLev_mim_point(int lev_mim_point) {
+		this.lev_mim_point = lev_mim_point;
+	}
+
+	public int getLev_max_point() {
+		return lev_max_point;
+	}
+
+	public void setLev_max_point(int lev_max_point) {
+		this.lev_max_point = lev_max_point;
+	}
+
 	public String getImg1() {
 		return img1;
 	}
@@ -189,5 +217,6 @@ public class DogamVO {
 			}
 		}
 	}
+
 		
 }

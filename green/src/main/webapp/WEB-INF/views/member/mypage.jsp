@@ -68,8 +68,9 @@
 						
 					</div>
 					<div class="buttons">
-						<button class="cardBtn" onclick="location.href='../member/cardRegist.do?userId=${userId}'">간편카드 등록</button>
-						<button class="accountBtn" onclick="location.href='../member/accountRegist.do?userId=${userId}'">간편계좌 등록</button>
+						<button class="cardBtn" onclick="location.href='../member/payment.do?id=${userId}'">결제수단 관리</button>
+						<button class="cardBtn" onclick="location.href='../member/cardRegist.do?id=${userId}'">간편카드 등록</button>
+						<button class="accountBtn" onclick="location.href='../member/accountRegist.do?id=${userId}'">간편계좌 등록</button>
 					</div>
 				</div>
 
@@ -104,7 +105,7 @@
 								<p class="exp_end">성체</p>
 							</div>
 							<button class="dogamBtn" onclick="location.href='../dogam/dogam.do'">도감전체보기</button>
-							<button class="dogamBtn" onclick="location.href='../dogam/myDogam.do'">내도감보기</button>
+							<button class="dogamBtn" onclick="location.href='../dogam/myDogam.do?id=${userId}'">내도감보기</button>
 						</div>
 					</div>
 				</div>
