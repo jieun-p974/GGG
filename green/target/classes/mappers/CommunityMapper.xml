@@ -71,7 +71,7 @@
 	</delete>
 	
 	<!-- insertLike -->
-	<insert id="likeInsert" parameterType="community">
+	<insert id="likeInsert" parameterType="like">
 		INSERT INTO b_m_like (like_no, id, board_no)
 		VALUES(#{like_no}, #{id}, #{board_no})
 	</insert>
