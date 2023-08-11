@@ -23,4 +23,5 @@ public interface DonationService {
 	
 	// 기부 포인트 계산
 	void goDona(HashMap<String, Object> map);
+	void memDon(HashMap<String, Object> map);
 }

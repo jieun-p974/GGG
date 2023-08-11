@@ -15,5 +15,10 @@ where m.id=c.id and m.id=#{userId}
 </select>
 
 <!-- 일반카드 insert -->
+<insert id="cardInsert" parameterType="pay">
+INSERT INTO card (dogeon_pay_no,card_num,expiry_date,CVC,card_company,pass_two)
+VALUES (#{dogeon_pay_no},#{card_num},#{expiry_date},#{CVC},#{card_company},#{pass_two})
+</insert>
 
+<!-- 일반계좌 insert -->
 </mapper>

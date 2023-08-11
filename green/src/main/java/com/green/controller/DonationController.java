@@ -85,14 +85,16 @@ public class DonationController {
 	@RequestMapping(value="/goDona.do", produces = "application/text; charset=utf8")
 	// 화면에서 보낸 결과 한글 깨짐 해결 -> produces = "application/text; charset=utf8"
 	@ResponseBody // --> 이것으로 비동기화 통신을을 함 ( 페이지전환되지 않도록)
-	public void goDona(String id, Integer givePoint,int don_no, Model model) {
+	public void goDona(String id, Integer don_point,int don_no, Model model) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("givePoint", givePoint);
+		map.put("don_point", don_point);
 		map.put("id", id);
 		map.put("don_no", don_no);
 		System.out.println(map);
 		donationService.goDona(map);
+		donationService.memDon(map);
 		memberService.goDona(map);
+		
 	}
 
 }

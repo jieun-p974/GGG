@@ -44,6 +44,11 @@
 	
 	<!-- 포인트로 기부시 적립 -->
 	<update id="goDona" parameterType="hashmap">
-	UPDATE donation SET  don_point_sum = don_point_sum + ${givePoint} WHERE don_no= ${don_no}
+	UPDATE donation SET  don_point_sum = don_point_sum + ${don_point} WHERE don_no= ${don_no}
 	</update>
+	
+	<!-- 회원별 기부내역 insert  -->
+	<insert id="memDon" parameterType="hashmap">
+	INSERT INTO mem_don(don_no,id,don_date,don_point)VALUES(#{don_no},#{id},NOW(),#{don_point})
+	</insert>
 </mapper>

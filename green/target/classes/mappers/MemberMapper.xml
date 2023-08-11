@@ -50,7 +50,7 @@
 	
 	<!-- 포인트 사용(기부시) -->
 	<update id="goDona" parameterType="hashmap" >
-	UPDATE member SET remainder_point = remainder_point - ${givePoint} WHERE id = '${id}'
+	UPDATE member SET remainder_point = remainder_point - '${don_point}' WHERE id = '${id}'
 	</update>
 	
 </mapper>

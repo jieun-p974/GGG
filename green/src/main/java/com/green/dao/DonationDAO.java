@@ -17,5 +17,5 @@ public interface DonationDAO{
 	public DonationVO getDona(DonationVO vo);
 	
 	public void goDona(HashMap<String, Object> map);
-	
+	public void memDon(HashMap<String, Object> map);
 }
