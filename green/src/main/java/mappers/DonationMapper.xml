@@ -37,6 +37,7 @@
 	WHERE don_no = #{don_no}
 	</update>
 	
+	
 	<!--기부처 delete -->
 	<delete id="deleteDona" parameterType="dona">
 		DELETE FROM donation WHERE don_no = #{don_no}
@@ -46,36 +47,4 @@
 	<select id="myDonaList" resultType="hashmap">
 		SELECT m.m_d_no, m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id}
 	</select>
-	
-	<!-- 기부처 insert -->
-	<insert id="donationInsert" parameterType="dona">
-		INSERT INTO donation
-		(don_name, don_ex, don_summary, don_goal, don_start_date, don_end_date, d_img1_nn,d_img1_addr) 
-		VALUES(#{don_name}, #{don_ex}, #{don_summary}, 
-		#{don_goal},#{don_start_date},#{don_end_date},#{d_img1_nn},#{d_img1_addr}) 
-	</insert>
-
-	<!-- 포인트로 기부시 적립 -->
-	<update id="goDona" parameterType="hashmap">
-	UPDATE donation SET  don_point_sum = don_point_sum + ${givePoint} WHERE don_no= ${don_no}
-	</update>
-
-	<!-- 기부처 update -->
-	<update id="updateDona" parameterType="dona">
-	UPDATE donation SET
-	don_name=#{don_name},
-	don_start_date=#{don_start_date},
-	don_end_date=#{don_end_date},
-	don_goal=#{don_goal},
-	don_ex=#{don_ex},
-	don_summary=#{don_summary},
-	d_img1_nn=#{d_img1_nn}
-	WHERE don_no = #{don_no}
-	</update>
-	
-	
-	<!--기부처 delete -->
-	<delete id="deleteDona" parameterType="dona">
-		DELETE FROM donation WHERE don_no = #{don_no}
-	</delete>
 </mapper>
