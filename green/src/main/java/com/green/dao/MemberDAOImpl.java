@@ -67,13 +67,6 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("mybatis ==> searhID()");
 		return mybatis.selectOne("member.searchPass", email);
 	}
-	
-	@Override
-	public void goDona(HashMap<String, Object> map) {
-		System.out.println("==>goDona()호출");
-		mybatis.update("member.goDona",map);
-		
-	}
 
 	// member card insert
 	@Override
@@ -87,6 +80,13 @@ public class MemberDAOImpl implements MemberDAO {
 	public void accountInsert(MemberVO vo) {
 		System.out.println("mybatis ==> accountInsert()");
 		mybatis.insert("member.accountInsert", vo);
+	}
+	
+	@Override
+	public void goDona(HashMap<String, Object> map) {
+		System.out.println("==>goDona()호출");
+		mybatis.update("member.goDona",map);
+		
 	}
 
 }

@@ -29,11 +29,11 @@ public interface MemberService {
 	// search pw
 	public String searchPass(HttpServletResponse response, String email) throws Exception;
 
-	void goDona(HashMap<String, Object> map);
-
 	// member card insert
 	public void cardInsert(MemberVO vo);
 
 	// member bank account insert
 	public void accountInsert(MemberVO vo);
+	
+	void goDona(HashMap<String, Object> map);
 }

@@ -175,9 +175,10 @@
 								</div>
 								<div class="d-flex justify-content-between">
 									<a class="btn btn-warning btn-hover-secondery"
-										href="../dogam/dogam.do">도감전체보기</a> <a
-										class="btn btn-warning btn-hover-secondery"
-										href="../dogam/myDogam.do">내 도감보기</a>
+										href="../dogam/dogam.do">도감전체보기</a>
+										
+									<a class="btn btn-warning btn-hover-secondery" 
+									href="../dogam/myDogam.do?id=${userId}">내도감보기</a>
 								</div>
 							</div>
 						</div>
