@@ -18,5 +18,6 @@ public interface DonationDAO{
 	
 	//기부 내역
 	public List<HashMap<String, Object>> myDonaList(String id);
+	public void goDona(HashMap<String, Object> map);
 	
 }

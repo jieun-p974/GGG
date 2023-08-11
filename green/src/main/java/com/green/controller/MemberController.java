@@ -147,12 +147,6 @@ public class MemberController {
 		md.addAttribute("pw", memberService.searchPass(response, email));
 		return "/member/searchPass";
 	}
-	
-	@RequestMapping("/goDonation.do")
-	public String goDona(@ModelAttribute("member") MemberVO vo) {
-		memberService.goDona(vo);
-		return "/";
-	}
 	//마이페이지에서 진행중인 챌린지랑 기부내역 띄우기
 	@RequestMapping(value="/mypage.do")
 	public void challAndDona(String id,Model model) {
@@ -161,4 +155,5 @@ public class MemberController {
 		model.addAttribute("challList",challList);
 		model.addAttribute("myDonaList", myDonaList);
 	}
+
 }

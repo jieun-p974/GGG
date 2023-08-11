@@ -43,10 +43,14 @@ public class DonationServiceImple implements DonationService {
 	}
 
 	@Override
+	public void goDona(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		donationDAO.goDona(map);
+	}
+
+	@Override
 	public List<HashMap<String, Object>> myDonaList(String id) {
 		return donationDAO.myDonaList(id);
 	}
-
-
 
 }

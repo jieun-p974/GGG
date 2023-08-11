@@ -1,27 +1,55 @@
 package com.green.domain;
 
-public class CardVO {
-	private int card_no;
+public class PayVO {
+
+	//일반계좌
+	private int acc_no;
 	private int dogeon_pay_no;
+	private String acc_num;
+	private String bank;
+	
+	//일반카드
+	private int card_no;
+	//private int dogeon_pay_no;
 	private String card_num;
 	private String expiry_date;
 	private int CVC;
 	private String card_company;
 	private int pass_two;
 
-	public CardVO() {
-
+	
+	public PayVO() {
+		
 	}
 
-	public CardVO(int card_no, int dogeon_pay_no, String card_num, String expiry_date, int CVC, String card_company,
-			int pass_two) {
-		this.card_no = card_no;
+	/*
+	 * public AccountVO(int acc_no, int dogeon_pay_no,String acc_num,String bank) {
+	 * this.acc_no=acc_no; this.dogeon_pay_no=dogeon_pay_no; this.acc_num=acc_num;
+	 * this.bank=bank; }
+	 */
+	public int getAcc_no() {
+		return acc_no;
+	}
+	public void setAcc_no(int acc_no) {
+		this.acc_no = acc_no;
+	}
+	public int getDogeon_pay_no() {
+		return dogeon_pay_no;
+	}
+	public void setDogeon_pay_no(int dogeon_pay_no) {
 		this.dogeon_pay_no = dogeon_pay_no;
-		this.card_num = card_num;
-		this.expiry_date = expiry_date;
-		this.CVC = CVC;
-		this.card_company = card_company;
-		this.pass_two = pass_two;
+	}
+	public String getAcc_num() {
+		return acc_num;
+	}
+	public void setAcc_num(String acc_num) {
+		this.acc_num = acc_num;
+	}
+	public String getBank() {
+		return bank;
+	}
+	public void setBank(String bank) {
+		this.bank = bank;
 	}
 
 	public int getCard_no() {
@@ -30,14 +58,6 @@ public class CardVO {
 
 	public void setCard_no(int card_no) {
 		this.card_no = card_no;
-	}
-
-	public int getDogeon_pay_no() {
-		return dogeon_pay_no;
-	}
-
-	public void setDogeon_pay_no(int dogeon_pay_no) {
-		this.dogeon_pay_no = dogeon_pay_no;
 	}
 
 	public String getCard_num() {
@@ -79,5 +99,6 @@ public class CardVO {
 	public void setPass_two(int pass_two) {
 		this.pass_two = pass_two;
 	}
-
+	
+	
 }

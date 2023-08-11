@@ -1,5 +1,7 @@
 package com.green.service;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletResponse;
 
 import com.green.domain.MemberVO;
@@ -20,6 +22,6 @@ public MemberVO idCheck_Login(MemberVO vo);
 
 	public String searchPass(HttpServletResponse response, String email) throws Exception;
 	
-	void goDona(MemberVO vo);
+	void goDona(HashMap<String, Object> map);
 
 }

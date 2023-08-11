@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -31,5 +33,5 @@ public interface MemberDAO {
 	String searchPass(String email);
 	
 	//기부시 포인트 사용
-	public void goDona(MemberVO vo);
+	public void goDona(HashMap<String, Object> map);
 }
