@@ -54,6 +54,17 @@ public class DonationDAOImple implements DonationDAO{
 		return list;
 	}
 
+	@Override
+	public void goDona(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		System.out.println("mybatis==>goDona");
+		mybatis.update("DonationDAO.goDona",map);
+	}
 
+	@Override
+	public void memDon(HashMap<String, Object> map) {
+		System.out.println("mybatis==>memDon");
+		mybatis.insert("DonationDAO.memDon",map);
+	}
 
 }
