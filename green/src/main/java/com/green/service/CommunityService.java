@@ -34,4 +34,5 @@ public interface CommunityService {
 	void insertLike(HeartVO vo);
 
 
+
 }

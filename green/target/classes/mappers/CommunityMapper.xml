@@ -76,7 +76,12 @@
 		VALUES(#{like_no}, #{id}, #{board_no})
 	</insert>
 	
-	
+	<select id="autocomplete" parameterType="map" resultType="map">
+	SELECT
+		 id
+	FROM member
+	WHERE id LIKE  '%||#{value}||%'
+</select>
 	
 	
 </mapper>

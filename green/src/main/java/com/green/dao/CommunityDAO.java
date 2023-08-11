@@ -27,4 +27,5 @@ public interface CommunityDAO {
 	public void likeInsert(HeartVO vo);
 
 
+
 }

@@ -5,9 +5,10 @@
 .noti_container{
   display: grid;
   justify-items: center;
+  width: 100%;
 }
 .noti_write{
-  width: 80%;
+  width: 60%;
 }
 textarea{
   background: #ffffff;
@@ -19,7 +20,7 @@ textarea{
   font-family: S-CoreDream-3Light;
 }
 .buttons{
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: flex-end;
   margin: 1% 0;
@@ -33,4 +34,5 @@ button {
   width: 13%;
   height: 3rem;
   margin:0 3%;
+  border: none;
 }

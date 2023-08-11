@@ -9,25 +9,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.green.domain.CommunityVO;
 import com.green.domain.HeartVO;
+import com.green.domain.NotificationVO;
 import com.green.domain.ReplyVO;
 import com.green.service.CommunityService;
+import com.green.service.NotificationService;
 
 @Controller 
 @RequestMapping("/community/")
 public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
+	@Autowired
+	private NotificationService notificationService;
 	
-	//»≠∏È∏∏ ¿Ãµø(DBø¨∞·¿∫ XX)
+	
+	// ÌôîÎ©¥Îßå Ïù¥Îèô(DBÏó∞Í≤∞ÏùÄ XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("ƒøπ¬¥œ∆º ø‰√ª"+url);
+		System.out.println("community"+url);
 		return "/community/"+url;
 	}
 	
@@ -56,7 +59,7 @@ public class CommunityController {
 	@ResponseBody
 	@RequestMapping(value="/getReply.do")
 	public void getReplyList(Integer board_no, Model model) {
-		System.out.println("ƒ¡∆Æ∑—∑Ø, ∞‘Ω√∆« π¯»£ = " + board_no);
+		System.out.println("Ïª§ÎÆ§ÎãàÌã∞ Ïª®Ìä∏Î°§Îü¨ " + board_no);
 		List<ReplyVO> list2 = null;
 		list2 = communityService.getReplyList(board_no);
 		model.addAttribute("reply", list2);
@@ -95,5 +98,42 @@ public class CommunityController {
 		communityService.insertLike(vo);
 		return "redirect:/community/community.do";
 	}
+	
+	// announcement notification
+	// notification insert
+	@RequestMapping(value="/saveNoti.do")
+	public String notificationInsert(NotificationVO vo) throws IOException{
+		notificationService.insertNotification(vo);
+		return "redirect:/community/notificationList.do";
+	}
+	
+	// notification list 
+	@RequestMapping("/notificationList.do")
+	public void getNotificationList(Model model) {
+		List<NotificationVO> listNO = null;
+		listNO = notificationService.getNotificationList();
+		model.addAttribute("listNO", listNO);
+	}
+	
+	// get one notification
+	@RequestMapping(value= {"/notificationModify.do","/notificationDetail.do"})
+	public void getNotificationDetail(NotificationVO vo, Model model) {
+		model.addAttribute("noti", notificationService.getNotificationDetail(vo));
+	}
+	
+	// notification modify
+	@RequestMapping(value = "/updateNotification.do")
+	public String updateNotification(@ModelAttribute("notificatioin") NotificationVO vo) {
+		notificationService.updateNotification(vo);
+		return "redirect:/community/notificationList.do";
+	}
+	
+	// notification delete
+	@RequestMapping(value = "/deleteNotification.do")
+	public String deleteNotification(NotificationVO vo) {
+		notificationService.deleteNotification(vo);
+		return "redirect:/community/notificationList.do";
+	}
+
 	
 }

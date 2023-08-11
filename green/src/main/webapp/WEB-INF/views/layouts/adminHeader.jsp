@@ -35,7 +35,9 @@ System.out.println("현재 세션 : " + userId);
 				<li><a href="../challenge/adminChallenge.do">&nbsp&nbsp챌린지관리&nbsp&nbsp</a></li>
 				<li><a href="../dogam/dogamCheck.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
 				<li><a href="../donation/adDonationList.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
-				<li><a href="../news/newsCheck.do">&nbsp&nbsp뉴스관리</a></li>
+				<li><a href="../news/newsCheck.do">&nbsp&nbsp뉴스관리&nbsp&nbsp</a></li>
+				<li><a href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
+				<li><a href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
 				
 
 
