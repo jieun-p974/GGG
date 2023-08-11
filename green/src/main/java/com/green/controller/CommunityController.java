@@ -24,10 +24,10 @@ public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
 	
-	//í™”ë©´ë§Œ ì´ë™(DBì—°ê²°ì€ XX)
+	//È­¸é¸¸ ÀÌµ¿(DB¿¬°áÀº XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("ì»¤ë®¤ë‹ˆí‹° ìš”ì²­"+url);
+		System.out.println("Ä¿¹Â´ÏÆ¼ ¿äÃ»"+url);
 		return "/community/"+url;
 	}
 	
@@ -56,7 +56,7 @@ public class CommunityController {
 	@ResponseBody
 	@RequestMapping(value="/getReply.do")
 	public void getReplyList(Integer board_no, Model model) {
-		System.out.println("ì»¨íŠ¸ë¡¤ëŸ¬, ê²Œì‹œíŒ ë²ˆí˜¸ = " + board_no);
+		System.out.println("ÄÁÆ®·Ñ·¯, °Ô½ÃÆÇ ¹øÈ£ = " + board_no);
 		List<ReplyVO> list2 = null;
 		list2 = communityService.getReplyList(board_no);
 		model.addAttribute("reply", list2);

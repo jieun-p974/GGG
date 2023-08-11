@@ -76,4 +76,7 @@
 		VALUES(#{like_no}, #{id}, #{board_no})
 	</insert>
 	
+	
+	
+	
 </mapper>

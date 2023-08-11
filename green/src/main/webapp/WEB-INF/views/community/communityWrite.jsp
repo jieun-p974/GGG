@@ -23,9 +23,7 @@
 			<form action="save.do" method="post" enctype="multipart/form-data">
 				<div class="editing">
 					<input type="hidden" name="id" value="${userId}" />
-					<div class="text">
-						<textarea name="b_content" id="b_content" autofocus="autofocus"></textarea>
-					</div>
+					<div class="text"><textarea name="b_content" id="b_content" autofocus="autofocus"></textarea></div>
 					<div class="comm_img">
 						<label for="comm_img">사진 첨부하기1</label>
 						<input type="file" name="file1" onchange="readURL1(this)">

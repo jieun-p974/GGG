@@ -77,4 +77,6 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.likeInsert(vo);
 	}
 	
+	
+	
 }

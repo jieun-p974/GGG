@@ -15,8 +15,9 @@
 <link rel="stylesheet" href="../../../resources/styles/header.css">
 <link href="../../../resources/styles/community.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
-<link rel="stylesheet" href="css/jquery.beefup.css">
-<script src="js/jquery.beefup.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 	function insert() {
 		location.href = "communityWrite.do"
@@ -67,9 +68,7 @@
 								</c:if>
 							</div>
 							<!-- 등록된 글 내용 -->
-							<pre class="writing">
-								<c:out value="${community.b_content}" />
-							</pre>
+							<pre class="writing"><c:out value="${community.b_content}"/></pre>
 						</div>
 						<!-- 수정, 삭제 버튼 로그인한 회원의 글에만 show & 관리자 로그인에 삭제 버튼 show -->
 						<div class="memButtons">
@@ -131,9 +130,12 @@
 						<option value="id">ID</option>
 						<option value="hashTag">hashTag</option>
 					</select>
-					<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" >
+					<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete">
 					<button class="searching">검색</button>
 				</form>
+				<%-- 검색어 자동완성이 보여질 구역 --%>
+				<div id="displayList" style="border: solid 1px gray; height: 100px; overflow: auto; margin-left: 77px; margin-top; -1px; border-top: 0px;">
+				</div>
 				
 				<div class="ranks">
 					1위 #환경보호(100,200회)<br />
@@ -148,9 +150,54 @@
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 <script>
+$("#displayList").hide();
+// 검색어의 길이가 바뀔 때마다 호출
+var wordLength = $(this).val().trim().length;
+if(wordLength == 0){
+			$("#displayList").hide();
+		} else {
+			$.ajax({
+				url:"/wordSearchShow.action",
+				type:"get",
+				data:{"searchType": $("#searchType").val(),
+					  "searchWord": $("#searchWord").val() },
+				dataType:"json",
+				success:function(json){
+					if(json.length > 0){
+						// 검색된 데이터가 있는 경우
+						var html = "";
+						$.each(json, function(index, item){
+							var word = item.word;
+                            // 검색목록들과 검색단어를 모두 소문자로 바꾼 후 검색단어가 나타난 곳의 index를 표시.
+							var index = word.toLowerCase().indexOf( $("#searchWord").val().toLowerCase() );
+							// jaVa -> java
+							var len = $("#searchWord").val().length;
+							// 검색한 단어를 파랑색으로 표현
+							var result = word.substr(0, index) + "<span style='color:blue;'>"+word.substr(index, len)+"</span>" + word.substr(index+len);
+							html += "<span class='result' style='cursor:pointer;'>" + result + "</span><br>";
+						});
+						
+						var input_width = $("#searchWord").css("width"); // 검색어 input 태그 width 알아오기
+						$("#displayList").css({"width":input_width}); // 검색 결과의 width와 일치시키기
+						$("#displayList").html(html);
+						$("#displayList").show();
+					}
+					
+				},
+				error: function(request, status, error){
+	                alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
+	            }
+				
+			});
 
-
-
+		}
+        
+        // 자동완성 목록을 클릭하면 검색하기
+	$(document).on('click', ".result", function(){
+		var word = $(this).text();
+		$("#searchWord").val(word);
+		goSearch(); // 검색기능
+	});
 </script>
 </html>
 
