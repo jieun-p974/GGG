@@ -7,10 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>GGG: 지구를 지켜라</title>
-<script src="/resources/js/jquery.min.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
-<script src="/resources/js/custom.js"></script>
-<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 </head>
 <body>
 	<c:if test="${userType == 2}">

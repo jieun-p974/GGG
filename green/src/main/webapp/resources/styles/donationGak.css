@@ -1,56 +1,12 @@
-@font-face {
-	font-family: 'S-CoreDream-3Light';
-	src:
-		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
-		format('woff');
-	font-weight: normal;
-	font-style: normal;
+.pross{
+	width:100%;
 }
-
-.alls {
-	display: grid;
-	width: 100%;
-	justify-items: center;
-}
-
-.main {
-	display: grid;
-	grid-row: 1fr 5fr 1fr;
-	background: #ffffff;
-	width: 1440px;
-	height: 320px;
-	justify-items: center;
-}
-
-.title {
-	color: #000000;
-	font-size: 1.5rem;
-	width: 60%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.donaBtn {
-	background: #445C4C;
-	border-radius: 100px;
-	width: 170px;
-	height: 55px;
-	color: #ffffff;
-	border: none;
-	font-size: 1.5rem;
-}
-
-.donaBtn:hover {
-	background-color: #53BAB8;
-}
-
 .barUpper {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	width: 60%;
+	width: 100%;
 }
 
 .nowPer {
@@ -69,51 +25,25 @@
 	font-weight: bold;
 	text-align: center;
 }
-
-.bars {
-	position: relative;
-	width: 60%;
+ #progress {
+    appearance: none;
+    width: 100%;
 }
-
-.totalbar {
-	background: #d9d9d9;
-	width: 100%;
-	height: 7px;
-}
-
-.nowbar {
-	background: #2E867D;
-	width: 80%;
-	height: 7px;
-	position: absolute;
-	top: 0;
-}
-
-#progress {
-	position: relative;
-	width:800px;
-	margin-bottom: 17px;
-	appearance: none;
-}
-
 #progress::-webkit-progress-bar {
-	background: #f0f0f0;
-	border-radius: 12px;
-	border: 1px solid #eeeeee;
-	width: 100%;
-	height: 20px;
-	overflow: hidden;
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
 }
-
 #progress::-webkit-progress-value {
-	background: #508068;
-	border-radius: 0px;
-	height: 28px;
-	width: 48px;
+    border-radius:10px;
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+
 }
 
 .barDown {
-	width: 60%;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -122,65 +52,12 @@
 .donadate {
 	color: #000000;
 	text-align: left;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 .nowpoint {
 	color: #000000;
 	text-align: left;
 	font-weight: bold;
-	font-size: 1.5rem;
-}
-
-.introduce {
-	background-color: #2E867D;
-	color: white;
-	height: 45px;
-}
-
-.introduce:hover {
-	background-color: #53BAB8;
-}
-
-.news {
-	background-color: #2E867D;
-	color: white;
-	height: 45px;
-}
-
-.news:hover {
-	background-color: #53BAB8;
-}
-
-.content {
-	background: #ffffff;
-	width: 100%;
-	height: auto;
-	display: grid;
-	justify-items: center;
-} 
-
-.logo_intro {
-	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
-	justify-items: center;
-	align-items: center;
-}
-
-.logos {
-	width: 100%;
-	height: auto;
-}
-
-.ggg {
-	color: #000000;
-	text-align: left;
-	font-size: 1.3rem;
-	position: absolute;
-}
-
-.pic {
-	background: linear-gradient(to left, #d9d9d9, #d9d9d9);
-	width: 70%;
-	height: auto;
+	font-size: 1rem;
 }

@@ -30,7 +30,12 @@ System.out.println("현재 세션 : " + userId);
 
 <body>
 	<header class="main-header position-fixed w-100">
+
 		<div class="container">
+			<div
+				class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block  justify-content-xxl-end justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-sm-end justify-content-sm-center ">
+				<h6 class="text-black mb-0">admin관리자2023. 8. 11 오후 8:00:32접속</h6>
+			</div>
 			<nav class="navbar navbar-expand-xl py-0">
 				<div class="logo">
 					<a class="navbar-brand py-0 me-0" href="../../index.jsp"> <img
@@ -46,27 +51,29 @@ System.out.println("현재 세션 : " + userId);
 				</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto">
-						<li class="nav-item">
-              <a class="nav-link text-capitalize" aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
-						<li class="nav-item">
-              <a class="nav-link text-capitalize" href="../challenge/adminChallenge.do">챌린지관리</a></li>
-              <li class="nav-item">
-                <a class="nav-link text-capitalize" href="../dogam/adminDogam.do">도감관리</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link text-capitalize" href="../donation/adDonationList.do">기부관리 </a></li>
-						<li class="nav-item">
-              <a class="nav-link text-capitalize" href="../news/newsCheck.do">뉴스관리</a>
-            </li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../challenge/adminChallenge.do">챌린지관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../dogam/dogamCheck.do">도감관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../donation/adDonationList.do">기부관리 </a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../news/newsCheck.do">뉴스관리</a></li>
+						<li><a href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
+						<li><a href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
 					</ul>
 					<c:if test="${userId ne null}">
 						<div class="d-flex align-items-center">
-							<a class="btn btn-warning btn-hover-secondery text-capitalize " href="../member/logout.do">로그아웃</a>
+							<a class="btn btn-warning btn-hover-secondery text-capitalize "
+								href="../member/logout.do">로그아웃</a>
 						</div>
 					</c:if>
 					<c:if test="${userId eq null}">
 						<div class="d-flex align-items-center">
-							<a class="btn btn-warning btn-hover-secondery text-capitalize " href="../member/login.do">로그인</a>
+							<a class="btn btn-warning btn-hover-secondery text-capitalize "
+								href="../member/login.do">로그인</a>
 						</div>
 					</c:if>
 				</div>
@@ -89,18 +96,16 @@ System.out.println("현재 세션 : " + userId);
 			</div>
 			<div class="offcanvas-body pt-0">
 				<ul class="navbar-nav">
-					<li class="nav-item">
-            <a class="nav-link text-capitalize" aria-current="page" href="../community/community.do">커뮤니티 관리</a></li>
-					<li class="nav-item">
-            <a class="nav-link text-capitalize" href="../challenge/adminChallenge.do">챌린지관리</a></li>
-					<li class="nav-item">
-            <a class="nav-link text-capitalize" href="../dogam/adminDogam.do">도감관리 </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-capitalize" href="../donation/adDonationList.do">기부관리 </a>
-          </li>
-					<li class="nav-item">
-            <a class="nav-link text-capitalize" href="../news/newsCheck.do">뉴스관리 </a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						aria-current="page" href="../community/community.do">커뮤니티 관리</a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../challenge/adminChallenge.do">챌린지관리</a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../dogam/dogamCheck.do">도감관리 </a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../donation/adDonationList.do">기부관리 </a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../news/newsCheck.do">뉴스관리 </a></li>
 				</ul>
 				<c:if test="${userId ne null}">
 					<div class="d-flex align-items-center">

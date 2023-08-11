@@ -10,10 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/adminChall.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/table.css">
 <script type="text/javascript">
 
 $(function() {	
@@ -78,43 +75,60 @@ $(function() {
 <title>관리자 기부처 리스트</title>
 </head>
 <body>
-	<div class="container">
-		<%@include file="../layouts/adminHeader.jsp"%>
-		<div class="admin_dona">
-			<p class="admin_title">기부처 리스트 관리</p>
-
-			<div class="calendar">
-				<select class="month" name="donaList" id="donaList">
-					<option value="all">전체</option>
-					<option value="ing">진행중인 기부</option>
-					<option value="end">종료된 기부</option>
-				</select>
-				<button class="add" id="add" onclick="location.href='donationInsert.do'">추가하기</button>
+	<%@include file="../layouts/adminHeader.jsp"%>
+	<section class="service position-relative overflow-hidden">
+		<div class="container position-relative">
+			<img src="/resources/imgs/service/dot-shape.png"
+				class="shape position-absolute">
+			<div class="row">
+				<div
+					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+					<h2 class="text-black mb-0 mt-5 mb-3">기부처 리스트 관리</h2>
+				</div>
 			</div>
-			<div class="dona_lists">
-				<table class="list" id="dona_list">
-					<thead>
-						<th>순서</th>
-						<th>기부처 명</th>
-						<th>기부 시작일</th>
-						<th>기부 종료일</th>
-						<th>수정</th>
-						<th>삭제</th>
-					</thead>
-					<c:forEach items="${list}" var="dona">
-						<tbody>
-							<td>${dona.don_no}</td>
-							<td>${dona.don_name}</td>
-							<td>${dona.don_start_date}</td>
-							<td>${dona.don_end_date}</td>
-							<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}"> 수정 </a></button></td>
-							<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>
-						</tbody>
-					</c:forEach>
-				</table>
+			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
+				<div class="calendar d-flex justify-content-between mb-5">
+					<select class="month" name="donaList" id="donaList">
+						<option value="all">전체</option>
+						<option value="ing">진행중인 기부</option>
+						<option value="end">종료된 기부</option>
+					</select> 
+					<a class="btn btn-warning btn-hover-secondery" id="add"
+						href="donationInsert.do">추가하기</a>
+				</div>
+				<div class="card border-0 shadow">
+					<div class="card-body">
+						<div
+							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<table class="type09" id="chall_list">
+								<thead>
+									<th>기부처 명</th>
+									<th>기부 시작일</th>
+									<th>기부 종료일</th>
+									<th>수정</th>
+									<th>삭제</th>
+								</thead>
+								<c:forEach items="${list}" var="dona">
+									<tbody>
+										<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">
+										<td>${dona.don_name}</td>
+										<td>${dona.don_start_date}</td>
+										<td>${dona.don_end_date}</td>
+										<td>
+											<a class="btn btn-warning btn-hover-secondery" href="donationModify.do?don_no=${dona.don_no}"> 수정 </a>
+										</td>
+										<td>
+											<a class="btn btn-warning btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a>
+										</td>
+									</tbody>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

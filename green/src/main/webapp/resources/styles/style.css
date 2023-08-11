@@ -254,13 +254,16 @@ sup {
 }
 
 a {
-  color: var(--bs-link-color);
-  text-decoration: underline;
+  text-decoration: none;
+	color: #000000;
 }
 a:hover {
-  color: var(--bs-link-hover-color);
+ 	color: #508068;
 }
-
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
@@ -8066,7 +8069,10 @@ textarea.form-control-lg {
 .text-opacity-100 {
   --bs-text-opacity: 1;
 }
-
+.bg-none{
+	--bs-bg-opacity: 1;
+	background-color:#9d9c9a !important;
+}
 .bg-primary {
   --bs-bg-opacity: 1;
   background-color:#8AB6A9 !important;

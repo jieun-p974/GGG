@@ -33,7 +33,7 @@
 						class="profile-picture profile-picture-lg bg-gradient bg-primary mb-4">
 						<img src="/resources/imgs/member/${userImgAddr}" width="144"
 							height="144">
-						<h4>${userName}님</h4>
+						<h4 class="mt-3">${userName}님</h4>
 						<fmt:parseNumber var="today" value="${now.time / (1000*60*60*24)}"
 							integerOnly="true" scope="request" />
 						<fmt:parseDate var="sdate" value="${userSdate}"
@@ -42,7 +42,7 @@
 							value="${sdate.time / (1000*60*60*24)}" integerOnly="true"
 							scope="request" />
 					</div>
-					<h6 class="mt-5">
+					<h6 class="mt-5 pt-2">
 						${userId}&nbsp회원님&nbsp환영합니다! <br /> <br /> 🌏&nbspGGG와 함께한지
 						${today-sdate2}일 째&nbsp🌏
 					</h6>
@@ -100,9 +100,6 @@
 						<div
 							class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
 							<h2 class="text-white mb-0">다양한 캐릭터들을 성장시켜보세요!</h2>
-							<a href="/dogam/dogam.do"
-								class="btn btn-warning btn-hover-secondery section-btn">당장
-								만나러가기</a>
 						</div>
 					</div>
 					<div class="row d-flex flex-wrap justify-content-center mt-5">
@@ -189,14 +186,14 @@
 			<section class="pricing position-relative overflow-hidden">
 				<div class="container position-relative">
 
-					<div class="row justify-content-center price-plan">
+					<div class="row justify-content-center">
 						<div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-6 col-12">
 							<div class="card position-relative shadow border-0 h-100">
 								<div class="card-body pb-4">
 									<h4 class="mb-4 text-center position-relative">도전중인 챌린지</h4>
 									<ul class="list-unstyled mb-0 pl-0">
 										<c:forEach items="${challList}" var="c">
-											<li class="d-flex align-items-start"><span
+											<li class="d-flex align-items-start" style="line-height: 2rem;"><span
 												class="fs-7 text-black">${c.chal_name}</span>
 											</li>
 										</c:forEach>
@@ -218,7 +215,7 @@
 									<h4 class="mb-4 text-center position-relative">기부 내역</h2>
 									<ul class="list-unstyled mb-0 pl-0">
 										<c:forEach items="${myDonaList}" var="d">
-										<li class="d-flex align-items-start"><span
+										<li class="d-flex align-items-start"style="line-height: 2rem;"><span
 											class="fs-7 text-black">${d.don_name}</span>
 										</li>
 										</c:forEach>
