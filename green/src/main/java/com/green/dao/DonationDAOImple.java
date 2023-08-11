@@ -1,5 +1,6 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -44,6 +45,13 @@ public class DonationDAOImple implements DonationDAO{
 		// TODO Auto-generated method stub
 		System.out.println("mybatis==>deleteDona");
 		mybatis.delete("DonationDAO.deleteDona",vo);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> myDonaList(String id) {
+		System.out.println("mybatis==>myDonaList");
+		List<HashMap<String, Object>> list = mybatis.selectList("DonationDAO.myDonaList",id);
+		return list;
 	}
 
 

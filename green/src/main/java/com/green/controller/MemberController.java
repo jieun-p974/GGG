@@ -2,6 +2,8 @@ package com.green.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,7 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.green.domain.ChallengeVO;
 import com.green.domain.MemberVO;
+import com.green.service.ChallengeService;
+import com.green.service.DonationService;
 import com.green.service.MemberService;
 
 @Controller
@@ -32,6 +37,10 @@ public class MemberController {
    
    @Autowired
 	private MemberService memberService; 
+   @Autowired
+   private ChallengeService challengeService;
+   @Autowired
+   private DonationService donationService;
 	 
   // 회원가입  
    @RequestMapping("/signupSave.do")
@@ -138,14 +147,18 @@ public class MemberController {
 		md.addAttribute("pw", memberService.searchPass(response, email));
 		return "/member/searchPass";
 	}
-	 
-
 	
 	@RequestMapping("/goDonation.do")
 	public String goDona(@ModelAttribute("member") MemberVO vo) {
 		memberService.goDona(vo);
 		return "/";
 	}
-	
-
+	//마이페이지에서 진행중인 챌린지랑 기부내역 띄우기
+	@RequestMapping(value="/mypage.do")
+	public void challAndDona(String id,Model model) {
+		List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+		List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+		model.addAttribute("challList",challList);
+		model.addAttribute("myDonaList", myDonaList);
+	}
 }

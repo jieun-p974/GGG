@@ -42,4 +42,9 @@
 	<delete id="deleteDona" parameterType="dona">
 		DELETE FROM donation WHERE don_no = #{don_no}
 	</delete>
+	
+	<!-- 내 기부 내역 -->
+	<select id="myDonaList" resultType="hashmap">
+		SELECT m.m_d_no, m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id}
+	</select>
 </mapper>
