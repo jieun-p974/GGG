@@ -15,9 +15,10 @@
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">		
-	$(function(){
-		// 사용자의 자료 입력여부를 검사하는 함수
-			$("#confirm").on("click", function(){
+	window.onload = function(){
+		document.getElementById('confirm').onclick = check;	
+		}
+			function check() {
 				if($("#name").val()==""){
 					alert("이름을 입력해주세요.");
 					$("#name").focus();

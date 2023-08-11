@@ -34,6 +34,7 @@ public class DonationServiceImple implements DonationService {
 
 	@Override
 	public void updateDona(DonationVO vo) {
+		System.out.println("서비스"+vo.getDon_name());
 		donationDAO.updateDona(vo);
 	}
 

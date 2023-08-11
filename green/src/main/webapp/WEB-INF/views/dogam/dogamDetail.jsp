@@ -12,6 +12,16 @@
 <link href="../../../resources/styles/dogamDetail.css" rel="stylesheet"
 	type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
+<script type="text/javascript">
+var msg= "<c:out value='${msg}' />"
+var url= "<c:out value='${url}' />"
+
+if(msg.length >0 && url.length >0){
+		
+	alert(msg);
+	location.href=url;
+}
+</script>
 <title>동물도감 | 상세보기</title>
 </head>
 <body>
@@ -43,10 +53,11 @@
       </div>
       <button class="dogamBtn" onclick="location.href='dogam.do'">도감보기</button>
       	<c:if test="${userId ne null}">
-		<button class="getBtn">키우기</button>
+		<button class="getBtn"><a href="sinchung.do?do_no=${dogam.do_no}&userId=${userId}">키우기</a></button>
 		</c:if>
     </div>
     </c:forEach>
 		</div>
+		
 </body>
 </html>

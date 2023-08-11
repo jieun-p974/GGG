@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>마이페이지 | 회원정보수정</title>
 </head>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">		
 $(document).ready(function() {

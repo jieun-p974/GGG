@@ -102,5 +102,4 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		System.out.println("Mybatis => updatePassYN");
 		mybatis.update("ChallengeDAO.updatePassYN",arr);
 	}
-
 }

@@ -20,7 +20,7 @@
 		<div class="dogam">
 		<p class="dogam_txt">캐릭터 도감 목록입니다.</p>
 				<c:if test="${userId ne null}">
-				<button class="myBtn" onclick='location.href="myDogam.do";'>나의도감</button>
+				<button class="myBtn" onclick="location.href='../dogam/myDogam.do?id=${userId}'">나의도감</button>
 				</c:if>
 			<div class="animal" id="animal">
 				<c:forEach items="${list}" var="dogam">

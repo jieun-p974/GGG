@@ -52,6 +52,7 @@ public class DonationDAOImple implements DonationDAO{
 		System.out.println("mybatis==>goDona");
 		mybatis.update("DonationDAO.goDona",map);
 	}
+	
 	@Override
 	public List<HashMap<String, Object>> myDonaList(String id) {
 		System.out.println("mybatis==>myDonaList");

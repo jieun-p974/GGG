@@ -21,9 +21,9 @@ public interface DonationService {
 	//기부처 상세 페이지 조회
 	DonationVO getDona(DonationVO vo);
 	
-	//내 기부 내역 조회
-	List<HashMap<String, Object>> myDonaList(String id);
-	
 	// 기부 포인트 계산
 	void goDona(HashMap<String, Object> map);
+	
+	//내 기부 내역 조회
+	List<HashMap<String, Object>> myDonaList(String id);
 }
