@@ -45,24 +45,16 @@ public class CommunityController {
 	@RequestMapping("/community.do")
 	public void getCommunityList(Model model,String id) {
 		List<CommunityVO> list = null;
+		List<ReplyVO> listRe = null;
 		if (id != null) {
 			list = communityService.getMyCommunityList(id);
-			
+			listRe = communityService.getReplyList();
 		} else {
 			list = communityService.getCommunityList();
+			listRe = communityService.getReplyList();
 		}
 		model.addAttribute("list", list);
-	}
-	
-
-	// reply list
-	@ResponseBody
-	@RequestMapping(value="/getReply.do")
-	public void getReplyList(Integer board_no, Model model) {
-		System.out.println("커뮤니티 컨트롤러 " + board_no);
-		List<ReplyVO> list2 = null;
-		list2 = communityService.getReplyList(board_no);
-		model.addAttribute("reply", list2);
+		model.addAttribute("listRe", listRe);
 	}
 	
 	// get one
@@ -85,6 +77,18 @@ public class CommunityController {
 		return "redirect:/community/community.do";
 	}
 	
+	
+	
+	// reply list
+//	@ResponseBody
+//	@RequestMapping(value="/getReply.do")
+//	public void getReplyList(Model model) {
+//		System.out.println("커뮤니티 컨트롤러 ");
+//		List<ReplyVO> listRe = null;
+//		listRe = communityService.getReplyList();
+//		model.addAttribute("listRe", listRe);
+//	}
+//	
 	//reply insert
 	@RequestMapping(value="/reply.do")
 	public String replyInsert(ReplyVO vo) throws IOException{
@@ -92,12 +96,19 @@ public class CommunityController {
 		return "redirect:/community/community.do";
 	}
 	
+	
+	
+	
+	
+	
 	//click like
 	@RequestMapping(value="/like.do")
 	public String likeInsert(HeartVO vo) throws IOException{
 		communityService.insertLike(vo);
 		return "redirect:/community/community.do";
 	}
+	
+	
 	
 	// announcement notification
 	// notification insert

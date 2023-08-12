@@ -29,7 +29,7 @@ public interface CommunityService {
 	void insertReply(ReplyVO vo);
 
 	//reply list
-	List<ReplyVO> getReplyList(Integer board_no);
+	List<ReplyVO> getReplyList();
 
 	void insertLike(HeartVO vo);
 

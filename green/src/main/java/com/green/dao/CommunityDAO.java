@@ -20,7 +20,7 @@ public interface CommunityDAO {
 	
 	public List<CommunityVO> getCommunityList();
 
-	public List<ReplyVO> getReplyList(Integer board_no);
+	public List<ReplyVO> getReplyList();
 	
 	public List<CommunityVO> getMyCommunityList(String id);
 

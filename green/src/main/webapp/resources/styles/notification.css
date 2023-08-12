@@ -1,16 +1,16 @@
-.editContainer{
+.editContainer {
   display: grid;
   justify-items: center;
 }
-.noti_container{
+.noti_container {
   display: grid;
   justify-items: center;
   width: 100%;
 }
-.noti_write{
+.noti_write {
   width: 60%;
 }
-textarea{
+#ann_content {
   background: #ffffff;
   border: 2px solid #445c4c;
   width: 100%;
@@ -19,13 +19,13 @@ textarea{
   font-size: 1rem;
   font-family: S-CoreDream-3Light;
 }
-.buttons{
+.buttons {
   width: 60%;
   display: flex;
   justify-content: flex-end;
   margin: 1% 0;
 }
-button {
+.btn {
   background: #445c4c;
   border-radius: 15px;
   color: #ffffff;
@@ -35,4 +35,72 @@ button {
   height: 3rem;
   margin:0 3%;
   border: none;
+}
+
+.admin_noti {
+    display: grid;
+    grid-template-rows: 1fr 1fr auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.noti_title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.add_section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.month {
+    width: 5rem;
+    text-align: center;
+    font-family: 'S-CoreDream-3Light';
+    font-weight: bold;
+}
+.noti_lists {
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #508068;
+    text-align: center;
+}
+
+th {
+    border-top: none;
+    background: #445c4c;
+    color: #d6e2e0;
+    border: 1px solid #508068;
+}
+
+tr {
+    background-color: #f0edef;
+}
+
+tr:nth-child(odd):not(:first-child) {
+    background-color: #dde2e3;
+}
+
+td {
+    border: 1px solid #508068;
+    padding: 1%;
+}
+.add{
+    background-color: #445c4c;
+    color: #d6e2e0;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border:none;
+}
+.modify{
+    background-color: #445c4c;
+    color: #d6e2e0;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border:none;
 }

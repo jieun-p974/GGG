@@ -19,9 +19,21 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
+function showRe() {
+			$(".reply").attr({"style":"display=grid"});
+	}
+
+function reEdit() {
+	$("#reWriting").attr({"contentEditable":"true"});
+	$("#reWriting").focus();
+	$("#reEditBtn").attr({"value":"확인"});
+	$("#reEditBtn").attr({"href":"replyModify.do?com_no=${reply.com_no}"});
+	}
+	
 	function insert() {
 		location.href = "communityWrite.do"
 	}
+
 </script>
 <title>그린 커뮤니티</title>
 </head>
@@ -53,10 +65,12 @@
 									<button class="heart">
 										<a href="like.do?board_no=${community.board_no}&id=${sessionScope.userId}" class="heart">❤</a>
 									</button>
-									<button class="comment" type="button" onclick="getReplyList()">
-										<input type="hidden" name="board_no" value="${community.board_no}" />
-										<a class="comment">💬</a>
-									</button>
+							<!-- 	<form action="getReply.do" method="post">	 -->	
+							<!-- 			<button class="comment" name="comment" id="comment">	 -->	
+											<input type="hidden" name="board_no" value="${community.board_no}" />
+											<input type="button" onclick="showRe()" class="comment" value="💬"" />
+							<!-- 				</button>	 -->	
+							<!--		</form>	 -->	
 									<div class="share">공유</div>
 								</div>
 							</div>
@@ -103,11 +117,51 @@
 									<button class="replyBtn" type="submit">댓글등록</button>
 								</div>
 							</form>
-		
+						</div>
+						
+					</div>
+				<div class="listRe">
+				<div class="list" id="listRe">
+				<c:forEach items="${listRe}" var="reply">
+				<c:if test="${community.board_no == reply.board_no}">
+					<div class="reply" style="display:none">
+						<div class="reply_left">
+							<div class="r_profile">
+								<!-- member 테이블에서 m_img 가져오기 (프로필 사진) -->
+								<img class="r_p_img" src="/resources/imgs/member/${reply.m_img_addr}" />
+							</div>
+						</div>
+						<p class="reply_id">@${reply.id}</p>
+						<input type="hidden" name="com_no" value="${reply.com_no}" />
+						<div class="re">
+							<!-- 등록된 글 내용 -->
+							<div class="reWriting" id="reWriting" type="text" contentEditable="false">${reply.com_content}</div>
+						<!-- 수정, 삭제 버튼 로그인한 회원의 글에만 show & 관리자 로그인에 삭제 버튼 show -->
+						</div>
+						<div class="memButtons">
+							<div class="memBtns">
+								<c:if test="${sessionScope.userId == reply.id}">
+									<input type="button" class="edit" onclick="reEdit()" value="수정" id="reEditBtn"/>
+								</c:if>
+								<c:if test="${sessionScope.userId == reply.id or sessionScope.userType == 2}">
+									<button class="edit">
+										<a href="deleteReply.do?com_no=${reply.com_no}" class="btn">삭제</a>
+									</button>
+								</c:if>
+							</div>
 						</div>
 					</div>
+					</c:if>
+				</c:forEach>	
+				</div>
+				</div>
 				</c:forEach>
+				
+				
+				
 			</div>
+			
+			
 			<!-- 오른쪽 고정  -->
 			<div class="tabs">
 				<div class="buttons">

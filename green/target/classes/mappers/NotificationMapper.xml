@@ -9,7 +9,6 @@
 		VALUES(#{id}, #{ann_title}, #{ann_content})
 	</insert>
 	
-	
 	<!-- show all list -->
 	<select id="getNotificationList" resultType="noti">
 		SELECT * from announcement order by ann_no desc

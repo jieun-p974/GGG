@@ -31,9 +31,10 @@ public class CommunityVO {
 	private String b_img2_addr;
 	private String b_img3;
 	private String b_img3_addr;
+	
 	private String m_img_addr;
-	private String com_content;
 	private int com_no;
+	private String com_content;
 	private int like_no;
 
 	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
@@ -42,23 +43,6 @@ public class CommunityVO {
 	
 	public CommunityVO() {
 
-	}
-
-	public CommunityVO(int board_no ,String id, String b_content, String b_img1, String b_img1_addr, int com_no,int like_no,
-			String m_img_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr, String com_content) {
-		this.board_no = board_no;
-		this.id = id;
-		this.b_content = b_content;
-		this.b_img1 = b_img1;
-		this.b_img1_addr = b_img1_addr;
-		this.b_img2 = b_img2;
-		this.b_img2_addr = b_img2_addr;
-		this.b_img3 = b_img3;
-		this.b_img3_addr = b_img3_addr;
-		this.m_img_addr = m_img_addr;
-		this.com_content = com_content;
-		this.com_no = com_no;
-		this.like_no = like_no;
 	}
 
 	public MultipartFile getFile1() {

@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/notificationList.css" rel="stylesheet" type="text/css">
+<link href="../../../resources/styles/notification.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
 

@@ -30,8 +30,8 @@
 					</div>
 				</div>
 				<div class="buttons">
-					<button id="adding" type="submit">수정하기</button>
-					<button id="cancel" type="button" onclick="cancleWrite()">취소</button>
+					<button class="btn" id="adding" type="submit">수정하기</button>
+					<button class="btn" id="cancel" type="button" onclick="cancleWrite()">취소</button>
 				</div>
 		</div>
 		</form>

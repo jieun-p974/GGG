@@ -21,13 +21,7 @@ public class NotificationVO {
 
 	}
 
-	public NotificationVO(int ann_no, String id, LocalDateTime ann_date, String ann_title, String ann_content) {
-		this.ann_no = ann_no;
-		this.id = id;
-		this.ann_date = ann_date;
-		this.ann_title = ann_title;
-		this.ann_content = ann_content;
-	}
+
 
 	public int getAnn_no() {
 		return ann_no;

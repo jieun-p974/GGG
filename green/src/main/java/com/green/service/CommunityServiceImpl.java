@@ -31,9 +31,9 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	// Reply List
 	@Override
-	public List<ReplyVO> getReplyList(Integer board_no) {
+	public List<ReplyVO> getReplyList() {
 		// TODO Auto-generated method stub
-		return communityDAO.getReplyList(board_no);
+		return communityDAO.getReplyList();
 	}
 	
 	//get one
