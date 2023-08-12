@@ -20,8 +20,13 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 function showRe() {
-			$(".reply").attr({"style":"display=grid"});
+			$(".reply").show();
+			$(".comment").attr({"onclick":"hiedRe()"});
 	}
+function hiedRe() {
+	$(".reply").hide();
+	$(".comment").attr({"onclick":"showRe()"});
+}
 
 function reEdit() {
 	$("#reWriting").attr({"contentEditable":"true"});
@@ -124,7 +129,7 @@ function reEdit() {
 				<div class="list" id="listRe">
 				<c:forEach items="${listRe}" var="reply">
 				<c:if test="${community.board_no == reply.board_no}">
-					<div class="reply" style="display:none">
+					<div class="reply">
 						<div class="reply_left">
 							<div class="r_profile">
 								<!-- member 테이블에서 m_img 가져오기 (프로필 사진) -->
