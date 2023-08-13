@@ -15,12 +15,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../../../resources/styles/profile.css">
 <link rel="stylesheet" href="../../../resources/styles/mypage.css">
 <title>마이페이지</title>
+<style type="text/css">
+.info_heon{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.info_btns{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	justify-items: center;
+}
+.icons{
+	width:30%;
+}
+</style>
 <jsp:useBean id="now" class="java.util.Date" />
 </head>
 <body>
@@ -46,8 +59,6 @@
 						${userId}&nbsp회원님&nbsp환영합니다! <br /> <br /> 🌏&nbspGGG와 함께한지
 						${today-sdate2}일 째&nbsp🌏
 					</h6>
-					<a href="infoEdit.do" class="btn btn-warning btn-hover-secondery">
-						회원정보 수정 </a>
 					<h6>
 						보유포인트 : ${userPoint} p <br /> <br /> 보유도전권 :
 					</h6>
@@ -58,14 +69,9 @@
 			<!-- 회원 정보 -->
 			<section class="our-service position-relative overflow-hidden">
 				<div class="container mt-5">
-					<div class="row">
+					<div class="info_heon">
 						<div
-							class="col-xxl-8 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-							<img src="/resources/imgs/our-service/our-service.svg"
-								class="img-fluid">
-						</div>
-						<div
-							class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
+							class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
 							<h2 class="text-black mb-0">회원정보</h2>
 							<div class="d-flex align-items-center mt-3">
 								<div class="grid">
@@ -81,13 +87,24 @@
 										${userAccount}</p>
 								</div>
 							</div>
-							<div class="d-flex align-items-center mt-3"
-								style="justify-content: space-between;">
-								<a class="btn btn-warning btn-hover-secondery"
-									href="../member/cardRegist.do?userId=${userId}">간편결제 카드 등록</a>
-								<a class="btn btn-warning btn-hover-secondery"
-									href="../member/accountRegist.do?userId=${userId}">간편결제 계좌
-									등록</a>
+						</div>
+						<div class="mt-3 info_btns">
+							<div>
+								<img alt="간편카드 등록" src="/resources/imgs/gapun_card.png" class="icons">
+								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px" href="../member/cardRegist.do?userId=${userId}">간편결제 카드 등록</a>
+							</div>
+							<div>
+								<img alt="간편계좌 등록" src="/resources/imgs/ganpun_acc.png" class="icons">
+								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px" href="../member/accountRegist.do?userId=${userId}">간편결제 계좌
+									등록</a> 
+							</div>
+							<div>
+								<img alt="회원 정보 수정" src="/resources/imgs/sujung.png" class="icons">
+								<a href="infoEdit.do" class="btn btn-warning btn-hover-secondery text-black" style="width: 215px"> 회원정보 수정 </a>
+							</div>
+							<div>
+								<img alt="결제수단 관리" src="/resources/imgs/paymana.png" class="icons">
+								<a href="infoEdit.do" class="btn btn-warning btn-hover-secondery text-black" style="width: 215px"> 결제 수단 관리 </a>
 							</div>
 						</div>
 					</div>
@@ -172,10 +189,9 @@
 								</div>
 								<div class="d-flex justify-content-between">
 									<a class="btn btn-warning btn-hover-secondery"
-										href="../dogam/dogam.do">도감전체보기</a>
-										
-									<a class="btn btn-warning btn-hover-secondery" 
-									href="../dogam/myDogam.do?id=${userId}">내도감보기</a>
+										href="../dogam/dogam.do">도감전체보기</a> <a
+										class="btn btn-warning btn-hover-secondery"
+										href="../dogam/myDogam.do?id=${userId}">내도감보기</a>
 								</div>
 							</div>
 						</div>
@@ -193,9 +209,9 @@
 									<h4 class="mb-4 text-center position-relative">도전중인 챌린지</h4>
 									<ul class="list-unstyled mb-0 pl-0">
 										<c:forEach items="${challList}" var="c">
-											<li class="d-flex align-items-start" style="line-height: 2rem;"><span
-												class="fs-7 text-black">${c.chal_name}</span>
-											</li>
+											<li class="d-flex align-items-start"
+												style="line-height: 2rem;"><span
+												class="fs-7 text-black">${c.chal_name}</span></li>
 										</c:forEach>
 									</ul>
 								</div>
@@ -212,14 +228,16 @@
 						<div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-6 col-12">
 							<div class="card position-relative shadow border-0 h-100">
 								<div class="card-body pb-4">
-									<h4 class="mb-4 text-center position-relative">기부 내역</h2>
-									<ul class="list-unstyled mb-0 pl-0">
-										<c:forEach items="${myDonaList}" var="d">
-										<li class="d-flex align-items-start"style="line-height: 2rem;"><span
-											class="fs-7 text-black">${d.don_name}</span>
-										</li>
-										</c:forEach>
-									</ul>
+									<h4 class="mb-4 text-center position-relative">
+										기부 내역
+										</h2>
+										<ul class="list-unstyled mb-0 pl-0">
+											<c:forEach items="${myDonaList}" var="d">
+												<li class="d-flex align-items-start"
+													style="line-height: 2rem;"><span
+													class="fs-7 text-black">${d.don_name}</span></li>
+											</c:forEach>
+										</ul>
 								</div>
 								<div
 									class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">

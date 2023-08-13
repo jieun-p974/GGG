@@ -3,6 +3,7 @@
 >>>>>>>=refs/remotes/origin/main
 eclipse.preferences.version=1
 encoding//src/main/java/com/green/controller/ChallengeController.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/community/community.jsp=UTF-8
 encoding//src/main/webapp/resources/styles/dogam.css=UTF-8
 encoding//src/main/webapp/resources/styles/dogamDetail.css=UTF-8
 encoding//src/main/webapp/resources/styles/login.css=UTF-8

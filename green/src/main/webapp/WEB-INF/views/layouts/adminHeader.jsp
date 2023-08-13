@@ -4,13 +4,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
-<link rel="stylesheet" href="/resources/styles/style.css">
-<link rel="stylesheet"
-	href="/resources/styles/iconfont/tabler-icons.css">
+<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
-<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 <%
 	String userId = (String) session.getAttribute("userId");
 String userName = (String) session.getAttribute("userName");

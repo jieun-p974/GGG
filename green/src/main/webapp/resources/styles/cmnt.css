@@ -1,0 +1,31 @@
+.p_img {
+	display: block;
+	height: 7rem;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	border: 2px solid #FFFFFF;
+	margin: 0;
+}
+.r_img{
+	display: block;
+	height: 5rem;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	border: 2px solid #FFFFFF;
+	margin: 0;
+}
+
+.tabs {
+    width: 23%;
+    position: fixed;
+    right: 2%;
+}
+.board_img{
+	width:30%;
+}

@@ -9,8 +9,7 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>

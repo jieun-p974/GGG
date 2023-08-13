@@ -11023,7 +11023,7 @@ textarea.form-control-lg {
   background-image: url(/resources/imgs/our-service/our-service-background.svg);
   background-repeat: no-repeat;
   background-position: center;
-  z-index: 0;
+  z-index: -1;
 }
 .our-service small, .our-service .small {
   color: #7A8496;
