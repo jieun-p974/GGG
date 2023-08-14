@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.green.dao.CommunityDAO;
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
+import com.green.domain.ReplyVO;
 
 @Service("CommunityService")
 public class CommunityServiceImpl implements CommunityService{
@@ -25,13 +27,13 @@ public class CommunityServiceImpl implements CommunityService{
 	public List<CommunityVO> getCommunityList() {
 		// TODO Auto-generated method stub
 		return communityDAO.getCommunityList();
-	}
+	}	
 	
 	// Reply List
 	@Override
-	public List<CommunityVO> getReplyList(int board_no) {
+	public List<ReplyVO> getReplyList() {
 		// TODO Auto-generated method stub
-		return communityDAO.getReplyList(board_no);
+		return communityDAO.getReplyList();
 	}
 	
 	//get one
@@ -63,9 +65,17 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//insert reply
 	@Override
-	public void insertReply(CommunityVO vo) {
+	public void insertReply(ReplyVO vo) {
 		// TODO Auto-generated method stub
 		communityDAO.replyWrite(vo);
 	}
+	
+	//insert like
+	@Override
+	public void insertLike(HeartVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.likeInsert(vo);
+	}
+	
 	
 }

@@ -2,30 +2,27 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<c:if test="${sessionScope.userId == null }">
-	<script>
-		alert("로그인 하신 후 이용 가능합니다.");
-		location.href = "../../index.jsp";
-	</script>
-</c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/resources/js/custom.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="../../../resources/styles/cmnt.css" rel="stylesheet" type="text/css">
-<!-- <link href="../../../resources/styles/community.css" rel="stylesheet" type="text/css"> -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
-	function insert() {
-		location.href = "communityWrite.do"
-	}
+	<c:if test="${sessionScope.userId == null }">
+		alert("로그인 하신 후 이용 가능합니다.");
+		location.href = "../../index.jsp";
+	</c:if>
 </script>
 <style type="text/css">
-.icon_links{
-	width:2%;
+.icon_links {
+	width: 2%;
 }
+
 .sns_icon_like {
 	width: 100%;
 }
@@ -41,7 +38,13 @@
 <title>그린 커뮤니티</title>
 </head>
 <body>
-	<%@include file="../layouts/header.jsp"%>
+	<c:if test="${sessionScope.userType == 1}">
+      <%@include file="../layouts/header.jsp"%>
+   </c:if>
+   <c:if test="${sessionScope.userType == 2}">
+      <%@include file="../layouts/adminHeader.jsp"%>
+   </c:if>
+   
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row justify-content-center">
@@ -52,26 +55,25 @@
 							class="col-xxl-12 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 d-flex justify-content-center">
 							<div
 								class="col-xxl-11 col-xl-11 col-lg-11 col-md-6 col-sm-6 col-12">
+								<!-- DB board -->
 								<c:forEach items="${list}" var="community">
 									<ul class="list-unstyled mt-5">
 										<li class="media d-flex justify-content-between">
-											<div class="profile-picture row col-2 align-items-center">
-												<img class="p_img"
+											<div class="profile-picture row col-2 align-items-center align-content-between">
+												<img class="p_img col-10"
 													src="/resources/imgs/member/${community.m_img_addr}" />
-													<c:if test="${sessionScope.userId == community.id}">
-														<a
-															href="communityModify.do?board_no=${community.board_no}"
-															class="btn btn-warning btn-hover-secondery text-black">수정하기</a>
-													</c:if>
-													<c:if
-														test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
-														<a
-															href="deleteCommunity.do?board_no=${community.board_no}"
-															class="btn btn-warning btn-hover-secondery text-black">삭제하기</a>
+												<c:if test="${sessionScope.userId == community.id}">
+													<a href="communityModify.do?board_no=${community.board_no}"
+														class="btn btn-warning btn-hover-secondery text-black">수정하기</a>
+												</c:if>
+												<c:if
+													test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
+													<a href="deleteCommunity.do?board_no=${community.board_no}"
+														class="btn btn-warning btn-hover-secondery text-black">삭제하기</a>
 
-													</c:if>
+												</c:if>
 											</div>
-											<div class="media-body col-10">
+											<div class="media-body col-10 hey">
 												<div class="row">
 													<div class="d-flex justify-content-between">
 														<div class="media-title mt-0 mb-1 col-8">@${community.id}</div>
@@ -93,67 +95,73 @@
 															</c:if>
 														</div>
 														<!-- 등록된 글 내용 -->
-														<p class="writing">
-															<c:out value="${community.b_content}" />
-														</p>
+														<pre class="writing"><c:out value="${community.b_content}" /></pre>
 													</div>
 												</div>
-												<hr style="margin:0.5rem" />
+												<hr style="margin: 0.5rem" />
 												<div class="media-feed-control d-flex justify-content-end">
-													<a href="#" class="icon_links me-2"> <img class="sns_icon_like"
-														src="/resources/imgs/heart.png" />
-													</a> 
-													<a href="getReply.do?board_no=${community.board_no}" class="icon_links me-2">
-														<img class="sns_icon_comment"
-														src="/resources/imgs/comment.png" />
-													</a> 
-													<a href="#" class="icon_links"> <img class="sns_icon_share me-2"
-														src="/resources/imgs/share.png" />
+													<a href="like.do?board_no=${community.board_no}&id=${sessionScope.userId}" class="icon_links me-2"> 
+														<img class="sns_icon_like" src="/resources/imgs/heart.png" />
+													</a>
+													<input type="hidden" name="board_no" value="${community.board_no}" />
+													<button class="icon_links me-2 p-0 showBtn" style="background: none; border: none;" id="showBtn">
+														<img class="sns_icon_comment" src="/resources/imgs/comment.png" />
+													</button>
+													<a href="#" class="icon_links">
+														<img class="sns_icon_share me-2" src="/resources/imgs/share.png" />
 													</a>
 												</div>
-												<hr style="margin:0.5rem" />
-												<div class="media-body-reply-block">
+												<hr style="margin: 0.5rem" />
+												<!-- 댓글 달기 -->
+												<div class="media-body-reply-block comments">
 													<!-- 댓글작성 창 -->
 													<form action="reply.do" method="post">
 														<div class="replyWrite d-flex align-items-center">
 															<img class="r_img col-1" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
-															<p class="reply_id col-2 m-0">@${sessionScope.userId}</p>
+															<p class="reply_id col-2 m-0 ms-2">@${sessionScope.userId}</p>
 															<input type="hidden" name="id" value="${userId}" /> 
 															<input type="hidden" name="board_no" value="${community.board_no}" /> 
 															<input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
-															<button class="btn btn-warning btn-hover-secondery text-black col-2" type="submit">댓글등록</button>
+															<button class="btn btn-warning btn-hover-secondery text-black col-2 replyBtn" type="submit">댓글등록</button>
 														</div>
 													</form>
-													<ul class="list-unstyled">
-														<!-- 게시 글에 달린 댓글 출력 댓글보기 버튼에 toggle -->
-														<c:if test="${community.board_no != null}">
-															<c:forEach items="${listRe}" var="community">
-																<li class="media mt-4"><input type="hidden"
-																	name="board_no" value="${community.board_no}" />
-																	<div
-																		class="profile-picture bg-gradient bg-primary mb-4">
-																		<img class="p_img"
-																			src="/resources/imgs/member/${community.m_img_addr}" />
-																		<div class="media-body">
-																			<div class="media-title mt-0 mb-1">
-																				@${community.id}</div>
-																			${community.com_content}
-																		</div></li>
+													<hr style="margin: 0.5rem" />
+													<div class="listRe">
+														<div class="list" id="listRe">
+															<c:forEach items="${listRe}" var="reply">
+																<c:if test="${community.board_no == reply.board_no}">
+																	<div class="reply d-flex align-items-center m-1 p-1" style="border: 1px solid black; border-radius: 15px">
+																		<div class="r_profile d-flex col-3 align-items-center p-2">
+																			<!-- member 테이블에서 m_img 가져오기 (프로필 사진) -->
+																			<img class="r_p_img col-3" src="/resources/imgs/member/${reply.m_img_addr}" />
+																			<p class="reply_id col-7 m-0 ms-2">@${reply.id}</p>
+																		</div>
+																		<input type="hidden" name="com_no" value="${reply.com_no}" />
+																		<div class="re col-6">
+																			<!-- 등록된 글 내용 -->
+																			<div class="reWriting" id="reWriting" type="text" contentEditable="false">${reply.com_content}</div>
+																		</div>
+																		<!-- 수정, 삭제 버튼 로그인한 회원의 글에만 show & 관리자 로그인에 삭제 버튼 show -->
+																		<div class="memButtons col-3">
+																			<div class="memBtns">
+																				<c:if test="${sessionScope.userId == reply.id}">
+																					<input type="button" class="edit btn btn-warning btn-hover-secondery text-black" onclick="reEdit()" value="수정" id="reEditBtn" />
+																				</c:if>
+																				<c:if test="${sessionScope.userId == reply.id or sessionScope.userType == 2}">
+																					<a href="deleteReply.do?com_no=${reply.com_no}" class="btn btn-warning btn-hover-secondery text-black">삭제</a>
+																				</c:if>
+																			</div>
+																		</div>
+																	</div>
+																</c:if>
 															</c:forEach>
-														</c:if>
-													</ul>
-													<table align="center" width="500" border="1" id="rtb">
-														<thead>
-															<td colspan="4"><b id="rCount">댓글목록</b></td>
-														</thead>
-														<tbody>
-														</tbody>
-													</table>
+														</div>
+													</div>
 												</div>
 											</div>
 										</li>
 									</ul>
-									<hr/>
+									<hr />
 								</c:forEach>
 							</div>
 						</div>
@@ -161,10 +169,8 @@
 							class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
 							<div class="row">
 								<div class="col-lg-12 mb-4">
-									<a href="community.do?id=${sessionScope.userId}"
-										class="btn btn-warning btn-hover-secondery ">내 피드</a> <a
-										href="communityWrite.do"
-										class="btn btn-warning btn-hover-secondery ">글쓰기</a>
+									<a href="community.do?id=${sessionScope.userId}" class="btn btn-warning btn-hover-secondery ">내 피드</a> 
+									<a href="communityWrite.do" class="btn btn-warning btn-hover-secondery ">글쓰기</a>
 								</div>
 								<div class="col-sm-12">
 									<input type="text" placeholder="search">
@@ -179,130 +185,19 @@
 				</div>
 			</div>
 		</div>
-		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
-		<script type="text/javascript">
-			function getReplyList() {
-				var board = "${community.board_no}";
-				$
-						.ajax({
-							url : "getReply.do",
-							data : {
-								"board_no" : board_no
-							},
-							type : "get",
-							success : function(result) { //댓글목록 불러오는 함수
-								var $tableBody = $('#rtb tbody'); //$는 의미없음 그냥 변수명 중 하나
-								$tableBody.html(''); //tbody를 초기화 시켜야 댓글 목록의 중첩을 막을수 있음 아니면 등록할떄마다 append로 이어짐
-								$('#rCount').text("댓글 (" + result.length + ")") //댓글수 출력
-								if (result != null) {
-									console.log(result);
-									for ( var i in result) {
-										var $tr = $("<tr>");
-										var $rWriter = $("<td width='100'>")
-												.text(result[i].replyWirter);
-										var $rContent = $("<td>").text(
-												result[i].replyContents);
-										var $rCreatDate = $("<td width='100'>")
-												.text(result[i].rCreateDate);
-										var $btnArea = $("<td width='80'>")
-												.append(
-														"<a href='modifyreply(${community.board_no})'>수정</a>")
-												.append("<a href='#'>삭제</a>");
-
-										$tr.append($rWriter);
-										$tr.append($rContent);
-										$tr.append($rCreatDate);
-										$tr.append($btnArea);
-										$tableBody.append($tr);
-
-									}
-								}
-
-							},
-							error : function() {
-								console.log("요청실패");
-
-							}
-						})
-				var $tableBody = $('#rtb tbody');
-				for ( var i in result) {
-					var $tr = $("<tr>");
-					var $rWriter = $("<td width='100'>").text(
-							result[i].replyWirter);
-					var $rContent = $("<td>").text(result[i].replyContents);
-					var $rCreatDate = $("<td width='100'>").text(
-							result[i].rCreateDate);
-					var $btnArea = $("<td width='80'>")
-							.append(
-									"<a href='modifyreply(${community.board_no})'>수정</a>")
-							.append("<a href='#'>삭제</a>");
-
-					$tr.append($rWriter);
-					$tr.append($rContent);
-					$tr.append($rCreatDate);
-					$tr.append($btnArea);
-					$tableBody.append($tr);
-
-				}
-
-			}
-		</script>
-		<!-- Code injected by live-server -->
-		<script>
-			// <![CDATA[  <-- For SVG support
-			if ('WebSocket' in window) {
-				(function() {
-					function refreshCSS() {
-						var sheets = [].slice.call(document
-								.getElementsByTagName("link"));
-						var head = document.getElementsByTagName("head")[0];
-						for (var i = 0; i < sheets.length; ++i) {
-							var elem = sheets[i];
-							var parent = elem.parentElement || head;
-							parent.removeChild(elem);
-							var rel = elem.rel;
-							if (elem.href && typeof rel != "string"
-									|| rel.length == 0
-									|| rel.toLowerCase() == "stylesheet") {
-								var url = elem.href.replace(
-										/(&|\?)_cacheOverride=\d+/, '');
-								elem.href = url
-										+ (url.indexOf('?') >= 0 ? '&' : '?')
-										+ '_cacheOverride='
-										+ (new Date().valueOf());
-							}
-							parent.appendChild(elem);
-						}
-					}
-					var protocol = window.location.protocol === 'http:' ? 'ws://'
-							: 'wss://';
-					var address = protocol + window.location.host
-							+ window.location.pathname + '/ws';
-					var socket = new WebSocket(address);
-					socket.onmessage = function(msg) {
-						if (msg.data == 'reload')
-							window.location.reload();
-						else if (msg.data == 'refreshcss')
-							refreshCSS();
-					};
-					if (sessionStorage
-							&& !sessionStorage
-									.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-						console.log('Live reload enabled.');
-						sessionStorage.setItem(
-								'IsThisFirstTime_Log_From_LiveServer', true);
-					}
-				})();
-			} else {
-				console
-						.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-			}
-			// ]]>
-		</script>
 	</section>
 	<%@include file="../layouts/footer.jsp"%>
+	<script src="/resources/js/custom.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".showBtn").click(function() {
+				console.log("버튼 클릭");
+				$(this).closest(".hey").find(".reply").addClass("dd");
+				/* $(this).closest(".hey").find(".list").show();
+				$(".reply").show(); */
+			});
+		});
+	</script>
 </body>
 </html>
 

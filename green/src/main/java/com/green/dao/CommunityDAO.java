@@ -3,12 +3,12 @@ package com.green.dao;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
+import com.green.domain.ReplyVO;
 
 public interface CommunityDAO {
 	
 	public void communityWrite(CommunityVO vo);
-
-	public List<CommunityVO> getCommunityList();
 
 	public CommunityVO getCommunityDetail(CommunityVO vo);
 
@@ -16,11 +16,16 @@ public interface CommunityDAO {
 
 	public void deleteCommunity(CommunityVO vo);
 
-	public List<CommunityVO> getMyCommunityList(String id);
+	public void replyWrite(ReplyVO vo);
 	
-	public void replyWrite(CommunityVO vo);
+	public List<CommunityVO> getCommunityList();
 
-	public List<CommunityVO> getReplyList(int board_no);
+	public List<ReplyVO> getReplyList();
+	
+	public List<CommunityVO> getMyCommunityList(String id);
+
+	public void likeInsert(HeartVO vo);
+
 
 
 }

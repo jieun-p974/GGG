@@ -45,7 +45,7 @@
 	
 	<!-- 내 기부 내역 -->
 	<select id="myDonaList" resultType="hashmap">
-		SELECT m.m_d_no, m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id}
+		SELECT DISTINCT m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id} AND m.don_no = d.don_no
 	</select>
 	
 	<!-- 포인트로 기부시 적립 -->

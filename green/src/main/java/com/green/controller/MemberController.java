@@ -89,7 +89,6 @@ public class MemberController {
 			session.setAttribute("userName", memberVo.getName());
 			session.setAttribute("userTel", memberVo.getTel());
 			session.setAttribute("userEmail", memberVo.getEmail());
-			session.setAttribute("userBday", simpleDateFormat.format(memberVo.getBday()).toString());
 			session.setAttribute("userSdate", simpleDateFormat.format(memberVo.getSdate()).toString());
 			session.setAttribute("userCard", memberVo.getCard_reg_YN());
 			session.setAttribute("userAccount", memberVo.getAccount_reg_YN());

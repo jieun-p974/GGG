@@ -100,7 +100,7 @@ $(function() {
 					<div class="card-body">
 						<div
 							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-							<table class="type09" id="chall_list">
+							<table class="type09" id="dona_list">
 								<thead>
 									<th>기부처 명</th>
 									<th>기부 시작일</th>

@@ -15,6 +15,9 @@
 		<typeAlias alias="memChallenge" type="com.green.domain.MemChallengeVO"/>
 		<typeAlias alias="checkChallenge" type="com.green.domain.ChallengeCheckVO"/>
 		<typeAlias alias="community" type="com.green.domain.CommunityVO" />   
+		<typeAlias alias="noti" type="com.green.domain.NotificationVO" />   
+		<typeAlias alias="reply" type="com.green.domain.ReplyVO" />   
+		<typeAlias alias="like" type="com.green.domain.HeartVO" />      
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
 		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />
 		<typeAlias alias="pay" type="com.green.domain.PayVO" />   

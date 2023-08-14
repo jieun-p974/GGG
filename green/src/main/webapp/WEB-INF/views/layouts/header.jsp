@@ -19,7 +19,6 @@
 String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
-String userBday = (String) session.getAttribute("userBday");
 String userSdate = (String) session.getAttribute("userSdate");
 String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");

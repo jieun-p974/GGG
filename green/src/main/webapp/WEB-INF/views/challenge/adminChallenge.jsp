@@ -76,10 +76,8 @@
 </head>
 <body>
 	<%@include file="../layouts/adminHeader.jsp"%>
-	<section class="service position-relative overflow-hidden">
+	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
-			<img src="/resources/imgs/service/dot-shape.png"
-				class="shape position-absolute">
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
@@ -94,8 +92,7 @@
 						<option value="ing">진행중인 챌린지</option>
 						<option value="end">종료된 챌린지</option>
 					</select>
-					<a class="btn btn-warning btn-hover-secondery"
-					href="challengeInsert.do">추가하기</a>
+					<a class="btn btn-warning btn-hover-secondery" href="challengeInsert.do">추가하기</a>
 				</div>
 				<div class="card border-0 shadow">
 					<div class="card-body">
