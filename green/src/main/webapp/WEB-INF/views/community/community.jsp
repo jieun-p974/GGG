@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -59,24 +58,19 @@
 								<c:forEach items="${list}" var="community">
 									<ul class="list-unstyled mt-5">
 										<li class="media d-flex justify-content-between">
-											<div class="profile-picture row col-2 align-items-center align-content-between">
-												<img class="p_img col-10"
-													src="/resources/imgs/member/${community.m_img_addr}" />
-												<c:if test="${sessionScope.userId == community.id}">
-													<a href="communityModify.do?board_no=${community.board_no}"
-														class="btn btn-warning btn-hover-secondery text-black">수정하기</a>
-												</c:if>
-												<c:if
-													test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
-													<a href="deleteCommunity.do?board_no=${community.board_no}"
-														class="btn btn-warning btn-hover-secondery text-black">삭제하기</a>
-
-												</c:if>
+									<div class=" col-2 ">
+											<div class="d-flex justify-content-around align-items-end p-3">
+													<a href="communityModify.do?board_no=63" class="btn btn-warning btn-hover-secondery p-1">수정</a>
+													<a href="deleteCommunity.do?board_no=63" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
 											</div>
-											<div class="media-body col-10 hey">
+											<div class="profile-picture justify-content-center d-flex p-3">
+												<img class="p_img " src="/resources/imgs/member/29c5be39-72be-4467-b9b5-bd45d7f3e23b_default_mem_img.png">
+											</div>
+									</div>
+											<div class="media-body col-10 ">
 												<div class="row">
 													<div class="d-flex justify-content-between">
-														<div class="media-title mt-0 mb-1 col-8">@${community.id}</div>
+														<div class="media-title mt-0 mb-1 col-8 fw-bold h4">@${community.id}</div>
 													</div>
 													<div>
 														<!-- 등록된 사진이 있을 시 출력 -->
@@ -95,7 +89,7 @@
 															</c:if>
 														</div>
 														<!-- 등록된 글 내용 -->
-														<pre class="writing"><c:out value="${community.b_content}" /></pre>
+														<pre class="writing p-3 mt-3" ><c:out value="${community.b_content}" /></pre>
 													</div>
 												</div>
 												<hr style="margin: 0.5rem" />
@@ -117,7 +111,7 @@
 													<!-- 댓글작성 창 -->
 													<form action="reply.do" method="post">
 														<div class="replyWrite d-flex align-items-center">
-															<img class="r_img col-1" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
+															<img class="r_img col-sm-0" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
 															<p class="reply_id col-2 m-0 ms-2">@${sessionScope.userId}</p>
 															<input type="hidden" name="id" value="${userId}" /> 
 															<input type="hidden" name="board_no" value="${community.board_no}" /> 
@@ -133,7 +127,7 @@
 																	<div class="reply d-flex align-items-center m-1 p-1" style="border: 1px solid black; border-radius: 15px">
 																		<div class="r_profile d-flex col-3 align-items-center p-2">
 																			<!-- member 테이블에서 m_img 가져오기 (프로필 사진) -->
-																			<img class="r_p_img col-3" src="/resources/imgs/member/${reply.m_img_addr}" />
+																			<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/${reply.m_img_addr}" />
 																			<p class="reply_id col-7 m-0 ms-2">@${reply.id}</p>
 																		</div>
 																		<input type="hidden" name="com_no" value="${reply.com_no}" />
@@ -165,8 +159,53 @@
 								</c:forEach>
 							</div>
 						</div>
-						<div
-							class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
+						
+						
+						
+						
+						
+						
+<%-- 						
+									<!-- 오른쪽 고정  -->
+			<div class="tabs">
+				<div class="buttons">
+					<button class="myBtn">
+						<a href="community.do?id=${sessionScope.userId}" class="myBtn">내 피드</a>
+					</button>
+					<button class="myBtn">
+						<a href="community.do" class="myBtn">전체 피드</a>
+					</button>
+					<button class="writeBtn" id="writeBtn" onclick="insert()">글쓰기</button>
+				</div>
+				
+				<form action="community.do" class="search">
+					<select name="searchOption" class="searchOption">
+						<option value="id">ID</option>
+						<option value="hashTag">hashTag</option>
+					</select>
+					<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete">
+					<button class="searching">검색</button>
+				</form>
+				
+				<div class="ranks">
+					1위 #환경보호(100,200회)<br />
+					2위 #제로웨이스트(50,123회)<br />
+					3위 #플로깅(10,500회)<br />
+				</div>
+			</div>
+
+			</div>
+			 --%>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+						<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
 							<div class="row">
 								<div class="col-lg-12 mb-4">
 									<a href="community.do?id=${sessionScope.userId}" class="btn btn-warning btn-hover-secondery ">내 피드</a> 
@@ -200,4 +239,3 @@
 	</script>
 </body>
 </html>
-

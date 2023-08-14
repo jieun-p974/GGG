@@ -950,6 +950,17 @@ progress {
     flex: 0 0 auto;
     width: auto;
   }
+  .col-sm-0 {
+  flex: 0 0 auto;
+  width: 4.33333333%;
+  height: 4.33333333%;
+}
+  .col-sm-0-1 {
+  flex: 0 0 auto;
+  width: 12.33333333%;
+  height: 12.33333333%;
+}
+
   .col-sm-1 {
     flex: 0 0 auto;
     width: 8.33333333%;
@@ -11788,4 +11799,12 @@ textarea.form-control {
   .contact .contact-btn {
     width: 100% !important;
   }
+
 }/*# sourceMappingURL=style.css.map */
+
+.writing {
+  border: 1px solid black;
+  line-height: 1.5;
+  border-radius: 15px;
+  font-family: 'S-CoreDream-3Light';
+}

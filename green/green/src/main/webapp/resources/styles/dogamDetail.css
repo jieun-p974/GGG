@@ -8,189 +8,99 @@
 .container {
   background: #ffffff;
   width: 1440px;
-  height: 1024px;
+  height: auto;
   position: relative;
 }
 
-/* ------------- 선택동물 ------------- */
 .animal {
-  background: #508068;
-  width: 476px;
-  height: 847px;
+  background: #8AB6A9;
+  width: 1000px;
+  height: 400px;
   position: absolute;
-  top: 20%;
+  top : 80%;
+  left : 0%;
 }
 
-.animal_info {
-  background: #ffffff;
-  width: 412px;
-  height: 427px;
+h3 {
   position: absolute;
-  left: 33px;
-  top: 47px;
+  top : 72%;
 }
-
-.img {
-  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  top : 8%;
-  left: 14%;
-}
-
-.name {
-  color: #000000;
-  text-align: center;
-  top : 75%;
-  left: -2%;
-  position: relative;
-  font-size: 2rem;
-  text-align: center;
-}
-
-/* -------------- 개명버튼 -------------- */
-.changeBtn{
-  font-size : 1rem;
-  color : white;
-  background-color: #445C4C;
-  border: none;
-  position: absolute;
-  width: 60px;
-  height: 30px;
-  top : 84.5%;
-  left : 70%;
-}
-
-.changeBtn:hover {
-  background-color: #508068;
-}
-
-.changeBtn:focus {
-  cursor: pointer;
-}
-
-/* -------------- 경험치 -------------- */
-.animal_exp {
-  background: #508068;
-  width: 412px;
-  height: 146px;
-  position: absolute;
-  left: 33px;
-  top: 490px;
-}
-
-.exp_level {
-  color: #000000;
-  text-align: left;
-  position: absolute;
-  left: 10px;
-  top: 42px;
-  font-size: 2rem;
-}
-
-.exp_point {
-  color: #000000;
-  text-align: left;
-  position: absolute;
-  left: 25%;
-  top: 38%;
-}
-
-.exp_bar {
-  background: #d9d9d9;
-  width: 391px;
-  height: 12px;
-  position: absolute;
-  left: 10px;
-  top: 90px;
-}
-
-.exp_gage {
-  background: #ff6f6f;
-  width: 164px;
-  height: 12px;
-  position: absolute;
-  left: 10px;
-  top: 90px;
-}
-
-.exp_now {
-  color: #000000;
-  text-align: left;
-  position: absolute;
-  left: 5px;
-  top: 110px;
-}
-
-.exp_end {
-  color: #000000;
-  text-align: left;
-  position: absolute;
-  left: 380px;
-  top: 110px;
-}
-
-/* -------------- 성장레벨 -------------- */
-.animal_level {
-  background: #508068;
-  width: 412px;
-  height: 169px;
-  position: absolute;
-  left: 33px;
-  top: 652px;
-}
+  
+/* -------------- 레벨별 사진 -------------- */
 
 .level_img1 {
   background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 15rem;
+  height: 15rem;
   position: absolute;
-  left: 5px;
-  top: 43px;
+  left: 5%;
+  top: 10%;
 }
 
 .arrow1 {
   position: absolute;
-  left: 115px;
-  top: 75px;
+  width : 50px;
+  left: 30%;
+  top: 32%;
 }
 
+  .lv1 {
+  position: absolute;
+  left: 15%;
+  top: 80%;
+    font-size : 25px;
+  }
+  
 .level_img2 {
   background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 15rem;
+  height: 15rem;
   position: absolute;
-  left: 155px;
-  top: 42px;
+  left: 37.5%;
+  top: 10%;
 }
 
 .arrow2 {
   position: absolute;
-  left: 265px;
-  top: 75px;
+  width : 50px;
+  left: 63%;
+  top: 30%;
 }
+
+  
+.lv2 {
+  position: absolute;
+  left: 45%;
+  top: 80%;
+  font-size : 25px;
+  }
 
 .level_img3 {
   background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 15rem;
+  height: 15rem;
   position: absolute;
-  left: 305px;
-  top: 42px;
+  left: 70%;
+  top: 10%;
 }
 
-/* -------------- 동물설명 -------------- */
+  .lv3 {
+  position: absolute;
+  left: 80%;
+  top: 80%;
+    font-size : 25px;
+  }
+
+/* -------------- 동물정보 -------------- */
 .animal_explain {
-  background: #ffffff;
+  background: none;
   width: 821px;
   height: 848px;
   position: absolute;
-  left: 600px;
+  left: 20%;
   top: 131px;
 }
 
@@ -206,14 +116,14 @@
   color: #000000;
   text-align: left;
   position: absolute;
-  width: 736px;
-  height: 563px;
+  width: 1000px;
+  height: auto;
   top: 200px;
   font-size: 1rem;
   line-height: 2.5rem;
 }
 
-/* -------------- 도감버튼 -------------- */
+/* -------------- 버튼 -------------- */
 .dogamBtn {
   background: #445C4C;
   border-radius: 999px;
@@ -225,8 +135,8 @@
   font-weight: 500;
   border: none;
   position: absolute;
-  top : 100%;
-  left: 60%;
+  top : 65%;
+  left: 100%;
   font-size: 1.1rem;
 }
 
@@ -235,5 +145,29 @@
 }
 
 .dogamBtn:focus {
+  cursor: pointer;
+}
+
+.getBtn {
+  background: #445C4C;
+  border-radius: 999px;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  color : white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  position: absolute;
+  top : 65%;
+  left: 75%;
+  font-size: 1.1rem;
+}
+
+.getBtn:hover {
+  background-color: #508068;
+}
+
+.getBtn:focus {
   cursor: pointer;
 }

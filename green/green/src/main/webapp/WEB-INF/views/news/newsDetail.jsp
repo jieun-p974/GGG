@@ -5,53 +5,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/newsDetail.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+
+<style type="text/css">
+.img {
+	width: 70%;
+}
+
+</style>
 <title>뉴스 상세</title>
 </head>
 <body>
-	<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
-		<div class="newsDetail">
-			<div class="title">기후 위기가 바꿔 놓은 우리네 식탁</div>
-			<div class="date">작성일 : 2023.07.06</div>
-			<div class="news_content">
-				<img
-					src="http://www.planet-times.com/Files/320/News/202307/5937_20230724222206835.JPG"
-					alt="사진" class="news_img">
-				<p class="content">
-					지구 평균기온이 산업화 대비 1.2°C 상승했다. 이제는 위기를 너머 재앙으로 찾아온 극단적인 기상 현상은 이제 '뉴노멀
-					(new normal, 새로운 표준)'이라 불리며, 지구촌 곳곳에서 폭염, 홍수, 폭우, 폭염 그리고 슈퍼 태풍 등의
-					이상기후 형태로 우리의 삶을 위협한다. 혹독하게 변화된 기후에 적응하기 위해 동물뿐 아니라 식물들도 고군분투하고 있다.
-					<br />
-					<br /> ■ 토마토 없는 햄버거<br /> 인도 동부와 북부 대부분의 맥도날드 매장에서 "토마토 제공 불가" 안내문이
-					붙었다. 이상기후로 인한 토마토 생산이 적어지면서 토마토 가격이 5배나 비싸져서 맥도날드 햄버거의 재료 중 토마토가 빠진
-					것이다. 이달 초 기준 뉴델리의 토마토 소매가격은 ㎏당 120루피로, 올 초 22루피 대비 445% 급등했다. 1루피는
-					한화 약 15원으로 현재 휘발유 1리터가 96루피에 판매되고 있는 것을 감안하면, 토마토 값이 상당히 비싼 편이다. 지난
-					6월부터 시작된 폭염으로 인도는 일일 최고기온이 섭씨 40도를 웃도는 고온 현상에 시달리고 있다. 또한 몬순 우기도
-					일주일가량 늦어지면서 토마토 생산에 문제가 생겼다. 인도 밥상에서 토마토는 아주 중요한 재료인데, 토마토 생산에 문제가
-					생기면서 실제로 남서부 카르나타카 주에서는 한 농부가 15만 루피 규모 토마토를 괴한들에게 도난당하는 일도 있었다. <br />
-					<br /> ■ 시원한 맥주 한 잔도 마음편히 못 마셔<br /> 전 지구적으로 겪고 있는 물 부족 현상이 심각해지면서,
-					맥주 생산에도 차질이 생길 것으로 보인다. 맥주는 물과 보리, 그리고 홉으로 만들어지는데 평균기온 상승하면서 기후변화에
-					취약한 보리와 홉의 작황이 감소할 것이라고 예상된다. 세계 최대 맥주 수출국 중 하나인 멕시코, 특히 멕시코 북부 누에보
-					레온주 몬테레이 일대에는 전 세계 굴지의 맥주 브랜드 생산업체가 맥주를 생산해왔다. 그러나 멕시코의 대표적인 맥주 생산
-					고장인 몬테레이에서 수개월째 극심한 폭염과 가뭄으로 인해 유례없는 물 부족 현상이 이어졌다. 이에 멕시코 정부는 몬테레이
-					지역에서는 더 이상 맥주를 생산하지 않겠다고 발표했다. <br />
-					<br /> ■ 亞, 쌀 수요는 느는데 수확량은...<br /> 아시아에서는 폭염과 가뭄에 매년 쌀 생산량이 크게 줄어들
-					것으로 예상된다. 1kg의 쌀을 생산하려면 3000~5000L의 많은 양의 물이 필요한데 기후변화로 인한 기온 상승,
-					홍수나 가뭄 등으로 쌀 수확량은 2050년까지 15% 감소할 것으로 추정하고 있다. 문제는 쌀 생산량은 감소하지만 수요는
-					계속 늘고 있다는 점이다. 유엔식량농업기구(Food and Agriculture Organization, FAO)에
-					따르면 2031년까지 쌀 수요는 연간 1.1% 증가할 예정이다. 더 살펴볼 부분은 벼 재배 시 나오는 메탄 배출량의
-					12%가 전 세계 온실가스 배출량의 1.5%를 차지하므로 지구온난화를 가속화 시킨다는 점이다. 농업 방식 중 볏짚을
-					태우거나 벼 생산량을 늘리기 위해 질소비료를 많이 사용하기 때문이다. 이에 지속 가능한 농업을 연구도 이어지고 있다.
-					베트남의 스타트업 그린 앤 시드는 "생분해성 필름으로 씨앗을 코팅해서 물과 비료를 적게 사용하는 재배 기술을 개발했으며,
-					이제 상용화 단계"라고 말했다.
-				</p>
+	<%@include file="../layouts/header.jsp"%>
+	<section class="our-service position-relative overflow-hidden">
+		<div class="container position-relative">
+			<img src="/resources/imgs/our-service/our-service-background.svg"
+				class="shape position-absolute zz">
+			<div class="container position-relative">
+				<div class="row justify-content-center mt-5">
+					<div
+						class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
+						<div class="card position-relative shadow border-0 h-100">
+							<div class="card-body p-5">
+								<h3>제목 : ${news.n_title}</h3>
+								<div class="animal_level_d pt-5 d-flex">
+									<p class="writer m-0 p-0 me-5">작성자 : ${news.id_manager}</p>
+									<p class="date m-0 p-0">작성일 : ${news.n_reg_date}</p>
+								</div>
+								<div
+									class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 mt-5">
+									<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="사진"
+										class="img">
+									<h5 class="content mt-3" style="line-height: 2rem">${news.n_content}</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

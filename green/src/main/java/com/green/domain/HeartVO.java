@@ -1,10 +1,5 @@
 package com.green.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class HeartVO {
 	
 	/*
@@ -16,6 +11,7 @@ public class HeartVO {
 	private int like_no;
 	private String id;
 	private int board_no;
+	private int like_chk;
 	
 	public HeartVO() {
 		
@@ -27,5 +23,31 @@ public class HeartVO {
 		this.board_no = board_no;
 	}
 	
+	public int getLike_chk() {
+		return like_chk;
+	}
+
+	public void setLike_chk(int like_chk) {
+		this.like_chk = like_chk;
+	}
+
+	public int getLike_no() {
+		return like_no;
+	}
+	public void setLike_no(int like_no) {
+		this.like_no = like_no;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public int getBoard_no() {
+		return board_no;
+	}
+	public void setBoard_no(int board_no) {
+		this.board_no = board_no;
+	}
 
 }

@@ -12,9 +12,9 @@
 	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
 		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
-		FROM board b, member m 
-		WHERE m.id= b.id 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, l.like_no, l.like_chk
+		FROM board b, member m, b_m_like l
+		WHERE m.id= b.id and b.board_no = l.board_no
 		ORDER BY b.regist_date desc
 	</select>
 	
@@ -63,6 +63,18 @@
 		VALUES(#{id},#{board_no},#{com_content})
 	</insert>
 	
+	<!-- update reply -->
+	<update id="updateReply" parameterType="reply">
+		UPDATE reply SET
+		com_content=#{com_content}
+		WHERE com_no=#{com_no}
+	</update>
+	
+	<!-- delete reply -->
+	<delete id="deleteReply" parameterType="reply">
+		DELETE FROM reply WHERE com_no=#{com_no}
+	</delete>
+	
 	<!-- show reply -->
 	<select id="getReplyList" resultType="reply">
 		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
@@ -78,13 +90,19 @@
 		VALUES(#{like_no}, #{id}, #{board_no})
 	</insert>
 	
+	<update id="unlike">
+		UPDATE b_m_like SET
+		like_chk = 0
+		WHERE board_no=#{board_no} and id = #{id}
+	</update>
+	
 	
 	<select id="autocomplete" parameterType="map" resultType="map">
-	SELECT
-		 id
-	FROM member
-	WHERE id LIKE  '%||#{value}||%'
-</select>
+		SELECT
+			 id
+		FROM member
+		WHERE id LIKE  '%||#{value}||%'
+	</select>
 	
 	
 </mapper>

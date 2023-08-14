@@ -26,6 +26,11 @@ public interface CommunityDAO {
 
 	public void likeInsert(HeartVO vo);
 
+	public ReplyVO getReplyDetail(ReplyVO vo);
+	
+	public void updateReply(ReplyVO vo);
+	
+	public void deleteReply(ReplyVO vo);
 
 
 }

@@ -1,0 +1,17 @@
+.certification{
+    margin: auto;
+    width: 80%;
+}
+.upload{
+    
+}
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+.status{
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5%;
+}

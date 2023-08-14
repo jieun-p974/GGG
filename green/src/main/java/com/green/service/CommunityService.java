@@ -32,6 +32,12 @@ public interface CommunityService {
 	List<ReplyVO> getReplyList();
 
 	void insertLike(HeartVO vo);
+	
+	void deleteReply(ReplyVO vo);
+	
+	void updateReply(ReplyVO vo);
+	
+	ReplyVO getReplyDetail(ReplyVO vo);
 
 
 

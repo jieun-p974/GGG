@@ -1,0 +1,150 @@
+.animal_info {
+  background: #ffffff;
+  width: 100%;
+  height: auto;
+}
+
+.img {
+  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+}
+
+.name {
+  color: #000000;
+  text-align: center;
+  font-size: 2rem;
+  text-align: center;
+}
+/* -------------- ����,����ġ -------------- */
+.animal_exp {
+  width: 100%;
+}
+
+.exp_level {
+  color: #000000;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.exp_point {
+  color: #000000;
+  text-align: left;
+}
+.exps{
+	display: flex;
+	justify-content: space-between;
+}
+.exp_now {
+  color: #000000;
+  text-align: left;
+}
+
+.exp_end {
+  color: #000000;
+  text-align: left;
+}
+
+/* -------------- ������ ���� -------------- */
+.animal_level {
+  width: 100%;
+  height: 169px;
+}
+
+.level_img1 {
+  border-radius: 50%;
+  width:20%;
+  height: auto;
+}
+
+.arrow1 {
+	
+}
+
+.level_img2 {
+  border-radius: 50%;
+  width:40%;
+  height: auto;
+}
+
+.arrow2 {
+
+}
+
+.level_img3 {
+  border-radius: 50%;
+  width:25%;
+  height: auto;
+}
+/* -------------- ������ ���� -------------- */
+.animal_level {
+  width: 100%;
+  height: 169px;
+}
+
+.level_img1_d {
+  border-radius: 50%;
+  height: 106px;
+}
+
+.arrow1 {
+	
+}
+
+.level_img2_d {
+  border-radius: 50%;
+  height: 106px;
+}
+
+.arrow2 {
+
+}
+
+.level_img3_d {
+  border-radius: 50%;
+  height: 106px;
+}
+
+/* -------------- �������� -------------- */
+.animal_explain {
+  background: #ffffff;
+  width: 821px;
+  height: 848px;
+}
+
+.animal_title {
+  background: #ffffff;
+  width: 766px;
+  height: 141px;
+}
+
+.animal_content {
+  color: #000000;
+  text-align: left;
+  width: 736px;
+  height: 563px;
+  font-size: 1rem;
+  line-height: 2.5rem;
+}
+ #progress {
+    appearance: none;
+    width: 100%;
+}
+#progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+#progress::-webkit-progress-value {
+    border-radius:10px;
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+
+}
+.animal_level_d{
+	display: grid;
+	grid-template-columns: 1fr 0.3fr 1fr 0.3fr 1fr;
+	align-items: center;
+}

@@ -77,6 +77,22 @@ public class CommunityController {
 		return "redirect:/community/community.do";
 	}
 	
+	@RequestMapping(value = {"/replyModify.do","/replyDetail.do"})
+	public void getReplyDetail(ReplyVO vo, Model model)	{
+		model.addAttribute("reply",communityService.getReplyDetail(vo));
+	}
+	
+	@RequestMapping(value = "/updateReply.do")
+	public String updateReply(@ModelAttribute("reply") ReplyVO vo) {
+		communityService.updateReply(vo);
+		return "redirect:/community/community.do";
+	}
+	
+	@RequestMapping(value = "/deleteReply.do")
+	public String deleteReply(ReplyVO vo) {
+		communityService.deleteReply(vo);
+		return "redirect:/community/community.do";
+	}
 	
 	
 	// reply list

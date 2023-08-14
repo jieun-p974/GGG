@@ -56,6 +56,22 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.deleteCommunity(vo);
 	}
 	
+	@Override
+	public ReplyVO getReplyDetail(ReplyVO vo) {
+		return communityDAO.getReplyDetail(vo);
+	}
+	@Override
+	public void deleteReply(ReplyVO vo)	 {
+		// TODO Auto-generated method stub
+		communityDAO.deleteReply(vo);
+	}
+	
+	@Override
+	public void updateReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.updateReply(vo);
+	}
+	
 	//my community
 	@Override
 	public List<CommunityVO> getMyCommunityList(String id) {

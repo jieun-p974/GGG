@@ -48,6 +48,20 @@ public class CommunityDAOImpl implements CommunityDAO {
 		return mybatis.selectList("CommunityDAO.getMyCommunityList", id);
 	}
 	
+	public ReplyVO getReplyDetail(ReplyVO vo) {
+		System.out.println("Mybatis=> reply detail");
+		return mybatis.selectOne("CommunityDAO.getReplyDetail",vo);
+	}
+	public void updateReply(ReplyVO vo) {
+		System.out.println("Mybatis=> reply modify");
+		mybatis.update("CommunityDAO.updateReply", vo);
+	}
+	
+	public void deleteReply(ReplyVO vo) {
+		System.out.println("Mybatis=> reply delete");
+		mybatis.update("CommunityDAO.deleteReply",vo);
+	}
+	
 	public List<ReplyVO> getReplyList() {
 		System.out.println("Mybatis=> reply list");
 		return mybatis.selectList("CommunityDAO.getReplyList");
@@ -61,7 +75,7 @@ public class CommunityDAOImpl implements CommunityDAO {
 	
 	@Override
 	public void likeInsert(HeartVO vo) {
-		System.out.println("Mybatis => reply insert");
+		System.out.println("Mybatis => heart insert");
 		mybatis.insert("CommunityDAO.likeInsert",vo);
 	}
 	
