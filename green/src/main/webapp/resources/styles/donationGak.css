@@ -1,0 +1,63 @@
+.pross{
+	width:100%;
+}
+.barUpper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+.nowPer {
+	color: #445c4c;
+	text-align: left;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.d_day {
+	width: 5rem;
+	background-color: #445c4c;
+	color: #ffffff;
+	text-align: left;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+}
+ #progress {
+    appearance: none;
+    width: 100%;
+}
+#progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+#progress::-webkit-progress-value {
+    border-radius:10px;
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+
+}
+
+.barDown {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.donadate {
+	color: #000000;
+	text-align: left;
+	font-size: 1rem;
+}
+
+.nowpoint {
+	color: #000000;
+	text-align: left;
+	font-weight: bold;
+	font-size: 1rem;
+}

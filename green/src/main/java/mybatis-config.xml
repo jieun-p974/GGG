@@ -17,9 +17,15 @@
 		<typeAlias alias="community" type="com.green.domain.CommunityVO" />   
 		<typeAlias alias="noti" type="com.green.domain.NotificationVO" />   
 		<typeAlias alias="reply" type="com.green.domain.ReplyVO" />   
+<<<<<<< HEAD
 		<typeAlias alias="like" type="com.green.domain.HeartVO" />   
+=======
+		<typeAlias alias="like" type="com.green.domain.HeartVO" />      
+>>>>>>> refs/remotes/origin/jieun_2
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
-		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />   
+		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />
+		<typeAlias alias="pay" type="com.green.domain.PayVO" />   
+		   
 	</typeAliases>
 	
 </configuration> 
