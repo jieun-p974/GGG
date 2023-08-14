@@ -11,9 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../../../resources/styles/donation.css" rel="stylesheet"
 	type="text/css">
-<script type="text/javascript">
-	
-</script>
+<style type="text/css">
+.tabs {
+    position: fixed;
+    right: 2%;
+    background: #fff;
+    top: 20%;
+}
+</style>
 <title>기부처 리스트</title>
 </head>
 <body>
@@ -63,24 +68,15 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
-				<div class="card border-0 shadow">
-					<div class="card-body bg-primary">
-						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-between mx-auto text-center">
-							<div class="row text-start">
-								<p class="text-black">참여현황</p>
-								<p class="text-black">여러분의 참여로 이만큼 모였어요</p>
-							</div>
-							<div class="dona_now_txt">
-	
-								<p class="text-black">
-									총 기부 포인트
-									<c:out value="${total}" />
-									P
-								</p>
-								<p class="text-black">기부 참여 인원 11,521명</p>
-							</div>
-						</div>
+			<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
+				<div class="row">
+					<div class="col-lg-12 mb-4">
+						<h4 class="text-black">참여현황</h4>
+						<h4 class="text-black">여러분의 참여로 이만큼 모였어요</h4>
+					</div>
+					<div class="col-sm-12">
+						<p class="text-black">총 기부 포인트 <c:out value="${total}" />P</p>
+						<p class="text-black">기부 참여 인원 11,521명</p>
 					</div>
 				</div>
 			</div>

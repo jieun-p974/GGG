@@ -52,7 +52,7 @@ System.out.println("현재 세션 : " + userId);
 					class="ti ti-menu-2 text-warning"></i>
 				</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto">
+					<ul class="navbar-nav me-auto p-0">
 						<li class="nav-item"><a class="nav-link text-capitalize"
 							aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize"
@@ -63,8 +63,8 @@ System.out.println("현재 세션 : " + userId);
 							href="../donation/adDonationList.do">기부관리 </a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize"
 							href="../news/newsCheck.do">뉴스관리</a></li>
-						<li><a href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
-						<li><a href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
 					</ul>
 					<c:if test="${userId ne null}">
 						<div class="d-flex align-items-center">

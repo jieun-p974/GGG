@@ -46,12 +46,12 @@
 		WHERE id = #{id} AND completion_YN = 'N' AND mem_chal.chal_no = c.chal_no;
 	</select> -->
 	
-	<!-- select challenge for certification -->
-	<select id="getChallengeCheck" parameterType="hashmap" resultType="hashmap">
-		SELECT cer_no, m.m_c_no AS m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN
+	<!-- select challenge for certification  인증페이지에 정보 출력-->
+<!-- 	<select id="getChallengeCheck" parameterType="hashmap" resultType="hashmap">
+		SELECT cer_no, m.m_c_no AS m_c_no, chal.chal_name AS chal_name, cer_date, cer_img1_nn, cer_img1_addr, pass_YN
 		FROM certification c, challenge chal, mem_chal m
-		WHERE c.m_c_no = m.m_c_no AND m.chal_no = chal.chal_no AND chal.chal_no=${chal_no} AND id = '${id}'
-	</select>
+		WHERE c.m_c_no = m.m_c_no AND m.chal_no = chal.chal_no AND id = '${id}' AND chal.chal_no=${chal_no}
+	</select> -->
 	
 	<!-- select m_c_no -->
 	<select id="getmcNo" parameterType="hashmap" resultType="hashmap">
@@ -102,7 +102,7 @@
 	
 	<!-- 인증관리에 필요한 쿼리들 -->
 	<select id="adminCerCheckList" resultType="checkChallenge">
-		SELECT cer_no,m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN FROM certification
+		SELECT cer_no,m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN FROM certification WHERE pass_YN='N';
 	</select>
 	<update id="updatePassYN">
 		UPDATE certification SET pass_YN='Y'

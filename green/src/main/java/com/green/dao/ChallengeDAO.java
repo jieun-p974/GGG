@@ -33,4 +33,5 @@ public interface ChallengeDAO {
 	public List<ChallengeCheckVO> adminCerCheckList();
 	
 	public void updatePassYN(HashMap<String, List<String>> arr);
+	
 }
