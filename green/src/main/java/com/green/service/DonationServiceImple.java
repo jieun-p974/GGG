@@ -14,14 +14,13 @@ public class DonationServiceImple implements DonationService {
 	@Autowired
 	private DonationDAO donationDAO;
 
-
-	//List 
+	// List
 	@Override
 	public List<DonationVO> selectDona() {
 		return donationDAO.selectDona();
 	}
 
-	//get one
+	// get one
 	@Override
 	public DonationVO getDona(DonationVO vo) {
 		return donationDAO.getDona(vo);
@@ -34,13 +33,17 @@ public class DonationServiceImple implements DonationService {
 
 	@Override
 	public void updateDona(DonationVO vo) {
-		System.out.println("서비스"+vo.getDon_name());
 		donationDAO.updateDona(vo);
 	}
 
 	@Override
 	public void deleteDona(DonationVO vo) {
 		donationDAO.deleteDona(vo);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> myDonaList(String id) {
+		return donationDAO.myDonaList(id);
 	}
 
 	@Override
@@ -52,7 +55,5 @@ public class DonationServiceImple implements DonationService {
 	public void memDon(HashMap<String, Object> map) {
 		donationDAO.memDon(map);
 	}
-
-
 
 }

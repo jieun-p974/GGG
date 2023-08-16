@@ -58,7 +58,7 @@
 	
 	}
 	//비동기로 goDona한테 id랑 사용한 point넘기기 
-function donabtn(){
+/* function donabtn(){
 	$.ajax({
 		type:'post', // 전송방식
 		async:true, // 비동신통신
@@ -74,12 +74,12 @@ function donabtn(){
 		//$('#idCheckResult').html(resultData);
 			}
 		});  
-	}
+	} */
 	
 
 </script>
 <body>
-
+<form action="goDona.do" >
 	<table class="tbl_edit01">
 		<colgroup>
 			<col width="90px" />
@@ -89,14 +89,15 @@ function donabtn(){
 			<div class="memberInfo">
 				<p class="info" id="userID" name="userID">아이디&nbsp&nbsp:&nbsp&nbsp${meminfo.id}</p>
 				<input type="hidden" value="${meminfo.id}" name="id" id="id">
+				<input type="hidden" value="${don_no}" name="don_no" id="don_no">
 				<p class="info">이름&nbsp&nbsp:&nbsp&nbsp${meminfo.name}</p>
 			</div>
 
 			<tr>
 				<th>포 인 트</th>
 				<td>보유 포인트 : <span name="left_pnt" id="left_pnt">${meminfo.remainder_point}
-				</span>p <span> <input type="checkbox" id="chk_use"
-						onclick="chkPoint(${meminfo.remainder_point},100,10)"> 포인트
+				</span>p <span> 
+				<input type="checkbox" id="chk_use" onclick="chkPoint(${meminfo.remainder_point},100,10)"> 포인트
 						전체 사용
 				</span> <span style="float: right">포인트는 최소 100p부터 10p단위로 사용 가능합니다.</span>
 				</td>
@@ -109,7 +110,8 @@ function donabtn(){
 			</tr>
 		</tbody>
 	</table>
-	<button class="goDona" id="donaBtn" onclick="donabtn()">기부하기</button>
+	<button type="submit">기부하기</button>
+	</form>
 
 </body>
 </html>

@@ -48,6 +48,13 @@ public class DonationDAOImple implements DonationDAO{
 	}
 
 	@Override
+	public List<HashMap<String, Object>> myDonaList(String id) {
+		System.out.println("mybatis==>myDonaList");
+		List<HashMap<String, Object>> list = mybatis.selectList("DonationDAO.myDonaList",id);
+		return list;
+	}
+
+	@Override
 	public void goDona(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
 		System.out.println("mybatis==>goDona");
@@ -56,10 +63,8 @@ public class DonationDAOImple implements DonationDAO{
 
 	@Override
 	public void memDon(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		System.out.println("mybatis==>memDon");
 		mybatis.insert("DonationDAO.memDon",map);
 	}
-
 
 }

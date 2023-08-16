@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.green.domain.MemberVO;
-import com.green.domain.PayVO;
 import com.green.service.PayService;
 
 @Controller
@@ -36,9 +35,5 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 		model.addAttribute("list", list);
 		model.addAttribute("list2", list2);
 	}
-	@RequestMapping(value="/save.do")
-	public String cardInsert(PayVO vo)throws Exception{
-		payService.insertCard(vo);
-		return "redirect:/challenge/challengeList.do";
-	}
+	
 }

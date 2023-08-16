@@ -24,7 +24,7 @@ public class DonationVO {
 	//mem_don
     private Date don_date;
     private int don_point;
-    
+	
 	MultipartFile file;
 	
 	public DonationVO() {
@@ -131,7 +131,6 @@ public class DonationVO {
 	public void setDon_end_date(Date don_end_date) {
 		this.don_end_date = don_end_date;
 	}
-	//mem_don getter&setter
 	public Date getDon_date() {
 		return don_date;
 	}

@@ -1,263 +1,150 @@
-@font-face {
-  font-family: 'S-CoreDream-3Light';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.container {
-  background: #ffffff;
-  width: 1440px;
-  height: 1024px;
-  position: relative;
-}
-
-/* ------------- µ¿¹°Á¤º¸ ------------- */
-.animal {
-  background: #508068;
-  width: 476px;
-  height: 847px;
-  position: absolute;
-  top: 20%;
-}
-
 .animal_info {
   background: #ffffff;
-  width: 412px;
-  height: 427px;
-  position: absolute;
-  left: 33px;
-  top: 47px;
+  width: 100%;
+  height: auto;
 }
 
 .img {
   background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  top : 8%;
-  left: 14%;
+  width: 100%;
+  height: auto;
 }
 
 .name {
   color: #000000;
   text-align: center;
-  top : 75%;
-  left: -2%;
-  position: relative;
   font-size: 2rem;
   text-align: center;
 }
-
-/* -------------- °³¸í¹öÆ° -------------- */
-.changeBtn{
-  font-size : 1rem;
-  color : white;
-  background-color: #445C4C;
-  border: none;
-  position: absolute;
-  width: 60px;
-  height: 30px;
-  top : 84.5%;
-  left : 70%;
-}
-
-.changeBtn:hover {
-  background-color: #508068;
-}
-
-.changeBtn:focus {
-  cursor: pointer;
-}
-
-/* -------------- ·¹º§,°æÇèÄ¡ -------------- */
+/* -------------- ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ä¡ -------------- */
 .animal_exp {
-  background: #508068;
-  width: 412px;
-  height: 146px;
-  position: absolute;
-  left: 33px;
-  top: 490px;
+  width: 100%;
 }
 
 .exp_level {
   color: #000000;
   text-align: left;
-  position: absolute;
-  left: 10px;
-  top: 42px;
   font-size: 2rem;
 }
 
 .exp_point {
   color: #000000;
   text-align: left;
-  position: absolute;
-  left: 25%;
-  top: 38%;
 }
-
-.exp_bar {
-  background: #d9d9d9;
-  width: 391px;
-  height: 12px;
-  position: absolute;
-  left: 10px;
-  top: 90px;
+.exps{
+	display: flex;
+	justify-content: space-between;
 }
-
-.exp_gage {
-  background: #ff6f6f;
-  width: 164px;
-  height: 12px;
-  position: absolute;
-  left: 10px;
-  top: 90px;
-}
-
 .exp_now {
   color: #000000;
   text-align: left;
-  position: absolute;
-  left: 5px;
-  top: 110px;
 }
 
 .exp_end {
   color: #000000;
   text-align: left;
-  position: absolute;
-  left: 380px;
-  top: 110px;
 }
 
-/* -------------- ·¹º§º° »çÁø -------------- */
+/* -------------- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -------------- */
 .animal_level {
-  background: #508068;
-  width: 412px;
+  width: 100%;
   height: 169px;
-  position: absolute;
-  left: 33px;
-  top: 652px;
 }
 
 .level_img1 {
-  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 5px;
-  top: 43px;
+  width:20%;
+  height: auto;
 }
 
 .arrow1 {
-  position: absolute;
-  left: 115px;
-  top: 75px;
+	
 }
 
 .level_img2 {
-  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 155px;
-  top: 42px;
+  width:40%;
+  height: auto;
 }
 
 .arrow2 {
-  position: absolute;
-  left: 265px;
-  top: 75px;
+
 }
 
 .level_img3 {
-  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 305px;
-  top: 42px;
+  width:25%;
+  height: auto;
+}
+/* -------------- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -------------- */
+.animal_level {
+  width: 100%;
+  height: 169px;
 }
 
-/* -------------- µ¿¹°Á¤º¸ -------------- */
+.level_img1_d {
+  border-radius: 50%;
+  height: 106px;
+}
+
+.arrow1 {
+	
+}
+
+.level_img2_d {
+  border-radius: 50%;
+  height: 106px;
+}
+
+.arrow2 {
+
+}
+
+.level_img3_d {
+  border-radius: 50%;
+  height: 106px;
+}
+
+/* -------------- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -------------- */
 .animal_explain {
   background: #ffffff;
   width: 821px;
   height: 848px;
-  position: absolute;
-  left: 600px;
-  top: 131px;
 }
 
 .animal_title {
   background: #ffffff;
   width: 766px;
   height: 141px;
-  position: absolute;
-  top: 50px;
 }
 
 .animal_content {
   color: #000000;
   text-align: left;
-  position: absolute;
   width: 736px;
   height: 563px;
-  top: 200px;
   font-size: 1rem;
   line-height: 2.5rem;
 }
-
-/* -------------- ¹öÆ° -------------- */
-.dogamBtn {
-  background: #445C4C;
-  border-radius: 999px;
-  width: 150px;
-  height: 60px;
-  text-align: center;
-  color : white;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  position: absolute;
-  top : 100%;
-  left: 60%;
-  font-size: 1.1rem;
+ #progress {
+    appearance: none;
+    width: 100%;
 }
-
-.dogamBtn:hover {
-  background-color: #508068;
+#progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
 }
+#progress::-webkit-progress-value {
+    border-radius:10px;
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
 
-.dogamBtn:focus {
-  cursor: pointer;
 }
-
-.getBtn {
-  background: #445C4C;
-  border-radius: 999px;
-  width: 150px;
-  height: 60px;
-  text-align: center;
-  color : white;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  position: absolute;
-  top : 100%;
-  left: 60%;
-  font-size: 1.1rem;
-}
-
-.getBtn:hover {
-  background-color: #508068;
-}
-
-.getBtn:focus {
-  cursor: pointer;
+.animal_level_d{
+	display: grid;
+	grid-template-columns: 1fr 0.3fr 1fr 0.3fr 1fr;
+	align-items: center;
 }

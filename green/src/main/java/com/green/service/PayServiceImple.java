@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.green.dao.PayDAO;
 import com.green.domain.MemberVO;
-import com.green.domain.PayVO;
 
 @Service("payService")
 public class PayServiceImple implements PayService{
@@ -23,10 +22,6 @@ public class PayServiceImple implements PayService{
 	public List<MemberVO> getPay2(String userId) {
 		// TODO Auto-generated method stub
 		return payDAO.getCPay(userId);
-	}
-	@Override
-	public void insertCard(PayVO vo) {
-		payDAO.cardInsert(vo);
 	}
 
 }

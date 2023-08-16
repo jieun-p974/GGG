@@ -1,5 +1,6 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.DogamVO;
@@ -17,8 +18,11 @@ public interface DogamDAO {
 	
 	// get dogam detail
 	public DogamVO getDogam(DogamVO vo);
-	
-	
+		
+	//get my dogam list
+	public List<HashMap<String, Object>> getMyDogamList(HashMap map);
+	public List<HashMap<String, Object>> getMyDogam(HashMap map);
+	public HashMap<String, Object> getDetail(HashMap map);
 	// insert
 	public void dogamInsert(DogamVO vo);
 	
@@ -30,4 +34,12 @@ public interface DogamDAO {
 	
 	// delete
 	public void dogamDelete(DogamVO vo);
+	
+	// sinchung
+	public int dogamSinchung(HashMap map);
+	
+
+	//기부->exp에 적립
+	public void donExp(HashMap<String, Object> map);
+	
 }

@@ -84,13 +84,32 @@
 	<select id="countCheck" parameterType="hashmap" resultType="Integer">
 		SELECT COUNT(m.m_c_no)
 		FROM certification c, challenge chal, mem_chal m
-		WHERE c.m_c_no = m.m_c_no AND m.chal_no = chal.chal_no AND chal.chal_no=${chal_no} AND id ='${id}'
+		WHERE c.m_c_no = m.m_c_no
+		AND m.chal_no = chal.chal_no AND chal.chal_no=${chal_no} AND id ='${id}' 
+		AND pass_YN='Y'
 		GROUP BY m.m_c_no
 	</select>
 	
 	<!-- 인증하기 -->
 	<insert id="insertCertification" parameterType="checkChallenge">
 		INSERT INTO certification (m_c_no, cer_img1_nn, cer_img1_addr, pass_YN) 
-		VALUE (#{m_c_no}, #{cer_img1_nn},#{cer_img1_nn},'N')
+		VALUE (#{m_c_no}, #{cer_img1_nn},#{cer_img1_addr},'N')
 	</insert>
+	
+	<select id="redirectCheckPage" parameterType="checkChallenge" resultType="memChallenge">
+		SELECT chal_no, id FROM mem_chal WHERE m_c_no = #{m_c_no}
+	</select>
+	
+	<!-- 인증관리에 필요한 쿼리들 -->
+	<select id="adminCerCheckList" resultType="checkChallenge">
+		SELECT cer_no,m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN FROM certification
+	</select>
+	<update id="updatePassYN">
+		UPDATE certification SET pass_YN='Y'
+		WHERE cer_no IN (
+		<foreach collection="arr" item="a" separator="," >
+		#{a}
+		</foreach>
+		)
+	</update>
 </mapper>

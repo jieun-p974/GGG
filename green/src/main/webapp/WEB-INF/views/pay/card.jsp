@@ -15,8 +15,13 @@
     <div class="card_info">
       <p class="cardnum">카드번호</p>
       <div class="card_num">
-        <input type="text" placeholder="0000-0000-0000-0000" style="border:none" class="can1"></input>
-      
+        <input type="text" placeholder="0000" style="border:none" class="can1"></input>
+        -
+        <input type="text" placeholder="0000" style="border:none" class="can2"></input>
+        -
+        <input type="text" placeholder="0000" style="border:none" class="can3"></input>
+        -
+        <input type="text" placeholder="0000" style="border:none" class="can4"></input>
       </div>
       <div class="vaildation">
         <div class="gigan">

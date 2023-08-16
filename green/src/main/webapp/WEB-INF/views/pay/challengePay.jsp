@@ -29,9 +29,9 @@ function go() {
 	}else if($('#check_c').prop('checked') == true){
 		location.href = "card.do";
 	}else if($('#check_sa').prop('checked') == true){
-		location.href = "accountInput.do";
+		location.href = "myAccount.do";
 	}else if($('#check_sc').prop('checked') == true){
-		location.href = "card.do";
+		location.href = "myCard.do";
 	}
 }
 </script>	
@@ -63,9 +63,9 @@ function go() {
 			<div class="kind">
 				<p class="txt">결제권 종류</p>
 				<select name="dojun_kind" id="dojun_kind">
-					<option value="three">3회 도전권 (3000원)</option>
-					<option value="three">7회 도전권 (7000원)</option>
-					<option value="three">무제한 도전권 (10,000원)</option>
+					<option value="chal3">3회 도전권 (3000원)</option>
+					<option value="chal7">7회 도전권 (7000원)</option>
+					<option value="chali">무제한 도전권 (10,000원)</option>
 				</select>
 			</div>
 			<div class="pay_method">
@@ -76,20 +76,20 @@ function go() {
 						<div class="accounts">
 							<c:forEach items="${list}" var="payb">
 								<div class="a a1">
-									<p class="bank_name" id="bank" name="bank">은행: ${payb.bank}</p>
-									<p class="account_num">계좌번호: ${payb.acc_num}</p>
+									<input  type="radio" class="bank_name" id="bank" name="bank">은행: ${payb.bank}</p>
+									<p class="account_num">&nbsp 계좌번호: ${payb.acc_num}</p>
 								</div>
 							</c:forEach>
 							<button class="plusC"><a href=".do">간편계좌 추가 등록</a></button>
-						</div>
+						</div>   
 					</div>
 					<div class="simple_card">
 						<input type="radio" name="chk_method" id="check_sc">간편 카드
 						<div class="cards">
 						<c:forEach items="${list2}" var="payc" >
 							<div class="c c1">
-								<p class="card_com">카드사: ${payc.card_company }</p>
-								<p class="card_name">카드번호: ${payc.card_num }</p>
+								<input  type="radio" class="card_com" id="card" name="card">카드사: ${payc.card_company }<br/><br/>
+								&nbsp 카드번호: ${payc.card_num }</input>
 							</div>
 						</c:forEach>
 							<button class="plusC"><a href=".do">간편카드 추가 등록</a></button>

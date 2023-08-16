@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/newsList.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
-
+<style type="text/css">
+.thumnail{
+	width: 20%;
+}
+</style>
 <script type="text/javascript">
 
 	$(function(){
@@ -117,36 +117,56 @@
 <title>뉴스리스트</title>
 </head>
 <body>
-	<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
-		<div class="newslist">
-			<div class="cate">
-				<select name="category" id="category" class="category">
-					<option value="all">전체</option>
-					<option value="1">동물</option>
-					<option value="2">문화</option>
-					<option value="3">사회</option>
-					<option value="4">미디어</option>
-					<option value="5">과학</option>
-					<option value="6">정치</option>
-				</select>
+	<%@include file="../layouts/header.jsp" %>
+	<section class="service position-relative overflow-hidden">
+		<div class="container position-relative">
+			<img src="/resources/imgs/service/dot-shape.png"
+				class="shape position-absolute">
+			<div class="row">
+				<div
+					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+					<h2 class="text-black mb-0">뉴스 리스트</h2>
+				</div>
 			</div>
-			<div class="news">
-				<div class="list" id="newsList">
-					<c:forEach items="${list}" var="news">
-						<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">
-							<div class="news_thum">
-								<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">
-							</div>
-							<div class="news_title">
-								작성일 : ${news.n_reg_date}<br /> <br /> 기사 제목 : ${news.n_title}
-							</div>
-						</a>
-					</c:forEach>
+			<div
+				class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
+				<div class="calendar">
+					<select name="category" id="category" class="category">
+						<option value="all">전체</option>
+						<option value="1">동물</option>
+						<option value="2">문화</option>
+						<option value="3">사회</option>
+						<option value="4">미디어</option>
+						<option value="5">과학</option>
+						<option value="6">정치</option>
+					  </select>
+				</div>
+				<div class="card border-0 shadow">
+					<div class="card-body">
+						<div
+							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<table class="type09" id="chall_list">
+								<c:forEach items="${list}" var="news">
+									<tbody>
+										<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">
+										<td>
+											작성일 : ${news.n_reg_date}
+										</td>
+										<td>
+											기사 제목 : ${news.n_title}
+										</td>
+										<td><a class="news_one" href="newsDetail.do?news_no=${news.news_no}">
+											<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></a>
+										</td>
+									</tbody>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

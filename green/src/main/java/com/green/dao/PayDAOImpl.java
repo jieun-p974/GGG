@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.green.domain.MemberVO;
-import com.green.domain.PayVO;
 
 @Repository("payDAO")
 public class PayDAOImpl implements PayDAO {
@@ -28,12 +27,6 @@ public class PayDAOImpl implements PayDAO {
 		List<MemberVO> listc = mybatis.selectList("payDAO.getCPay", userId);
 		System.out.println(userId); // System.out.println(list.get(0).getAcc_num());
 		return listc;
-	}
-
-	@Override
-	public void cardInsert(PayVO vo) {
-		System.out.println("mybatis==>cardInsert");
-		mybatis.insert("DonationDAO.cardInsert",vo);
 	}
 
 }

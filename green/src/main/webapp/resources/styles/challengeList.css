@@ -53,16 +53,3 @@
   color: #ffffff;
   text-align: left;
 }
-a {
-	text-decoration: none;
-	color: #000000;
-}
-
-a:visited {
-	text-decoration: none;
-	color: #000000;
-}
-
-a:hover {
-	color: #508068;
-}

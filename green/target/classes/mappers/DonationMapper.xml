@@ -37,10 +37,16 @@
 	WHERE don_no = #{don_no}
 	</update>
 	
+	
 	<!--기부처 delete -->
 	<delete id="deleteDona" parameterType="dona">
 		DELETE FROM donation WHERE don_no = #{don_no}
 	</delete>
+	
+	<!-- 내 기부 내역 -->
+	<select id="myDonaList" resultType="hashmap">
+		SELECT m.m_d_no, m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id}
+	</select>
 	
 	<!-- 포인트로 기부시 적립 -->
 	<update id="goDona" parameterType="hashmap">

@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -7,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.green.domain.DogamVO;
-import com.green.domain.MemberVO;
 
 @Repository("DogamDAO")
 public class DogamDAOImpl implements DogamDAO {
@@ -47,6 +48,40 @@ public class DogamDAOImpl implements DogamDAO {
 		return mybatis.selectOne("DogamDAO.getDogam",vo);
 	}
 		
+	// get my dogam list
+	@Override
+	public List<HashMap<String, Object>> getMyDogam(HashMap map) {
+		System.out.println("Mybatis => getMyDogam()");
+		System.out.println("여깁니다" + map);
+		List<HashMap<String, Object>> list = mybatis.selectList("DogamDAO.getMyDogam",map);
+		return list;
+	}
+	
+	@Override
+	public List<HashMap<String, Object>> getMyDogamList(HashMap map) {
+		System.out.println("mybatis==>getMyDogamList()");
+		List<DogamVO> dogamList = mybatis.selectList("DogamDAO.getMemDogam",map.get("id"));
+		map.put("values", dogamList);
+		List<HashMap<String, Object>> returnList = new ArrayList();
+		for(DogamVO d : dogamList) {
+			HashMap<String, Object> param = new HashMap<String, Object>();
+			param.put("id",map.get("id"));
+			param.put("do_no",d.getDo_no());
+			System.out.println(param);
+			HashMap<String, Object> re = mybatis.selectOne("DogamDAO.getMyDogam",param);
+			if(re != null) {
+				returnList.add(re);
+			}
+		}
+		return returnList;
+	}
+		
+	@Override
+	public HashMap<String, Object> getDetail(HashMap map) {
+		System.out.println("mybatis==>getMyDogamList()");
+		HashMap<String, Object> returnD = mybatis.selectOne("DogamDAO.getMyDogam",map);
+		return returnD;
+	}
 	// insert
 	@Override
 	public void dogamInsert(DogamVO vo) {
@@ -75,7 +110,21 @@ public class DogamDAOImpl implements DogamDAO {
 		mybatis.delete("DogamDAO.dogamDelete", vo);
 	}
 
+	// sinchung
+	@Override
+	public int dogamSinchung(HashMap map) {
+		System.out.println("mybatis==>dogamSinchung()");
+		int rs = mybatis.insert("DogamDAO.dogamSinchung", map);
+		return rs;
+	}
+	//기부->exp
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		System.out.println("==>exp의donExp()호출");
+		mybatis.update("DogamDAO.donExp",map);
+	}
 
+	
 
 
 

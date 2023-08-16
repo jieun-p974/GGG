@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,27 @@ public class DogamServiceImpl implements DogamService {
 	public DogamVO getDogam(DogamVO vo) {
 		return dogamDAO.getDogam(vo);
 	}
+		
+	// get my dogam list
+	@Override
+	public List<HashMap<String, Object>> getMyDogam(HashMap map) {
+		List<HashMap<String, Object>> list = dogamDAO.getMyDogam(map);
+		for(HashMap d:list) {
+			System.out.println(d);
+		}
+		return list;
+	}
+	
+	@Override
+	public List<HashMap<String, Object>> getMyDogamList(HashMap map) {
+		return dogamDAO.getMyDogamList(map);
+	}
+	
+	@Override
+	public HashMap<String, Object> getDetail(HashMap map) {
+		return dogamDAO.getDetail(map);
+	}
+
 	
 	// insert
 	@Override
@@ -62,6 +84,18 @@ public class DogamServiceImpl implements DogamService {
 		dogamDAO.dogamDelete(vo);
 	}
 
+	// sinchung
+	@Override
+	public int dogamSinchung(HashMap map) {
+		int rs = dogamDAO.dogamSinchung(map);
+		return rs;
+	}
+
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		dogamDAO.donExp(map);
+		
+	}
 
 
 

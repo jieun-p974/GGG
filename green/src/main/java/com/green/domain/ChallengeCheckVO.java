@@ -99,8 +99,7 @@ public class ChallengeCheckVO {
 			// ***********************************************
 			// 해당 경로로 변경
 			File f = new File(
-					"C:\\Users\\1\\Desktop\\gitGGG\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\challImg\\"
-							+ cer_img1_addr);
+					"C:\\Users\\1\\Desktop\\gitGGG\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\challImg\\"+ cer_img1_addr);
 
 			try {
 				file.transferTo(f);
