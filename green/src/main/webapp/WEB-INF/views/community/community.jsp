@@ -219,7 +219,7 @@
 									<option value="hashTag">hashTag</option>
 								</select>
 								<div class="col-sm-12">
-									<input type="text" placeholder="search">
+									<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete">
 								</div>
 								<button class="btn btn-warning btn-hover-secondery ">검색</button>
 								</form>
