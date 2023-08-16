@@ -88,6 +88,7 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.insert("member.accountInsert", vo);
 	}
 	
+	@Override
 	public void accountYes(MemberVO vo) {
 		System.out.println("mybatis ==> accountYes()");
 		mybatis.update("member.accountYes", vo);

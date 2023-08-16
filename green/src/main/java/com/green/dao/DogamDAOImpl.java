@@ -52,6 +52,7 @@ public class DogamDAOImpl implements DogamDAO {
 	@Override
 	public List<HashMap<String, Object>> getMyDogam(HashMap map) {
 		System.out.println("Mybatis => getMyDogam()");
+		System.out.println("여깁니다" + map);
 		List<HashMap<String, Object>> list = mybatis.selectList("DogamDAO.getMyDogam",map);
 		return list;
 	}
@@ -77,7 +78,7 @@ public class DogamDAOImpl implements DogamDAO {
 		
 	@Override
 	public HashMap<String, Object> getDetail(HashMap map) {
-		System.out.println("mybatis==>getDetail()");
+		System.out.println("mybatis==>getMyDogamList()");
 		HashMap<String, Object> returnD = mybatis.selectOne("DogamDAO.getMyDogam",map);
 		return returnD;
 	}
@@ -116,6 +117,12 @@ public class DogamDAOImpl implements DogamDAO {
 		int rs = mybatis.insert("DogamDAO.dogamSinchung", map);
 		return rs;
 	}
+	//기부->exp
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		System.out.println("==>exp의donExp()호출");
+		mybatis.update("DogamDAO.donExp",map);
+	}
 
 	// my yes
 	@Override
@@ -127,7 +134,6 @@ public class DogamDAOImpl implements DogamDAO {
 		}
 		return do_no;
 	}
-
 	
 
 

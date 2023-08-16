@@ -35,7 +35,6 @@ public interface MemberService {
 
 	// member bank account insert
 	public void accountInsert(MemberVO vo);
-
 	public void accountYes(MemberVO vo);
 	
 	// member card delete

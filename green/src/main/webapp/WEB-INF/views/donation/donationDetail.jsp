@@ -29,13 +29,8 @@
 				<div
 					class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 text-center">
 					<div class="d-flex justify-content-between mb-5">
-<<<<<<< HEAD
 							<a href="" class="btn btn-white-back btn-hover-third">모금함	소개</a>
 							<a href="goDonation.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-white-back btn-hover-third">기부하기</a>
-=======
-							<a href="" class="btn btn-warning btn-hover-secondery section-btn">모금함	소개</a>
-							<a href="goDonation.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
->>>>>>> refs/remotes/origin/gaeun
 							</div>
 					<div class="card">
 						<div class="card-body">

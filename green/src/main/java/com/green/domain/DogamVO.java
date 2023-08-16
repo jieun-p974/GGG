@@ -204,7 +204,7 @@ public class DogamVO {
 
 
 
-   //*************************************************
+//*************************************************
    MultipartFile file;   // write.jsp에 파일첨부시 name="file"과 동일한 변수명
    
    public MultipartFile getFile() {

@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<%@include file="../layouts/header.jsp"%>
+	<%@include file= "../layouts/header.jsp"%>
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row">
@@ -40,7 +40,7 @@
 										<input type="file" name="file1" onchange="readURL1(this)" class="col-12 mb-1 text-start" /> 
 										<input type="hidden" name="b_img1_addr" value="${comm.b_img1_addr}" />
 										<div id="previewDiv1" class="col-12 mb-1 text-start">
-											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img1_addr}" style="border: 1px solid black" alt="&nbsp;&nbsp;&nbsp;저장된 사진이 없습니다." />
+											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img1_addr}" style="border: 1px solid blackblack; width:10%; " alt="&nbsp;&nbsp;&nbsp;저장된 사진이 없습니다." />
 										</div>
 									</div>
 									<div class="comm_img  mb-3 col-12 p-3">
@@ -48,7 +48,7 @@
 										<input type="file" name="file2" onchange="readURL2(this)" class="col-12 mb-1 text-start" /> 
 										<input type="hidden" name="b_img2_addr" value="${comm.b_img2_addr}" />
 										<div id="previewDiv2" class="col-12 mb-1 text-start">
-											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img2_addr}" style="border: 1px solid black" alt="&nbsp;&nbsp;&nbsp;저장된 사진이 없습니다." />
+											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img2_addr}" style="border: 1px solid blackblack; width:10%;" alt="&nbsp;&nbsp;&nbsp;저장된 사진이 없습니다." />
 										</div>
 									</div>
 									<div class="comm_img  mb-3 col-12 p-3">
@@ -56,7 +56,7 @@
 										<input type="file" name="file3" onchange="readURL3(this)" class="col-12 mb-1 text-start" /> 
 										<input type="hidden" name="b_img3_addr" value="${comm.b_img3_addr}" />
 										<div id="previewDiv3" class="col-12 mb-1 text-start">
-											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img3_addr}" style="border: 1px solid black" alt="&nbsp;&nbsp;&nbsp;저장된 사진이 없습니다." />
+											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img3_addr}" style="border: 1px solid blackblack; width:10%;" alt="&nbsp;&nbsp;&nbsp;저장된 사진이 없습니다." />
 										</div>
 									</div>
 									<div class="d-flex justify-content-between p-3">

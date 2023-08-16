@@ -44,7 +44,7 @@ public class MemberController {
 	private ChallengeService challengeService;
 	@Autowired
 	private DonationService donationService;
-	@Autowired 
+	@Autowired
 	private DogamService dogamService;
 
 	// id using check

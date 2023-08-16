@@ -65,7 +65,7 @@ $("#chall").append(html2);
 		if (selected == 'ing') {
 			console.log("진행중인 챌린지");
 			<c:forEach items="${list}" var="chall">
-			<c:if test="${chall.chal_end_date > today}"> 
+			<c:if test="${chall.chal_end_date > today}">
 				var star = "";
 				
 				for(var i = 0; i < ${chall.difficulty}; i++){
@@ -148,7 +148,7 @@ $("#chall").append(html2);
 <title>챌린지 목록</title>
 </head>
 <body>
-	<%@include file="../layouts/header.jsp"%>
+	<%@include file= "../layouts/header.jsp"%>
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<img src="/resources/imgs/our-service/our-service-background.svg"

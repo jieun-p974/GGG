@@ -57,8 +57,8 @@
 		if ($("#acc_num").val() == "") {
 			alert("계좌번호를 입력해주세요.");
 			$("#acc_num").focus();
-			return false;
-		}
+			return false; 
+		} 
 		document.form.submit();
 		alert('결제수단이 추가되었습니다.');
 

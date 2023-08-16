@@ -42,7 +42,7 @@
       <%@include file="../layouts/header.jsp"%>
    </c:if>
    <c:if test="${sessionScope.userType == 2}">
-      <%@include file="../layouts/adminHeader.jsp"%>
+      <%@include file= "../layouts/adminHeader.jsp"%>
    </c:if>
    
 	<section class="pricing position-relative overflow-hidden">
@@ -61,11 +61,15 @@
 										<li class="media d-flex justify-content-between">
 									<div class=" col-2 ">
 											<div class="d-flex justify-content-around align-items-end p-3">
-													<a href="communityModify.do?board_no=63" class="btn btn-warning btn-hover-secondery p-1">수정</a>
-													<a href="deleteCommunity.do?board_no=63" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
+												<c:if test="${sessionScope.userId == community.id}">
+														<a href="communityModify.do?board_no=${community.board_no}" class="btn btn-warning btn-hover-secondery p-1">수정</a>
+												</c:if>
+												<c:if test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
+													<a href="deleteCommunity.do?board_no=${community.board_no}" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
+												</c:if>
 											</div>
 											<div class="profile-picture justify-content-center d-flex p-3">
-												<img class="p_img " src="/resources/imgs/member/29c5be39-72be-4467-b9b5-bd45d7f3e23b_default_mem_img.png">
+												<img class="p_img " src="/resources/imgs/member/${community.m_img_addr}" >
 											</div>
 									</div>
 											<div class="media-body col-10 ">
@@ -208,20 +212,20 @@
 			
 						<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
 							<div class="row">
-								<div class="col-lg-12 mb-4">
+								<div class="col-lg-12 mb-5">
 									<a href="community.do?id=${sessionScope.userId}" class="btn btn-white-back btn-hover-third">내 피드</a> 
-									<a href="community.do" class="btn btn-warning btn-hover-secondery ">전체 피드</a>
+									<a href="community.do" class="btn btn-white-back btn-hover-third" ">전체 피드</a>
 									<a href="communityWrite.do" class="btn btn-white-back btn-hover-third">글쓰기</a>
 								</div>
 								<form action="community.do" class="search">
+								<div class="col-sm-12 mb-4" >
 								<select name="searchOption" class="searchOption">
 									<option value="id">ID</option>
 									<option value="hashTag">hashTag</option>
 								</select>
-								<div class="col-sm-12">
 									<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete">
+									<button class="btn btn-white-back btn-hover-third">검색</button>
 								</div>
-								<button class="btn btn-warning btn-hover-secondery ">검색</button>
 								</form>
 								<div class="col-sm-12">
 									1위 #환경보호(100,200회)<br /> 2위 #제로웨이스트(50,123회)<br /> 3위

@@ -38,8 +38,11 @@ public interface DogamDAO {
 	// sinchung
 	public int dogamSinchung(HashMap map);
 	
-	// my yest
-	public int myYes(String id);
+
+	//기부->exp에 적립
+	public void donExp(HashMap<String, Object> map);
 	
+	// my yest
+		public int myYes(String id);
 	
 }

@@ -15,7 +15,7 @@
 <title>공지작성</title>
 </head>
 <body>
-<%@include file="../layouts/header.jsp"%>
+<%@include file= "../layouts/header.jsp"%>
 <section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row">

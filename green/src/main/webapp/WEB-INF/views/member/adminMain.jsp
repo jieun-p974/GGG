@@ -42,11 +42,7 @@
 								</table>
 							</div>
 							<a href="../community/notification.do"
-<<<<<<< HEAD
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 공지작성 </a>
-=======
 								class="btn btn-warning btn-hover-secondery"> 공지작성 </a>
->>>>>>> refs/remotes/origin/gaeun
 						</div>
 					</div>
 				</div>
@@ -76,11 +72,7 @@
 								</table>
 							</div>
 							<a href="../challenge/challengeInsert.do"
-<<<<<<< HEAD
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 챌린지 추가 </a>
-=======
 								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
->>>>>>> refs/remotes/origin/gaeun
 						</div>
 					</div>
 				</div>
@@ -111,104 +103,6 @@
 								</table>
 							</div>
 							<a href="../challenge/adminChallengeCertList.do"
-<<<<<<< HEAD
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 인증 관리 </a>
-						</div>
-					</div>
-				</div>
-
-				<!-- 도감 -->
-
-				<div
-					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
-					<div class="card border-0 shadow">
-						<div class="card-body">
-							<div
-								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<table class="type09">
-									<thead>
-										<th colspan="2">도감 목록</th>
-									</thead>
-									<tr>
-										<td>2023.07.26</td>
-										<td>도감</td>
-									</tr>
-									<tr>
-										<td>2023.07.26</td>
-										<td>도감</td>
-									</tr>
-									<tr>
-										<td>2023.07.26</td>
-										<td>도감</td>
-									</tr>
-								</table>
-							</div>
-							<a href="../dogam/dogamWrite.do"
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 도감 추가 </a>
-						</div>
-					</div>
-				</div>
-
-				<!-- 기부 -->
-
-				<div
-					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
-					<div class="card border-0 shadow">
-						<div class="card-body">
-							<div
-								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<table class="type09">
-									<thead>
-										<th colspan="2">기부 목록</th>
-									</thead>
-									<tr>
-										<td>2023.07.26</td>
-										<td>기부</td>
-									</tr>
-									<tr>
-										<td>2023.07.26</td>
-										<td>기부</td>
-									</tr>
-									<tr>
-										<td>2023.07.26</td>
-										<td>기부</td>
-									</tr>
-								</table>
-							</div>
-							<a href="../donation/adDonationList.do"
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 기부 추가 </a>
-						</div>
-					</div>
-				</div>
-
-				<!-- 뉴스 -->
-				<div
-					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
-					<div class="card border-0 shadow">
-						<div class="card-body">
-							<div
-								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<table class="type09">
-									<thead>
-										<th colspan="2">뉴스 목록</th>
-									</thead>
-									<tr>
-										<td>2023.07.26</td>
-										<td>뉴스</td>
-									</tr>
-									<tr>
-										<td>2023.07.26</td>
-										<td>뉴스</td>
-									</tr>
-									<tr>
-										<td>2023.07.26</td>
-										<td>뉴스</td>
-									</tr>
-								</table>
-							</div>
-							<a href="../news/newsWrite.do"
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 뉴스 추가 </a>
-=======
 								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
 						</div>
 					</div>
@@ -305,7 +199,6 @@
 							</div>
 							<a href="../news/newsWrite.do"
 								class="btn btn-warning btn-hover-secondery"> 뉴스 추가 </a>
->>>>>>> refs/remotes/origin/gaeun
 						</div>
 					</div>
 				</div>
