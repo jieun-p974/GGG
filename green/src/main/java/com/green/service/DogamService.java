@@ -39,4 +39,6 @@ public interface DogamService {
 	// sinchung
 	public int dogamSinchung(HashMap map);
 
+	//my yes
+	public int myYes(String id);
 }

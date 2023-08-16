@@ -23,7 +23,7 @@
 				class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
 				<div class="calendar d-flex justify-content-between mb-5">
 				<div></div>
-					<a class="btn btn-white-back btn-hover-third" id="add"
+					<a class="btn btn-warning btn-hover-secondery" id="add"
 						href="notificationWrite.do">추가하기</a>
 				</div>
 				<div class="card border-0 shadow">
@@ -45,9 +45,9 @@
 										<td>${noti.id}</td>
 										<td>${noti.ann_date}</td>
 										<td>${noti.ann_title}</td>
-										<td><a class="btn btn-white-back2 btn-hover-secondery"
+										<td><a class="btn btn-warning btn-hover-secondery"
 											href="notificationModify.do?ann_no=${noti.ann_no}"> 수정 </a></td>
-										<td><a class="btn btn-white-back2 btn-hover-secondery"
+										<td><a class="btn btn-warning btn-hover-secondery"
 											href="deleteNotification.do?ann_no=${noti.ann_no}">삭제 </a></td>
 									</tbody>
 								</c:forEach>

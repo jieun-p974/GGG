@@ -36,7 +36,6 @@ public class DogamVO {
    private String img3;
    private int nowLv;
    private String lv_img;
-   
 
    public DogamVO() {}
 

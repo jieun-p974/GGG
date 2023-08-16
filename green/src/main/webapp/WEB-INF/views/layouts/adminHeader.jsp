@@ -4,17 +4,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
+<<<<<<< HEAD
 <script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 <!-- <script src="/resources/js/jquery.min.js"></script> -->
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+=======
+<link rel="stylesheet" href="/resources/styles/style.css">
+<link rel="stylesheet"
+	href="/resources/styles/iconfont/tabler-icons.css">
+<script src="/resources/js/jquery.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/custom.js"></script>
+<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+>>>>>>> refs/remotes/origin/gaeun
 <%
 	String userId = (String) session.getAttribute("userId");
 String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
+String userBday = (String) session.getAttribute("userBday");
 String userSdate = (String) session.getAttribute("userSdate");
 String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");
@@ -48,6 +59,7 @@ System.out.println("현재 세션 : " + userId);
 					class="ti ti-menu-2 text-warning"></i>
 				</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<<<<<<< HEAD
 					<ul class="navbar-nav me-auto p-0">
 						<li class="nav-item"><a class="nav-link text-capitalize"
 							aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
@@ -61,6 +73,21 @@ System.out.println("현재 세션 : " + userId);
 							href="../news/newsCheck.do">뉴스관리</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize" href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize" href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
+=======
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../challenge/adminChallenge.do">챌린지관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../dogam/dogamCheck.do">도감관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../donation/adDonationList.do">기부관리 </a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../news/newsCheck.do">뉴스관리</a></li>
+						<li><a href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
+						<li><a href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
+>>>>>>> refs/remotes/origin/gaeun
 					</ul>
 					<c:if test="${userId ne null}">
 						<div class="d-flex align-items-center">

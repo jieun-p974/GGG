@@ -19,8 +19,15 @@
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+<<<<<<< HEAD
 					<h2 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의 캐릭터
 						목록입니다 🌏</h2>
+=======
+					<h3 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의 캐릭터
+						목록입니다 🌏</h3>
+						<a class="btn btn-warning btn-hover-secondery section-btn"
+							href="../dogam/dogam.do">전체도감</a>
+>>>>>>> refs/remotes/origin/gaeun
 				</div>
 			</div>
 			<div class="gibu_list">
@@ -28,6 +35,7 @@
 					<div class="gibu">
 						<c:if test="${mydogam.do_choice_YN eq 'Y'}">
 							<div class="card bg-primary">
+<<<<<<< HEAD
 							<h3 class="text-center">대표캐릭터</h3>
 						</c:if>
 						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv ne 3}">
@@ -46,6 +54,26 @@
 											src="../resources/imgs/dogam/${mydogam.lv_img}">
 									</div>
 									<p class="d_list_title">${mydogam.do_title}</p> 
+=======
+							<h4 class="text-center mt-3">대표캐릭터</h4>
+						</c:if>
+						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv ne 3}">
+							<div class="card bg-transparent">
+							<h4 class="text-center text-white">캐릭터</h4>
+						</c:if>
+						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv eq 3}">
+							<div class="card bg-none">
+							<h4 class="text-center text-white mt-3">키우기 완료!</h4>
+						</c:if>
+						<div class="card-body" style="height: 400px;">
+							<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<a href="../dogam/myDogamDetail.do?do_no=${mydogam.do_no}&id=${userId}">
+									<div class="d_list_img">
+										<img class="d_img" alt="도감 사진"
+											src="../resources/imgs/dogam/${mydogam.lv_img}">
+									</div>
+									<h4 class="d_list_title mb-3">${mydogam.do_title}</h4> 
+>>>>>>> refs/remotes/origin/gaeun
 									<c:if test="${mydogam.nowLv ne 3}">
 										<p>현재레벨 : ${mydogam.nowLv}</p>
 									</c:if> 

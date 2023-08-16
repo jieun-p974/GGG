@@ -58,23 +58,35 @@
 	</update>
 
 	<!-- member card insert -->
-	<insert id="cardInsert" parameterType="dogam">
+	<insert id="cardInsert" parameterType="member">
 		insert into mem_card (id, card_num, expire_date, CVC, card_company, pass_two)
 		values(#{id}, #{card_num}, #{expire_date}, #{CVC}, #{card_company}, #{pass_two})
 	</insert>
 	
-	<update id="cardYN" parameterType="dogam">
-	UPDATE MEMBER SET card_reg_YN = "Y" WHERE id = #{id}
+	<update id="cardYes" parameterType="member">
+	update member set card_reg_YN = 'Y' where id=#{id}
 	</update>
-
+	
 	<!-- member bank account insert -->
-	<insert id="accountInsert" parameterType="dogam">
+	<insert id="accountInsert" parameterType="member">
 		insert into mem_account (id, acc_num, bank)
 		values(#{id}, #{acc_num}, #{bank})
 	</insert>
-
-	<update id="accountYN" parameterType="dogam">
-		UPDATE MEMBER SET account_reg_YN = "Y" WHERE id = #{id}
+	
+	<update id="accountYes" parameterType="member">
+	update member set account_reg_YN = 'Y' where id=#{id}
 	</update>
+	
+	<!-- member card delete -->
+	<delete id="cardDelete" parameterType="member" >
+	delete from mem_card where mem_card_no=#{mem_card_no}
+	</delete>
+
+	<!-- member bank account delete -->
+	<delete id="accountDelete" parameterType="member" >
+	delete from mem_account where mem_acc_no=#{mem_acc_no}
+	</delete>
+	
+	
 
 </mapper>

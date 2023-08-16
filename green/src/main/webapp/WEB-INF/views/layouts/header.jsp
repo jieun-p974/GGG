@@ -4,12 +4,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
+<<<<<<< HEAD
 <!-- <script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script> -->
 <!-- <script src="/resources/js/jquery.min.js"></script> -->
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+=======
+<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+<script src="/resources/js/jquery.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/custom.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+>>>>>>> refs/remotes/origin/gaeun
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
@@ -25,6 +35,10 @@ String userAccount = (String) session.getAttribute("userAccount");
 String userImg = (String) session.getAttribute("userImg");
 String userImgAddr = (String) session.getAttribute("userImgAddr");
 int userType = (Integer) session.getAttribute("userType");
+<<<<<<< HEAD
+=======
+int userTryNum = (Integer) session.getAttribute("userTryNum");
+>>>>>>> refs/remotes/origin/gaeun
 System.out.println("현재 세션 : " + userId);
 %>
 <meta charset=" UTF-8">

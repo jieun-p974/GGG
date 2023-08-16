@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.green.domain.ChallengeVO;
 import com.green.domain.MemberVO;
 import com.green.service.ChallengeService;
+import com.green.service.DogamService;
 import com.green.service.DonationService;
 import com.green.service.MemberService;
 
@@ -42,6 +44,8 @@ public class MemberController {
 	private ChallengeService challengeService;
 	@Autowired
 	private DonationService donationService;
+	@Autowired 
+	private DogamService dogamService;
 
 	// id using check
 	@RequestMapping(value = "/idCheck.do", produces = "application/text; charset=utf8")
@@ -74,7 +78,6 @@ public class MemberController {
 	@RequestMapping("/loginSave.do")
 	public String login(MemberVO vo, HttpSession session) {
 		MemberVO result = memberService.idCheck_Login(vo);
-		// MemberVO user = memberService.login(vo);
 		MemberVO memberVo = memberService.memberInfo(vo);
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		if (result == null || result.getId() == null) {
@@ -95,6 +98,7 @@ public class MemberController {
 			session.setAttribute("userPoint", memberVo.getRemainder_point());
 			session.setAttribute("userImg", memberVo.getM_img());
 			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
+			session.setAttribute("userTryNum", memberVo.getTryNum());
 			session.setAttribute("userVo", memberVo);
 		}
 		return "redirect:/member/main.do";
@@ -146,6 +150,7 @@ public class MemberController {
 	@RequestMapping("/cardSave.do")
 	public String cardInsert(MemberVO vo) throws IOException {
 		memberService.cardInsert(vo);
+		memberService.cardYes(vo);
 		return "redirect:/member/mypage.do";
 	}
 	
@@ -153,14 +158,41 @@ public class MemberController {
 	@RequestMapping("/accSave.do")
 	public String accountInsert(MemberVO vo) throws IOException {
 		memberService.accountInsert(vo);
+		memberService.accountYes(vo);
 		return "redirect:/member/mypage.do";
 	}
-	//마이페이지에서 진행중인 챌린지랑 기부내역 띄우기
+	
+	//마이페이지에서 나의 도감, 진행중인 챌린지, 기부내역 띄우기
 		@RequestMapping(value="/mypage.do")
-		public void challAndDona(String id,Model model) {
-			List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
-			List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
-			model.addAttribute("challList",challList);
-			model.addAttribute("myDonaList", myDonaList);
+		public void challAndDona(String id, Model model) {
+			
+			 try {
+				 int do_no = dogamService.myYes(id);
+				 System.out.println("dd"+do_no);
+				 if(do_no > 0) {
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("id", id);
+						map.put("do_no", do_no);
+						
+						System.out.println(map);
+						
+						HashMap<String, Object> myDogam= dogamService.getDetail(map);
+						List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+						List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+						model.addAttribute("myDogam", myDogam);
+						model.addAttribute("challList",challList);
+						model.addAttribute("myDonaList", myDonaList);
+						model.addAttribute("check", do_no);
+					} else {
+						List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+						List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+						model.addAttribute("challList",challList);
+						model.addAttribute("myDonaList", myDonaList);
+						model.addAttribute("check",do_no);
+					}
+			} catch (Exception e) {
+			}
+			
+		
 		}
 }

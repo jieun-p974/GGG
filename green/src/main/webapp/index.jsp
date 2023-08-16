@@ -174,6 +174,7 @@
 			<div class="row justify-content-center price-plan">
 				<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
 					<div class="card position-relative shadow border-0 h-100">
+<<<<<<< HEAD
 						<div class="card-body pt-5 p-3">
 							<small class="fs-7 d-block text-warning text-center">3회
 								도전권</small>
@@ -265,6 +266,111 @@
 							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
 							<a href="#"
 								class="btn btn-warning btn-hover-secondery text-capitalize">도전권 결제</a>
+=======
+						<div class="card-body pb-4">
+							<small class="fs-7 d-block text-warning text-center">3회
+								도전권</small>
+							<h2 class="mb-4 text-center position-relative">
+								<sub class="fs-2 text-black">0</sub><sup
+									class="fs-6 position-absolute">$</sup>
+							</h2>
+							<small class="fs-7 d-block text-center">Free</small>
+							<p class="fs-7 text-center fw-500">For individuals looking
+								for a simple CRM solution</p>
+							<ul class="list-unstyled mb-0 pl-0">
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Basic CRM features</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Unlimited Personal Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Email Power Tools</span></li>
+							</ul>
+						</div>
+						<div
+							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
+							<a href="#"
+								class="btn btn-warning btn-hover-secondery text-capitalize">Set
+								Started</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="card position-relative shadow border-0 h-100">
+						<div
+							class="position-absolute badge bg-warning d-inline-block mx-auto">
+							Most Popular</div>
+						<div class="card-body pb-4">
+							<small class="fs-7 d-block text-warning text-center">7회
+								도전권</small>
+							<h2 class="mb-4 text-center position-relative">
+								<sub class="fs-2 text-black">49</sub><sup
+									class="fs-6 position-absolute">$</sup>
+							</h2>
+							<small class="fs-7 d-block text-center">Free</small>
+							<p class="fs-7 text-center fw-500">For individuals looking
+								for a simple CRM solution</p>
+							<ul class="list-unstyled mb-0 pl-0">
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Basic CRM features</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Unlimited Personal Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Email Power Tools</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Unlimited Shared Pipelines</span></li>
+							</ul>
+						</div>
+						<div
+							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
+							<a href="#"
+								class="btn btn-warning btn-hover-secondery text-capitalize">Set
+								Started</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+					<div class="card position-relative shadow border-0 h-100">
+						<div class="card-body pb-4">
+							<small class="fs-7 d-block text-warning text-center">무제한
+								도전권</small>
+							<h2 class="mb-4 text-center position-relative">
+								<sub class="fs-2 text-black">99</sub><sup
+									class="fs-6 position-absolute">$</sup>
+							</h2>
+							<small class="fs-7 d-block text-center">Free</small>
+							<p class="fs-7 text-center fw-500">For individuals looking
+								for a simple CRM solution</p>
+							<ul class="list-unstyled mb-0 pl-0">
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Basic CRM features</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Unlimited Personal Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Email Power Tools</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Unlimited Shared Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black"> Full API Access</span></li>
+							</ul>
+						</div>
+						<div
+							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
+							<a href="#"
+								class="btn btn-warning btn-hover-secondery text-capitalize">Set
+								Started</a>
+>>>>>>> refs/remotes/origin/gaeun
 						</div>
 					</div>
 				</div>

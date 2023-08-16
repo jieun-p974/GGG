@@ -25,6 +25,7 @@ $(function() {
 			<c:forEach items="${list}" var="dona">
 			<c:if test="${dona.don_end_date > today}">
 				html += '<tbody>';
+<<<<<<< HEAD
 				html += '<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">';
 				html += '<td>${dona.don_name}</td>';
 				html += '<td>${dona.don_start_date}</td>';
@@ -63,6 +64,48 @@ $(function() {
 				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="donationModify.do?don_no=${dona.don_no}"> 수정 </a></td>';
 				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></td>';
 				html += '</tbody>';
+=======
+				html += '<td>${dona.don_no}</td>';
+				html += '<td>${dona.don_name}</td>';
+				html += '<td>${dona.don_start_date}</td>';
+				html += '<td>${dona.don_end_date}</td>';
+				html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
+				html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+				html += '</tbody>';
+			</c:if>
+			</c:forEach>
+			$("tbody").remove();
+			$("#dona_list").append(html);
+		} else if (selected == 'end') {
+			console.log("종료된 기부");
+			<c:forEach items="${list}" var="dona">
+			<c:if test="${dona.don_end_date < today}">
+				html += '<tbody>';
+				html += '<td>${dona.don_no}</td>';
+				html += '<td>${dona.don_name}</td>';
+				html += '<td>${dona.don_start_date}</td>';
+				html += '<td>${dona.don_end_date}</td>';
+				html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
+				html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+				html += '</tbody>';
+			</c:if>
+			</c:forEach>
+			$("tbody").remove();
+			$("#dona_list").append(html);
+		} else {
+			console.log("기부처 전체");
+			<c:forEach items="${list}" var="dona">
+			
+				html += '<tbody>';
+				html += '<td>${dona.don_no}</td>';
+				html += '<td>${dona.don_name}</td>';
+				html += '<td>${dona.don_start_date}</td>';
+				html += '<td>${dona.don_end_date}</td>';
+				html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
+				html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+				html += '</tbody>';
+			
+>>>>>>> refs/remotes/origin/gaeun
 			</c:forEach>
 			$("tbody").remove();
 			$("#dona_list").append(html);
@@ -91,6 +134,7 @@ $(function() {
 						<option value="ing">진행중인 기부</option>
 						<option value="end">종료된 기부</option>
 					</select> 
+<<<<<<< HEAD
 					<a class="btn btn-white-back btn-hover-third" id="add"
 						href="donationInsert.do">추가하기</a>
 				</div>
@@ -114,6 +158,35 @@ $(function() {
 										<td>${dona.don_end_date}</td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="donationModify.do?don_no=${dona.don_no}"> 수정 </a></td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></td>
+=======
+					<a class="btn btn-warning btn-hover-secondery" id="add"
+						href="donationInsert.do">추가하기</a>
+				</div>
+				<div class="card border-0 shadow">
+					<div class="card-body">
+						<div
+							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<table class="type09" id="chall_list">
+								<thead>
+									<th>기부처 명</th>
+									<th>기부 시작일</th>
+									<th>기부 종료일</th>
+									<th>수정</th>
+									<th>삭제</th>
+								</thead>
+								<c:forEach items="${list}" var="dona">
+									<tbody>
+										<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">
+										<td>${dona.don_name}</td>
+										<td>${dona.don_start_date}</td>
+										<td>${dona.don_end_date}</td>
+										<td>
+											<a class="btn btn-warning btn-hover-secondery" href="donationModify.do?don_no=${dona.don_no}"> 수정 </a>
+										</td>
+										<td>
+											<a class="btn btn-warning btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a>
+										</td>
+>>>>>>> refs/remotes/origin/gaeun
 									</tbody>
 								</c:forEach>
 							</table>
