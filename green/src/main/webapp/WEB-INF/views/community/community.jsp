@@ -49,12 +49,9 @@
 		<div class="container position-relative">
 			<div class="row justify-content-center">
 				<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
-					<div
-						class="card position-relative shadow border-0 h-100 col-xxl-11 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
-						<div
-							class="col-xxl-12 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 d-flex justify-content-center">
-							<div
-								class="col-xxl-11 col-xl-11 col-lg-11 col-md-6 col-sm-6 col-12">
+					<div class="card position-relative shadow border-0 h-100 col-xxl-11 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+						<div class="col-xxl-12 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 d-flex justify-content-center">
+							<div class="col-xxl-11 col-xl-11 col-lg-11 col-md-6 col-sm-6 col-12">
 								<!-- DB board -->
 								<c:forEach items="${list}" var="community">
 									<ul class="list-unstyled mt-5">
@@ -81,16 +78,13 @@
 														<!-- 등록된 사진이 있을 시 출력 -->
 														<div class="b_img">
 															<c:if test="${community.b_img1_addr != null}">
-																<img class="board_img"
-																	src="/resources/imgs/communityImg/${community.b_img1_addr}" />
+																<img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" />
 															</c:if>
 															<c:if test="${community.b_img2_addr != null}">
-																<img class="board_img"
-																	src="/resources/imgs/communityImg/${community.b_img2_addr}" />
+																<img class="board_img" src="/resources/imgs/communityImg/${community.b_img2_addr}" />
 															</c:if>
 															<c:if test="${community.b_img3_addr != null}">
-																<img class="board_img"
-																	src="/resources/imgs/communityImg/${community.b_img3_addr}" />
+																<img class="board_img" src="/resources/imgs/communityImg/${community.b_img3_addr}" />
 															</c:if>
 														</div>
 														<!-- 등록된 글 내용 -->
