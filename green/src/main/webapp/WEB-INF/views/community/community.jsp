@@ -169,8 +169,8 @@
 							class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
 							<div class="row">
 								<div class="col-lg-12 mb-4">
-									<a href="community.do?id=${sessionScope.userId}" class="btn btn-warning btn-hover-secondery ">내 피드</a> 
-									<a href="communityWrite.do" class="btn btn-warning btn-hover-secondery ">글쓰기</a>
+									<a href="community.do?id=${sessionScope.userId}" class="btn btn-white-back btn-hover-third">내 피드</a> 
+									<a href="communityWrite.do" class="btn btn-white-back btn-hover-third">글쓰기</a>
 								</div>
 								<div class="col-sm-12">
 									<input type="text" placeholder="search">

@@ -2048,8 +2048,8 @@ progress {
   color: #14141C;
   background-color: #fff;
   border-color: #8ba1dc;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(22, 66, 185, 0.25);
+  outline: 2px solid #8ba1dc;
+  box-shadow: 1 1 1 1.25rem rgba(22, 66, 185, 0.25);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1em;
@@ -2863,7 +2863,7 @@ textarea.form-control-lg {
 .btn {
   --bs-btn-padding-x: 35px;
   --bs-btn-padding-y: 18px;
-  --bs-btn-font-family: Manrope, sans-serif;
+  --bs-btn-font-family: 'S-CoreDream-3Light';
   --bs-btn-font-size: 1.0625rem;
   --bs-btn-font-weight: 600;
   --bs-btn-line-height: 1;

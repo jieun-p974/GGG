@@ -5,8 +5,8 @@
 	<!-- inserting Challenge -->
 	<insert id="challengeWrite" parameterType="challenge">
 		INSERT INTO challenge
-		(chal_name, chal_ex,chal_check_method, difficulty,chal_start_date,chal_end_date,chal_img,chal_img_addr)
-		VALUES (#{chal_name},#{chal_ex},#{chal_check_method}, #{difficulty}, #{chal_start_date}, #{chal_end_date},#{chal_img},#{chal_img_addr})
+		(chal_name, chal_ex, difficulty,chal_start_date,chal_end_date,chal_img,chal_img_addr, chal_check_su)
+		VALUES (#{chal_name},#{chal_ex}, #{difficulty}, #{chal_start_date}, #{chal_end_date},#{chal_img},#{chal_img_addr},#{chal_check_su})
 	</insert>
 	
 	<!-- challenge sinchung -->
@@ -34,8 +34,8 @@
 		chal_start_date=#{chal_start_date},
 		chal_end_date=#{chal_end_date},
 		chal_ex=#{chal_ex},
-		chal_check_method=#{chal_check_method},
-		difficulty=#{difficulty}
+		difficulty=#{difficulty},
+		chal_check_su=#{chal_check_su}
 		<if test='chal_img != null'>, chal_img = #{chal_img}, chal_img_addr = #{chal_img_addr}</if>
 		WHERE chal_no=#{chal_no};
 	</update>

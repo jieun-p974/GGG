@@ -20,8 +20,7 @@
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center mt-5 mb-5">
 					<h2 class="text-white mb-0">캐릭터 도감 목록입니다.</h2>
 					<c:if test="${userId ne null}">
-						<a class="btn btn-warning btn-hover-secondery section-btn"
-							href="../dogam/myDogam.do?id=${userId}">나의도감</a>
+						<a class="btn btn-white-back btn-hover-third" href="../dogam/myDogam.do?id=${userId}">나의도감</a>
 					</c:if>
 				</div>
 			</div>

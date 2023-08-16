@@ -12,6 +12,47 @@
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>Insert title here</title>
 </head>
+<body>
+<%@include file="../layouts/header.jsp"%>
+<section class="service position-relative overflow-hidden">
+	<div class="container position-relative">
+		<div class="row">
+			<div
+				class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+				<h2 class="text-black mb-0 mt-5 mb-3">기부하기</h2>
+			</div>
+		</div>
+		<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
+			<div class="card border-0 shadow">
+				<div class="card-body">
+					<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+						<form action="goDona.do" method="post" enctype="multipart/form-data" class="row col-12">
+							<div class="don_name col-12 mb-3 p-3">
+								<h4 class="info">${meminfo.name}님의 소중한 기부로 지구에 놀라운 변화가 일어납니다.</h4>
+								<input type="hidden" value="${meminfo.id}" name="id" id="id">
+								<input type="hidden" value="${don_no}" name="don_no" id="don_no">
+							</div>
+							<div class="don_goal col-12 mb-3 p-3">
+								<h4 class="info">보유 포인트 : ${meminfo.remainder_point} P</h4>
+								<p>(포인트는 최소 100p부터 10p단위로 사용 가능합니다.)</p>
+							</div>
+							<div class="don_summary col-12 mb-3 p-3">
+								<input type="number" name="don_point" step="10" id="don_point" min="100" max="${meminfo.remainder_point}" onchange="changePoint(${meminfo.remainder_point},100,10)"> P
+								<input type="checkbox" id="chk_use" onclick="chkPoint(${meminfo.remainder_point},100,10)"> 포인트 전체 사용
+								<p>( 남은 포인트 : ${meminfo.remainder_point}p)</p>
+							</div>
+							<div class="buttons d-flex justify-content-between mb-5 p-3">
+								<div></div>
+								<button class="btn btn-white-back btn-hover-third" type="submit">기부하기</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<%@include file="../layouts/footer.jsp"%>
 <script type="text/javascript">
 
 	function chkPoint(pnt,min,unit) {
@@ -78,40 +119,5 @@
 	
 
 </script>
-<body>
-<form action="goDona.do" >
-	<table class="tbl_edit01">
-		<colgroup>
-			<col width="90px" />
-			<col width="*" />
-		</colgroup>
-		<tbody>
-			<div class="memberInfo">
-				<p class="info" id="userID" name="userID">아이디&nbsp&nbsp:&nbsp&nbsp${meminfo.id}</p>
-				<input type="hidden" value="${meminfo.id}" name="id" id="id">
-				<input type="hidden" value="${don_no}" name="don_no" id="don_no">
-				<p class="info">이름&nbsp&nbsp:&nbsp&nbsp${meminfo.name}</p>
-			</div>
-
-			<tr>
-				<th>포 인 트</th>
-				<td>보유 포인트 : <span name="left_pnt" id="left_pnt">${meminfo.remainder_point}
-				</span>p <span> 
-				<input type="checkbox" id="chk_use" onclick="chkPoint(${meminfo.remainder_point},100,10)"> 포인트
-						전체 사용
-				</span> <span style="float: right">포인트는 최소 100p부터 10p단위로 사용 가능합니다.</span>
-				</td>
-			</tr>
-			<tr>
-				<td><span> <input type="number" name="don_point" step="10"
-						id="don_point" min="100" max="${meminfo.remainder_point}"
-						onchange="changePoint(${meminfo.remainder_point},100,10)"></span>p
-					<span> ( 남은 포인트 : </span> <span name="left_pnt" id="left_pnt">${meminfo.remainder_point}</span>p)</td>
-			</tr>
-		</tbody>
-	</table>
-	<button type="submit">기부하기</button>
-	</form>
-
 </body>
 </html>

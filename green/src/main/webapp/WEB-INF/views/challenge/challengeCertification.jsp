@@ -29,8 +29,8 @@
 								<input type="file" name="file" id="file"> 
 								<br><br><br><br><br><br>
 								<div class="d-flex justify-content-between">
-									<button class="btn btn-warning btn-hover-secondery" type="submit">인증</button>
-									<button class="btn btn-warning btn-hover-secondery" type="reset">취소</button>
+									<button class="btn btn-white-back2 btn-hover-secondery" type="submit">인증</button>
+									<button class="btn btn-white-back2 btn-hover-secondery" type="reset">취소</button>
 								</div>
 							</form>
 							</div>

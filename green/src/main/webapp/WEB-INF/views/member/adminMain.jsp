@@ -103,7 +103,7 @@
 								</table>
 							</div>
 							<a href="../challenge/adminChallengeCertList.do"
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 챌린지 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 인증 관리 </a>
 						</div>
 					</div>
 				</div>
@@ -167,7 +167,7 @@
 								</table>
 							</div>
 							<a href="../donation/adDonationList.do"
-								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 도감 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 기부 추가 </a>
 						</div>
 					</div>
 				</div>
