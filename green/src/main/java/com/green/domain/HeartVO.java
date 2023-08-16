@@ -11,7 +11,6 @@ public class HeartVO {
 	private int like_no;
 	private String id;
 	private int board_no;
-	private int like_chk;
 	
 	public HeartVO() {
 		
@@ -23,13 +22,6 @@ public class HeartVO {
 		this.board_no = board_no;
 	}
 	
-	public int getLike_chk() {
-		return like_chk;
-	}
-
-	public void setLike_chk(int like_chk) {
-		this.like_chk = like_chk;
-	}
 
 	public int getLike_no() {
 		return like_no;

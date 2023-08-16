@@ -16,6 +16,7 @@
 		alert("로그인 하신 후 이용 가능합니다.");
 		location.href = "../../index.jsp";
 	</c:if>
+	
 </script>
 <style type="text/css">
 .icon_links {
@@ -209,11 +210,19 @@
 							<div class="row">
 								<div class="col-lg-12 mb-4">
 									<a href="community.do?id=${sessionScope.userId}" class="btn btn-warning btn-hover-secondery ">내 피드</a> 
-									<a href="communityWrite.do" class="btn btn-warning btn-hover-secondery ">글쓰기</a>
+									<a href="community.do" class="btn btn-warning btn-hover-secondery ">전체 피드</a>
+									<a href="communityWrite.do	" class="btn btn-warning btn-hover-secondery ">글쓰기</a>
 								</div>
+								<form action="community.do" class="search">
+								<select name="searchOption" class="searchOption">
+									<option value="id">ID</option>
+									<option value="hashTag">hashTag</option>
+								</select>
 								<div class="col-sm-12">
 									<input type="text" placeholder="search">
 								</div>
+								<button class="btn btn-warning btn-hover-secondery ">검색</button>
+								</form>
 								<div class="col-sm-12">
 									1위 #환경보호(100,200회)<br /> 2위 #제로웨이스트(50,123회)<br /> 3위
 									#플로깅(10,500회)<br />

@@ -11,10 +11,10 @@
 	
 	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
-		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, l.like_no, l.like_chk
+		SELECT distinct b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr
 		FROM board b, member m, b_m_like l
-		WHERE m.id= b.id and b.board_no = l.board_no
+		WHERE m.id = b.id 
 		ORDER BY b.regist_date desc
 	</select>
 	
@@ -86,15 +86,10 @@
 	
 	<!-- insertLike -->
 	<insert id="likeInsert" parameterType="like">
-		INSERT INTO b_m_like (like_no, id, board_no)
-		VALUES(#{like_no}, #{id}, #{board_no})
+		INSERT INTO b_m_like ( id, board_no)
+		VALUES( #{id}, #{board_no})
 	</insert>
 	
-	<update id="unlike">
-		UPDATE b_m_like SET
-		like_chk = 0
-		WHERE board_no=#{board_no} and id = #{id}
-	</update>
 	
 	
 	<select id="autocomplete" parameterType="map" resultType="map">
