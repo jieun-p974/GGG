@@ -12,9 +12,9 @@
 	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
 		SELECT distinct b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr
-		FROM board b, member m, b_m_like l
-		WHERE m.id = b.id 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, likecnt 
+		FROM board b, member m, b_m_like l, (SELECT b.board_no, COUNT(*) likecnt FROM board b, b_m_like l WHERE b.board_no = l.board_no GROUP BY board_no) ml
+		WHERE m.id = b.id AND  b.board_no = ml.board_no
 		ORDER BY b.regist_date desc
 	</select>
 	

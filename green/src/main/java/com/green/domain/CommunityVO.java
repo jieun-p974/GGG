@@ -36,14 +36,14 @@ public class CommunityVO {
 	private int com_no;
 	private String com_content;
 	private int like_no;
-	private int like_chk;
+	private int likecnt;
 
-	public int getLike_chk() {
-		return like_chk;
+	public int getLikecnt() {
+		return likecnt;
 	}
 
-	public void setLike_chk(int like_chk) {
-		this.like_chk = like_chk;
+	public void setLikecnt(int likecnt) {
+		this.likecnt = likecnt;
 	}
 
 	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
