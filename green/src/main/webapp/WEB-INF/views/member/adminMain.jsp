@@ -42,7 +42,7 @@
 								</table>
 							</div>
 							<a href="../community/notification.do"
-								class="btn btn-warning btn-hover-secondery"> 공지작성 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 공지작성 </a>
 						</div>
 					</div>
 				</div>
@@ -72,7 +72,7 @@
 								</table>
 							</div>
 							<a href="../challenge/challengeInsert.do"
-								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 챌린지 추가 </a>
 						</div>
 					</div>
 				</div>
@@ -103,7 +103,7 @@
 								</table>
 							</div>
 							<a href="../challenge/adminChallengeCertList.do"
-								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 인증 관리 </a>
 						</div>
 					</div>
 				</div>
@@ -135,7 +135,7 @@
 								</table>
 							</div>
 							<a href="../dogam/dogamWrite.do"
-								class="btn btn-warning btn-hover-secondery"> 도감 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 도감 추가 </a>
 						</div>
 					</div>
 				</div>
@@ -167,7 +167,7 @@
 								</table>
 							</div>
 							<a href="../donation/adDonationList.do"
-								class="btn btn-warning btn-hover-secondery"> 도감 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 기부 추가 </a>
 						</div>
 					</div>
 				</div>
@@ -198,7 +198,7 @@
 								</table>
 							</div>
 							<a href="../news/newsWrite.do"
-								class="btn btn-warning btn-hover-secondery"> 뉴스 추가 </a>
+								class="btn btn-white-back2 mt-3 btn-hover-secondery"> 뉴스 추가 </a>
 						</div>
 					</div>
 				</div>

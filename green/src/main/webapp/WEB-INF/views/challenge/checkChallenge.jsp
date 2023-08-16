@@ -105,7 +105,7 @@ $(function(){
 								<div class="check_btn d-flex justify-content-between">
 									<div></div>
 									<a href="challengeCertification.do?m_c_no=${check[0].m_c_no}"
-										class="btn btn-warning btn-hover-secondery text-capitalize">인증하기</a>
+										class="btn btn-white-back2 btn-hover-secondery text-capitalize">인증하기</a>
 								</div>
 							</div>
 						</div>

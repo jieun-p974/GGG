@@ -69,7 +69,7 @@ $(function(){
 									<div></div>
 									<a
 										href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
-										class="btn btn-warning btn-hover-secondery text-capitalize">신청하기</a>
+										class="btn btn-white-back2 btn-hover-secondery text-capitalize">신청하기</a>
 								</div>
 							</div>
 						</div>

@@ -60,7 +60,7 @@
 									class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 mt-5">
 									<c:if test="${userId ne null}">
 										<a href="sinchung.do?do_no=${dogam.do_no}&userId=${userId}"
-											class="btn btn-warning btn-hover-secondery text-capitalize">키우기</a>
+											class="btn btn-white-back btn-hover-third">키우기</a>
 									</c:if>
 								</div>
 							</div>
@@ -74,7 +74,7 @@
 							<div
 								class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
 								<a href="dogam.do"
-									class="btn btn-warning btn-hover-secondery text-capitalize">도감보기</a>
+									class="btn btn-white-back btn-hover-third">도감보기</a>
 							</div>
 						</div>
 					</div>
