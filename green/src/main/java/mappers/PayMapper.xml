@@ -2,17 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="payDAO">
-<!-- mem 결제수단 select one-->
-<select id="getPay" parameterType="string" resultType="member">
- select m.name as name, c.card_num as card_num, c.card_company as card_company, 
-a.acc_num as acc_num, a.bank as bank
-from member m, mem_card c, mem_account a 
-where m.id=c.id and m.id=a.id AND m.id=#{userId} 
-<!-- select m.name as name, a.acc_num as acc_num, a.bank as bank from member m, mem_account a 
-where m.id=a.id and m.id=#{userId}
-</select>
-<select id="getPay2" parameterType="string" resultType="member">
-select m.name as name, c.card_num as card_num, c.card_company as card_company from member m, mem_card c 
-where m.id=c.id and m.id=#{userId}-->
-</select> 
+	<!-- mem 간편결제수단 select one -->
+	<select id="getPay" parameterType="string" resultType="member">
+		select m.name as name, a.mem_acc_no, a.acc_num as acc_num, a.bank as bank from member m,
+		mem_account a
+		where m.id=a.id and m.id=#{userId}
+	</select>
+
+
+	<select id="getCPay" parameterType="string" resultType="member">
+		select m.name as name, c.mem_card_no, c.card_num as card_num, c.card_company as
+		card_company, c.expire_date from member m, mem_card c
+		where m.id=c.id and m.id=#{userId}
+	</select>
+
+	<!-- 일반카드 insert -->
+
 </mapper>

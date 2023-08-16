@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +14,13 @@ public class DonationServiceImple implements DonationService {
 	@Autowired
 	private DonationDAO donationDAO;
 
-
-	//List 
+	// List
 	@Override
 	public List<DonationVO> selectDona() {
 		return donationDAO.selectDona();
 	}
 
-	//get one
+	// get one
 	@Override
 	public DonationVO getDona(DonationVO vo) {
 		return donationDAO.getDona(vo);
@@ -33,7 +33,6 @@ public class DonationServiceImple implements DonationService {
 
 	@Override
 	public void updateDona(DonationVO vo) {
-		System.out.println("서비스"+vo.getDon_name());
 		donationDAO.updateDona(vo);
 	}
 
@@ -42,6 +41,19 @@ public class DonationServiceImple implements DonationService {
 		donationDAO.deleteDona(vo);
 	}
 
+	@Override
+	public List<HashMap<String, Object>> myDonaList(String id) {
+		return donationDAO.myDonaList(id);
+	}
 
+	@Override
+	public void goDona(HashMap<String, Object> map) {
+		donationDAO.goDona(map);
+	}
+
+	@Override
+	public void memDon(HashMap<String, Object> map) {
+		donationDAO.memDon(map);
+	}
 
 }

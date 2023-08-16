@@ -83,7 +83,9 @@
 				</exclusion>
 			</exclusions>
 			<scope>runtime</scope>
+			
 		</dependency>
+
 
 		<!-- @Inject -->
 		<dependency>
@@ -193,7 +195,13 @@
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.4</version>
 		</dependency>
-
+		
+		<!-- 이메일 인증 -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.5.6</version>
+		</dependency>
 	</dependencies>
 
 	<build>

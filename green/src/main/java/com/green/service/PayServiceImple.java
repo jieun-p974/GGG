@@ -18,5 +18,10 @@ public class PayServiceImple implements PayService{
 		// TODO Auto-generated method stub
 		return payDAO.getPay(userId);
 	}
+	@Override
+	public List<MemberVO> getPay2(String userId) {
+		// TODO Auto-generated method stub
+		return payDAO.getCPay(userId);
+	}
 
 }

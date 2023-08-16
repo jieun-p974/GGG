@@ -84,10 +84,6 @@
                         <label for="chal_ex">챌린지 설명</label>
                         <textarea name="chal_ex" id="chal_ex" placeholder="챌린지 설명을 적어주세요">${chall.chal_ex}</textarea>
                     </div>
-                     <div class="chal_check_method">
-                        <label for="chal_check_method">챌린지 설명</label>
-                        <textarea name="chal_check_method" id="chal_check_method" placeholder="챌린지 인증방법을 적어주세요">${chall.chal_check_method}</textarea>
-                    </div>
                     <div class="difficulty">
                         <label for="difficulty">챌린지 난이도</label>
                         <select name="difficulty" id="difficulty" value="${chall.difficulty}">

@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -66,13 +68,6 @@ public class MemberDAOImpl implements MemberDAO {
 		return mybatis.selectOne("member.searchPass", email);
 	}
 
-	@Override
-	public void goDona(MemberVO vo) {
-		System.out.println("mybatis ==> goDona()");
-		mybatis.update("member.goDona", vo);
-
-	}
-
 	// member card insert
 	@Override
 	public void cardInsert(MemberVO vo) {
@@ -80,11 +75,46 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.insert("member.cardInsert", vo);
 	}
 
+	@Override
+	public void cardYes(MemberVO vo) {
+		System.out.println("mybatis ==> cardYes()");
+		mybatis.update("member.cardYes", vo);
+	}
+	
 	// member bank account insert
 	@Override
 	public void accountInsert(MemberVO vo) {
 		System.out.println("mybatis ==> accountInsert()");
 		mybatis.insert("member.accountInsert", vo);
 	}
+	
+	@Override
+	public void accountYes(MemberVO vo) {
+		System.out.println("mybatis ==> accountYes()");
+		mybatis.update("member.accountYes", vo);
+	}
+	
+	// member card delete
+	@Override
+	public void cardDelete(MemberVO vo) {
+		System.out.println("mybatis ==> cardDelete()");
+		mybatis.delete("member.cardDelete", vo);
+	}
+	
+	// member bank account delete
+	@Override
+	public void accountDelete(MemberVO vo) {
+		System.out.println("mybatis ==> accountDelete()");
+		mybatis.delete("member.accountDelete", vo);
+	}
+
+	@Override
+	public void goDona(HashMap<String, Object> map) {
+		System.out.println("==>goDona()호출");
+		mybatis.update("member.goDona",map);
+		
+	}
+
+
 
 }

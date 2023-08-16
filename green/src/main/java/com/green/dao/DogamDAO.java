@@ -38,7 +38,8 @@ public interface DogamDAO {
 	// sinchung
 	public int dogamSinchung(HashMap map);
 	
-
+	// my yest
+	public int myYes(String id);
 	
 	
 }

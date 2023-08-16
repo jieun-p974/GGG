@@ -83,4 +83,20 @@ public class ChallengeServiceImpl implements ChallengeService{
 		challengeDAO.insertCertification(vo);
 	}
 
+	@Override
+	public MemChallengeVO redirectCheckPage(ChallengeCheckVO vo) {
+		return challengeDAO.redirectCheckPage(vo);
+	}
+
+	// 관리자 인증체크리스트
+	@Override
+	public List<ChallengeCheckVO> adminCerCheckList() {
+		return challengeDAO.adminCerCheckList();
+	}
+
+	@Override
+	public void updatePassYN(HashMap arr) {
+		challengeDAO.updatePassYN(arr);
+	}
+
 }
