@@ -55,10 +55,10 @@
 									<div class=" col-2 ">
 										<div class="d-flex justify-content-around align-items-end p-3">
 											<c:if test="${sessionScope.userId == community.id}">
-												<a href="communityModify.do?board_no=${community.board_no}" class="btn btn-warning btn-hover-secondery p-1">수정</a>
+												<a href="communityModify.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery p-1">수정</a>
 											</c:if>
 											<c:if test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
-												<a href="deleteCommunity.do?board_no=${community.board_no}" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
+												<a href="deleteCommunity.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
 											</c:if>
 										</div>
 										<div class="profile-picture justify-content-center d-flex p-3">
@@ -88,13 +88,20 @@
 												</div>
 											</div>
 											<hr style="margin: 0.5rem" />
-											<div class="media-feed-control d-flex justify-content-end">
-												<a href="like.do?board_no=${community.board_no}&id=${sessionScope.userId}" class="icon_links me-2"> 
-													<img class="sns_icon_like" src="/resources/imgs/heart.png" />${community.likecnt}
-												</a>
+											<div class="media-feed-control d-flex justify-content-end align-items-center" style="height:1rem">
 												<input type="hidden" name="board_no" value="${community.board_no}" />
-												<button class="icon_links me-2 p-0 showBtn" style="background: none; border: none;" id="showBtn">
-													<img class="sns_icon_comment" src="/resources/imgs/comment.png" />
+												<c:if test="${community.likechk < 1}">
+													<a href="like.do?board_no=${community.board_no}&id=${sessionScope.userId}&userId=${userId}" class="icon_links d-flex me-5"> 
+														<img class="sns_icon_like me-1" src="/resources/imgs/heart.png" /> ${community.likecnt}
+													</a>
+												</c:if>
+												<c:if test="${community.likechk > 0}">
+													<a href="unlike.do?board_no=${community.board_no}&id=${sessionScope.userId}&userId=${userId}" class="icon_links d-flex me-5"> 
+														<img class="sns_icon_like me-1" src="/resources/imgs/hearted.png" /> ${community.likecnt}
+													</a>
+												</c:if>
+												<button class="icon_links me-5 p-0 showBtn d-flex" style="background: none; border: none;" id="showBtn">
+													<img class="sns_icon_comment me-1" src="/resources/imgs/comment.png" /> ${community.replycnt}
 												</button>
 												<a href="#" class="icon_links">
 													<img class="sns_icon_share me-2" src="/resources/imgs/share.png" />
@@ -104,10 +111,10 @@
 											<!-- 댓글 달기 -->
 											<div class="media-body-reply-block comments">
 												<!-- 댓글작성 창 -->
-												<form action="reply.do" method="post">
+												<form action="reply.do?userId=${userId}" method="post">
 													<div class="replyWrite d-flex align-items-center">
 														<img class="r_img col-sm-0" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
-														<p class="reply_id col-2 m-0 ms-2">@${sessionScope.userId}</p>
+														<p class="reply_id col-2 m-0 ms-2">@${userId}</p>
 														<input type="hidden" name="id" value="${userId}" /> 
 														<input type="hidden" name="board_no" value="${community.board_no}" /> 
 														<input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
@@ -137,7 +144,7 @@
 																				<input type="button" class="edit btn btn-warning btn-hover-secondery text-black" onclick="reEdit()" value="수정" id="reEditBtn" />
 																			</c:if>
 																			<c:if test="${sessionScope.userId == reply.id or sessionScope.userType == 2}">
-																				<a href="deleteReply.do?com_no=${reply.com_no}" class="btn btn-warning btn-hover-secondery text-black">삭제</a>
+																				<a href="deleteReply.do?com_no=${reply.com_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery text-black">삭제</a>
 																			</c:if>
 																		</div>
 																	</div>
@@ -158,53 +165,13 @@
 						
 						
 						
-						
-						
-<%-- 						
-									<!-- 오른쪽 고정  -->
-			<div class="tabs">
-				<div class="buttons">
-					<button class="myBtn">
-						<a href="community.do?id=${sessionScope.userId}" class="myBtn">내 피드</a>
-					</button>
-					<button class="myBtn">
-						<a href="community.do" class="myBtn">전체 피드</a>
-					</button>
-					<button class="writeBtn" id="writeBtn" onclick="insert()">글쓰기</button>
-				</div>
-				
-				<form action="community.do" class="search">
-					<select name="searchOption" class="searchOption">
-						<option value="id">ID</option>
-						<option value="hashTag">hashTag</option>
-					</select>
-					<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete">
-					<button class="searching">검색</button>
-				</form>
-				
-				<div class="ranks">
-					1위 #환경보호(100,200회)<br />
-					2위 #제로웨이스트(50,123회)<br />
-					3위 #플로깅(10,500회)<br />
-				</div>
-			</div>
-
-			</div>
-			 --%>
-			
-			
-			
-			
-			
-			
-			
 			
 			
 					<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
 						<div class="row">
 							<div class="col-lg-12 mb-5">
-								<a href="community.do?id=${sessionScope.userId}" class="btn btn-white-back btn-hover-third">내 피드</a> 
-								<a href="community.do" class="btn btn-white-back btn-hover-third" ">전체 피드</a>
+								<a href="community.do?id=${userId}&userId=${userId}" class="btn btn-white-back btn-hover-third">내 피드</a> 
+								<a href="community.do?userId=${userId}" class="btn btn-white-back btn-hover-third" >전체 피드</a>
 								<a href="communityWrite.do" class="btn btn-white-back btn-hover-third">글쓰기</a>
 							</div>
 							<form action="community.do" class="search">
@@ -214,12 +181,14 @@
 								<option value="hashTag">hashTag</option>
 							</select>
 								<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete">
+								<input type="hidden" name="userId" value="${userId}" /> 
 								<button class="btn btn-white-back btn-hover-third">검색</button>
 							</div>
 							</form>
 							<div class="col-sm-12">
-								1위 #환경보호(100,200회)<br /> 2위 #제로웨이스트(50,123회)<br /> 3위
-								#플로깅(10,500회)<br />
+								1위 #환경보호(100,200회)<br /> 
+								2위 #제로웨이스트(50,123회)<br /> 
+								3위 #플로깅(10,500회)<br />
 							</div>
 						</div>
 					</div>

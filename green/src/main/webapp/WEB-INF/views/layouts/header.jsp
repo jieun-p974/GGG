@@ -49,7 +49,7 @@ System.out.println("현재 세션 : " + userId);
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto">
 						<li class="nav-item"><a class="nav-link text-capitalize"
-							aria-current="page" href="../community/community.do">그린커뮤니티</a></li>
+							aria-current="page" href="../community/community.do?userId=${userId}">그린커뮤니티</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize"
 							href="../challenge/challengeList.do">챌린지</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize"

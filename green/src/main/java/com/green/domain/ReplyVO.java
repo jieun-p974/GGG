@@ -14,6 +14,8 @@ public class ReplyVO {
 	private int com_no;
 	private String com_content;
 	private String m_img_addr;	
+	private String userId;	
+	
 
 	public ReplyVO() {
 		
@@ -59,4 +61,13 @@ public class ReplyVO {
 		this.com_content = com_content;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	
 }

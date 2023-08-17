@@ -99,12 +99,6 @@
       AND do_choice_YN='Y')=0
    </update>
    
-   my yes
-   <select id="myYes" resultType="Integer">
-   SELECT do_no from mem_dogam
-   where id=#{userId} AND do_choice_YN = 'Y';
-   </select>
-   
    name update
    <update id="updateDoname" parameterType="dogam">
    update mem_dogam set do_choice_YN='N', do_name=${do_name}
@@ -112,4 +106,10 @@
    </update>
  -->
  
+<!--    my yes -->
+   <select id="myYes" resultType="Integer">
+   SELECT do_no from mem_dogam
+   where id=#{userId} AND do_choice_YN = 'Y';
+   </select>
+   
 </mapper>

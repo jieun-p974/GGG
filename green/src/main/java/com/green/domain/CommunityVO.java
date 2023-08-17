@@ -37,14 +37,9 @@ public class CommunityVO {
 	private String com_content;
 	private int like_no;
 	private int likecnt;
-
-	public int getLikecnt() {
-		return likecnt;
-	}
-
-	public void setLikecnt(int likecnt) {
-		this.likecnt = likecnt;
-	}
+	private int replycnt;
+	private int likechk;
+	private String userId;
 
 	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	MultipartFile file2;
@@ -258,5 +253,38 @@ public class CommunityVO {
 	public void setLike_no(int like_no) {
 		this.like_no = like_no;
 	}
+	
+	public int getReplycnt() {
+		return replycnt;
+	}
+
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
+
+	public int getLikecnt() {
+		return likecnt;
+	}
+
+	public void setLikecnt(int likecnt) {
+		this.likecnt = likecnt;
+	}
+
+	public int getLikechk() {
+		return likechk;
+	}
+
+	public void setLikechk(int likechk) {
+		this.likechk = likechk;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 
 }

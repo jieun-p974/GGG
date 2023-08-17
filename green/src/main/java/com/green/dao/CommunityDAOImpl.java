@@ -23,9 +23,9 @@ public class CommunityDAOImpl implements CommunityDAO {
 	}
 
 	@Override
-	public List<CommunityVO> getCommunityList() {
+	public List<CommunityVO> getCommunityList(String userId) {
 		System.out.println("Mybatis => community list");
-		return mybatis.selectList("CommunityDAO.getCommunityList");
+		return mybatis.selectList("CommunityDAO.getCommunityList", userId);
 	}
 
 	public CommunityVO getCommunityDetail(CommunityVO vo) {
@@ -40,12 +40,12 @@ public class CommunityDAOImpl implements CommunityDAO {
 	
 	public void deleteCommunity(CommunityVO vo) {
 		System.out.println("Mybatis=> community delete");
-		mybatis.update("CommunityDAO.deleteCommunity", vo);
+		mybatis.delete("CommunityDAO.deleteCommunity", vo);
 	}
 	
-	public List<CommunityVO> getMyCommunityList(String id) {
+	public List<CommunityVO> getMyCommunityList(CommunityVO vo) {
 		System.out.println("Mybatis=> my community");
-		return mybatis.selectList("CommunityDAO.getMyCommunityList", id);
+		return mybatis.selectList("CommunityDAO.getMyCommunityList", vo);
 	}
 	
 	public ReplyVO getReplyDetail(ReplyVO vo) {
@@ -59,7 +59,7 @@ public class CommunityDAOImpl implements CommunityDAO {
 	
 	public void deleteReply(ReplyVO vo) {
 		System.out.println("Mybatis=> reply delete");
-		mybatis.update("CommunityDAO.deleteReply",vo);
+		mybatis.delete("CommunityDAO.deleteReply",vo);
 	}
 	
 	public List<ReplyVO> getReplyList() {
@@ -75,8 +75,14 @@ public class CommunityDAOImpl implements CommunityDAO {
 	
 	@Override
 	public void likeInsert(HeartVO vo) {
-		System.out.println("Mybatis => heart insert");
+		System.out.println("Mybatis => like insert");
 		mybatis.insert("CommunityDAO.likeInsert",vo);
+	}
+	
+	@Override
+	public void deleteLike(HeartVO vo) {
+		System.out.println("Mybatis => like delete");
+		mybatis.delete("CommunityDAO.deleteLike", vo);
 	}
 	
 	

@@ -46,19 +46,19 @@ public class CommunityController {
 	@RequestMapping(value="/save.do")
 	public String communityInsert(CommunityVO vo) throws IOException{
 		communityService.insertCommunity(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	// community list (all, my)
 	@RequestMapping("/community.do")
-	public void getCommunityList(Model model,String id) {
+	public void getCommunityList(Model model,CommunityVO vo) {
 		List<CommunityVO> list = null;
 		List<ReplyVO> listRe = null;
-		if (id != null) {
-			list = communityService.getMyCommunityList(id);
+		if (vo.getId() != null) {
+			list = communityService.getMyCommunityList(vo);
 			listRe = communityService.getReplyList();
 		} else {
-			list = communityService.getCommunityList();
+			list = communityService.getCommunityList(vo.getUserId());
 			listRe = communityService.getReplyList();
 		}
 		model.addAttribute("list", list);
@@ -75,14 +75,14 @@ public class CommunityController {
 	@RequestMapping(value = "/updateCommunity.do")
 	public String updateCommunity(@ModelAttribute("community") CommunityVO vo) {
 		communityService.updateCommunity(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	// delete
 	@RequestMapping(value = "/deleteCommunity.do")
 	public String deleteCommunity(CommunityVO vo) {
 		communityService.deleteCommunity(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	
@@ -97,21 +97,21 @@ public class CommunityController {
 	@RequestMapping(value = "/updateReply.do")
 	public String updateReply(@ModelAttribute("reply") ReplyVO vo) {
 		communityService.updateReply(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	//reply delete
 	@RequestMapping(value = "/deleteReply.do")
 	public String deleteReply(ReplyVO vo) {
 		communityService.deleteReply(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	//reply insert
 	@RequestMapping(value="/reply.do")
 	public String replyInsert(ReplyVO vo) throws IOException{
 		communityService.insertReply(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	// reply list
@@ -130,7 +130,13 @@ public class CommunityController {
 	@RequestMapping(value="/like.do")
 	public String likeInsert(HeartVO vo) throws IOException{
 		communityService.insertLike(vo);
-		return "redirect:/community/community.do";
+		return "redirect:/community/community.do?userId="+vo.getUserId();
+	}
+	
+	@RequestMapping(value="/unlike.do")
+	public String deleteLike(HeartVO vo) throws IOException {
+		communityService.deleteLike(vo);
+		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
 	

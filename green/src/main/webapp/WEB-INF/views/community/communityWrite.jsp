@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	
 	function cancleWrite() {
-		location.href = "community.do"
+		location.href = "community.do?userId=${userId}"
 	}
 	
 </script>
@@ -37,6 +37,7 @@
 										<textarea name="b_content" id="b_content" placeholder="글을입력하세요" class="form-control"></textarea>
 									</div>
 									<input type="hidden" name="id" value="${userId}" />
+									<input type="hidden" name="userId" value="${userId}" />
 									<div class="comm_img  mb-3 col-12 p-3">
 										<label for="comm_img" class="col-12 mb-1 text-start">사진 첨부하기1</label>
 										<input type="file" name="file1" onchange="readURL1(this)" class="col-12 mb-1 text-start">
