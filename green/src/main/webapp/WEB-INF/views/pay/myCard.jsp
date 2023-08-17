@@ -96,7 +96,7 @@
 						<input type="text" name="CVC" id="cvcnum" class="cvcnum"
 							placeholder="카드 뒷면 3자리" minlength="3">
 					</div>
-					<button class="registBtn" id="registBtn" type="submit">등록</button>
+					<button class="registBtn" id="registBtn" type="submit">결제</button>
 				</div>
 
 			</div>

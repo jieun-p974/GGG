@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript"	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -27,7 +29,7 @@ function go() {
 	if ($('#check_a').prop('checked') == true){
 		location.href = "accountInput.do";
 	}else if($('#check_c').prop('checked') == true){
-		location.href = "card.do";
+		location.href = "test.do";
 	}else if($('#check_sa').prop('checked') == true){
 		location.href = "myAccount.do";
 	}else if($('#check_sc').prop('checked') == true){
@@ -35,7 +37,7 @@ function go() {
 	}
 }
 </script>	
-	
+
 <title>도전권 결제</title>
 </head>
 <body>
@@ -63,8 +65,8 @@ function go() {
 			<div class="kind">
 				<p class="txt">결제권 종류</p>
 				<select name="dojun_kind" id="dojun_kind">
-					<option value="chal3">3회 도전권 (3000원)</option>
-					<option value="chal7">7회 도전권 (7000원)</option>
+					<option value="chal3">3회 도전권 (3,000원)</option>
+					<option value="chal7">7회 도전권 (5,000원)</option>
 					<option value="chali">무제한 도전권 (10,000원)</option>
 				</select>
 			</div>
@@ -102,10 +104,12 @@ function go() {
 						<input type="radio" name="chk_method" id="check_c">일반 카드
 					</div>
 					
+					
 				</div>
 				<div class="btn">
 					<button class="payBtn" onclick="go()">결제하기</button>
 				</div>
+				<label>※ 공지: 챌린지 기간은 결제일로부터 30일 까지 입니디.</label>
 			</div>
 		</div>
 	</div>
