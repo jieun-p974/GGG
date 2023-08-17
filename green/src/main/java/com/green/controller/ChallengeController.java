@@ -1,6 +1,9 @@
 package com.green.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,9 +66,32 @@ public class ChallengeController {
 	// get challenge list - user or admin
 	@RequestMapping(value = { "challengeList.do", "/adminChallenge.do" })
 	public void getChallengeList(Model model) {
-		List<ChallengeVO> list = null;
-		list = challengeService.getChallengeList();
-		model.addAttribute("list", list);
+		// 오늘날짜 yyyy-MM-dd로 생성
+		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			// 비교할 date와 today를데이터 포맷으로 변경
+			Date today = new Date(dateFormat.parse(todayfm).getTime());
+
+			List<ChallengeVO> list = null;
+			list = challengeService.getChallengeList();
+
+			for (ChallengeVO v : list) {
+				String strEnd = v.getChal_end_date().toString();
+				Date endDate = new Date(dateFormat.parse(strEnd).getTime());
+
+				//compareTo메서드를 통한 날짜비교
+				int compare = endDate.compareTo(today); 
+				if(compare < 0) {
+					challengeService.endDateCheck(v);
+				}
+			}
+			model.addAttribute("list", list);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	// get one
@@ -97,9 +123,9 @@ public class ChallengeController {
 	@RequestMapping(value = "/checkChallenge.do")
 	public void getChalDetailForCertification(String id, ChallengeVO vo, Model model) {
 		HashMap<String, Object> param = new HashMap<String, Object>();
-		if(id!=null) {
-			param.put("id",id);
-			param.put("chal_no",vo.getChal_no());
+		if (id != null) {
+			param.put("id", id);
+			param.put("chal_no", vo.getChal_no());
 		}
 		model.addAttribute("chall", challengeService.getChallengeDetail(vo));
 		model.addAttribute("check", challengeService.getChallengeCheck(param));
@@ -112,26 +138,26 @@ public class ChallengeController {
 	 * 
 	 * }
 	 */
-	
-	//certification table insert
-	@RequestMapping(value="/goCertification.do")
+
+	// certification table insert
+	@RequestMapping(value = "/goCertification.do")
 	public String insertCertification(ChallengeCheckVO vo) throws IOException {
 		System.out.println(vo.getCer_img1_addr());
 		challengeService.insertCertification(vo);
 		MemChallengeVO reVo = challengeService.redirectCheckPage(vo);
-		return "redirect:/challenge/checkChallenge.do?chal_no="+reVo.getChal_no()+"&id="+reVo.getId();
+		return "redirect:/challenge/checkChallenge.do?chal_no=" + reVo.getChal_no() + "&id=" + reVo.getId();
 	}
-	
-	//관리자 인증 체크 리스트
-	@RequestMapping(value="/adminChallengeCertList")
-	public void adminCerCheckList(Model model,String chal_name) {
-		List<ChallengeCheckVO> list = challengeService.adminCerCheckList();
+
+	// 관리자 인증 체크 리스트
+	@RequestMapping(value = "/adminChallengeCertList")
+	public void adminCerCheckList(Model model, String chal_name, int chal_no) {
+		List<ChallengeCheckVO> list = challengeService.adminCerCheckList(chal_no);
 		model.addAttribute("cerList", list);
 		model.addAttribute("chal_name", chal_name);
 	}
-	
-	//체크한것만 전달하기
-	@RequestMapping(value="/yesChecked.do")
+
+	// 체크한것만 전달하기
+	@RequestMapping(value = "/yesChecked.do")
 	public String yesCheckedList(@RequestParam List<String> valueArr) {
 		HashMap<String, List<String>> arr = new HashMap<String, List<String>>();
 		arr.put("arr", valueArr);

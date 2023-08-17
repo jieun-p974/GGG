@@ -69,9 +69,9 @@
 					html+='<div class="overflow-hidden position-relative d-flex flex-column align-items-center justify-content-center mx-auto text-center">';
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">';
-					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='<p class="pt-0 pb-0">기사 제목 : ${news.n_title}</p>';
 					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='</a></div></div></div></div>';
 				</c:if>
 			</c:forEach>
@@ -86,9 +86,9 @@
 					html+='<div class="overflow-hidden position-relative d-flex flex-column align-items-center justify-content-center mx-auto text-center">';
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">';
-					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='<p class="pt-0 pb-0">기사 제목 : ${news.n_title}</p>';
 					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='</a></div></div></div></div>';
 				</c:if>
 			</c:forEach>
@@ -104,9 +104,9 @@
 					html+='<div class="overflow-hidden position-relative d-flex flex-column align-items-center justify-content-center mx-auto text-center">';
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">';
-					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='<p class="pt-0 pb-0">기사 제목 : ${news.n_title}</p>';
 					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='</a></div></div></div></div>';
 				</c:if>
 			</c:forEach>
@@ -121,9 +121,9 @@
 					html+='<div class="overflow-hidden position-relative d-flex flex-column align-items-center justify-content-center mx-auto text-center">';
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">';
-					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='<p class="pt-0 pb-0">기사 제목 : ${news.n_title}</p>';
 					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='</a></div></div></div></div>';
 				</c:if>
 			</c:forEach>
@@ -137,9 +137,9 @@
 					html+='<div class="overflow-hidden position-relative d-flex flex-column align-items-center justify-content-center mx-auto text-center">';
 					html+='<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">';
 					html+='<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">';
-					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='<p class="pt-0 pb-0">기사 제목 : ${news.n_title}</p>';
 					html+='<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">';
+					html+='<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>';
 					html+='</a></div></div></div></div>';
 			</c:forEach>
 			$("#newsList").empty();
@@ -182,9 +182,9 @@
 									<div class="overflow-hidden position-relative d-flex flex-column align-items-center justify-content-center mx-auto text-center">
 										<a class="news_one" href="newsDetail.do?news_no=${news.news_no}">
 											<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">
-											<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>
 											<p class="pt-0 pb-0">기사 제목 : ${news.n_title}</p>
 											<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">
+											<p class="mb-0 pt-0 pb-0">작성일 : <fmt:formatDate value="${news.n_reg_date}" pattern="yyyy-MM-dd"/></p>
 										</a>
 									</div>
 								</div>

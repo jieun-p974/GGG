@@ -92,15 +92,22 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 
 	//관리자 인증체크 리스트 출력
 	@Override
-	public List<ChallengeCheckVO> adminCerCheckList() {
+	public List<ChallengeCheckVO> adminCerCheckList(int chal_no) {
 		System.out.println("Mybatis => admin certification check list");
-		return mybatis.selectList("ChallengeDAO.adminCerCheckList");
+		return mybatis.selectList("ChallengeDAO.adminCerCheckList",chal_no);
 	}
 
 	@Override
 	public void updatePassYN(HashMap<String, List<String>> arr) {
 		System.out.println("Mybatis => updatePassYN");
 		mybatis.update("ChallengeDAO.updatePassYN",arr);
+	}
+
+	// 날짜 지나면 completion Y로 업데이트
+	@Override
+	public void endDateCheck(ChallengeVO vo) {
+		System.out.println("Mybatis => updateendDateCheck");
+		mybatis.update("ChallengeDAO.endDateCheck",vo);
 	}
 
 }

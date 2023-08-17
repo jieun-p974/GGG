@@ -43,8 +43,11 @@ public interface ChallengeService {
 	MemChallengeVO redirectCheckPage(ChallengeCheckVO vo);
 	
 	//관리자 인증 체크 리스트
-	List<ChallengeCheckVO> adminCerCheckList();
+	List<ChallengeCheckVO> adminCerCheckList(int chal_no);
 	
 	//인증 여부 변경
 	void updatePassYN(HashMap arr);
+	
+	//날짜 체크하고 끝난건지 아닌지 체크하기
+	void endDateCheck(ChallengeVO vo);
 }

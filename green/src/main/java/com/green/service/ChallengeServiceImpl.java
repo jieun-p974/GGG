@@ -90,13 +90,18 @@ public class ChallengeServiceImpl implements ChallengeService{
 
 	// 관리자 인증체크리스트
 	@Override
-	public List<ChallengeCheckVO> adminCerCheckList() {
-		return challengeDAO.adminCerCheckList();
+	public List<ChallengeCheckVO> adminCerCheckList(int chal_no) {
+		return challengeDAO.adminCerCheckList(chal_no);
 	}
 
 	@Override
 	public void updatePassYN(HashMap arr) {
 		challengeDAO.updatePassYN(arr);
+	}
+
+	@Override
+	public void endDateCheck(ChallengeVO vo) {
+		challengeDAO.endDateCheck(vo);
 	}
 
 }

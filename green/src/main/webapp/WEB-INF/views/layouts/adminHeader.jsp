@@ -32,7 +32,7 @@ System.out.println("현재 세션 : " + userId);
 		<div class="container">
 			<div
 				class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block  justify-content-xxl-end justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-sm-end justify-content-sm-center ">
-				<h6 class="text-black mb-0">admin관리자2023. 8. 11 오후 8:00:32접속</h6>
+				<h6 style="fontcolor=red"> ${userId} ${userName} ${sessionTime} 접속  </h6>
 			</div>
 			<nav class="navbar navbar-expand-xl py-0">
 				<div class="logo">

@@ -77,7 +77,7 @@
 	<select id="completeList" resultMap="myChall">
 		SELECT DISTINCT c.chal_no as chal_no,chal_name, m_c_no
 		FROM mem_chal, challenge c
-		WHERE id = #{userId} AND success_YN = 'Y' AND mem_chal.chal_no = c.chal_no;
+		WHERE mem_chal.chal_no = c.chal_no AND id = #{userId} AND (success_YN = 'Y' OR completion_YN='Y');
 	</select>
 	
 	<!-- 인증 갯수 -->
@@ -102,8 +102,10 @@
 	
 	<!-- 인증관리에 필요한 쿼리들 -->
 	<select id="adminCerCheckList" resultType="checkChallenge">
-		SELECT cer_no,m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN FROM certification WHERE pass_YN='N';
+		SELECT cer_no,c.m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN 
+		FROM certification c, mem_chal m WHERE pass_YN='N' AND chal_no=#{chal_no} AND c.m_c_no = m.m_c_no
 	</select>
+	
 	<update id="updatePassYN">
 		UPDATE certification SET pass_YN='Y'
 		WHERE cer_no IN (
@@ -111,5 +113,10 @@
 		#{a}
 		</foreach>
 		)
+	</update>
+	
+	<!-- chal_end_date 지나면 complete -->
+	<update id="endDateCheck">
+		UPDATE challenge SET completion_YN = 'Y' WHERE chal_no = #{chal_no}
 	</update>
 </mapper>
