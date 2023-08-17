@@ -16,9 +16,9 @@
 <title>도감 사진추가</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container" >
 		<%@include file="../layouts/adminHeader.jsp"%>
-		<div class="newsWriting">
+		<div class="newsWriting" style="top:500px;">
             <div class="title">도감 사진 첨부 페이지</div>
 			<div class="writing">
 				<form action="saveImgDogam.do" method="post" id="dogamInput" enctype="multipart/form-data">

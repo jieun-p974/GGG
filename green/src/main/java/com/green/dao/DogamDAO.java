@@ -23,6 +23,7 @@ public interface DogamDAO {
 	public List<HashMap<String, Object>> getMyDogamList(HashMap map);
 	public List<HashMap<String, Object>> getMyDogam(HashMap map);
 	public HashMap<String, Object> getDetail(HashMap map);
+	
 	// insert
 	public void dogamInsert(DogamVO vo);
 	
@@ -38,8 +39,18 @@ public interface DogamDAO {
 	// sinchung
 	public int dogamSinchung(HashMap map);
 	
-	// my yest
+	// my yes
 	public int myYes(String id);
+	
+	// main animal choice
+	public int mainChoice(HashMap map);
+	
+	// main animal cancle
+	public int mainCancle(HashMap map);
+	public int mainCancle3(String id);
+	
+	// name update
+	public int updateDoname(HashMap map);
 	
 	
 }

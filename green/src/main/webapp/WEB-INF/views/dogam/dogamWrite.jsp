@@ -32,6 +32,8 @@
 				<form action="saveDogam.do" method="post" id="dogamInput">			
 					<label for="title">동물이름</label> 
 					<input type="text" name="do_title" id="do_title" >
+					<label for="title">요약정보</label> 
+					<input type="text" name="do_yoyak" id="do_yoyak" style="width:1000px;">
 					<textarea name="do_content" id="do_content" placeholder="설명을 입력해 주세요."
 						style="margin-top: 1%"></textarea>
 					<div class="buttons" style="margin-top:2%">

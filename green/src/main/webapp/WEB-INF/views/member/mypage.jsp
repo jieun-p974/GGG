@@ -119,8 +119,8 @@
 					<div class="row">
 						<div
 							class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-							<h3 class="text-white mb-3">아직 키우고 있는 동물이 없으시군요? <br/>
-							지금바로 다양한 캐릭터들을 만나보세요.</h3>
+							<h3 class="text-white mb-3">아직 대표캐릭터를 설정하지 않으셨군요? <br/>
+							더 많은 캐릭터들을 만나보세요.</h3>
 						</div>
 					</div>
 					<a class="btn btn-warning btn-hover-secondery"

@@ -21,6 +21,9 @@
 							<div class="animal_info">
 								<img class="img" src="../resources/imgs/dogam/${detail.lv_img}" />
 								<p class="name mb-5">${detail.do_title}</p>
+								<c:if test="${detail.nowLv eq 3 && detail.do_name ne null}">
+								<p class="fs-6">제 이름은 ${detail.do_name}입니다.</p>
+								</c:if>
 							</div>
 							<div class="animal_exp mb-5">
 								<div class="exps mb-2">
@@ -41,9 +44,36 @@
 								<img class="arrow2 me-2" src="../../../resources/imgs/arrow.png" />
 								<img class="level_img3" src="../resources/imgs/dogam/${detail.img3}" style="width:95px; height:95px;"/>
 							</div>
-								<c:if test="${detail.nowLv eq 3}">
+							<c:if test="${detail.do_choice_YN eq 'N' && detail.nowLv ne 3}">
+									<div class="d-flex align-items-center">
+									<a href="mainChoice.do?do_no=${detail.do_no}&userId=${userId}"
+									class="btn btn-warning btn-hover-secondery">
+									대표캐릭터 설정</a>
+									</div>
+							</c:if>
+							
+							<c:if test="${detail.do_choice_YN eq 'Y'}">
+									<div class="d-flex align-items-center">
+									<a href="mainCancle.do?do_no=${detail.do_no}&userId=${userId}"
+									class="btn btn-warning btn-hover-secondery">
+									대표캐릭터 설정취소</a>
+									</div>
+							</c:if>
+							
+								<c:if test="${detail.nowLv eq 3 && detail.do_name eq null}">
 								<div class="d-flex align-items-center">
-									<button class="btn btn-warning btn-hover-secondery">이름 지어주기</button></div>
+								<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}"
+									class="btn btn-warning btn-hover-secondery">
+									이름 지어주기</a>
+									</div>
+								</c:if>
+								
+								<c:if test="${detail.nowLv eq 3 && detail.do_name ne null}">
+								<div class="d-flex align-items-center">
+								<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}"
+									class="btn btn-warning btn-hover-secondery">
+									개명신청</a>
+									</div>
 								</c:if>
 						</div>
 					</div>
@@ -58,7 +88,9 @@
 						<div
 							class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
 							<a href="dogam.do"
-								class="btn btn-warning btn-hover-secondery text-capitalize">도감보기</a>
+								class="btn btn-warning btn-hover-secondery text-capitalize">전체도감보기</a>
+								<a href="myDogam.do?id=${userId}"
+								class="btn btn-warning btn-hover-secondery text-capitalize">나의도감보기</a>
 						</div>
 					</div>
 				</div>

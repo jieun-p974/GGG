@@ -63,7 +63,7 @@
 					</a>
 				</button>
 			<div class="btn mb-4">
-				<a href="deleteCard.do?mem_card_no=${mcn}">카드삭제</a>
+				<a href="deleteCard.do?id=${userId}&mem_card_no=${mcn}">카드삭제</a>
 			</div>
 		</div>
 

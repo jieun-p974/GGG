@@ -139,7 +139,7 @@
   align-items: center;
 }
 
-/* 도감에서 쓰는 css */
+/* �룄媛먯뿉�꽌 �벐�뒗 css */
 .d_list_img {
   background: linear-gradient(to left, #d9d9d9, #d9d9d9);
   border-radius: 50%;
@@ -172,4 +172,12 @@ height: 100%;
 }
 .dona_text {
     width: 95%;
+}
+
+.pickme{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap:1rem;
+  align-items : end;
 }

@@ -27,6 +27,10 @@
 				<label for="do_title">동물 이름</label> 
 					<input type="text" id="do_title" name="do_title" value="${dogam.do_title}"/><br/><br/>
 				
+				<label for="do_yoyak">요약정보</label> 
+					<input type="text" id="do_yoyak" name="do_yoyak" value="${dogam.do_yoyak}"
+					style="width:1000px;"/><br/><br/>
+					
 					<textarea type="text" id="do_content" name="do_content">${dogam.do_content}</textarea>
 				
 					<div class="buttons" style="margin-top:2%">

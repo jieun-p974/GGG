@@ -44,12 +44,11 @@
 
 <body>
 	<div class="limiter">
-		<%@include file="../layouts/header.jsp"%>
+		<%-- <%@include file="../layouts/header.jsp"%> --%>
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form mt-5" name="form"
-					action="loginSave.do" method="post" name="userinput">
-										<span class="login100-form-title mt-5"> 회원가입 </span>
+				<form class="login100-form validate-form mt-5" name="form" action="signupSave.do" method="post" enctype="multipart/form-data">
+					<span class="login100-form-title mt-5"> 회원가입 </span>
 					<p class=input_title>아이디</p>
 					<div class="d-flex">
 					<div class="wrap-input100 validate-input col-9"
@@ -74,7 +73,7 @@
 					<div class="wrap-input100 validate-input"
 						data-validate="비밀번호를 입력하세요." onkeyup="enter()">
 						 <input class="input100 mt-2 mb-3" type="password"
-							name="passCheck" id="passCheck" placeholder="비밀번호를 입력하세요."
+							 id="passCheck" placeholder="비밀번호를 입력하세요."
 							onkeyup="enter()"> <span class="focus-input100"></span>
 					</div>
 					
@@ -103,9 +102,9 @@
 					<div class="wrap-input100 validate-input">
 						
 						<div class="d-flex col-12 p-0">
-							<input class="input100 mt-2 mb-3" type="text" name="emailCheck"
+							<input class="input100 mt-2 mb-3" type="text" 
 								id="emailCheck" placeholder="인증번호를 입력하세요." onkeyup="enter()">
-							<button class="login100-form-btn mt-2 mb-3 ms-2" style="width:30%;"  name="Submit" id="Submit"
+							<button class="login100-form-btn mt-2 mb-3 ms-2" style="width:30%;"  
 								>발송</button>
 							<span class="focus-input100"></span>
 						</div>
@@ -114,13 +113,13 @@
 					<p class=input_title> 프로필사진(선택)</p>
 					<div class="wrap-input100 validate-input">
 						 <input class="input100 mt-2 mb-3" type="file" name="file" id="file"
-						onkeyup="enter()" accept=".jpg, .png, .svg, .jpeg"/>
+						onkeyup="enter()" />
 						<span class="focus-input100"></span>
 					</div>
 
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" id="confirm">회원가입</button>
+						<button class="login100-form-btn" type="button" id="confirm">회원가입</button>
 					</div>
 
 
@@ -186,8 +185,7 @@
 			return false;
 		}
 
-		document.userinput.submit();
-		alert('가입을 축하합니다!');
+		document.form.submit();
 	}
 
 	// 아이디 중복체크
@@ -204,7 +202,7 @@
 				$('#idCheckResult').html(resultData);
 			}
 		});
-	})
+	});
 </script>
 	<%@include file="../layouts/footer.jsp"%>
 </body>

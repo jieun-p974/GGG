@@ -29,14 +29,13 @@
 	</select>
 
 	<!-- member info -->
-	<select id="memberInfo" parameterType="member"
-		resultType="member">
+	<select id="memberInfo" parameterType="member" resultType="member">
 		select * from member where id = #{id}
 	</select>
 
 	<!-- member info edit -->
 	<update id="memberUpdate" parameterType="member">
-		update member set name=#{name}, password = #{password}, tel = #{tel}
+		update member set password = #{password}, tel = #{tel}
 		<if test='m_img != null'>, m_img = #{m_img}, m_img_addr = #{m_img_addr} </if>
 		where id = #{id}
 	</update>
@@ -47,8 +46,7 @@
 	</select>
 
 	<!-- search pw -->
-	<select id="searchPass" parameterType="String"
-		resultType="String">
+	<select id="searchPass" parameterType="String" resultType="String">
 		select password FROM member where email=#{email}
 	</select>
 
@@ -81,12 +79,22 @@
 	<delete id="cardDelete" parameterType="member" >
 	delete from mem_card where mem_card_no=#{mem_card_no}
 	</delete>
+	
+	<update id="cardNo" parameterType="member">
+	<![CDATA[
+	update member set card_reg_YN = 'N'
+	WHERE id=#{id} and ((SELECT count(*) FROM mem_card WHERE id=#{id}) < 1)
+	]]>
+	</update>
 
 	<!-- member bank account delete -->
 	<delete id="accountDelete" parameterType="member" >
 	delete from mem_account where mem_acc_no=#{mem_acc_no}
 	</delete>
 	
-	
+	<update id="accountNo" parameterType="member">
+	update member set account_reg_YN = 'N'
+	WHERE id=#{id} and NOT EXISTS (SELECT * FROM mem_account WHERE id=#{id})	
+	</update>
 
 </mapper>

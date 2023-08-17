@@ -10,7 +10,6 @@ String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
 String userSdate = (String) session.getAttribute("userSdate");
-String userBday = (String) session.getAttribute("userBday");
 
 System.out.println("현재 세션 : " + userId);
 %>
