@@ -134,9 +134,10 @@ public class MemberServiceImpl implements MemberService {
 	public void accountDelete(MemberVO vo) {
 		memberDAO.accountDelete(vo);
 	}
-
-
-
-
 	
+	// select member dogeon last date
+	@Override
+	public String dogeonExp(MemberVO vo) {
+		return memberDAO.dogeonExp(vo);
+	}
 }

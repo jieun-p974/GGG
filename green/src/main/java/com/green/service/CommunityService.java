@@ -32,7 +32,7 @@ public interface CommunityService {
 	void insertReply(ReplyVO vo);
 
 	//reply list
-	List<ReplyVO> getReplyList();
+	List<ReplyVO> getReplyList(int board_no);
 
 	void deleteReply(ReplyVO vo);
 

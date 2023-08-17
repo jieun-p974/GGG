@@ -115,6 +115,14 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	@Override
+	public String dogeonExp(MemberVO vo) {
+		System.out.println("==>dogeonExp 호출");
+		String lastDate = mybatis.selectOne("member.dogeonExp",vo);
+		System.out.println("d"+lastDate);
+		return lastDate;
+	}
+
 
 
 }

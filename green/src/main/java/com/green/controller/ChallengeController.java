@@ -22,13 +22,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.green.domain.ChallengeCheckVO;
 import com.green.domain.ChallengeVO;
 import com.green.domain.MemChallengeVO;
+import com.green.domain.MemberVO;
 import com.green.service.ChallengeService;
+import com.green.service.MemberService;
 
 @Controller
 @RequestMapping("/challenge/")
 public class ChallengeController {
 	@Autowired
 	private ChallengeService challengeService;
+	@Autowired
+	private MemberService memberService;
 
 	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "{url}.do")
@@ -49,18 +53,29 @@ public class ChallengeController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("chal_no", chal_no);
 		map.put("userId", userId);
-		int result = challengeService.challengeSinchung(map);
-
-		if (result > 0) {
-			rd.addFlashAttribute("msg", "신청이 완료되었습니다.");
-			rd.addFlashAttribute("url", "/challenge/myChallenge.do?userId=" + userId);
+		
+		//tryNum이 0이면 챌린지 신청 못하게
+		MemberVO vo = new MemberVO();
+		vo.setId(userId);
+		int tryNum = memberService.memberInfo(vo).getTryNum();
+		if(tryNum > 0) {
+			int result = challengeService.challengeSinchung(map);
+	
+			if (result > 0) {
+				rd.addFlashAttribute("msg", "신청이 완료되었습니다.");
+				rd.addFlashAttribute("url", "/challenge/myChallenge.do?userId=" + userId);
+	
+				return "redirect:/challenge/challengeDetail.do?chal_no=" + chal_no;
+			}
+			rd.addFlashAttribute("msg", "이미 신청한 챌린지 입니다.");
+			rd.addFlashAttribute("url", "/challenge/challengeList.do");
 
 			return "redirect:/challenge/challengeDetail.do?chal_no=" + chal_no;
+		}else {
+			rd.addFlashAttribute("msg", "도전 횟수가 부족합니다.");
+			rd.addFlashAttribute("url", "/challenge/challengeList.do");
+			return "redirect:/challenge/challengeDetail.do?chal_no=" + chal_no;
 		}
-		rd.addFlashAttribute("msg", "이미 신청한 챌린지 입니다.");
-		rd.addFlashAttribute("url", "/challenge/challengeList.do");
-
-		return "redirect:/challenge/challengeDetail.do?chal_no=" + chal_no;
 	}
 
 	// get challenge list - user or admin

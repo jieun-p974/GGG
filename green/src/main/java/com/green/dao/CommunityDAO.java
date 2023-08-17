@@ -26,7 +26,7 @@ public interface CommunityDAO {
 
 	public void replyWrite(ReplyVO vo);
 
-	public List<ReplyVO> getReplyList();
+	public List<ReplyVO> getReplyList(int board_no);
 	
 	public ReplyVO getReplyDetail(ReplyVO vo);
 

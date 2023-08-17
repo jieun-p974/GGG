@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.green.domain.CommunityVO;
 import com.green.domain.HeartVO;
 import com.green.domain.NotificationVO;
@@ -56,13 +58,13 @@ public class CommunityController {
 		List<ReplyVO> listRe = null;
 		if (id != null) {
 			list = communityService.getMyCommunityList(id);
-			listRe = communityService.getReplyList();
+//			listRe = communityService.getReplyList();
 		} else {
 			list = communityService.getCommunityList();
-			listRe = communityService.getReplyList();
+//			listRe = communityService.getReplyList();
 		}
 		model.addAttribute("list", list);
-		model.addAttribute("listRe", listRe);
+//		model.addAttribute("listRe", listRe);
 	}
 	
 	// get one
@@ -115,15 +117,18 @@ public class CommunityController {
 	}
 	
 	// reply list
-//	@ResponseBody
-//	@RequestMapping(value="/getReply.do")
-//	public void getReplyList(Model model) {
-//		System.out.println("커뮤니티 컨트롤러 ");
-//		List<ReplyVO> listRe = null;
-//		listRe = communityService.getReplyList();
-//		model.addAttribute("listRe", listRe);
-//	}
-//	
+	@ResponseBody
+	@RequestMapping(value="/getReply.do")
+	public List getReplyList(int board_no) {
+		System.out.println("커뮤니티 컨트롤러 "+board_no);
+		List<ReplyVO> listRe = communityService.getReplyList(board_no);
+
+		for(ReplyVO vo : listRe) {
+			System.out.println("댓글 : "+vo.getCom_content());
+		}
+		return listRe;
+	}
+	
 	
 	//like
 	//click like

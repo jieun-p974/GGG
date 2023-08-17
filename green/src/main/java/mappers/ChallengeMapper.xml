@@ -17,6 +17,11 @@
 		(SELECT chal_no FROM mem_chal WHERE chal_no=#{chal_no} AND id=#{userId});
 	</insert> 
 
+	<!-- 챌린지 신청하면 회원 잔여 횟수 차감 -->
+	<update id="minusTryNum">
+		UPDATE member SET tryNum = tryNum-1 WHERE id=#{userId}
+	</update>
+
 	<!-- select one Challenge -->
 	<select id="getChallengeDetail" parameterType="challenge" resultType="challenge">
 		SELECT * FROM challenge WHERE chal_no = #{chal_no}

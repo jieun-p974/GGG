@@ -75,11 +75,11 @@
 		DELETE FROM reply WHERE com_no=#{com_no}
 	</delete>
 	
-	<!-- show reply -->
+	<!-- get reply -->
 	<select id="getReplyList" resultType="reply">
 		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
 		FROM reply r, member m 
-		WHERE m.id = r.id 
+		WHERE m.id = r.id AND r.board_no = #{board_no}
 		ORDER BY com_no desc
 	</select>
 	

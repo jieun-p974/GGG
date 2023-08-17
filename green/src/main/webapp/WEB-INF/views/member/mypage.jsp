@@ -76,7 +76,10 @@
                   ${today-sdate2}일 째&nbsp🌏
                </h6>
                <h6>
-                  보유포인트 : ${userPoint} p <br /> <br /> 잔여도전횟수 : ${userTryNum} 회
+                  	보유포인트 : ${userPoint} p <br /> <br /> 잔여도전횟수 : ${userTryNum} 회
+               </h6>
+               <h6 class="mt-4">
+                  	도전권은 ${dogeonGigan} 까지 <br />사용가능합니다.
                </h6>
             </div>
          </div>

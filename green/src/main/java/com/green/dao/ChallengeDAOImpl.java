@@ -26,8 +26,9 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 	
 	@Override
 	public int challengeSinchung(HashMap map) {
-		System.out.println("Mybatis => chall sinchung");
+		System.out.println("Mybatis => chall sinchung And minusTryNum");
 		int rst= mybatis.insert("ChallengeDAO.challengeSinchung", map);
+		mybatis.update("ChallengeDAO.minusTryNum",map);
 		return rst;
 	}
 

@@ -1,6 +1,7 @@
 package com.green.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -79,7 +80,10 @@ public class MemberController {
 	public String login(MemberVO vo, HttpSession session) {
 		MemberVO result = memberService.idCheck_Login(vo);
 		MemberVO memberVo = memberService.memberInfo(vo);
+		String lastDate = memberService.dogeonExp(vo);
+
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 		if (result == null || result.getId() == null) {
 			return "/member/login";
 		} else {
@@ -100,25 +104,25 @@ public class MemberController {
 			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
 			session.setAttribute("userTryNum", memberVo.getTryNum());
 			session.setAttribute("userVo", memberVo);
+			session.setAttribute("dogeonGigan", lastDate);
+			System.out.println("c" + lastDate);
 		}
 		return "redirect:/member/main.do";
 	}
-	
+
 	// logout
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/member/main.do";
 	}
-	
+
 	// member info edit
 	@RequestMapping("/infoEditSave.do")
 	public String userUpdate(@ModelAttribute("member") MemberVO memberVo) {
 		memberService.memberUpdate(memberVo);
 		return "redirect:/member/mypage.do";
 	}
-
-
 
 	// search id
 	@RequestMapping(value = "/searchIDsave.do")
@@ -153,7 +157,7 @@ public class MemberController {
 		memberService.cardYes(vo);
 		return "redirect:/member/mypage.do";
 	}
-	
+
 	// member bank account insert
 	@RequestMapping("/accSave.do")
 	public String accountInsert(MemberVO vo) throws IOException {
@@ -161,39 +165,38 @@ public class MemberController {
 		memberService.accountYes(vo);
 		return "redirect:/member/mypage.do";
 	}
-	
-	//마이페이지에서 나의 도감, 진행중인 챌린지, 기부내역 띄우기
-		@RequestMapping(value="/mypage.do")
-		public void challAndDona(String id, Model model) {
-			
-			 try {
-				 int do_no = dogamService.myYes(id);
-				 System.out.println("dd"+do_no);
-				 if(do_no > 0) {
-						HashMap<String, Object> map = new HashMap<String, Object>();
-						map.put("id", id);
-						map.put("do_no", do_no);
-						
-						System.out.println(map);
-						
-						HashMap<String, Object> myDogam= dogamService.getDetail(map);
-						List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
-						List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
-						
-						model.addAttribute("myDogam", myDogam);
-						model.addAttribute("challList",challList);
-						model.addAttribute("myDonaList", myDonaList);
-						model.addAttribute("check", do_no);
-					} else {
-						List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
-						List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
-						model.addAttribute("challList",challList);
-						model.addAttribute("myDonaList", myDonaList);
-						model.addAttribute("check",do_no);
-					}
-			} catch (Exception e) {
+
+	// 마이페이지에서 나의 도감, 진행중인 챌린지, 기부내역 띄우기
+	@RequestMapping(value = "/mypage.do")
+	public void challAndDona(String id, Model model) {
+
+		try {
+			int do_no = dogamService.myYes(id);
+			System.out.println("dd" + do_no);
+			if (do_no > 0) {
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				map.put("id", id);
+				map.put("do_no", do_no);
+
+				System.out.println(map);
+
+				HashMap<String, Object> myDogam = dogamService.getDetail(map);
+				List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+				List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+
+				model.addAttribute("myDogam", myDogam);
+				model.addAttribute("challList", challList);
+				model.addAttribute("myDonaList", myDonaList);
+				model.addAttribute("check", do_no);
+			} else {
+				List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+				List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+				model.addAttribute("challList", challList);
+				model.addAttribute("myDonaList", myDonaList);
+				model.addAttribute("check", do_no);
 			}
-			
-		
+		} catch (Exception e) {
 		}
+
+	}
 }
