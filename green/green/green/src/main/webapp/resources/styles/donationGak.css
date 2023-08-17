@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.alls{
+  display: grid;
+  width: 100%;
+  justify-items: center;
+}
+.main {
+  display: grid;
+  grid-row: 1fr 5fr 1fr;
+  background: #ffffff;
+  width: 1440px;
+  height: 320px;
+  justify-items: center;
+}
+.title{
+  color: #000000;
+  font-size: 1.5rem;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.donaBtn {
+  background: #445C4C;
+  border-radius: 100px;
+  width: 170px;
+  height: 55px;
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+}
+.donaBtn:hover{
+  background-color: #53BAB8;
+}
+.barUpper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+.nowPer {
+  color: #445c4c;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.d_day {
+  width: 5rem;
+  background-color: #445c4c;
+  color: #ffffff;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+.bars{
+  position: relative;
+  width: 60%;
+}
+.totalbar {
+  background: #d9d9d9;
+  width: 100%;
+  height: 7px;
+}
+.nowbar {
+  background: #2E867D;
+  width: 80%;
+  height: 7px;
+  position: absolute;
+  top: 0;
+}
+.barDown{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.donadate {
+  color: #000000;
+  text-align: left;
+  font-size: 1.5rem;
+}
+.nowpoint{
+  color: #000000;
+  text-align: left;
+  font-weight: bold; 
+  font-size: 1.5rem;
+}
+.introduce{
+  background-color: #2E867D;
+  color: white;
+  height:45px ;
+}
+.introduce:hover{
+  background-color:#53BAB8 ;
+}
+.news {
+  background-color: #2E867D;
+  color: white;
+  height:45px ;
+}
+.news:hover{
+  background-color: #53BAB8;
+}
+.content {
+  background: #ffffff;
+  width: 100%;
+  height: auto;
+  display: grid;
+  justify-items: center;
+}
+.logo_intro{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-items: center;
+  align-items: center;
+}
+.logos {
+  width: 100%;
+  height: auto;
+}
+.ggg {
+  color: #000000;
+  text-align: center;
+  font-size: 1.3rem;
+  position:relative;
+}
+
+.pic {
+  background: linear-gradient(to left, #d9d9d9, #d9d9d9);
+  width: 70%;
+  height: 300px;
+}

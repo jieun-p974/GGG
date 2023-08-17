@@ -124,6 +124,16 @@ public class DogamDAOImpl implements DogamDAO {
 		mybatis.update("DogamDAO.donExp",map);
 	}
 
+	// my yes
+	@Override
+	public int myYes(String id) {
+		System.out.println("mybatis ==> myYes()");
+		Integer do_no = mybatis.selectOne("DogamDAO.myYes",id);
+		if(do_no == null) {
+			do_no= 0;
+		}
+		return do_no;
+	}
 	
 
 

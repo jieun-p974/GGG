@@ -75,6 +75,12 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.insert("member.cardInsert", vo);
 	}
 
+	@Override
+	public void cardYes(MemberVO vo) {
+		System.out.println("mybatis ==> cardYes()");
+		mybatis.update("member.cardYes", vo);
+	}
+	
 	// member bank account insert
 	@Override
 	public void accountInsert(MemberVO vo) {
@@ -83,10 +89,32 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	
 	@Override
+	public void accountYes(MemberVO vo) {
+		System.out.println("mybatis ==> accountYes()");
+		mybatis.update("member.accountYes", vo);
+	}
+	
+	// member card delete
+	@Override
+	public void cardDelete(MemberVO vo) {
+		System.out.println("mybatis ==> cardDelete()");
+		mybatis.delete("member.cardDelete", vo);
+	}
+	
+	// member bank account delete
+	@Override
+	public void accountDelete(MemberVO vo) {
+		System.out.println("mybatis ==> accountDelete()");
+		mybatis.delete("member.accountDelete", vo);
+	}
+
+	@Override
 	public void goDona(HashMap<String, Object> map) {
 		System.out.println("==>goDona()호출");
 		mybatis.update("member.goDona",map);
 		
 	}
+
+
 
 }

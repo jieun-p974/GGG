@@ -1,67 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/dogamDetail.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link href="../../../resources/styles/myDogamDetail.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	var msg = "<c:out value='${msg}' />"
+	var url = "<c:out value='${url}' />"
+
+	if (msg.length > 0 && url.length > 0) {
+
+		alert(msg);
+		location.href = url;
+	}
+</script>
 <title>동물도감 | 상세보기</title>
 </head>
 <body>
-<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
-		<div class="animal">
-      <div class="animal_exp">
-        <div class="exp_level">레벨2</div>
-        <div class="exp_point">(430/1500P)</div>
-        <div class="exp_bar"></div>
-        <div class="exp_gage"></div>
-        <div class="exp_now">Lv.2</div>
-        <div class="exp_end">성체</div>
-      </div>
-
-      <div class="animal_info">
-        <img class="img" src="" />
-        <p class="name">이름 : 미미</p>
-        <button class="changeBtn">개명</button>
-      </div>
-
-      <div class="animal_level">
-        <img class="level_img1" src="" />
-        <img class="arrow1" src="../../../resources/imgs/arrow.png" />
-        <img class="level_img2" src="" />
-        <img class="arrow2" src="../../../resources/imgs/arrow.png" />
-        <img class="level_img3" src="" />
-
-      </div>
-
-    </div>
-
-    <div class="animal_explain">
-      <h1 class="animal_title">미미는 멸종위기 ‘취약’ 등급 치타입니다.</h1>
-
-
-      <div class="animal_content">
-        순간 최고 속도 시속 120㎞. 육상 동물 중에서 가장 빠른 단거리 달리기 선수.<br />
-        전 지구상에 7,000마리 밖에 안 남은 멸종 위기(취약종·VU) 동물.<br />
-        바로 치타를 이르는 말이다.<br /><br />
-        그럼에도 불구하고 치타는 1급 멸종 위기 동물이란 슬픈 수식어를 가지고 있다.<br />
-        치타는 사실 하루하루를 멸종 위기 속에서 살아가고 있다고 말해도 과언은 아니다.<br /><br />
-        왜 치타같이 빠르고 적수가 없을 것 같은 육식동물이 멸종 위기에 몰려있을까?<br />
-        치타가 주로 잡아먹는 영양들의 숫자가 계속 줄어들고 있기 때문이다.<br />
-        그들은 아프리카의 국립공원에 살지만, 국립공원이라는 일정 구역에만 가두어 놓고<br />
-        영역을 확장하지 못하게 막으니까 동물들이 질병에 취약하고 개체 수가 줄어들게 된다.<br />
-        치타들은 사냥할 때 달리다가 균형을 잃고 쉽게 쓰러져<br />
-        사냥 성공 확률이 높은 늙거나 어린 개체를 주로 사냥한다.<br />
-        그런데 태어나는 어린 먹이들이 많이 없으니 굶는 날도 많아 그만큼 살기가 어려워졌다.<br />
-      </div>
-      <button class="dogamBtn" onclick="window.open('dogam.jsp')">도감보기</button>
-    </div>
-		</div>
+	<%@include file="../layouts/header.jsp"%>
+	<section class="pricing position-relative overflow-hidden">
+		<c:forEach items="${list}" var="dogam">
+			<div class="container position-relative">
+				<div class="row justify-content-center mt-5">
+					<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+						<div class="card position-relative shadow border-0 h-100">
+							<div class="card-body p-3">
+								<div class="animal_info">
+									<input value="${dogam.do_no}" type="hidden" />
+									<h3 class="mb-5" style="font-weight: bold;">
+										멸종위기 동물<br /> '${dogam.do_title}'을 소개합니다.	</h3>
+										<h4 class="mb-5 pb-5">제 성장 과정이 궁금하세요?</h4>
+								</div>
+								<div class="animal_level_d pt-5">
+									<div class="row">
+										<img class="level_img1_d"
+											src="../resources/imgs/dogam/${dogam.img1}" />
+										<p class="text-black text-center">Lv.1</p>
+									</div>
+									<img class="arrow1" src="../../../resources/imgs/arrow.png" />
+									<div class="row">
+										<img class="level_img2_d"
+											src="../resources/imgs/dogam/${dogam.img2}" />
+										<p class="text-black text-center">Lv.2</p>
+									</div>
+									<img class="arrow2" src="../../../resources/imgs/arrow.png" />
+									<div class="row">
+										<img class="level_img3_d"
+											src="../resources/imgs/dogam/${dogam.img3}" />
+										<p class="text-black text-center">Lv.3</p>
+									</div>
+								</div>
+								<div
+									class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 mt-5">
+									<c:if test="${userId ne null}">
+										<a href="sinchung.do?do_no=${dogam.do_no}&userId=${userId}"
+											class="btn btn-warning btn-hover-secondery text-capitalize">키우기</a>
+									</c:if>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+						<div class="card position-relative shadow border-0 h-100">
+							<div class="card-body pb-4">
+								<p style="line-height: 2rem">${dogam.do_content}</p>
+							</div>
+							<div
+								class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
+								<a href="dogam.do"
+									class="btn btn-warning btn-hover-secondery text-capitalize">도감보기</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</section>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

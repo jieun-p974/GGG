@@ -1,6 +1,5 @@
 .admin_chall {
     display: grid;
-    grid-template-rows: 1fr 1fr auto;
     justify-items: center;
     align-items: center;
 }
@@ -64,4 +63,11 @@ td {
     border-radius: 15px;
     font-size: 1.3rem;
     border:none;
+}
+.detail_img{
+    width:30%;
+    height:auto;
+}
+.check_img{
+    width:40%;
 }

@@ -4,13 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
-<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
-<script src="/resources/js/jquery.min.js"></script>
+<!-- <script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script> -->
+<!-- <script src="/resources/js/jquery.min.js"></script> -->
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
@@ -20,7 +19,6 @@
 String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
-String userBday = (String) session.getAttribute("userBday");
 String userSdate = (String) session.getAttribute("userSdate");
 String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");

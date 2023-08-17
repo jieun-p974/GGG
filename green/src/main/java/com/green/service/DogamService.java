@@ -41,4 +41,8 @@ public interface DogamService {
 
 	//기부->exp
 	void donExp(HashMap<String, Object> map);
+	
+	//my yes
+		public int myYes(String id);
+		
 }

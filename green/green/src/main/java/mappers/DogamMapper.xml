@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DogamDAO">
+   
+   <!-- admin list -->
+   <select id="getAdminDogam" resultType="dogam">
+      SELECT * FROM dogam ORDER BY do_no
+   </select>
+   
+   <!-- admin list with img -->
+   <select id="getAdminImgDogam" parameterType="int"  resultType="dogam">
+   SELECT DISTINCT d.do_no, d.do_title, d.do_content, a.img1, b.img2, c.img3
+   from dogam d, lv_dogam l,
+   (SELECT do_img_addr AS img1 FROM lv_dogam WHERE do_lev = 1 AND do_no=#{do_no}) a,
+   (SELECT do_img_addr AS img2 FROM lv_dogam WHERE do_lev = 2 AND do_no=#{do_no}) b,
+   (SELECT do_img_addr AS img3 FROM lv_dogam WHERE do_lev = 3 AND do_no=#{do_no}) c
+   WHERE d.do_no=l.do_no and d.do_no=#{do_no}
+   </select>
+   
+   <!-- dogam list -->
+   <select id="getDogamList" resultType="dogam">
+   SELECT d.do_no, d.do_title, l.do_lev, l.do_img_addr
+   FROM dogam d, lv_dogam l WHERE d.do_no=l.do_no AND l.do_lev=3;
+   </select>
+   
+   <!-- dogam detail -->
+    <select id="getDogam" parameterType="dogam" resultType="dogam">
+   SELECT * FROM dogam WHERE do_no=#{do_no}
+   </select>
+
+   <!--  my dogam -->
+   <select id="getMemDogam" resultType="dogam">
+   <![CDATA[
+   SELECT * FROM mem_dogam WHERE id=#{id}
+   ]]> 
+   </select>       
+   
+    <select id="getMyDogam" parameterType="hashmap" resultType="hashmap">
+   <![CDATA[
+   SELECT distinct a.id, d.do_no, d.do_title, d.do_content,
+   a.img1, b.img2, c.img3,   m.do_name, m.do_exp, m.do_choice_YN, 
+   (SELECT p.level_no from point_level p, mem_dogam m
+   WHERE m.do_exp >= p.lev_mim_point AND m.do_exp<=p.lev_max_point
+   AND m.do_no=${do_no}) as nowLv,
+   (SELECT do_img_addr from lv_dogam WHERE do_lev=nowLv AND do_no=4) as lv_img,
+   (SELECT lev_max_point FROM point_level WHERE level_no= nowLv) as lev_max_point
+   FROM dogam d, lv_dogam l, mem_dogam m, member a,
+   (SELECT do_img_addr AS img1 FROM lv_dogam WHERE do_lev = 1 AND do_no=${do_no}) a,
+   (SELECT do_img_addr AS img2 FROM lv_dogam WHERE do_lev = 2 AND do_no=${do_no}) b,
+   (SELECT do_img_addr AS img3 FROM lv_dogam WHERE do_lev = 3 AND do_no=${do_no}) c
+   WHERE d.do_no=l.do_no AND l.do_no=m.do_no AND m.id=a.id
+   AND a.id='${id}' AND m.do_no=${do_no}
+   ]]>
+   </select> 
+                         
+   <!-- dogam insert -->
+   <insert id="dogamInsert" parameterType="dogam">
+      INSERT INTO dogam (do_title, do_content)
+      VALUES (#{do_title}, #{do_content})
+   </insert>
+      
+   <!-- dogam img insert -->
+   <insert id="dogamImgInsert" parameterType="dogam">
+      INSERT INTO lv_dogam (do_no, do_lev
+      <if test='do_img != null'>, do_img, do_img_addr</if>)
+       values (#{do_no}, #{do_lev}
+       <if test='do_img != null'>, #{do_img}, #{do_img_addr}</if>)
+   </insert>   
+      
+   <!-- dogam update -->
+   <update id="dogamUpdate" parameterType="dogam">
+      UPDATE dogam SET
+      WHERE do_no = #{do_no}
+   </update>
+   
+   <!-- dogam delete -->
+   <delete id="dogamDelete" parameterType="dogam">
+      DELETE FROM dogam WHERE do_no = #{do_no}
+   </delete>
+   
+   <!-- dogam sinchung -->
+   <insert id="dogamSinchung" parameterType="hashmap">
+   insert into mem_dogam(do_no, id) 
+   select #{do_no},#{userId} from dual
+   WHERE NOT EXISTS
+   (SELECT do_no FROM mem_dogam WHERE do_no=#{do_no} AND id=#{userId});
+   </insert>
+   
+   <!-- main animal choice -->
+   <update id="mainChoice" parameterType="dogam">
+      UPDATE mem_dogam SET
+      do_choice_YN='Y'
+      WHERE do_no=#{do_no}
+   </update>
+</mapper>

@@ -97,6 +97,11 @@ public class DogamServiceImpl implements DogamService {
 		
 	}
 
+	@Override
+	public int myYes(String id) {
+		int do_no = dogamDAO.myYes(id);
+		return do_no;
+	}
 
 
 	

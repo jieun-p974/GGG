@@ -8,49 +8,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/dogamCheck.css" rel="stylesheet"  type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/table.css">
 <script type="text/javascript">
 	function insert() {
 		location.href = "dogamWrite.do"
 	}
 </script>
+<style type="text/css">
+img{
+	width: 60%;
+}
+</style>
 <title>도감 관리</title>
 </head>
 <body>
-	<div class="container ">
-		<%@include file="../layouts/adminHeader.jsp"%>
-		<div class="newsCheckList">
-			<div class="title">도감 관리 페이지</div>
-			<div class="top">
-			<button class="add" id="add" onclick="location.href='dogamCheck.do'">뒤로</button>
-			
+<%@include file="../layouts/adminHeader.jsp"%>
+<section class="service position-relative overflow-hidden">
+	<div class="container position-relative">
+		<div class="row">
+			<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+				<h2 class="text-black mt-3 mb-0 mt-5 mb-3">도감 관리 페이지</h2>
+				<button class="btn btn-white-back2 btn-hover-secondery" id="add" onclick="location.href='dogamCheck.do'">뒤로</button>
 			</div>
-			<div class="list">
-				<table class="news" id="dogamList">
-					<thead>	
-						<th class="do-th-1">NO</th>
-						<th class="do-th-2">이름</th>
-						<th class="do-th-3">레벨1</th>
-						<th class="do-th-3">레벨2</th>
-						<th class="do-th-3">레벨3</th>
-						<th class="do-th-btn">삭제</th>
-					</thead>
-					<c:forEach items="${list}" var="dogam">
-					<tbody>
-						<td> ${dogam.do_no} </td>
-						<td> ${dogam.do_title} </td>
-						<td> <img src="/resources/imgs/dogam/${dogam.img1}"> </td>
-						<td> <img src="/resources/imgs/dogam/${dogam.img2}"> </td>
-						<td> <img src="/resources/imgs/dogam/${dogam.img3}"> </td>
-						<td><button><a href="deleteDogam.do?do_no=${dogam.do_no}">삭제</a></button></td>
-					</tbody>
-					</c:forEach>
-				</table>
+		</div>
+		<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
+			<div class="card border-0 shadow">
+				<div class="card-body">
+					<div
+						class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+						<table class="type09" id="chall_list">
+							<thead>
+								<th class="do-th-1">NO</th>
+								<th class="do-th-2">이름</th>
+								<th class="do-th-3">레벨1</th>
+								<th class="do-th-3">레벨2</th>
+								<th class="do-th-3">레벨3</th>
+								<th class="do-th-btn">삭제</th>
+							</thead>
+							<c:forEach items="${list}" var="dogam">
+								<tbody>
+									<td> ${dogam.do_no} </td>
+									<td> ${dogam.do_title} </td>
+									<td> <img src="/resources/imgs/dogam/${dogam.img1}"> </td>
+									<td> <img src="/resources/imgs/dogam/${dogam.img2}"> </td>
+									<td> <img src="/resources/imgs/dogam/${dogam.img3}"> </td>
+									<td><a href="deleteDogam.do?do_no=${dogam.do_no}" class="btn btn-white-back2 btn-hover-secondery">삭제</a></td>
+								</tbody>
+							</c:forEach>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<%@include file="../layouts/footer.jsp"%>
+</section>
+<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

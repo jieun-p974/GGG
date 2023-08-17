@@ -42,4 +42,7 @@ public interface DogamDAO {
 	//기부->exp에 적립
 	public void donExp(HashMap<String, Object> map);
 	
+	// my yest
+		public int myYes(String id);
+	
 }

@@ -93,6 +93,11 @@
       do_choice_YN='Y'
       WHERE do_no=#{do_no}
    </update>
+	
+	<!-- my yes -->
+	<select id="myYes" resultType="Integer">
+	SELECT do_no from mem_dogam where id=#{userId} AND do_choice_YN = 'Y';
+	</select>
    
    <!-- 기부포인트->exp적립 -->
    <update id="donExp" parameterType="dona">

@@ -9,13 +9,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="../../../resources/styles/donationGak.css" rel="stylesheet" type="text/css">
 <!-- 오늘 날짜 -->
 <jsp:useBean id="now" class="java.util.Date" />
-
 <title>Insert title here</title>
-</head>_
+</head>
 
 <body>
 	<%@include file="../layouts/header.jsp"%>
@@ -30,14 +28,9 @@
 			<div class="row d-flex flex-wrap justify-content-center step-row">
 				<div
 					class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 text-center">
-					<div class="d-flex justify-content-between mb-5">  
-							<a href="" class="btn btn-warning btn-hover-secondery section-btn">모금함	소개</a> 
-							<fmt:formatDate value="${now}" pattern="yyyyMMdd" var="nowDate" />  
-							 <fmt:formatDate var="don_start_date" value="${dona.don_start_date}" pattern="yyyyMMdd"/>
-							 <fmt:formatDate var="don_end_date" value="${dona.don_end_date}" pattern="yyyyMMdd"/>
-							<c:if test="${don_start_date<nowDate && don_end_date>nowDate}">
-							<a href="goDonation.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
-							</c:if>
+					<div class="d-flex justify-content-between mb-5">
+							<a href="" class="btn btn-white-back btn-hover-third">모금함	소개</a>
+							<a href="goDonation.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-white-back btn-hover-third">기부하기</a>
 							</div>
 					<div class="card">
 						<div class="card-body">
@@ -56,16 +49,9 @@
 										<fmt:parseNumber
 											value="${dona.don_end_date.time / (1000*60*60*24)}"
 											integerOnly="true" var="dbDtParse" scope="request" />
-									<c:choose>
-									<c:when test="${dbDtParse - nowfmtTime + 1 >=0}">
-										<div class="d_day">D - ${dbDtParse - nowfmtTime + 1}</div>
-										</div>
-									</c:when>
-									<c:otherwise>
-									<div class="d_day">종료</div>
-										</div>
-									</c:otherwise>
-									</c:choose>
+
+										<div class="d_day">D-${dbDtParse - nowfmtTime + 1}</div>
+									</div>
 									<!-- 프로그레스바 -->
 									<div class="bars">
 										<progress id=progress max=100 min=0

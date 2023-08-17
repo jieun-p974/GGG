@@ -25,12 +25,12 @@
 				<c:forEach items="${list}" var="chall">
 				<c:if test="${chall.chal_end_date > today}">
 					html += '<tbody>';
-					html += '<td>${chall.chal_no}</td>';
+					html += '<input type="hidden" value="${chall.chal_no}"></input>';
 					html += '<td>${chall.chal_name}</td>';
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
-					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
-					html += '<td><button class="modify"><a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a></button></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -41,12 +41,12 @@
 				<c:forEach items="${list}" var="chall">
 				<c:if test="${chall.chal_end_date < today}">
 					html += '<tbody>';
-					html += '<td>${chall.chal_no}</td>';
+					html += '<input type="hidden" value="${chall.chal_no}"></input>';
 					html += '<td>${chall.chal_name}</td>';
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
-					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
-					html += '<td><button class="modify"><a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a></button></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -57,12 +57,12 @@
 				<c:forEach items="${list}" var="chall">
 				
 					html += '<tbody>';
-					html += '<td>${chall.chal_no}</td>';
+					html += '<input type="hidden" value="${chall.chal_no}"></input>';
 					html += '<td>${chall.chal_name}</td>';
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
-					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
-					html += '<td><button class="modify"><a href="adminChallengeCertList.do?chal_name=${chall.chal_name}"> 인증관리 </a></button></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>';
 					html += '</tbody>';
 				
 				</c:forEach>
@@ -76,10 +76,8 @@
 </head>
 <body>
 	<%@include file="../layouts/adminHeader.jsp"%>
-	<section class="service position-relative overflow-hidden">
+	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
-			<img src="/resources/imgs/service/dot-shape.png"
-				class="shape position-absolute">
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
@@ -94,8 +92,7 @@
 						<option value="ing">진행중인 챌린지</option>
 						<option value="end">종료된 챌린지</option>
 					</select>
-					<a class="btn btn-warning btn-hover-secondery"
-					href="challengeInsert.do">추가하기</a>
+					<a class="btn btn-white-back btn-hover-third" href="challengeInsert.do">추가하기</a>
 				</div>
 				<div class="card border-0 shadow">
 					<div class="card-body">
@@ -115,13 +112,8 @@
 										<td>${chall.chal_name}</td>
 										<td>${chall.chal_start_date}</td>
 										<td>${chall.chal_end_date}</td>
-										<td><a class="btn btn-warning btn-hover-secondery"
-											href="challengeModify.do?chal_no=${chall.chal_no}">수정</a>
-										</td>
-										<td>
-											<a class="btn btn-warning btn-hover-secondery"
-											href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a>
-										</td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>
 									</tbody>
 								</c:forEach>
 							</table>

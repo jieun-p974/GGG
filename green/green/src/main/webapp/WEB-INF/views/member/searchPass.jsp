@@ -7,7 +7,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/searchPass.css">
 <title>비밀번호 찾기</title>
+<%
+	String userID = (String) session.getAttribute("userID");
+	String userName = (String) session.getAttribute("userName");
+	String userTel = (String) session.getAttribute("userTel");
+	String userEmail = (String) session.getAttribute("userEmail");
+%>
 </head>
+
+<script>
+	window.onload = function(){
+		document.getElementById('Submit').onclick = check;	
+	}
+
+	function check() {
+		if(document.form.email.value==""){
+			alert("이메일주소를 입력하세요.")
+			document.form.email.focus();
+			return false;
+		}
+		document.form.submit();	//전송		
+	}
+</script>
+
 <body>
 	<div class="container">
 		<div class="searchPass">
