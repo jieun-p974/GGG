@@ -25,7 +25,7 @@ $(function(){
 	
 	for(var i = 0; i < ${chall.difficulty}; i++){
 		star2 += "★";
-	}
+	} 
 	for(var i = 0; i < 5-${chall.difficulty}; i++){
 		star2 += "☆";
 	}

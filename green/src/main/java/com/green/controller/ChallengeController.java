@@ -162,6 +162,16 @@ public class ChallengeController {
 		HashMap<String, List<String>> arr = new HashMap<String, List<String>>();
 		arr.put("arr", valueArr);
 		challengeService.updatePassYN(arr);
-		return "redirect:/challenge/adminChallengeCertList.do";
+		List<HashMap<String , Object>> list = challengeService.paramSql(arr);
+		for(HashMap<String, Object> d : list) {
+			HashMap<String, Object> params = new HashMap<String,Object>();
+			
+			params.put("id", d.get("id"));
+			params.put("chal_no", d.get("chal_no"));
+			
+			challengeService.getPassNCheckSu(params);
+		}
+		
+		return "redirect:/challenge/adminChallenge.do";
 	}
 }

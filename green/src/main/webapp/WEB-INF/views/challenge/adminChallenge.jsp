@@ -96,8 +96,7 @@
 				</div>
 				<div class="card border-0 shadow">
 					<div class="card-body">
-						<div
-							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 							<table class="type09" id="chall_list">
 								<thead>
 									<th>챌린지 명</th>
@@ -108,7 +107,7 @@
 								</thead>
 								<c:forEach items="${list}" var="chall">
 									<tbody>
-										<input type="hidden" value="${chall.chal_no}"></input>
+										<input type="hidden" id="chal_no" name="chal_no" value="${chall.chal_no}"></input>
 										<td>${chall.chal_name}</td>
 										<td>${chall.chal_start_date}</td>
 										<td>${chall.chal_end_date}</td>

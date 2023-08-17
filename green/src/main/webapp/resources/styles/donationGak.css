@@ -18,10 +18,10 @@
 
 .d_day {
 	width: 5rem;
+	height:1.5rem;
 	background-color: #445c4c;
 	color: #ffffff;
-	text-align: left;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-align: center;
 }

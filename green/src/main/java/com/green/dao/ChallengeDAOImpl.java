@@ -97,6 +97,7 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		return mybatis.selectList("ChallengeDAO.adminCerCheckList",chal_no);
 	}
 
+	// 인증됨으로 상태 변경
 	@Override
 	public void updatePassYN(HashMap<String, List<String>> arr) {
 		System.out.println("Mybatis => updatePassYN");
@@ -109,5 +110,40 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		System.out.println("Mybatis => updateendDateCheck");
 		mybatis.update("ChallengeDAO.endDateCheck",vo);
 	}
+	
+	// 인증 받은 것들 chal_no랑 id 받아오는 쿼리
+	@Override
+	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr) {
+		System.out.println("Mybatis =>paramSql");
+		List<HashMap<String, Object>> list = mybatis.selectList("ChallengeDAO.paramSql",arr);
+		
+		return list;
+	}
+	
+	//pass 개수랑 chal_check_su 개수 출력
+	@Override
+	public void getPassNCheckSu(HashMap param) {
+		System.out.println("Mybatis =>passCount");
+		
+		Integer pass = mybatis.selectOne("ChallengeDAO.passCount",param);
+		if(pass == null) {
+			pass= 0;
+		}
+		System.out.println(pass);
+		
+		System.out.println("Mybatis =>checkSu");
+		Integer checkSu = mybatis.selectOne("ChallengeDAO.checkSu",param);
+		if(checkSu == null) {
+			checkSu= 0;
+		}
+		System.out.println(checkSu);
+		
+		if(pass == checkSu) {
+			System.out.println("Mybatis =>updateSuccess");
+			mybatis.update("ChallengeDAO.updateSuccess",param);
+			mybatis.update("ChallengeDAO.givePoint",param);
+		}
+	}
 
+	
 }

@@ -117,7 +117,23 @@ public class DogamDAOImpl implements DogamDAO {
 		int rs = mybatis.insert("DogamDAO.dogamSinchung", map);
 		return rs;
 	}
+	//기부->exp
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		System.out.println("==>exp의donExp()호출");
+		mybatis.update("DogamDAO.donExp",map);
+	}
 
+	// my yes
+	@Override
+	public int myYes(String id) {
+		System.out.println("mybatis ==> myYes()");
+		Integer do_no = mybatis.selectOne("DogamDAO.myYes",id);
+		if(do_no == null) {
+			do_no= 0;
+		}
+		return do_no;
+	}
 	
 
 

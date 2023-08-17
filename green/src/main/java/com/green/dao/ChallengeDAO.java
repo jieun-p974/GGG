@@ -35,4 +35,8 @@ public interface ChallengeDAO {
 	public void updatePassYN(HashMap<String, List<String>> arr);
 	
 	public void endDateCheck(ChallengeVO vo);
+	
+	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr);
+	
+	public void getPassNCheckSu(HashMap param);
 }

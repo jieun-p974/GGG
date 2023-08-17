@@ -105,10 +105,38 @@ public class MemberServiceImpl implements MemberService {
 	public void cardInsert(MemberVO vo) {
 		memberDAO.cardInsert(vo);
 	}
+	
+	@Override
+	public void cardYes(MemberVO vo) {
+		memberDAO.cardYes(vo);
+		
+	}
 
 	// member bank account insert
 	@Override
 	public void accountInsert(MemberVO vo) {
 		memberDAO.accountInsert(vo);
 	}
+	
+	@Override
+	public void accountYes(MemberVO vo) {
+		memberDAO.accountYes(vo);
+	}
+	
+	// member card delete
+	@Override
+	public void cardDelete(MemberVO vo) {
+		memberDAO.cardDelete(vo); 
+	}
+
+	// member bank account delete
+	@Override
+	public void accountDelete(MemberVO vo) {
+		memberDAO.accountDelete(vo);
+	}
+
+
+
+
+	
 }

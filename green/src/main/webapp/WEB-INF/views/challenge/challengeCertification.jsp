@@ -15,7 +15,7 @@
 %>
 </head>
 <body>
-	<%@include file="../layouts/header.jsp"%>
+	<%@include file= "../layouts/header.jsp"%>
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="d-flex justify-content-center mt-5">

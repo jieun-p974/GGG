@@ -22,6 +22,7 @@ public class MemberVO {
 	private int remainder_point;
 	private String m_img;
 	private String m_img_addr;
+	private int tryNum;
 	
 	//mem_card 테이블
 	private int mem_card_no;
@@ -239,6 +240,12 @@ public class MemberVO {
 
 	public void setM_img_addr(String m_img_addr) {
 		this.m_img_addr = m_img_addr;
+	}
+	public int getTryNum() {
+		return tryNum;
+	}
+	public void setTryNum(int tryNum) {
+		this.tryNum = tryNum;
 	}
 
 	

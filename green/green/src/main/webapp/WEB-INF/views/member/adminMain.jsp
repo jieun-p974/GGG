@@ -5,130 +5,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/adminMain.css" rel="stylesheet"
-	type="text/css">
-	
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/table.css">
 <title>관리자 메인</title>
 </head>
 <body>
-	<div class="container ">
-		<h4 style="fontcolor=red"> ${userId} ${userName} ${sessionTime} 접속  </h4>
-		<%@include file="../layouts/adminHeader.jsp"%>
-		<div class="admin_main">
-			<div class="main">
-				<div class="gongji">공지</div>
-				<div class="gongji_list">
-					<table class="gongji_table">
-						<thead>
-							<th colspan="2">글목록</th>
-						</thead>
-						<tr>
-							<td>2023.07.26</td>
-							<td>기부처 추가 관련 공지</td>
-						</tr>
-						<tr>
-							<td>2023.07.16</td>
-							<td>기부처 추가 관련 공지</td>
-						</tr>
-						<tr>
-							<td>2023.07.01</td>
-							<td>기부처 추가 관련 공지</td>
-						</tr>
-						<tr>
-							<td>2023.06.28</td>
-							<td>기부처 추가 관련 공지</td>
-						</tr>
-					</table>
-					<button class="post" onclick="location.href='../community/notification.do'">글 작성</button>
-				</div>
-			</div>
-			<div class="main2">
-				<div class="checkList">
-					<p class="txt">인증관리</p>
-					<div class="check_content">
-						<table class="gongji_table">
-							<thead>
-								<th colspan="2">글목록</th>
-							</thead>
-							<tr>
-								<td>2023.07.26</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.07.16</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.07.01</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.06.28</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-						</table>
-						<button class="post" onclick="location.href='../challenge/adminChallenge.do'">인증 관리</button>
+	<%@include file="../layouts/adminHeader.jsp"%>
+	<section class="service position-relative overflow-hidden">
+		<div class="container position-relative">
+			<img src="/resources/imgs/service/dot-shape.png"
+				class="shape position-absolute">
+			<div class="row"></div>
+			<div class="row d-flex flex-wrap justify-content-center step-row">
+				<!-- 공지 -->
+				<div
+					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+					<div class="card border-0 shadow">
+						<div class="card-body">
+							<div
+								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<table class="type09">
+									<thead>
+										<th colspan="2">공지 목록</th>
+									</thead>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 추가</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 추가</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 추가</td>
+									</tr>
+								</table>
+							</div>
+							<a href="../community/notification.do"
+								class="btn btn-warning btn-hover-secondery"> 공지작성 </a>
+						</div>
 					</div>
 				</div>
-				<div class="commuList">
-					<p class="txt">게시글 목록</p>
-					<div class="commu_content">
-						<table class="gongji_table">
-							<thead>
-								<th colspan="2">글목록</th>
-							</thead>
-							<tr>
-								<td>2023.07.26</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.07.16</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.07.01</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.06.28</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-						</table>
-						<button class="post" onclick="location.href='../community/community.do'">게시글 관리</button>
+				<!-- 챌린지 -->
+				<div
+					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+					<div class="card border-0 shadow">
+						<div class="card-body">
+							<div
+								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<table class="type09">
+									<thead>
+										<th colspan="2">챌린지 목록</th>
+									</thead>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 추가</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 추가</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 추가</td>
+									</tr>
+								</table>
+							</div>
+							<a href="../challenge/challengeInsert.do"
+								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
+						</div>
 					</div>
 				</div>
-				<div class="newsList">
-					<p class="txt">뉴스목록</p>
-					<div class="news_content">
-						<table class="gongji_table">
-							<thead>
-								<th colspan="2">글목록</th>
-							</thead>
-							<tr>
-								<td>2023.07.26</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.07.16</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.07.01</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-							<tr>
-								<td>2023.06.28</td>
-								<td>기부처 추가 관련 공지</td>
-							</tr>
-						</table>
-						<button class="post" onclick="location.href='../news/newsWrite.do'">뉴스 작성</button>
+				<!-- 챌린지 인증 -->
+
+				<div
+					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+					<div class="card border-0 shadow">
+						<div class="card-body">
+							<div
+								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<table class="type09">
+									<thead>
+										<th colspan="2">챌린지 인증 목록</th>
+									</thead>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 인증</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 인증</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>챌린지 인증</td>
+									</tr>
+								</table>
+							</div>
+							<a href="../challenge/adminChallengeCertList.do"
+								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 도감 -->
+
+				<div
+					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
+					<div class="card border-0 shadow">
+						<div class="card-body">
+							<div
+								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<table class="type09">
+									<thead>
+										<th colspan="2">도감 목록</th>
+									</thead>
+									<tr>
+										<td>2023.07.26</td>
+										<td>도감</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>도감</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>도감</td>
+									</tr>
+								</table>
+							</div>
+							<a href="../dogam/dogamWrite.do"
+								class="btn btn-warning btn-hover-secondery"> 도감 추가 </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 기부 -->
+
+				<div
+					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
+					<div class="card border-0 shadow">
+						<div class="card-body">
+							<div
+								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<table class="type09">
+									<thead>
+										<th colspan="2">기부 목록</th>
+									</thead>
+									<tr>
+										<td>2023.07.26</td>
+										<td>기부</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>기부</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>기부</td>
+									</tr>
+								</table>
+							</div>
+							<a href="../donation/adDonationList.do"
+								class="btn btn-warning btn-hover-secondery"> 도감 추가 </a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 뉴스 -->
+				<div
+					class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
+					<div class="card border-0 shadow">
+						<div class="card-body">
+							<div
+								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<table class="type09">
+									<thead>
+										<th colspan="2">뉴스 목록</th>
+									</thead>
+									<tr>
+										<td>2023.07.26</td>
+										<td>뉴스</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>뉴스</td>
+									</tr>
+									<tr>
+										<td>2023.07.26</td>
+										<td>뉴스</td>
+									</tr>
+								</table>
+							</div>
+							<a href="../news/newsWrite.do"
+								class="btn btn-warning btn-hover-secondery"> 뉴스 추가 </a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

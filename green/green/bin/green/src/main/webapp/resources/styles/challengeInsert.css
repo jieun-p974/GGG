@@ -1,0 +1,86 @@
+.chall_insert {
+    width: 100%;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.insert_box {
+    width: 90%;
+    margin:auto;
+}
+label{
+    font-size: 1rem;
+}
+input{
+    font-size: 1rem;
+    font-family: 'S-CoreDream-3Light';
+}
+.chal_name {
+    margin-bottom: 1%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+
+.chal_start_date {
+    margin-bottom: 1%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+
+.chal_end_date {
+    margin-bottom: 1%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+
+.chal_ex {
+    margin-bottom: 1%;
+    display: grid;
+}
+
+.difficulty {
+    margin-bottom: 1%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+select{
+	font-family: 'S-CoreDream-3Light';
+	font-size:1rem;
+}
+.chal_img{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+textarea{
+    margin-top: 1%;
+    resize: none;
+    height: 15rem;
+    font-family: 'S-CoreDream-3Light';
+	font-size:1rem;
+}
+button {
+	font-family: 'S-CoreDream-3Light';
+    background: #445c4c;
+    border-radius: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1rem;
+    width: 13%;
+    height: 3rem;
+	margin-left:3%;
+    border: none;
+}

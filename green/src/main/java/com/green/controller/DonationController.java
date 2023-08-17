@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.green.domain.DonationVO;
 import com.green.domain.MemberVO;
 import com.green.domain.NewsVO;
+import com.green.service.DogamService;
 import com.green.service.DonationService;
 import com.green.service.MemberService;
 
@@ -24,6 +25,8 @@ public class DonationController {
 
 	@Autowired
 	private DonationService donationService;
+	@Autowired
+	private DogamService dogamService;
 
 	@Autowired
 	private MemberService memberService;
@@ -84,15 +87,18 @@ public class DonationController {
 
 	// 기부할때 작동
 	@RequestMapping(value = "/goDona.do")
-	public String goDona(String id, Integer don_point, int don_no) {
+	public String goDona(String id, Integer don_point, int don_no,Integer do_exp) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("don_point", don_point);
 		map.put("id", id);
 		map.put("don_no", don_no);
-
+		map.put("do_exp", do_exp);
+		
 		donationService.goDona(map);
 		donationService.memDon(map);
 		memberService.goDona(map);
+		dogamService.donExp(map);
+		
 		System.out.println("dldd");
 		
 		return "redirect:/donation/donation.do";

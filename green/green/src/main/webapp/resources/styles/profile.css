@@ -1,0 +1,251 @@
+.card-user-profile {
+	background-color: #F7F7FA;
+	padding: 0;
+}
+
+.card-user-profile .profile-page-left {
+	position: relative;
+	padding: 2.083rem;
+	padding-top: 200px;
+}
+
+.profile-page-left {
+    padding-top: 150px;
+}
+
+.card-user-profile .profile-page-center {
+	background-color: #FFFFFF;
+}
+
+.card-user-profile .profile-page-center .media-feed-control {
+	margin-top: 1rem;
+	padding: 10px 10px 4px;
+	background-color: #F7F7FA;
+}
+
+.card-user-profile .profile-page-center .media-feed-control a {
+	opacity: 0.5;
+	color: #7e7e7e;
+	-webkit-transition: opacity 0.225s ease-in-out;
+	-moz-transition: opacity 0.225s ease-in-out;
+	-o-transition: opacity 0.225s ease-in-out;
+	transition: opacity 0.225s ease-in-out;
+}
+
+.card-user-profile .profile-page-center .media-feed-control a:not(:last-child)
+	{
+	margin-right: 15px;
+}
+
+.card-user-profile .profile-page-center .media-feed-control a:focus,
+	.card-user-profile .profile-page-center .media-feed-control a:hover {
+	opacity: 1;
+}
+
+.card-user-profile .profile-page-center>.comment-block {
+	margin-bottom: 2.5rem;
+}
+
+.card-user-profile .profile-page-center>.comment-block textarea {
+	min-height: 5rem;
+	margin-bottom: 0;
+	opacity: 0.5;
+	-webkit-border-bottom-right-radius: 0;
+	-moz-border-bottom-right-radius: 0;
+	-ms-border-bottom-right-radius: 0;
+	-o-border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	-moz-border-bottom-left-radius: 0;
+	-ms-border-bottom-left-radius: 0;
+	-o-border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0;
+	-webkit-transition: opacity 0.225s ease-in-out;
+	-moz-transition: opacity 0.225s ease-in-out;
+	-o-transition: opacity 0.225s ease-in-out;
+	transition: opacity 0.225s ease-in-out;
+}
+
+.card-user-profile .profile-page-center>.comment-block textarea:hover,
+	.card-user-profile .profile-page-center>.comment-block textarea:focus {
+	opacity: 1;
+}
+
+.card-user-profile .profile-page-center>.comment-block textarea+.media-feed-control
+	{
+	margin-top: 0;
+	padding-top: 15px;
+}
+
+.card-user-profile .profile-page-center>ul>li.media {
+	padding-bottom: 2.083rem;
+	margin-bottom: 2.083rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.card-user-profile .profile-page-center>ul>li.media .profile-picture {
+	display: none;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body {
+	margin-left: 0 !important;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-title
+	{
+	font-weight: 500;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-title small
+	{
+	margin-left: 5px;
+	text-transform: none;
+	font-weight: 400;
+	font-size: 90%;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-body-reply-block ul .comment-reply-block .form-group textarea
+	{
+	opacity: 0.5;
+	min-height: 3rem;
+	-webkit-transition: all 0.225s ease-in-out !important;
+	-moz-transition: all 0.225s ease-in-out !important;
+	-o-transition: all 0.225s ease-in-out !important;
+	transition: all 0.225s ease-in-out !important;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-body-reply-block ul .comment-reply-block .form-group textarea:hover
+	{
+	opacity: 1;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-body-reply-block ul .comment-reply-block .form-group textarea:focus
+	{
+	opacity: 1;
+	height: 10rem;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-body-reply-block ul .comment-reply-block .form-group .comment-reply
+	{
+	margin-top: -50px;
+	opacity: 0;
+	-webkit-transition: all 0.225s ease-in-out !important;
+	-moz-transition: all 0.225s ease-in-out !important;
+	-o-transition: all 0.225s ease-in-out !important;
+	transition: all 0.225s ease-in-out !important;
+}
+
+.card-user-profile .profile-page-center>ul>li.media .media-body .media-body-reply-block ul .comment-reply-block .form-group textarea:focus+.comment-reply
+	{
+	margin-top: 0;
+	opacity: 1;
+}
+
+.card-user-profile .profile-page-center>ul>li.media:last-child {
+	border-bottom: 0;
+}
+
+.card-user-profile .profile-page-block-outer .profile-page-block {
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+/* Profile Pictures */
+.profile-picture {
+	width: 48px;
+	height: 48px;
+	padding-top: 2px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	position: relative;
+}
+
+.profile-picture img {
+	display: block;
+	width: 44px;
+	height: 44px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+
+	margin: 0 auto;
+}
+
+.profile-picture.has-message::after {
+	font-family: "Batch Icons";
+	font-size: 2.6rem;
+	font-weight: 300;
+	line-height: 1;
+	display: inline-block;
+	content: "\F140";
+	color: #07a7e3;
+	position: absolute;
+	top: -5px;
+	left: -10px;
+}
+
+.profile-picture.profile-picture-lg {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+.profile-picture.profile-picture-lg img {
+	width: 144px;
+	height: 144px;
+	margin: 1px auto 0;
+	border: 5px solid #FFFFFF;
+}
+
+.profile-picture.profile-picture-lg.has-message::after {
+	top: -3px;
+	left: -7px;
+	font-size: 4.6rem;
+}
+
+@media ( min-width : 576px) {
+	.card-user-profile {
+		-webkit-border-bottom-left-radius: 0.4167rem;
+		-moz-border-bottom-left-radius: 0.4167rem;
+		-ms-border-bottom-left-radius: 0.4167rem;
+		-o-border-bottom-left-radius: 0.4167rem;
+		border-bottom-left-radius: 0.4167rem;
+		-webkit-border-bottom-right-radius: 0.4167rem;
+		-moz-border-bottom-right-radius: 0.4167rem;
+		-ms-border-bottom-right-radius: 0.4167rem;
+		-o-border-bottom-right-radius: 0.4167rem;
+		border-bottom-right-radius: 0.4167rem;
+	}
+	.card-user-profile .profile-page-center>ul>li.media .profile-picture {
+		display: block !important;
+	}
+	.card-user-profile .profile-page-center>ul>li.media .media-body {
+		margin-left: 1.5rem !important;
+	}
+}
+
+@media ( min-width : 768px) {
+	.card-user-profile .profile-page-left {
+		float: left;
+		width: 20%;
+	}
+	.card-user-profile .profile-page-center {
+		float: left;
+		min-height: 810px;
+		width: 80%;
+		border-right: 1px solid rgba(0, 0, 0, 0.09);
+		border-left: 1px solid rgba(0, 0, 0, 0.09);
+	}
+	.card-user-profile .profile-page-center>ul>li.media .profile-picture {
+		display: block !important;
+	}
+	.card-user-profile .profile-page-center>ul>li.media .media-body {
+		margin-left: 1.5rem !important;
+	}
+}

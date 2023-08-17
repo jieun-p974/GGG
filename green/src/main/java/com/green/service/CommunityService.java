@@ -7,6 +7,8 @@ import com.green.domain.HeartVO;
 import com.green.domain.ReplyVO;
 
 public interface CommunityService {
+	
+	// community
 	//community insert
 	void insertCommunity(CommunityVO vo);
 	
@@ -25,14 +27,24 @@ public interface CommunityService {
 	//my Community
 	List<CommunityVO> getMyCommunityList(String id);
 	
+	// reply
 	//reply insert
 	void insertReply(ReplyVO vo);
 
 	//reply list
 	List<ReplyVO> getReplyList();
 
+	void deleteReply(ReplyVO vo);
+
+	void updateReply(ReplyVO vo);
+	
+	ReplyVO getReplyDetail(ReplyVO vo);
+	
+	// like
 	void insertLike(HeartVO vo);
-
-
+	
+	
+	
+	
 
 }

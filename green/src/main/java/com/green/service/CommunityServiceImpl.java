@@ -15,6 +15,7 @@ public class CommunityServiceImpl implements CommunityService{
 	@Autowired
 	private CommunityDAO communityDAO;
 	
+	// community
 	//insert
 	@Override
 	public void insertCommunity(CommunityVO vo) {
@@ -28,13 +29,6 @@ public class CommunityServiceImpl implements CommunityService{
 		// TODO Auto-generated method stub
 		return communityDAO.getCommunityList();
 	}	
-	
-	// Reply List
-	@Override
-	public List<ReplyVO> getReplyList() {
-		// TODO Auto-generated method stub
-		return communityDAO.getReplyList();
-	}
 	
 	//get one
 	@Override
@@ -63,6 +57,31 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDAO.getMyCommunityList(id);
 	}
 	
+	// reply
+	// Reply List
+	@Override
+	public List<ReplyVO> getReplyList() {
+		// TODO Auto-generated method stub
+		return communityDAO.getReplyList();
+	}
+	
+	@Override
+	public ReplyVO getReplyDetail(ReplyVO vo) {
+		return communityDAO.getReplyDetail(vo);
+	}
+	
+	@Override
+	public void deleteReply(ReplyVO vo)	 {
+		// TODO Auto-generated method stub
+		communityDAO.deleteReply(vo);
+	}
+	
+	@Override
+	public void updateReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.updateReply(vo);
+	}
+	
 	//insert reply
 	@Override
 	public void insertReply(ReplyVO vo) {
@@ -70,7 +89,8 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.replyWrite(vo);
 	}
 	
-	//insert like
+	// like
+	// dolike
 	@Override
 	public void insertLike(HeartVO vo) {
 		// TODO Auto-generated method stub

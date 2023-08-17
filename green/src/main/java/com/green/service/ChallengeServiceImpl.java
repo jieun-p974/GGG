@@ -100,8 +100,18 @@ public class ChallengeServiceImpl implements ChallengeService{
 	}
 
 	@Override
+	public List<HashMap<String, Object>> paramSql(HashMap arr) {
+		return challengeDAO.paramSql(arr);
+	}
+	
+	@Override
 	public void endDateCheck(ChallengeVO vo) {
 		challengeDAO.endDateCheck(vo);
 	}
-
+	
+	// checksu랑 pass 받은 인증 수 비교하고 성공인지 아닌지 상태 변경
+	@Override
+	public void getPassNCheckSu(HashMap param) {
+		challengeDAO.getPassNCheckSu(param);
+	}
 }
