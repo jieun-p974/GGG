@@ -80,8 +80,26 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 		</c:forEach>
 	</section>
 	<%@include file="../layouts/footer.jsp"%>
+=======
+			<div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+				<div class="card position-relative shadow border-0 h-100">
+					<div class="card-body pb-4">
+						<pre class="text-start" style="line-height: 2rem">${dogam.do_content}</pre>
+					</div>
+					<div class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
+						<a href="dogam.do" class="btn btn-warning btn-hover-secondery text-capitalize">도감보기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</c:forEach>
+</section>
+<%@include file="../layouts/footer.jsp"%>
+>>>>>>> refs/remotes/origin/gaeun
 </body>
 </html>

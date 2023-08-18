@@ -15,7 +15,6 @@ public class MemberVO {
 	private String name;
 	private String tel;
 	private String email;
-	private Date bday;
 	private Date sdate;
 	private String card_reg_YN;
 	private String account_reg_YN;
@@ -185,14 +184,7 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public Date getBday() {
-		return bday;
-	}
 
-	public void setBday(Date bday) {
-		this.bday = bday;
-	}
 
 	public Date getSdate() {
 		return sdate;

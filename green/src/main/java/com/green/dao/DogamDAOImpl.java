@@ -134,6 +134,44 @@ public class DogamDAOImpl implements DogamDAO {
 		}
 		return do_no;
 	}
+<<<<<<< HEAD
+=======
+
+	// main animal choice
+	@Override
+	public int mainChoice(HashMap map) {
+		System.out.println("mybatis==>mainChoice()");
+		int rs=mybatis.update("DogamDAO.mainChoice",map);
+		return rs;
+	}
+	
+	// main animal cancle
+	@Override
+	public int mainCancle(HashMap map) {
+		System.out.println("mybatis==>mainCancle()");
+		int rs=mybatis.update("DogamDAO.mainCancle",map);
+		return rs;
+	}
+
+	@Override
+	public int mainCancle3(String id) {
+		System.out.println("mybatis==>mainCancle3()");
+		int rs=mybatis.update("DogamDAO.mainCancle3",id);
+		return rs;
+	}
+
+
+	// name update
+	@Override
+	public int updateDoname(HashMap map) {
+		System.out.println("mybatis==>updateDoname()");
+		System.out.println("d"+map);
+		int rs = mybatis.update("DogamDAO.updateDoname",map);
+		return rs;
+	}
+
+
+>>>>>>> refs/remotes/origin/gaeun
 	
 
 

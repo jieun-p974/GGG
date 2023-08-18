@@ -91,6 +91,7 @@ public class DogamServiceImpl implements DogamService {
 		return rs;
 	}
 
+	// my yes
 	@Override
 	public void donExp(HashMap<String, Object> map) {
 		dogamDAO.donExp(map);
@@ -103,6 +104,38 @@ public class DogamServiceImpl implements DogamService {
 		return do_no;
 	}
 
+<<<<<<< HEAD
+=======
+	// main animal choice
+	@Override
+	public int mainChoice(HashMap map) {
+		int rs = dogamDAO.mainChoice(map);
+		return rs;
+	}
+	
+	// main animal cancle
+	@Override
+	public int mainCancle(HashMap map) {
+		int rs = dogamDAO.mainCancle(map);
+		return rs;
+	}
+	
+	@Override
+	public int mainCancle3(String id) {
+		int rs = dogamDAO.mainCancle3(id);
+		return rs;
+	}
+
+	
+	// name update
+	@Override
+	public int updateDoname(HashMap map) {
+		int rs = dogamDAO.updateDoname(map);
+		return rs;
+	}
+
+
+>>>>>>> refs/remotes/origin/gaeun
 
 	
 }

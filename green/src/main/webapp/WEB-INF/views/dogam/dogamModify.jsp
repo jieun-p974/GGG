@@ -17,6 +17,7 @@ textarea{
 <title>도감 수정</title>
 </head>
 <body>
+<<<<<<< HEAD
 <%@include file="../layouts/adminHeader.jsp"%>
 	<section class="pricing position-relative overflow-hidden">
 	<div class="container position-relative">
@@ -45,6 +46,28 @@ textarea{
 								<button class="btn btn-white-back btn-hover-third" id="write" type="submit">수정하기</button>
 							</div>
 						</form>
+=======
+	<div class="container">
+		<%@include file="../layouts/adminHeader.jsp"%>
+		<div class="newsWriting">
+            <div class="title">도감 수정 페이지</div>
+			<div class="writing">
+				<form action="modifyDogam.do" method="post" id="dogamInput">
+				<input name="do_no" type="hidden" value="${dogam.do_no}" />
+			
+				<label for="do_title">동물 이름</label> 
+					<input type="text" id="do_title" name="do_title" value="${dogam.do_title}"/><br/><br/>
+				
+				<label for="do_yoyak">요약정보</label> 
+					<input type="text" id="do_yoyak" name="do_yoyak" value="${dogam.do_yoyak}"
+					style="width:1000px;"/><br/><br/>
+					
+					<textarea type="text" id="do_content" name="do_content">${dogam.do_content}</textarea>
+				
+					<div class="buttons" style="margin-top:2%">
+						<button type="reset">취소</button>
+						<button id="write" type="submit">수정하기</button>
+>>>>>>> refs/remotes/origin/gaeun
 					</div>
 				</div>
 			</div>
