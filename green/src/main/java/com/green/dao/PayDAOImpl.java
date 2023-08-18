@@ -1,5 +1,6 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -27,6 +28,25 @@ public class PayDAOImpl implements PayDAO {
 		List<MemberVO> listc = mybatis.selectList("payDAO.getCPay", userId);
 		System.out.println(userId); // System.out.println(list.get(0).getAcc_num());
 		return listc;
+	}
+
+	@Override
+	public void chalPay(HashMap<String, Object> map){
+	System.out.println("mybatis==>chalPay");
+	mybatis.insert("PayDAO.chalPay",map);
+		
+	}
+
+	@Override
+	public void cardIn(HashMap<String, Object> map) {
+		System.out.println("mybatis==>cardIn");
+		mybatis.insert("PayDAO.cardIn",map);
+	}
+
+	@Override
+	public void accIn(HashMap<String, Object> map) {
+		System.out.println("mybatis==>accIn");
+		mybatis.insert("PayDAO.accIn",map);
 	}
 
 }
