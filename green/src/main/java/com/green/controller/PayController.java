@@ -68,5 +68,15 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 	}
 	
 	//간편결제로 결제할때(계좌 VER)
-	
+	@RequestMapping(value="/savechal.do")
+	public String chalMyAcc(String id,int acc_num) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("acc_num", acc_num);
+		
+		payService.chalPay(map);
+		payService.accIn(map);
+		
+		return "redirect:/member/main.do";
+	}
 }
