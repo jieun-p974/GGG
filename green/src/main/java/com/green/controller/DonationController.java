@@ -99,8 +99,6 @@ public class DonationController {
 		memberService.goDona(map);
 		dogamService.donExp(map);
 		
-		System.out.println("dldd");
-		
 		return "redirect:/donation/donation.do";
 	}
 }

@@ -1,6 +1,7 @@
 
 package com.green.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,12 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 		return "/pay/" + url;
 	}
 	
-	@RequestMapping(value={"/challengePay.do","/payment.do"}) 
+	@RequestMapping(value={"/challengePay.do","/payment.do","/myCard.do"}) 
 	public void getPay(Model model, String userId) {
-		List<MemberVO> list = null;
-		List<MemberVO> list2 = null;
+		List<MemberVO> list = null; //
+		List<MemberVO> list2 = null; //
 		list = payService.getPay(userId);
-		list2 = payService.getPay2(userId);
+		list2 = payService.getPay2(userId);  
 		model.addAttribute("list", list);
 		model.addAttribute("list2", list2);
 	}
@@ -52,5 +53,20 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 		return "redirect:/member/mypage.do"; 
 	}
 	
+	//간편결제로 결제할때(카드 VER)
+	@RequestMapping(value="/save.do")
+	public String chalMyCard(String id,int card_num) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("card_num", card_num);
+		
+		payService.chalPay(map);
+		payService.cardIn(map);
+		payService.accIn(map);
+		
+		return "redirect:/member/main.do";
+	}
+	
+	//간편결제로 결제할때(계좌 VER)
 	
 }
