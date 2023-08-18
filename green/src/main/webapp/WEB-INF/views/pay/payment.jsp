@@ -8,25 +8,19 @@
 <title>결제수단관리</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet"
-	href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" 	href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
 	integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
 <link rel="stylesheet" href="../../../resources/styles/payment.css">
 </head>
 <body>
-	<div class="wrapper">
-		<%@include file="../layouts/header.jsp"%>
-
+	<%@include file="../layouts/header.jsp"%>
+	<section class="service position-relative overflow-hidden d-flex justify-content-center">
+	<div class="wrapper row mt-5">
 		<!-- 간편카드 -->
 		<div class="card px-5 col-xl-auto mb-5"
 			style="width: 400px; border: none;">
@@ -37,7 +31,7 @@
 				<div class="debit-card mb-2">
 					<div class="d-flex flex-column h-90">
 						<label class="d-block">
-							<div class="d-flex position-relative mb-5">
+							<div class="d-flex position-relative">
 								<div>
 									<p hidden="hidden">${payc.mem_card_no}</p>
 									<p class="mt-2 mb-5 text-white fw-bold">${payc.card_company}</p>
@@ -79,7 +73,7 @@
 							<div class="d-flex position-relative">
 								<div>
 									<p hidden="hidden">${payb.mem_acc_no}</p>
-									<p class="mt-2 mb-5 text-white fw-bold">${payb.bank}</p>
+									<p class="mt-2 mb-3 text-white fw-bold">${payb.bank}</p>
 								</div>
 								<div class="input">
 									<input type="radio" name="bank" id="check">
@@ -104,6 +98,6 @@
 			</div>
 		</div>
 	</div>
-	
+	</section>
 </body>
 </html>

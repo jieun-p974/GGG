@@ -102,7 +102,7 @@
 									</tr>
 								</table>
 							</div>
-							<a href="../challenge/adminChallengeCertList.do"
+							<a href="../challenge/adminChallenge.do"
 								class="btn btn-warning btn-hover-secondery"> 챌린지 추가 </a>
 						</div>
 					</div>

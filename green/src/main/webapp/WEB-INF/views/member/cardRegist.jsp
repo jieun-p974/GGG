@@ -89,8 +89,8 @@ function check() {
 					<input type="hidden" name="id" value="${userId}"/>
 					<h4 class="mb-5">간편결제 계좌등록</h4>
 					<label class="d-block">
-					<div class="d-flex position-relative">
-							<p>카드사</p>
+					<div class="d-flex position-relative flex-wrap">
+							<p class="col-12 text-start ps-0">카드사</p>
 							<select name=card_company id="card_company" class="card_company mt-2 mb-3 me-3" style="height:40px;">
 								<option value="" selected>-카드사 선택 -</option>
 								<option value='KB국민카드'>KB국민카드</option>
@@ -133,10 +133,6 @@ function check() {
 					</div>
 					</div>
 					</label>
-					
-					
-						
-					
 						<div class="container-login100-form-btn">
 						<button class="login100-form-btn" id="registBtn">등록</button>
 					</div>

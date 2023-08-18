@@ -30,7 +30,13 @@ public interface ChallengeDAO {
 	
 	public MemChallengeVO redirectCheckPage(ChallengeCheckVO vo);
 	
-	public List<ChallengeCheckVO> adminCerCheckList();
+	public List<ChallengeCheckVO> adminCerCheckList(int chal_no);
 	
 	public void updatePassYN(HashMap<String, List<String>> arr);
+	
+	public void endDateCheck(ChallengeVO vo);
+	
+	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr);
+	
+	public void getPassNCheckSu(HashMap param);
 }

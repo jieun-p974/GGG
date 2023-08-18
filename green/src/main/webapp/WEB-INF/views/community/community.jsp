@@ -38,12 +38,21 @@
 <title>그린 커뮤니티</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<c:if test="${sessionScope.userType == 1}">
 		<%@include file="../layouts/header.jsp"%>
 	</c:if>
 	<c:if test="${sessionScope.userType == 2}">
 		<%@include file= "../layouts/adminHeader.jsp"%>
 	</c:if> 
+=======
+  	<c:if test="${sessionScope.userType == 1}">
+      <%@include file="../layouts/header.jsp"%>
+   </c:if>
+   <c:if test="${sessionScope.userType == 2}">
+      <%@include file= "../layouts/adminHeader.jsp"%>
+   </c:if> 
+>>>>>>> refs/remotes/origin/jieun_2
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row justify-content-center">
@@ -55,6 +64,7 @@
 								<c:forEach items="${list}" var="community">
 									<ul class="list-unstyled mt-5">
 										<li class="media d-flex justify-content-between">
+<<<<<<< HEAD
 										<div class=" col-2 ">
 											<div class="d-flex justify-content-around align-items-end p-3">
 												<c:if test="${sessionScope.userId == community.id}">
@@ -70,6 +80,24 @@
 										</div>
 										<div class="media-body col-10 ">
 											<div class="row">
+=======
+									<div class=" col-2 ">
+										<div class="d-flex justify-content-around align-items-end p-3">
+										<input type="hidden" id="hey" value="${userId}">
+											<c:if test="${sessionScope.userId == community.id}">
+													<a href="communityModify.do?board_no=${community.board_no}" class="btn btn-warning btn-hover-secondery p-1">수정</a>
+											</c:if>
+											<c:if test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
+												<a href="deleteCommunity.do?board_no=${community.board_no}" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
+											</c:if>
+										</div>
+										<div class="profile-picture justify-content-center d-flex p-3">
+											<img class="p_img " src="/resources/imgs/member/${community.m_img_addr}" >
+										</div>
+									</div>
+										<div class="media-body col-10 ">
+											<div class="row df">
+>>>>>>> refs/remotes/origin/jieun_2
 												<div class="d-flex justify-content-between">
 													<div class="media-title mt-0 mb-1 col-8 fw-bold h4">@${community.id}</div>
 												</div>
@@ -91,6 +119,7 @@
 												</div>
 											</div>
 											<hr style="margin: 0.5rem" />
+<<<<<<< HEAD
 											<!-- 좋아요 버튼 -->
 											<div class="media-feed-control d-flex justify-content-end align-items-center" style="height:1rem">
 												<c:if test="${community.likechk < 1}">
@@ -126,22 +155,62 @@
 														<input type="hidden" name="board_no" value="${community.board_no}" /> 
 														<input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
 														<button class="ms-4 btn btn-warning btn-hover-secondery text-capitalize " type="submit" style="padding: 15px;" >댓글등록</button>
+=======
+											<div class="media-feed-control d-flex justify-content-end">
+												<a href="like.do?board_no=${community.board_no}&id=${sessionScope.userId}" class="icon_links me-2"> 
+													<img class="sns_icon_like" src="/resources/imgs/heart.png" />
+												</a>
+												<!-- 버튼  -->
+												<input type="hidden" id="board_no" name="board_no" value="${community.board_no}" />
+												<button class="icon_links me-2 p-0 showBtn" style="background: none; border: none;" id="showBtn">
+													<img class="sns_icon_comment" src="/resources/imgs/comment.png" />
+												</button>
+												<a href="#" class="icon_links">
+													<img class="sns_icon_share me-2" src="/resources/imgs/share.png" />
+												</a>
+											</div>
+											<hr style="margin: 0.5rem" />
+											<!-- 댓글 달기 -->
+											<div class="media-body-reply-block comments">
+												<!-- 댓글작성 창 -->
+												<form action="reply.do" method="post">
+													<div class="replyWrite d-flex align-items-center">
+														<img class="r_img col-sm-0" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
+														<p class="reply_id col-2 m-0 ms-2">@${sessionScope.userId}</p>
+														<input type="hidden" id="idd" name="id" value="${userId}" /> 
+														<input type="hidden" name="board_no" value="${community.board_no}" /> 
+														<input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
+														<button class="btn btn-warning btn-hover-secondery text-black col-2 replyBtn" type="submit">댓글등록</button>
+>>>>>>> refs/remotes/origin/jieun_2
 													</div>
 												</form>
 												<hr style="margin: 0.5rem" />
 												<div class="listRe">
 													<div class="list" id="listRe">
 														<!-- 댓글 달리는 위치 -->
+<<<<<<< HEAD
                                           
+=======
+														
+>>>>>>> refs/remotes/origin/jieun_2
 													</div>
 												</div>
 											</div>
 										</div>
+<<<<<<< HEAD
 									</li>
 								</ul>
 								<hr style="margin: 0.5rem" />
 							</c:forEach>
+=======
+										</li>
+									</ul>
+									<hr />
+								</c:forEach>
+							</div>
+>>>>>>> refs/remotes/origin/jieun_2
 						</div>
+<<<<<<< HEAD
 					</div>
 						
 						
@@ -165,6 +234,14 @@
 									<input class="searchText col-7" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete" />
 									<input type="hidden" name="userId" value="${userId}" /> 
 									<button class="btn btn-white-back btn-hover-third" style="padding:15px" >검색</button>
+=======
+						<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
+							<div class="row">
+								<div class="col-lg-12 mb-5">
+									<a href="community.do?id=${sessionScope.userId}" class="btn btn-white-back btn-hover-third">내 피드</a> 
+									<a href="community.do" class="btn btn-white-back btn-hover-third" ">전체 피드</a>
+									<a href="communityWrite.do" class="btn btn-white-back btn-hover-third">글쓰기</a>
+>>>>>>> refs/remotes/origin/jieun_2
 								</div>
 							</form>
 							<div class="col-sm-12">
@@ -177,6 +254,7 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
 </section>
 <%@include file="../layouts/footer.jsp"%>
@@ -249,6 +327,63 @@
 				console.log("요청 실패");
 				console.log("code:"+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
 				}
+=======
+	</section>
+	<%@include file="../layouts/footer.jsp"%>
+	<script src="/resources/js/custom.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var dd = $(".showBtn").closest(".media-body").find("#listRe");
+			$(".showBtn").click(function() {
+				var board_no = $(this).closest(".media-body").find("#board_no").val();
+				var here = $(this).closest(".media-body").find("#listRe");
+				var userId = $("#idd").val();
+				dd.html('');
+				$.ajax({
+					type : "post",
+					url : "getReply.do",
+					data : {
+						"board_no" : board_no
+					},
+					success:function(rs){
+						
+						$(rs).each(function(){
+							if(userId == this.id) {
+								var html ='';
+								html += '<div class="reply d-flex align-items-center m-1 p-1" style="border: 1px solid black; border-radius: 15px">';
+								html += '<div class="r_profile d-flex col-3 align-items-center p-2">';
+								html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
+								html += '<p class="reply_id col-7 m-0 ms-2">@'+this.id+'</p></div>';
+								html += '<input type="hidden" name="com_no" value="'+this.com_no+'" />';
+								html += '<div class="re col-6">';
+								html += '<div class="reWriting" id="reWriting" type="text" contentEditable="false">'+this.com_content+'</div>';
+								html += '</div><div class="memButtons col-3"><div class="memBtns">';
+								html += '<input type="button" class="edit btn btn-warning btn-hover-secondery text-black" onclick="reEdit()" value="수정" id="reEditBtn" />';
+								html += '</div></div></div>';
+								
+								here.append(html);
+								} else {
+									var html ='';
+									html += '<div class="reply d-flex align-items-center m-1 p-1" style="border: 1px solid black; border-radius: 15px">';
+									html += '<div class="r_profile d-flex col-3 align-items-center p-2">';
+									html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
+									html += '<p class="reply_id col-7 m-0 ms-2">@'+this.id+'</p></div>';
+									html += '<input type="hidden" name="com_no" value="'+this.com_no+'" />';
+									html += '<div class="re col-6">';
+									html += '<div class="reWriting" id="reWriting" type="text" contentEditable="false">'+this.com_content+'</div>';
+									html += '</div><div class="memButtons col-3"><div class="memBtns">';
+									html += '</div></div></div>';
+									
+									here.append(html);
+								}
+						});
+					},
+					error:function(request, error){
+						console.log("요청 실패");
+						console.log("code:"+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
+					}
+				});
+>>>>>>> refs/remotes/origin/jieun_2
 			});
 		});
 	});

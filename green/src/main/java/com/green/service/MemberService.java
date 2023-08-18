@@ -44,4 +44,7 @@ public interface MemberService {
 	public void accountDelete(MemberVO vo);
 	
 	void goDona(HashMap<String, Object> map);
+	
+	// select member dogeon last date
+	String dogeonExp(MemberVO vo);
 }

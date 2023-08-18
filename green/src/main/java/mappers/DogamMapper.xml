@@ -90,6 +90,7 @@
    (SELECT do_no FROM mem_dogam WHERE do_no=#{do_no} AND id=#{userId});
    </insert>
    
+<<<<<<< HEAD
   <!--  
    main animal choice
    <update id="mainChoice" parameterType="dogam">
@@ -98,7 +99,17 @@
       AND (SELECT COUNT(do_no) FROM mem_dogam WHERE id=#{userId}
       AND do_choice_YN='Y')=0
    </update>
+=======
+   <!-- main animal choice -->
+<!--    <update id="mainChoice" parameterType="dogam">
+      UPDATE mem_dogam SET do_choice_YN='Y'
+      WHERE id=#{userId} and do_no=#{do_no}
+      AND (SELECT COUNT(do_no) FROM mem_dogam WHERE id=#{userId}
+      AND do_choice_YN='Y')=0
+   </update> -->
+>>>>>>> refs/remotes/origin/jieun_2
    
+<<<<<<< HEAD
    name update
    <update id="updateDoname" parameterType="dogam">
    update mem_dogam set do_choice_YN='N', do_name=${do_name}
@@ -112,4 +123,19 @@
    where id=#{userId} AND do_choice_YN = 'Y';
    </select>
    
+=======
+   <!-- my yes -->
+   <select id="myYes" resultType="Integer">
+   SELECT do_no from mem_dogam
+   where id=#{userId} AND do_choice_YN = 'Y';
+   </select>
+   
+   <!-- name update -->
+<!--    <update id="updateDoname" parameterType="dogam">
+   update mem_dogam set do_choice_YN='N', do_name=${do_name}
+   WHERE mem_do_no=#{mem_do_no} and do_exp=3000
+   </update> -->
+   
+
+>>>>>>> refs/remotes/origin/jieun_2
 </mapper>
