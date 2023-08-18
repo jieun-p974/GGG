@@ -185,6 +185,7 @@
 	$(function() {
 		var dd = $(".showBtn").closest(".media-body").find("#listRe");
 		$(".showBtn").click(function() {
+			  $(".list").toggle();
 			var board_no = $(this).closest(".media-body").find("#board_no").val();
 			var here = $(this).closest(".media-body").find("#listRe");
 			var userId = $("#idd").val();
