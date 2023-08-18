@@ -58,10 +58,10 @@
 										<div class=" col-2 ">
 											<div class="d-flex justify-content-around align-items-end p-3">
 												<c:if test="${sessionScope.userId == community.id}">
-													<a href="communityModify.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery p-1">수정</a>
+													<a href="communityModify.do?board_no=75&amp;userId=seul" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 15px;">수정</a>
 												</c:if>
 												<c:if test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
-													<a href="deleteCommunity.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery p-1">삭제</a>
+													<a href="deleteCommunity.do?board_no=75&amp;userId=seul" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 15px;">삭제</a>
 												</c:if>
 											</div>
 											<div class="profile-picture justify-content-center d-flex p-3">
@@ -121,11 +121,11 @@
 													<div class="replyWrite d-flex align-items-center">
 														<img class="r_img col-sm-0" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
 														<p class="reply_id col-2 m-0 ms-2">@${userId}</p>
-														<input type="hidden" name="idd" value="${userId}" /> 
-														<input type="hidden" name="usert" value="${userType}" /> 
+														<input type="hidden" id="idd" name="id" value="${userId}" /> 
+														<input type="hidden" id="usert" name="mem_type_no" value="${userType}" /> 
 														<input type="hidden" name="board_no" value="${community.board_no}" /> 
 														<input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
-														<button class="btn btn-warning btn-hover-secondery text-black col-2 replyBtn" type="submit">댓글등록</button>
+														<button class="ms-4 btn btn-warning btn-hover-secondery text-capitalize " type="submit" style="padding: 15px;" >댓글등록</button>
 													</div>
 												</form>
 												<hr style="margin: 0.5rem" />
@@ -150,21 +150,21 @@
 			
 			
 					<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
-						<div class="row">
-							<div class="col-lg-12 mb-5">
-								<a href="community.do?id=${userId}&userId=${userId}" class="btn btn-white-back btn-hover-third">내 피드</a> 
-								<a href="community.do?userId=${userId}" class="btn btn-white-back btn-hover-third" >전체 피드</a>
-								<a href="communityWrite.do" class="btn btn-white-back btn-hover-third">글쓰기</a>
+						<div class="row justify-content-center mt-5">
+							<div class="col-lg-12 mb-4 d-flex justify-content-around">
+								<a href="community.do?id=${userId}&userId=${userId}" class="btn btn-white-back btn-hover-third" style="padding:15px" >내 피드</a> 
+								<a href="community.do?userId=${userId}" class="btn btn-white-back btn-hover-third" style="padding:15px" >전체 피드</a>
+								<a href="communityWrite.do" class="btn btn-white-back btn-hover-third" style="padding:15px">글쓰기</a>
 							</div>
 							<form action="community.do" class="search">
-								<div class="col-sm-12 mb-4" >
+								<div class="col-sm-12 mb-4 d-flex justify-content-around" >
 									<select name="searchOption" class="searchOption">
 										<option value="id">ID</option>
 										<option value="hashTag">hashTag</option>
 									</select>
-									<input class="searchText" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete" />
+									<input class="searchText col-7" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete" />
 									<input type="hidden" name="userId" value="${userId}" /> 
-									<button class="btn btn-white-back btn-hover-third">검색</button>
+									<button class="btn btn-white-back btn-hover-third" style="padding:15px" >검색</button>
 								</div>
 							</form>
 							<div class="col-sm-12">
@@ -188,6 +188,7 @@
 			var board_no = $(this).closest(".media-body").find("#board_no").val();
 			var here = $(this).closest(".media-body").find("#listRe");
 			var userId = $("#idd").val();
+			var userType = $("#usert").val();
 			dd.html('');
 		$.ajax({
 			type : "post",
@@ -200,28 +201,43 @@
 				$(rs).each(function(){
 					if(userId == this.id) {
 						var html ='';
-						html += '<div class="reply d-flex align-items-center m-1 p-1" style="border: 1px solid black; border-radius: 15px">';
-						html += '<div class="r_profile d-flex col-3 align-items-center p-2">';
+						html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
+						html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
 						html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
 						html += '<p class="reply_id col-7 m-0 ms-2">@'+this.id+'</p></div>';
 						html += '<input type="hidden" name="com_no" value="'+this.com_no+'" />';
-						html += '<div class="re col-6">';
+						html += '<div class="re col-8">';
 						html += '<div class="reWriting" id="reWriting" type="text" contentEditable="false">'+this.com_content+'</div>';
-						html += '</div><div class="memButtons col-3"><div class="memBtns">';
-						html += '<input type="button" class="edit btn btn-warning btn-hover-secondery text-black" onclick="reEdit()" value="수정" id="reEditBtn" />';
+						html += '</div><div class="memButtons col-2 "><div class="memBtns d-flex justify-content-evenly  align-items-center">';
+						html += '<input type="button" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;" onclick="reEdit()" value="수정" id="reEditBtn" />';
+						html += '<a href="deleteReply.do?com_no='+this.com_no+'" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;">삭제</a>';
 						html += '</div></div></div>';
                      
 						here.append(html);
-					} else {
+					} else if(userType == 2){
 						var html ='';
-						html += '<div class="reply d-flex align-items-center m-1 p-1" style="border: 1px solid black; border-radius: 15px">';
-						html += '<div class="r_profile d-flex col-3 align-items-center p-2">';
+						html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
+						html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
 						html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
 						html += '<p class="reply_id col-7 m-0 ms-2">@'+this.id+'</p></div>';
 						html += '<input type="hidden" name="com_no" value="'+this.com_no+'" />';
-						html += '<div class="re col-6">';
+						html += '<div class="re col-8">';
 						html += '<div class="reWriting" id="reWriting" type="text" contentEditable="false">'+this.com_content+'</div>';
-						html += '</div><div class="memButtons col-3"><div class="memBtns">';
+						html += '</div><div class="memButtons col-2"><div class="memBtns d-flex justify-content-evenly  align-items-center">';
+						html += '<a href="deleteReply.do?com_no='+this.com_no+'" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;">삭제</a>';
+						html += '</div></div></div>';
+                        
+						here.append(html);
+					} else {
+						var html ='';
+						html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
+						html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
+						html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
+						html += '<p class="reply_id col-7 m-0 ms-2">@'+this.id+'</p></div>';
+						html += '<input type="hidden" name="com_no" value="'+this.com_no+'" />';
+						html += '<div class="re col-8	">';
+						html += '<div class="reWriting" id="reWriting" type="text" contentEditable="false">'+this.com_content+'</div>';
+						html += '</div><div class="memButtons col-2"><div class="memBtns d-flex justify-content-evenly  align-items-center">';
 						html += '</div></div></div>';
                         
 						here.append(html);

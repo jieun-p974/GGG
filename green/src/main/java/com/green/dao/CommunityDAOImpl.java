@@ -62,9 +62,9 @@ public class CommunityDAOImpl implements CommunityDAO {
 		mybatis.delete("CommunityDAO.deleteReply",vo);
 	}
 	
-	public List<ReplyVO> getReplyList() {
+	public List<ReplyVO> getReplyList(int board_no) {
 		System.out.println("Mybatis=> reply list");
-		return mybatis.selectList("CommunityDAO.getReplyList");
+		return mybatis.selectList("CommunityDAO.getReplyList",board_no);
 	}
 	
 	@Override

@@ -24,7 +24,7 @@ public interface CommunityDAO {
 	// 댓글
 	public void replyWrite(ReplyVO vo);
 
-	public List<ReplyVO> getReplyList();
+	public List<ReplyVO> getReplyList(int board_no);
 	
 	public ReplyVO getReplyDetail(ReplyVO vo);
 

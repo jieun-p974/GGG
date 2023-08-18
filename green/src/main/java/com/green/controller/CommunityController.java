@@ -115,11 +115,13 @@ public class CommunityController {
 	// reply list
 	@ResponseBody
 	@RequestMapping(value="/getReply.do")
-	public void getReplyList(Model model, ReplyVO vo) {
-		System.out.println("커뮤니티 컨트롤러 댓글 ");
-		List<ReplyVO> listRe = null;
-		listRe = communityService.getReplyList();
-		model.addAttribute("listRe", listRe);
+	public List getReplyList(int board_no) {
+		System.out.println("커뮤니티 컨트롤러 "+board_no);
+		List<ReplyVO> listRe = communityService.getReplyList(board_no);
+		for(ReplyVO vo : listRe) {
+			System.out.println("댓글 : "+vo.getCom_content());
+		}
+		return listRe;
 	}
 	
 	
