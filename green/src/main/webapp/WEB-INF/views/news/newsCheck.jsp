@@ -12,7 +12,7 @@
 <title>뉴스 관리</title>
 <style type="text/css">
 .thumnail {
-	width: 20%;
+	width: 40%;
 }
 </style>
 <script type="text/javascript">

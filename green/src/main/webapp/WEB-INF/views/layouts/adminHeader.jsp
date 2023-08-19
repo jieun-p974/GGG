@@ -10,7 +10,9 @@
 <script src="/resources/js/custom.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
-
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 <%
 	String userId = (String) session.getAttribute("userId");
 String userName = (String) session.getAttribute("userName");

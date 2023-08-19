@@ -15,7 +15,7 @@
 <link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 .c_list_img{
-	width: 30%;
+	width: 50%;
 	margin-top: 4%;
 }
 .chall{
@@ -44,10 +44,10 @@ $(function(){
 	}
 	html2 +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 	html2 +='<div class="card position-relative shadow border-0 h-100">';
-	html2 +='<div class="card-body p-4" style="height:275px;">';
+	html2 +='<div class="card-body p-4" style="height:290px;">';
 	html2 +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 	html2 +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-	html2 += '<p class="c_list_txt">${chall.chal_name}</p>';
+	html2 += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 	html2 += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 	html2 += '<p class="c_list_lv">난이도 : ';
 	html2 += star2;
@@ -76,10 +76,10 @@ $("#chall").append(html2);
 				}
 				html +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 				html +='<div class="card position-relative shadow border-0 h-100">';
-				html +='<div class="card-body p-4" style="height:275px;">';
+				html +='<div class="card-body p-4" style="height:290px;">';
 				html +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-				html += '<p class="c_list_txt">${chall.chal_name}</p>';
+				html += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
@@ -103,10 +103,10 @@ $("#chall").append(html2);
 				}
 				html +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 				html +='<div class="card position-relative shadow border-0 h-100">';
-				html +='<div class="card-body p-4" style="height:275px;">';
+				html +='<div class="card-body p-4" style="height:290px;">';
 				html +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-				html += '<p class="c_list_txt">${chall.chal_name}</p>';
+				html += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
@@ -129,10 +129,10 @@ $("#chall").append(html2);
 				}
 				html +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 				html +='<div class="card position-relative shadow border-0 h-100">';
-				html +='<div class="card-body p-4" style="height:275px;">';
+				html +='<div class="card-body p-4" style="height:290px;">';
 				html +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-				html += '<p class="c_list_txt">${chall.chal_name}</p>';
+				html += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;

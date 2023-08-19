@@ -10,7 +10,11 @@
 .img {
 	width: 70%;
 }
-
+pre {
+   width: 100%;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+ }
 </style>
 <title>뉴스 상세</title>
 </head>
@@ -35,7 +39,7 @@
 									class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 mt-5">
 									<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="사진"
 										class="img">
-									<h5 class="content mt-3" style="line-height: 2rem">${news.n_content}</h5>
+									<pre class="content mt-5 text-start" style="line-height: 2rem">${news.n_content}</pre>
 								</div>
 							</div>
 						</div>
