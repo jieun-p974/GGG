@@ -54,6 +54,7 @@ public class MemberController {
 	public String idcheck(MemberVO vo) {
 		MemberVO memberVo = memberService.idCheck_Login(vo);
 		String result = "ID 사용 가능합니다.";
+		
 		if (memberVo != null)
 			result = "중복된 아이디 입니다.";
 		return result;
@@ -62,12 +63,13 @@ public class MemberController {
 	// sign up
 	@RequestMapping("/signupSave.do")
 	public ModelAndView userInsert(MemberVO vo) {
+		
 		int result = memberService.memberInsert(vo);
-
+		
 		String message = "가입되지 않았습니다";
-		if (result > 0)
-			message = vo.getName() + "님, 가입을 축하드립니다!";
-
+		if (result > 0) {
+			message = vo.getId() + "님, 가입을 축하드립니다!";}
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");
 		mv.addObject("message", message);
@@ -118,9 +120,11 @@ public class MemberController {
 	}
 
 	// member info edit
-	@RequestMapping("/infoEditSave.do")
-	public String userUpdate(@ModelAttribute("member") MemberVO memberVo) {
-		memberService.memberUpdate(memberVo);
+	@RequestMapping("/editSave.do")
+	public String userUpdate(MemberVO vo) throws IOException {
+		System.out.println("c"+vo.getId());
+		int res = memberService.memberUpdate(vo);
+		System.out.println("ccc"+res);
 		return "redirect:/member/mypage.do";
 	}
 

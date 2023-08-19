@@ -54,7 +54,7 @@ public class DogamController {
 	}
 
 	// get dogam detail
-	@RequestMapping(value = { "/dogamModify.do" })
+	@RequestMapping(value = { "/dogamModify.do",  "/dogamImg.do" })
 	public void getDogam(DogamVO vo, Model model) {
 		model.addAttribute("dogam", dogamService.getDogam(vo));
 	}
@@ -64,7 +64,8 @@ public class DogamController {
 	public void getMyDogamList(String id, DogamVO vo, Model model) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		HashMap<String, Object> map2 = new HashMap<String, Object>();
-
+		int res = 1;
+		dogamService.mainCancle3(id);
 		if (id != null) {
 			map.put("id", id);
 			map2.put("id",id);
@@ -73,9 +74,13 @@ public class DogamController {
 		
 		List<HashMap<String,Object>> list =dogamService.getMyDogamList(map);
 		HashMap<String, Object> dList = dogamService.getDetail(map2);
-		
+		if(list.size() < 1) {
+			res = 2;
+			System.out.println("ccc" + res);
+		}
 		model.addAttribute("mydogam", list);
 		model.addAttribute("detail", dList);
+		model.addAttribute("res", res);
 	}
 	
 	// insert
@@ -124,5 +129,63 @@ public class DogamController {
 		rd.addFlashAttribute("url", "/dogam/dogam.do");
 		return "redirect:/dogam/dogamDetail.do?do_no=" + do_no;
 	}
+	
+	// main animal choice
+	@RequestMapping(value = "/mainChoice.do")
+	public String mainChoice(int do_no, String userId, RedirectAttributes rd) throws IOException {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("do_no", do_no);
+		map.put("userId", userId);
+		int result = dogamService.mainChoice(map);
+		
+		if (result > 0) {
+			rd.addFlashAttribute("msg", "대표 캐릭터가 설정되었습니다.");
+			rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + userId);
+			return "redirect:/dogam/dogamDetail.do?do_no=" + do_no;
+		}
+		
+		rd.addFlashAttribute("msg", "이미 설정된 대표 캐릭터가 있습니다.");
+		rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + userId);
+		return "redirect:/dogam/dogamDetail.do?do_no=" + do_no;
+	}
+	
+	// main animal cancle 
+		@RequestMapping(value = "/mainCancle.do")
+		public String mainCancle(int do_no, String userId, RedirectAttributes rd) throws IOException {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("do_no", do_no);
+			map.put("userId", userId);
+			int result = dogamService.mainCancle(map);
+			
+			if (result > 0) {
+				rd.addFlashAttribute("msg", "대표 캐릭터 설정이 해제되었습니다.");
+				rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + userId);
+				return "redirect:/dogam/myDogam.do?id=" + userId;
+			}
+		
+		rd.addFlashAttribute("msg", "이미 설정된 대표 캐릭터가 있습니다.");
+		rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + userId);
+		return "redirect:/dogam/myDogam.do?id=" + userId;
+	
+		}
 
+	// name update
+		@RequestMapping(value = "/givename.do")
+		public String updateDoname(String do_name,int do_no, String id, RedirectAttributes rd) throws IOException {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("do_no", do_no);
+			map.put("userId", id);
+			map.put("do_name", do_name);
+			System.out.println("c"+map);
+			int result = dogamService.updateDoname(map);
+			
+			if (result > 0) {
+				rd.addFlashAttribute("msg", "소중한 이름을 지어주셔서 감사합니다.");
+				rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + id);
+			}
+			return "redirect:/dogam/dogamDetail.do?do_no=" + do_no;
+						
+		}
+
+			
 }

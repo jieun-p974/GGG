@@ -17,6 +17,7 @@ textarea{
 <title>도감 수정</title>
 </head>
 <body>
+<<<<<<< HEAD
 <%@include file="../layouts/adminHeader.jsp"%>
 	<section class="pricing position-relative overflow-hidden">
 	<div class="container position-relative">

@@ -39,9 +39,12 @@ public interface MemberService {
 	
 	// member card delete
 	public void cardDelete(MemberVO vo);
+	public void cardNo(MemberVO vo);
 
 	// member bank account delete
 	public void accountDelete(MemberVO vo);
+	public void accountNo(MemberVO vo);
+
 	
 	void goDona(HashMap<String, Object> map);
 	

@@ -41,7 +41,8 @@ public class MemberServiceImpl implements MemberService {
 	// member info edit
 	@Override
 	public int memberUpdate(MemberVO vo) {
-		return memberDAO.memberUpdate(vo);
+		int res = memberDAO.memberUpdate(vo);
+		return res;
 	}
 
 	// search id
@@ -129,11 +130,22 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.cardDelete(vo); 
 	}
 
+	@Override
+	public void cardNo(MemberVO vo) {
+		memberDAO.cardNo(vo);
+	}
+
 	// member bank account delete
 	@Override
 	public void accountDelete(MemberVO vo) {
 		memberDAO.accountDelete(vo);
 	}
+	
+	@Override
+	public void accountNo(MemberVO vo) {
+		memberDAO.accountNo(vo);
+	}
+
 	
 	// select member dogeon last date
 	@Override

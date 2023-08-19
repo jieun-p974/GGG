@@ -58,7 +58,7 @@
   --bs-font-sans-serif: 'S-CoreDream-3Light';
   --bs-font-monospace: 'S-CoreDream-3Light';
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: 'S-CoreDream-3Light';
   --bs-body-font-size: 1.125rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1;
@@ -276,12 +276,12 @@ samp {
   font-size: 1em;
 }
 
+
 pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  font-size: 0.875em;
+   width: 100%;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+ 
 }
 pre code {
   font-size: inherit;

@@ -42,7 +42,16 @@ public interface DogamService {
 	//기부->exp
 	void donExp(HashMap<String, Object> map);
 	
-	//my yes
-		public int myYes(String id);
-		
+	// my yes
+	public int myYes(String id);
+	
+	// main animal choice
+	public int mainChoice(HashMap map);
+	
+	// main animal cancle
+	public int mainCancle(HashMap map);
+	public int mainCancle3(String id);
+	
+	// name update
+	public int updateDoname(HashMap map);
 }

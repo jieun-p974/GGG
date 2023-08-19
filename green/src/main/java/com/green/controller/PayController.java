@@ -43,6 +43,9 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "/deleteCard.do")
 	public String cardDelete(MemberVO vo) {
 		memberService.cardDelete(vo);
+		System.out.println("payC"+vo.getId());
+		memberService.cardNo(vo);
+		
 		return "redirect:/member/mypage.do"; 
 	}
 	
@@ -50,6 +53,8 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "/deleteAccount.do")
 	public String accountDelete(MemberVO vo) {
 		memberService.accountDelete(vo);
+		memberService.accountNo(vo);
+		
 		return "redirect:/member/mypage.do"; 
 	}
 	
