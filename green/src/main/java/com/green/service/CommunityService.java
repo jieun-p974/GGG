@@ -33,11 +33,7 @@ public interface CommunityService {
 
 	//reply list
 	List<ReplyVO> getReplyList(int board_no);
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> refs/remotes/origin/jieun_2
 	void deleteReply(ReplyVO vo);
 
 	void updateReply(ReplyVO vo);

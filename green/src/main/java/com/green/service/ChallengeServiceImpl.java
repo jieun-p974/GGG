@@ -47,6 +47,11 @@ public class ChallengeServiceImpl implements ChallengeService{
 		// TODO Auto-generated method stub
 		challengeDAO.updateChallenge(vo);
 	}
+	
+	//delete
+	public void deleteChall(int chal_no) {
+		challengeDAO.deleteChall(chal_no);
+	}
 
 	//get my challenge list
 	@Override

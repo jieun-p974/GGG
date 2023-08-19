@@ -39,19 +39,9 @@ public interface DogamDAO {
 	// sinchung
 	public int dogamSinchung(HashMap map);
 	
-<<<<<<< HEAD
-
-	//기부->exp에 적립
-	public void donExp(HashMap<String, Object> map);
-=======
 	// my yes
 	public int myYes(String id);
->>>>>>> refs/remotes/origin/gaeun
 	
-<<<<<<< HEAD
-	// my yest
-		public int myYes(String id);
-=======
 	// main animal choice
 	public int mainChoice(HashMap map);
 	
@@ -62,6 +52,6 @@ public interface DogamDAO {
 	// name update
 	public int updateDoname(HashMap map);
 	
->>>>>>> refs/remotes/origin/gaeun
-	
+	//기부->exp에 적립
+		public void donExp(HashMap<String, Object> map);
 }

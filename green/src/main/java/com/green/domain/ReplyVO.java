@@ -3,10 +3,10 @@ package com.green.domain;
 public class ReplyVO {
 	
 	/*
-	 * com_no ëŒ“ê¸€ë²ˆí˜¸ int(5) auto_increment (pk)
-	 * id íšŒì›id varchar(20)
-	 * board_no ê²Œì‹œíŒ ë²ˆí˜¸ int(5)
-	 * com_content ëŒ“ê¸€ ë‚´ìš© varchar(300)
+	 * com_no ´ñ±Û¹øÈ£ int(5) auto_increment (pk)
+	 * id È¸¿øid varchar(20)
+	 * board_no °Ô½ÃÆÇ ¹øÈ£ int(5)
+	 * com_content ´ñ±Û ³»¿ë varchar(300)
 	 */
 	
 	private String id;

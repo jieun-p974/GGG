@@ -140,18 +140,12 @@ public class MemberServiceImpl implements MemberService {
 	public void accountDelete(MemberVO vo) {
 		memberDAO.accountDelete(vo);
 	}
-<<<<<<< HEAD
-=======
 	
 	@Override
 	public void accountNo(MemberVO vo) {
 		memberDAO.accountNo(vo);
 	}
 
-
-
-
->>>>>>> refs/remotes/origin/gaeun
 	
 	// select member dogeon last date
 	@Override

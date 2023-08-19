@@ -37,7 +37,7 @@
 									</tr>
 								</table>
 							</div>
-							<a href="../community/notification.do" class="btn btn-warning btn-hover-secondery"> 공지작성 </a>
+							<a href="../community/notificationWrite.do" class="btn btn-warning btn-hover-secondery"> 공지작성 </a>
 						</div>
 					</div>
 				</div>

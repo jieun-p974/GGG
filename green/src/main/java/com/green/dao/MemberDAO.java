@@ -45,11 +45,8 @@ public interface MemberDAO {
 
 	// member bank account delete
 	public void accountDelete(MemberVO vo);
-<<<<<<< HEAD
+	public void accountNo(MemberVO vo);
 	
 	// select member dogeon last date
 	public String dogeonExp(MemberVO vo);
-=======
-	public void accountNo(MemberVO vo);
->>>>>>> refs/remotes/origin/gaeun
 }

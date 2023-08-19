@@ -45,6 +45,11 @@
 		WHERE chal_no=#{chal_no};
 	</update>
 	
+	<!-- delete challenge -->
+	<delete id="deleteChallenge">
+		DELETE FROM challenge WHERE chal_no=#{chal_no}
+	</delete>
+	
 <!-- 	<select id="selectMyChall" parameterType="string" resultType="challenge">
 		SELECT c.chal_no AS chal_no, chal_name
 		FROM mem_chal, challenge c

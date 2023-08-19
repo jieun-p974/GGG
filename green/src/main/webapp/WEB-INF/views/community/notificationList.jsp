@@ -39,9 +39,9 @@
 									<th>수정</th>
 									<th>삭제</th>
 								</thead>
-								<c:forEach items="${listNO}" var="noti">
+								<c:forEach items="${listNO}" var="noti" varStatus="noti2">
 									<tbody>
-										<td>${noti.ann_no}</td>
+										<td>${listNO.size()-noti2.index}</td>
 										<td>${noti.id}</td>
 										<td>${noti.ann_date}</td>
 										<td>${noti.ann_title}</td>

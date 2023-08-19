@@ -9,16 +9,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class CommunityVO {
 	/*
-	 * board_no ì»¤ë®¤ë‹ˆí‹° ë²ˆí˜¸ int(5) auto_increment(pk) 
-	 * id íšŒì› id varchar(20) 
-	 * b_content ê¸€ë‚´ìš© varchar(500) 
-	 * regist_date ì‘ì„±ì¼ date default current_timestamp() 
-	 * b_img1 ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€1 varchar(100) 
-	 * b_img1_addr ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€ê²½ë¡œ1 varchar(100) 
-	 * b_img2 ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€2 varchar(100)
-	 * b_img2_addr ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€ê²½ë¡œ2 varchar(100) 
-	 * b_img3 ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€3 varchar(100)
-	 * b_img3_addr ì»¤ë®¤ë‹ˆí‹°ì´ë¯¸ì§€ê²½ë¡œ3 varchar(100) 
+	 * board_no Ä¿¹Â´ÏÆ¼ ¹øÈ£ int(5) auto_increment(pk) 
+	 * id È¸¿ø id varchar(20) 
+	 * b_content ±Û³»¿ë varchar(500) 
+	 * regist_date ÀÛ¼ºÀÏ date default current_timestamp() 
+	 * b_img1 Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö1 varchar(100) 
+	 * b_img1_addr Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö°æ·Î1 varchar(100) 
+	 * b_img2 Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö2 varchar(100)
+	 * b_img2_addr Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö°æ·Î2 varchar(100) 
+	 * b_img3 Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö3 varchar(100)
+	 * b_img3_addr Ä¿¹Â´ÏÆ¼ÀÌ¹ÌÁö°æ·Î3 varchar(100) 
 	 */
 
 	private int board_no;
@@ -41,7 +41,7 @@ public class CommunityVO {
 	private int likechk;
 	private String userId;
 
-	MultipartFile file1; // write.jspì— íŒŒì¼ì²¨ë¶€ì‹œ name="file"ê³¼ ë™ì¼í•œ ë³€ìˆ˜ëª…
+	MultipartFile file1; // write.jsp¿¡ ÆÄÀÏÃ·ºÎ½Ã name="file"°ú µ¿ÀÏÇÑ º¯¼ö¸í
 	MultipartFile file2;
 	MultipartFile file3;
 	
@@ -56,16 +56,16 @@ public class CommunityVO {
 	public void setFile1(MultipartFile file1) {
 		this.file1 = file1;
 
-		// ì—…ë¡œë“œ íŒŒì¼ ì ‘ê·¼
+		// ¾÷·Îµå ÆÄÀÏ Á¢±Ù
 		if (!file1.isEmpty()) {
 			this.b_img1 = file1.getOriginalFilename();
 
-			// ì‹¤ì œ ì €ì¥ëœ íŒŒì¼ëª… ë§Œë“¤ê¸°
+			// ½ÇÁ¦ ÀúÀåµÈ ÆÄÀÏ¸í ¸¸µé±â
 			UUID uuid = UUID.randomUUID();
 			b_img1_addr = uuid.toString() + "_" + b_img1;
 
 			// ***********************************************
-			// í•´ë‹¹ ê²½ë¡œë¡œ ë³€ê²½
+			// ÇØ´ç °æ·Î·Î º¯°æ
 			File f = new File(
 					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img1_addr);
 			try {
@@ -86,16 +86,16 @@ public class CommunityVO {
 	public void setFile2(MultipartFile file2) {
 		this.file2 = file2;
 
-		// ì—…ë¡œë“œ íŒŒì¼ ì ‘ê·¼
+		// ¾÷·Îµå ÆÄÀÏ Á¢±Ù
 		if (!file2.isEmpty()) {
 			this.b_img2 = file2.getOriginalFilename();
 
-			// ì‹¤ì œ ì €ì¥ëœ íŒŒì¼ëª… ë§Œë“¤ê¸°
+			// ½ÇÁ¦ ÀúÀåµÈ ÆÄÀÏ¸í ¸¸µé±â
 			UUID uuid = UUID.randomUUID();
 			b_img2_addr = uuid.toString() + "_" + b_img2;
 
 			// ***********************************************
-			// í•´ë‹¹ ê²½ë¡œë¡œ ë³€ê²½
+			// ÇØ´ç °æ·Î·Î º¯°æ
 			File f = new File(
 					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img2_addr);
 
@@ -118,16 +118,16 @@ public class CommunityVO {
 	public void setFile3(MultipartFile file3) {
 		this.file3 = file3;
 
-		// ì—…ë¡œë“œ íŒŒì¼ ì ‘ê·¼
+		// ¾÷·Îµå ÆÄÀÏ Á¢±Ù
 		if (!file3.isEmpty()) {
 			this.b_img3 = file3.getOriginalFilename();
 
-			// ì‹¤ì œ ì €ì¥ëœ íŒŒì¼ëª… ë§Œë“¤ê¸°
+			// ½ÇÁ¦ ÀúÀåµÈ ÆÄÀÏ¸í ¸¸µé±â
 			UUID uuid = UUID.randomUUID();
 			b_img3_addr = uuid.toString() + "_" + b_img3;
 
 			// ***********************************************
-			// í•´ë‹¹ ê²½ë¡œë¡œ ë³€ê²½
+			// ÇØ´ç °æ·Î·Î º¯°æ
 			File f = new File(
 					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img3_addr);
 

@@ -92,17 +92,14 @@
 	delete from mem_account where mem_acc_no=#{mem_acc_no}
 	</delete>
 	
-<<<<<<< HEAD
 	<!-- 마이페이지에 도전권 유효기간 출력 -->
 	<select id="dogeonExp" resultType="string">
 		SELECT p.last_date FROM chal_dogeon d, chal_dog_pay p 
 		WHERE d.dogeon_no = p.dogeon_no AND id=#{id}
 	</select>
-=======
+
 	<update id="accountNo" parameterType="member">
 	update member set account_reg_YN = 'N'
 	WHERE id=#{id} and NOT EXISTS (SELECT * FROM mem_account WHERE id=#{id})	
 	</update>
-
->>>>>>> refs/remotes/origin/gaeun
 </mapper>

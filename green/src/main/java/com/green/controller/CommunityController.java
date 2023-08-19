@@ -55,28 +55,12 @@ public class CommunityController {
 	@RequestMapping("/community.do")
 	public void getCommunityList(Model model,CommunityVO vo) {
 		List<CommunityVO> list = null;
-<<<<<<< HEAD
 		if (vo.getId() != null) {
 			list = communityService.getMyCommunityList(vo);
-=======
-		List<ReplyVO> listRe = null;
-		if (id != null) {
-			list = communityService.getMyCommunityList(id);
-//			listRe = communityService.getReplyList();
->>>>>>> refs/remotes/origin/jieun_2
 		} else {
-<<<<<<< HEAD
 			list = communityService.getCommunityList(vo.getUserId());
-=======
-			list = communityService.getCommunityList();
-//			listRe = communityService.getReplyList();
->>>>>>> refs/remotes/origin/jieun_2
 		}
 		model.addAttribute("list", list);
-<<<<<<< HEAD
-=======
-//		model.addAttribute("listRe", listRe);
->>>>>>> refs/remotes/origin/jieun_2
 	}
 	
 	// get one
@@ -134,10 +118,6 @@ public class CommunityController {
 	public List getReplyList(int board_no) {
 		System.out.println("커뮤니티 컨트롤러 "+board_no);
 		List<ReplyVO> listRe = communityService.getReplyList(board_no);
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/jieun_2
 		for(ReplyVO vo : listRe) {
 			System.out.println("댓글 : "+vo.getCom_content());
 		}

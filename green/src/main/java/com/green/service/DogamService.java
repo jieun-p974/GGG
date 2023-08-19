@@ -39,14 +39,6 @@ public interface DogamService {
 	// sinchung
 	public int dogamSinchung(HashMap map);
 
-<<<<<<< HEAD
-	//기부->exp
-	void donExp(HashMap<String, Object> map);
-	
-	//my yes
-		public int myYes(String id);
-		
-=======
 	// my yes
 	public int myYes(String id);
 	
@@ -61,5 +53,7 @@ public interface DogamService {
 	// name update
 	public int updateDoname(HashMap map);
 	
->>>>>>> refs/remotes/origin/gaeun
+	//기부->exp
+	void donExp(HashMap<String, Object> map);
+	
 }
