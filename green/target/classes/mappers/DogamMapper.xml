@@ -10,7 +10,7 @@
 	
 	<!-- admin list with img -->
 	<select id="getAdminImgDogam" parameterType="int"  resultType="dogam">
-	SELECT DISTINCT d.do_no, d.do_title, d.do_content, a.img1, b.img2, c.img3
+	SELECT DISTINCT d.do_no, d.do_title, d.do_content, d.do_realimg_addr, a.img1, b.img2, c.img3
 	from dogam d, lv_dogam l,
 	(SELECT do_img_addr AS img1 FROM lv_dogam WHERE do_lev = 1 AND do_no=#{do_no}) a,
 	(SELECT do_img_addr AS img2 FROM lv_dogam WHERE do_lev = 2 AND do_no=#{do_no}) b,
@@ -59,8 +59,8 @@
 	
 	<!-- dogam insert -->
 	<insert id="dogamInsert" parameterType="dogam">
-		INSERT INTO dogam (do_title, do_yoyak, do_content)
-		VALUES (#{do_title}, #{do_yoyak}, #{do_content})
+		INSERT INTO dogam (do_title, do_yoyak, do_content, do_realimg, do_realimg_addr)
+		VALUES (#{do_title}, #{do_yoyak}, #{do_content}, #{do_realimg}, #{do_realimg_addr})
 	</insert>
 		
 	<!-- dogam img insert -->
@@ -76,7 +76,9 @@
 		UPDATE dogam SET
 		do_title = #{do_title},
 		do_yoyak = #{do_yoyak},
-		do_content = #{do_content}
+		do_content = #{do_content},
+		do_realimg = #{do_realimg},
+		do_realimg_addr = #{do_realimg_addr}
 		WHERE do_no = #{do_no}
 	</update>
 	
