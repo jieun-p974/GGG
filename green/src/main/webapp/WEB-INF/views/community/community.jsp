@@ -210,7 +210,7 @@
 						html += '<div class="re col-8">';
 						html += '<div class="reWriting" id="reWriting" type="text" contentEditable="false">'+this.com_content+'</div>';
 						html += '</div><div class="memButtons col-2 "><div class="memBtns d-flex justify-content-evenly  align-items-center">';
-						html += '<input type="button" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;" onclick="reEdit()" value="수정" id="reEditBtn" />';
+						html += '<input type="button" class="replymodi btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;" onclick="reEdit()" value="수정" id="reEditBtn" />';
 						html += '<a href="deleteReply.do?com_no='+this.com_no+'" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;">삭제</a>';
 						html += '</div></div></div>';
                      
@@ -251,7 +251,19 @@
 				}
 			});
 		});
+		
+	function reEdit() {
+		$("#reWriting").attr({"contentEditable":"true"});
+		$("#reWriting").focus();
+		$("#reEditBtn").attr({"value":"확인"});
+		$("#reEditBtn").attr({"href":"replyModify.do?com_no=${reply.com_no}"});
+	}
+		
 	});
+	
+	$(function() {
+		var rm = $(".replymodi")
+	}
 </script>
 </body>
 </html>
