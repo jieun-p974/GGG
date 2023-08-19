@@ -80,7 +80,7 @@
   --bs-highlight-bg: #fff3e3;
 }
 @font-face {
-	font-family: 'S-CoreDream-3Light';
+	font-family: 'S-CoreDream-3Light' !important;
 	src:
 		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
 		format('woff');
@@ -91,7 +91,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family:'S-CoreDream-3Light' ;
+  font-family:'S-CoreDream-3Light' !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -102,7 +102,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: 'S-CoreDream-3Light';
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -272,7 +272,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--bs-font-monospace);
+  font-family: 'S-CoreDream-3Light';
   font-size: 1em;
 }
 
@@ -365,7 +365,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: 'S-CoreDream-3Light';
   font-size: inherit;
   line-height: inherit;
 }
@@ -2877,7 +2877,7 @@ textarea.form-control-lg {
   --bs-btn-focus-box-shadow: 0 0 0 0px rgba(var(--bs-btn-focus-shadow-rgb), .5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-  font-family: var(--bs-btn-font-family);
+  font-family: 'S-CoreDream-3Light';
   font-size: var(--bs-btn-font-size);
   font-weight: var(--bs-btn-font-weight);
   line-height: var(--bs-btn-line-height);
@@ -5541,7 +5541,7 @@ textarea.form-control-lg {
   display: block;
   padding: var(--bs-tooltip-arrow-height);
   margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'S-CoreDream-3Light';
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -5651,7 +5651,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'S-CoreDream-3Light';
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -7903,7 +7903,7 @@ textarea.form-control-lg {
 }
 
 .font-monospace {
-  font-family: var(--bs-font-monospace) !important;
+  font-family: 'S-CoreDream-3Light' !important;
 }
 
 .fs-1 {

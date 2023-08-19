@@ -215,6 +215,7 @@
 									value="${myDogam.do_exp}"></progress>
 								<div class="exps mt-2 d-flex justify-content-between">
 									<div class="exp_now">레벨1</div>
+									<div class="exp_now">레벨2</div>
 									<div class="exp_end">레벨3(성체)</div>
 								</div>
 								

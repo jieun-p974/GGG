@@ -1,6 +1,10 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
+<<<<<<< HEAD
 >>>>>>>=refs/remotes/origin/gaeun
+=======
+>>>>>>>=refs/remotes/origin/ayoung
+>>>>>>> refs/remotes/origin/seul
 eclipse.preferences.version=1
 encoding//src/main/java/com/green/controller/ChallengeController.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/challenge/challengeCertification.jsp=UTF-8
@@ -13,4 +17,4 @@ encoding//src/main/webapp/resources/styles/donation.css=UTF-8
 encoding//src/main/webapp/resources/styles/login.css=UTF-8
 encoding//src/main/webapp/resources/styles/myDogamDetail.css=UTF-8
 encoding//src/main/webapp/resources/styles/signup.css=UTF-8
-encoding/<project>=UTF-8
+separateDerivedEncodings=true

@@ -121,6 +121,8 @@ public class ChallengeController {
 		challengeService.updateChallenge(vo);
 		return "redirect:challengeModify.do?chal_no=" + vo.getChal_no();
 	}
+	
+	// delete
 
 	// my challenge
 	@RequestMapping(value = "/myChallenge.do")

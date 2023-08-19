@@ -126,5 +126,9 @@
 	update mem_dogam set do_choice_YN='N', do_name='${do_name}'
 	WHERE id='${userId}' and do_no=${do_no} and do_exp=3000
 	</update>
-
+	
+	<!-- 기부포인트->exp적립 -->
+	<update id="donExp" parameterType="dona">
+	UPDATE mem_dogam SET do_exp = do_exp + #{don_point} WHERE id=#{id} AND do_choice_YN='Y' 
+	</update>
 </mapper>

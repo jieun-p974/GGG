@@ -96,25 +96,6 @@
 		}
 	
 	}
-	//비동기로 goDona한테 id랑 사용한 point넘기기 
-/* function donabtn(){
-	$.ajax({
-		type:'post', // 전송방식
-		async:true, // 비동신통신
-	url:'goDona.do', // **** 요청
-	contentType:'application/x-www-form-urlencoded;charset=UTF-8',
-	data:{
-		id: $("#id").val(),
-		don_point:$("#don_point").val(),
-		don_no:${don_no}
-	},
-	success : function(resultData) { // 성공하면 함수연결
-		// alert("resultData = "+resultData)
-		//$('#idCheckResult').html(resultData);
-			}
-		});  
-	} */
-	
 
 </script>
 </body>

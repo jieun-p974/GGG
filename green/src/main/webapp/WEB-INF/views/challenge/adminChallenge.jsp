@@ -104,6 +104,7 @@
 									<th>챌린지 종료일</th>
 									<th>수정</th>
 									<th>인증관리</th>
+									<th>삭제</th>
 								</thead>
 								<c:forEach items="${list}" var="chall">
 									<tbody>
@@ -113,6 +114,7 @@
 										<td>${chall.chal_end_date}</td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_no=${chall.chal_no}">삭제</a></td>
 									</tbody>
 								</c:forEach>
 							</table>
