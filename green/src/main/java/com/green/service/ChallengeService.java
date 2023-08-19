@@ -24,6 +24,9 @@ public interface ChallengeService {
 	//modify
 	void updateChallenge(ChallengeVO vo);
 	
+	//delete
+	void deleteChall(int chal_no);
+	
 	//my challenge list
 	List<ChallengeVO> getMyChallengeList(String userId);
 	

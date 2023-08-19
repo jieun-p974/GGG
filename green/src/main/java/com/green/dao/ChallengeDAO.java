@@ -18,6 +18,8 @@ public interface ChallengeDAO {
 	
 	public void updateChallenge(ChallengeVO vo);
 	
+	public void deleteChall(int chal_no);
+	
 	public List<ChallengeVO> getMyChallengeList(String userId);
 	
 	public List<ChallengeVO> getCompleteList(String userId);

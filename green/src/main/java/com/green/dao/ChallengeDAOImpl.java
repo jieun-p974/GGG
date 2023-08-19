@@ -50,6 +50,11 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		mybatis.update("ChallengeDAO.updateChallenge",vo);
 	}
 
+	public void deleteChall(int chal_no) {
+		System.out.println("Mybatis=> chall delete");
+		mybatis.update("ChallengeDAO.deleteChallenge",chal_no);
+	}
+	
 	@Override
 	public List<ChallengeVO> getMyChallengeList(String userId) {
 		System.out.println("Mybatis => my challenge list");

@@ -31,6 +31,7 @@
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>';
+					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -47,6 +48,7 @@
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>';
+					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -63,6 +65,7 @@
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>';
+					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>';
 					html += '</tbody>';
 				
 				</c:forEach>
@@ -114,7 +117,7 @@
 										<td>${chall.chal_end_date}</td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>
-										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_no=${chall.chal_no}">삭제</a></td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>
 									</tbody>
 								</c:forEach>
 							</table>

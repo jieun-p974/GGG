@@ -119,11 +119,16 @@ public class ChallengeController {
 	@RequestMapping(value = "/updateChallenge.do")
 	public String updateChallenge(@ModelAttribute("challenge") ChallengeVO vo) {
 		challengeService.updateChallenge(vo);
-		return "redirect:challengeModify.do?chal_no=" + vo.getChal_no();
+		return "redirect:adminChallenge.do";
 	}
 	
 	// delete
-
+	@RequestMapping(value = "/deleteChall.do")
+	public String deleteChall(int chal_no) {
+		challengeService.deleteChall(chal_no);
+		return "redirect:adminChallenge.do";
+	}
+	
 	// my challenge
 	@RequestMapping(value = "/myChallenge.do")
 	public void getMyChallenge(Model model, String userId) {
