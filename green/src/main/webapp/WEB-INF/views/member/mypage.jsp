@@ -35,6 +35,22 @@
 .icons{
 	width:30%;
 }
+#progress {
+    appearance: none;
+    width: 100%;
+}
+#progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+#progress::-webkit-progress-value {
+    border-radius:10px;
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+
+}
 </style>
 <jsp:useBean id="now" class="java.util.Date" />
 </head>
@@ -158,39 +174,32 @@
 							</div>
 						</div>
 
-						<div
-							class="d-flex col-xxl-8 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3 flex-wrap">
+						<div class="d-flex col-xxl-8 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3 flex-wrap">
 							<!-- lv1 -->
-							<div
-								class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-								<div class="card border-0 shadow">
-									<div class="card-body">
-										<div
-											class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
+								<div class="card border-0 shadow h-100">
+									<div class="card-body h-100 p-3">
+										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img1}">
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- lv2 -->
-							<div
-								class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-								<div class="card border-0 shadow">
-									<div class="card-body">
-										<div
-											class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
+								<div class="card border-0 shadow h-100">
+									<div class="card-body h-100 p-3">
+										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img2}">
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- lv3 -->
-							<div
-								class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-								<div class="card border-0 shadow">
-									<div class="card-body">
-										<div
-											class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
+								<div class="card border-0 shadow h-100">
+									<div class="card-body h-100 p-3">
+										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img3}">
 										</div>
 									</div>
@@ -198,18 +207,18 @@
 							</div>
 							
 							<div class="animal_exp ms-3 mt-2">
-								<div class="exps mb-2">
+								<div class="exps mb-2 d-flex justify-content-between">
 									<p class="exp_level">현재레벨 : ${myDogam.nowLv}</p>
 									<p class="exp_point">(${myDogam.do_exp}/${myDogam.lev_max_point})</p>
 								</div>
 								<progress id=progress max="${myDogam.lev_max_point}" min=0
 									value="${myDogam.do_exp}"></progress>
-								<div class="exps mt-2">
+								<div class="exps mt-2 d-flex justify-content-between">
 									<div class="exp_now">레벨1</div>
 									<div class="exp_end">레벨3(성체)</div>
 								</div>
 								
-								<div class="d-flex justify-content-between">
+								<div class="d-flex justify-content-between mt-2">
 									<a class="btn btn-warning btn-hover-secondery"
 										href="../dogam/dogam.do">도감전체보기</a> <a
 										class="btn btn-warning btn-hover-secondery"

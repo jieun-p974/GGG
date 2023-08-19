@@ -25,6 +25,11 @@ if(msg.length >0 && url.length >0){
 	left:14%;
 	top:15.5%;
 }
+pre {
+   width: 100%;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+ 
 </style>
 <title>동물도감 | 상세보기</title>
 </head>

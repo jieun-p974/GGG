@@ -12,9 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet" 	href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
-	integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv"
-	crossorigin="anonymous">
+<link rel="stylesheet" 	href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
 <link rel="stylesheet" href="../../../resources/styles/payment.css">
 </head>
 <body>
@@ -22,8 +20,7 @@
 	<section class="service position-relative overflow-hidden d-flex justify-content-center">
 	<div class="wrapper row mt-5">
 		<!-- 간편카드 -->
-		<div class="card px-5 col-xl-auto mb-5"
-			style="width: 400px; border: none;">
+		<div class="card px-5 col-xl-auto mb-5" style="width: 400px; border: none;">
 			<div class="my-3">
 				<h5 class="mt-3 fw-bold">등록된 카드</h5>
 			</div>
@@ -57,7 +54,7 @@
 					</a>
 				</button>
 			<div class="btn mb-4">
-				<a href="deleteCard.do?id=${userId}&mem_card_no=${mcn}">카드삭제</a>
+				<a href="deleteCard.do?mem_card_no=${mcn}">카드삭제</a>
 			</div>
 		</div>
 
