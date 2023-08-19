@@ -19,6 +19,13 @@ if(msg.length >0 && url.length >0){
 	location.href=url;
 }
 </script>
+<style type="text/css">
+.tabs{
+	position: fixed;
+	left:14%;
+	top:15.5%;
+}
+</style>
 <title>동물도감 | 상세보기</title>
 </head>
 <body>
@@ -27,13 +34,12 @@ if(msg.length >0 && url.length >0){
 	<c:forEach items="${list}" var="dogam">
 	<div class="container position-relative">
 		<div class="row justify-content-center mt-5">
-			<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+			<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
 				<div class="card position-relative shadow border-0 h-100">
 					<div class="card-body p-3">
-						<div class="animal_info">
+						<div class="animal_info mt-3">
 							<input value="${dogam.do_no}" type="hidden"/>
-							<h3 class="mb-5" style="font-weight: bold;">멸종위기 동물<br/> '${dogam.do_title}'을 소개합니다.</h2>
-							<h4 class="mb-5 pb-5">제 성장 과정이 궁금하세요?</h3>
+							<h4 class="mb-1">제 성장 과정이 궁금하세요?</h3>
 						</div>
 						<div class="animal_level_d pt-5">
 							<div class="row">
@@ -62,7 +68,9 @@ if(msg.length >0 && url.length >0){
 			<div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
 				<div class="card position-relative shadow border-0 h-100">
 					<div class="card-body pb-4">
+					<h3 class="mb-5" style="font-weight: bold;">멸종위기 동물<br/> '${dogam.do_title}'을 소개합니다.</h2>
 						<pre class="text-start" style="line-height: 2rem">${dogam.do_content}</pre>
+						<img class="col-12" src="/resources/imgs/dogam/${dogam.do_realimg_addr}" /> 
 					</div>
 					<div class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
 						<a href="dogam.do" class="btn btn-warning btn-hover-secondery text-capitalize">도감보기</a>

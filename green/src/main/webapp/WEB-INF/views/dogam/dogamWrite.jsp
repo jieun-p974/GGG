@@ -29,7 +29,7 @@
 		<div class="dogamWriting">
 			<div class="title">관리자 도감 추가 페이지</div>
 			<div class="writing">
-				<form action="saveDogam.do" method="post" id="dogamInput">			
+				<form action="saveDogam.do" method="post" id="dogamInput" enctype="multipart/form-data">			
 					<label for="title">동물이름</label> 
 					<input type="text" name="do_title" id="do_title" >
 					<label for="title">요약정보</label> 
