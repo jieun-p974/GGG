@@ -23,18 +23,10 @@
 	<section class="pricing position-relative">
 		<div class="container position-relative">
 			<div class="row">
-				<div
-					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-<<<<<<< HEAD
-					<h2 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의 캐릭터
-						목록입니다 🌏</h2>
-=======
-					<h3 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의
-						캐릭터 목록입니다 🌏</h3>
-
-					<a class="btn btn-warning btn-hover-secondery section-btn"
-						href="../dogam/dogam.do">전체도감</a>
->>>>>>> refs/remotes/origin/gaeun
+				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+					<h2 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의 캐릭터 목록입니다 🌏</h2>
+					<h3 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의 캐릭터 목록입니다 🌏</h3>
+					<a class="btn btn-warning btn-hover-secondery section-btn" href="../dogam/dogam.do">전체도감</a>
 				</div>
 			</div>
 			<div class="gibu_list">
@@ -43,29 +35,19 @@
 					<div class="gibu">
 						<c:if test="${mydogam.do_choice_YN eq 'Y'}">
 							<div class="card bg-primary">
-<<<<<<< HEAD
 							<h3 class="text-center">대표캐릭터</h3>
-=======
-								<h4 class="text-center mt-3">대표캐릭터</h4>
-								
->>>>>>> refs/remotes/origin/gaeun
+							<h4 class="text-center mt-3">대표캐릭터</h4>
 						</c:if>
 						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv ne 3}">
-<<<<<<< HEAD
 							<div class="card bg-transparent">
 							<h3 class="text-center text-white">캐릭터</h3>
-=======
 							<div class="card">
 								<h4 class="text-center text-white">캐릭터</h4>
->>>>>>> refs/remotes/origin/gaeun
 						</c:if>
 						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv eq 3}">
 							<div class="card bg-none">
-<<<<<<< HEAD
 							<h3 class="text-center text-white">키우기 완료!</h3>
-=======
 								<h4 class="text-center text-white mt-3">키우기 완료!</h4>
->>>>>>> refs/remotes/origin/gaeun
 						</c:if>
 						<div class="card-body" style="height: 400px;">
 							<div
@@ -75,13 +57,10 @@
 										<img class="d_img" alt="도감 사진"
 											src="../resources/imgs/dogam/${mydogam.lv_img}">
 									</div>
-<<<<<<< HEAD
 									<p class="d_list_title">${mydogam.do_title}</p> 
 									<c:if test="${mydogam.nowLv ne 3}">
-=======
 									<h4 class="d_list_title mb-3">${mydogam.do_title}</h4> <c:if
 										test="${mydogam.nowLv ne 3}">
->>>>>>> refs/remotes/origin/gaeun
 										<p>현재레벨 : ${mydogam.nowLv}</p>
 									</c:if>
 									<c:if test="${mydogam.nowLv eq 3}">

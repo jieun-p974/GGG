@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -78,11 +77,9 @@ $(function() {
 	<%@include file="../layouts/adminHeader.jsp"%>
 	<section class="service position-relative overflow-hidden">
 		<div class="container position-relative">
-			<img src="/resources/imgs/service/dot-shape.png"
-				class="shape position-absolute">
+			<img src="/resources/imgs/service/dot-shape.png" class="shape position-absolute">
 			<div class="row">
-				<div
-					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
 					<h2 class="text-black mb-0 mt-5 mb-3">기부처 리스트 관리</h2>
 				</div>
 			</div>
@@ -93,13 +90,11 @@ $(function() {
 						<option value="ing">진행중인 기부</option>
 						<option value="end">종료된 기부</option>
 					</select> 
-					<a class="btn btn-warning btn-hover-secondery" id="add"
-						href="donationInsert.do">추가하기</a>
+					<a class="btn btn-warning btn-hover-secondery" id="add" href="donationInsert.do">추가하기</a>
 				</div>
 				<div class="card border-0 shadow">
 					<div class="card-body">
-						<div
-							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 							<table class="type09" id="dona_list">
 								<thead>
 									<th>기부처 명</th>

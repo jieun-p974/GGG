@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -141,16 +140,13 @@
 <%@include file="../layouts/adminHeader.jsp"%>
 	<section class="service position-relative overflow-hidden">
 		<div class="container position-relative">
-			<img src="/resources/imgs/service/dot-shape.png"
-				class="shape position-absolute">
+			<img src="/resources/imgs/service/dot-shape.png" class="shape position-absolute">
 			<div class="row">
-				<div
-					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
 					<h2 class="text-black mt-3 mb-0 mt-5 mb-3">뉴스 관리 페이지</h2>
 				</div>
 			</div>
-			<div
-				class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
+			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
 				<div class="calendar d-flex justify-content-between mb-5">
 					<select name="category" id="category" class="category">
 						<option value="all">전체</option>
@@ -160,8 +156,8 @@
 						<option value="4">미디어</option>
 						<option value="5">과학</option>
 						<option value="6">정치</option>
-					</select> <a class="btn btn-white-back btn-hover-third" id="add"
-						href="newsWrite.do">추가하기</a>
+					</select>
+					<a class="btn btn-white-back btn-hover-third" id="add" href="newsWrite.do">추가하기</a>
 				</div>
 				<div class="card border-0 shadow">
 					<div class="card-body">
@@ -177,15 +173,17 @@
 								<c:forEach items="${list}" var="news">
 									<tbody>
 										<input type="hidden" name="news_no" value="${news.news_no}"></input>
-										<td style="width: 30%;"><img
-											src="/resources/imgs/newsImg/${news.n_img1_addr}"
-											alt="뉴스 썸네일" class="thumnail"></td>
+										<td style="width: 30%;">
+											<img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail">
+										</td>
 										<td>${news.n_title}</td>
 										<td>${news.n_reg_date}</td>
-										<td><a class="btn btn-white-back2 btn-hover-secondery"
-											href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>
-										<td><a class="btn btn-white-back2 btn-hover-secondery"
-											href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>
+										<td>
+											<a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a>
+										</td>
+										<td>
+											<a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a>
+										</td>
 									</tbody>
 								</c:forEach>
 							</table>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -76,41 +75,43 @@
 		});  
 	} */
 	
-
 </script>
 <body>
-<form action="goDona.do" >
-	<table class="tbl_edit01">
-		<colgroup>
-			<col width="90px" />
-			<col width="*" />
-		</colgroup>
-		<tbody>
-			<div class="memberInfo">
-				<p class="info" id="userID" name="userID">아이디&nbsp&nbsp:&nbsp&nbsp${meminfo.id}</p>
-				<input type="hidden" value="${meminfo.id}" name="id" id="id">
-				<input type="hidden" value="${don_no}" name="don_no" id="don_no">
-				<p class="info">이름&nbsp&nbsp:&nbsp&nbsp${meminfo.name}</p>
-			</div>
+	<form action="goDona.do">
+		<table class="tbl_edit01">
+			<colgroup>
+				<col width="90px" />
+				<col width="*" />
+			</colgroup>
+			<tbody>
+				<div class="memberInfo">
+					<p class="info" id="userID" name="userID">아이디&nbsp&nbsp:&nbsp&nbsp${meminfo.id}</p>
+					<input type="hidden" value="${meminfo.id}" name="id" id="id">
+					<input type="hidden" value="${don_no}" name="don_no" id="don_no">
+					<p class="info">이름&nbsp&nbsp:&nbsp&nbsp${meminfo.name}</p>
+				</div>
 
-			<tr>
-				<th>포 인 트</th>
-				<td>보유 포인트 : <span name="left_pnt" id="left_pnt">${meminfo.remainder_point}
-				</span>p <span> 
-				<input type="checkbox" id="chk_use" onclick="chkPoint(${meminfo.remainder_point},100,10)"> 포인트
-						전체 사용
-				</span> <span style="float: right">포인트는 최소 100p부터 10p단위로 사용 가능합니다.</span>
-				</td>
-			</tr>
-			<tr>
-				<td><span> <input type="number" name="don_point" step="10"
-						id="don_point" min="100" max="${meminfo.remainder_point}"
-						onchange="changePoint(${meminfo.remainder_point},100,10)"></span>p
-					<span> ( 남은 포인트 : </span> <span name="left_pnt" id="left_pnt">${meminfo.remainder_point}</span>p)</td>
-			</tr>
-		</tbody>
-	</table>
-	<button type="submit">기부하기</button>
+				<tr>
+					<th>포 인 트</th>
+					<td>보유 포인트 : 
+						<span name="left_pnt" id="left_pnt">${meminfo.remainder_point} </span>p 
+						<span>
+							<input type="checkbox" id="chk_use" onclick="chkPoint(${meminfo.remainder_point},100,10)"> 포인트 전체 사용
+						</span>
+						<span style="float: right">포인트는 최소 100p부터 10p단위로 사용 가능합니다.</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span>
+							<input type="number" name="don_point" step="10" id="don_point" min="100" max="${meminfo.remainder_point}" onchange="changePoint(${meminfo.remainder_point},100,10)"></span>p
+						<span> ( 남은 포인트 : </span>
+						<span name="left_pnt" id="left_pnt">${meminfo.remainder_point}</span>p)
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="submit">기부하기</button>
 	</form>
 
 </body>
