@@ -25,9 +25,9 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//get Community List
 	@Override
-	public List<CommunityVO> getCommunityList() {
+	public List<CommunityVO> getCommunityList(String userId) {
 		// TODO Auto-generated method stub
-		return communityDAO.getCommunityList();
+		return communityDAO.getCommunityList(userId);
 	}	
 	
 	//get one
@@ -52,9 +52,9 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//my community
 	@Override
-	public List<CommunityVO> getMyCommunityList(String id) {
+	public List<CommunityVO> getMyCommunityList(CommunityVO vo) {
 		// TODO Auto-generated method stub
-		return communityDAO.getMyCommunityList(id);
+		return communityDAO.getMyCommunityList(vo);
 	}
 	
 	// reply
@@ -95,6 +95,13 @@ public class CommunityServiceImpl implements CommunityService{
 	public void insertLike(HeartVO vo) {
 		// TODO Auto-generated method stub
 		communityDAO.likeInsert(vo);
+	}
+	
+	// unlike
+	@Override
+	public void deleteLike(HeartVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.deleteLike(vo);
 	}
 	
 	
