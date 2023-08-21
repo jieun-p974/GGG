@@ -29,4 +29,8 @@ public interface DonationService {
 	void goDona(HashMap<String, Object> map);
 
 	void memDon(HashMap<String, Object> map);
+	
+	int countChoice(String id);
+	
+	int remainExp(String id);
 }

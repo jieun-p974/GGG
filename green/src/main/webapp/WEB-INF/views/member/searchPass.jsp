@@ -15,7 +15,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
-
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>비밀번호 찾기</title>
 <%
 	String userID = (String) session.getAttribute("userID");

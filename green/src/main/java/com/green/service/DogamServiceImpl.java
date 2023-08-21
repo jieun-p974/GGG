@@ -93,12 +93,6 @@ public class DogamServiceImpl implements DogamService {
 
 	// my yes
 	@Override
-	public void donExp(HashMap<String, Object> map) {
-		dogamDAO.donExp(map);
-		
-	}
-
-	@Override
 	public int myYes(String id) {
 		int do_no = dogamDAO.myYes(id);
 		return do_no;
@@ -130,6 +124,12 @@ public class DogamServiceImpl implements DogamService {
 	public int updateDoname(HashMap map) {
 		int rs = dogamDAO.updateDoname(map);
 		return rs;
+	}
+
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		dogamDAO.donExp(map);
+		
 	}
 
 	

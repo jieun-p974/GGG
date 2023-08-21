@@ -33,6 +33,7 @@
 
 	}
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>뉴스 작성</title>
 </head>
 <body>

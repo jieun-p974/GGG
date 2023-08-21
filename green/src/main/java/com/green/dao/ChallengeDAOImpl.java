@@ -151,5 +151,11 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		}
 	}
 
+	@Override
+	public List<HashMap<String, Object>> newCert() {
+		System.out.println("Mybatis =>newCert");
+		return mybatis.selectList("ChallengeDAO.newCert");
+	}
+
 	
 }

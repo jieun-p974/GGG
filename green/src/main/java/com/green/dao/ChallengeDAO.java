@@ -41,4 +41,6 @@ public interface ChallengeDAO {
 	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr);
 	
 	public void getPassNCheckSu(HashMap param);
+	
+	public List<HashMap<String , Object>> newCert();
 }

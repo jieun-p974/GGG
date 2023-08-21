@@ -1,6 +1,7 @@
 package com.green.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,10 +122,6 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.update("member.accountNo", vo);
 	}
 	
-	
-	
-	
-	
 	@Override
 	public void goDona(HashMap<String, Object> map) {
 		System.out.println("==>goDona()호출");
@@ -140,10 +137,36 @@ public class MemberDAOImpl implements MemberDAO {
 		return lastDate;
 	}
 
+	//select today pay, member
+	@Override
+	public List<HashMap<String, Object>> todayPay() {
+		System.out.println("==> todayPay 호출");
+		return mybatis.selectList("member.todayPay");
+	}
 
+	@Override
+	public int todayMem() {
+		System.out.println("==> todayMem 호출");
+		return mybatis.selectOne("member.todayMem");
+	}
+	
+	//select week pay, member
+	@Override
+	public List<HashMap<String, Object>> weekMem() {
+		System.out.println("==> weekMem 호출");
+		return mybatis.selectList("member.weekMem");
+	}
 
+	@Override
+	public List<HashMap<String, Object>> weekPay() {
+		System.out.println("==> weekPay 호출");
+		return mybatis.selectList("member.weekPay");
+	}
 
-
-
-
+	//select dogeonRate
+	@Override
+	public List<HashMap<String, Object>> dogeonRate() {
+		System.out.println("==> dogeonRate 호출");
+		return mybatis.selectList("member.dogeonRate");
+	}
 }

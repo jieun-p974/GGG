@@ -3,6 +3,8 @@ package com.green.controller;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +56,7 @@ public class MemberController {
 	public String idcheck(MemberVO vo) {
 		MemberVO memberVo = memberService.idCheck_Login(vo);
 		String result = "ID 사용 가능합니다.";
-		
+
 		if (memberVo != null)
 			result = "중복된 아이디 입니다.";
 		return result;
@@ -63,13 +65,14 @@ public class MemberController {
 	// sign up
 	@RequestMapping("/signupSave.do")
 	public ModelAndView userInsert(MemberVO vo) {
-		
+
 		int result = memberService.memberInsert(vo);
-		
+
 		String message = "가입되지 않았습니다";
 		if (result > 0) {
-			message = vo.getId() + "님, 가입을 축하드립니다!";}
-		
+			message = vo.getId() + "님, 가입을 축하드립니다!";
+		}
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");
 		mv.addObject("message", message);
@@ -122,9 +125,9 @@ public class MemberController {
 	// member info edit
 	@RequestMapping("/editSave.do")
 	public String userUpdate(MemberVO vo) throws IOException {
-		System.out.println("c"+vo.getId());
+		System.out.println("c" + vo.getId());
 		int res = memberService.memberUpdate(vo);
-		System.out.println("ccc"+res);
+		System.out.println("ccc" + res);
 		return "redirect:/member/mypage.do";
 	}
 
@@ -202,5 +205,111 @@ public class MemberController {
 		} catch (Exception e) {
 		}
 
+	}
+
+	// amdinMain에 오늘 결제 건수, 금액, 가입인원수 출력
+	@RequestMapping(value = "/adminMain.do")
+	public void todayPayAndMem(Model model) {
+		// 오늘 집계
+		List<HashMap<String, Object>> todayPay = memberService.todayPay();
+		int todayMem = memberService.todayMem();
+		
+		// 인증 목록 최근 5개
+		List<HashMap<String, Object>> memChal = challengeService.newCert();
+
+		String nonePay = "";
+		String noneMem = "";
+
+		for (HashMap<String, Object> d : todayPay) {
+			int payCount = Integer.parseInt(String.valueOf(d.get("pay_count")));
+			int paySum = Integer.parseInt(String.valueOf(d.get("pay_sum")));
+
+			if (payCount < 1) {
+				nonePay = "오늘 결제한 회원이 없습니다.";
+				model.addAttribute("nonePay", nonePay);
+			} else {
+				model.addAttribute("payCount", payCount);
+				model.addAttribute("paySum", paySum);
+			}
+		}
+
+		if (todayMem > 0) {
+			model.addAttribute("todayMem", todayMem);
+		} else {
+			noneMem = "오늘 가입한 회원이 없습니다.";
+			model.addAttribute("noneMem", noneMem);
+		}
+		
+		model.addAttribute("memChal",memChal);
+	}
+
+	@RequestMapping(value = "/chartsData.do")
+	public @ResponseBody List weekPayAndMem(Model model) {
+		// 일주일 날짜 구하기
+		List<String> weekList = new ArrayList();
+		for (int i = 0; i < 7; i++) {
+			Calendar cal = Calendar.getInstance();
+			SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String today = dtFormat.format(cal.getTime());
+			cal.add(cal.DATE, -6);
+			cal.add(Calendar.DATE, i);
+			weekList.add(dtFormat.format(cal.getTime()));
+		}
+
+		// 일주일간 집계
+		List<HashMap<String, Object>> weekMemCount = memberService.weekMem();
+		List<HashMap<String, Object>> weekPayCount = memberService.weekPay();
+		List<HashMap<String, Object>> dogeonRate = memberService.dogeonRate();
+		
+		String noneWeekMem = "";
+		String noneWeekPay = "";
+		List<HashMap<String, Object>> ajaxList = new ArrayList();
+
+		if (weekMemCount.size() < 1) {
+			noneWeekMem = "일주일간 가입한 회원이 없습니다.";
+			model.addAttribute("noneWeekMem", noneWeekMem);
+		} else {
+			for (String d : weekList) {
+				HashMap ajaxMap = new HashMap<String, Object>();
+				ajaxMap.put("daily_mem", 0);
+				ajaxMap.put("pay_count", 0);
+				ajaxMap.put("pay_sum", 0);
+				ajaxMap.put("weeks", d);
+				ajaxList.add(ajaxMap);
+			}
+			for (HashMap w : weekMemCount) {
+				for (HashMap a : ajaxList) {
+					if (w.get("weeks").equals(a.get("weeks"))) {
+						a.put("daily_mem", w.get("daily_mem"));
+					}
+				}
+			}
+		}
+
+		if (weekPayCount.size() < 1) {
+			noneWeekPay = "일주일간 결제한 회원이 없습니다.";
+			model.addAttribute("noneWeekPay", noneWeekPay);
+		} else {
+			for (HashMap p : weekPayCount) {
+				for (HashMap a : ajaxList) {
+					if (p.get("weeks").equals(a.get("weeks"))) {
+						a.put("pay_count", p.get("pay_count"));
+						a.put("pay_sum", p.get("pay_sum"));
+					}
+				}
+			}
+		}
+
+		for(HashMap d : dogeonRate) {
+			for(HashMap a:ajaxList) {
+				a.put("t_cnt", d.get("t_cnt"));
+				a.put("s_cnt", d.get("s_cnt"));
+				a.put("i_cnt", d.get("i_cnt"));
+			}
+		}
+		
+		model.addAttribute("weekMemCount", ajaxList);
+
+		return ajaxList;
 	}
 }

@@ -16,6 +16,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="../../../resources/styles/donation.css" rel="stylesheet"
 	type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>my도감</title>
 </head>
 <body>
@@ -43,7 +44,7 @@
 						</c:if>
 						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv ne 3}">
 							<div class="card">
-								<h4 class="text-center text-white">캐릭터</h4>
+								<h4 class="text-center text-black mt-3">캐릭터</h4>
 						</c:if>
 						<c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv eq 3}">
 							<div class="card bg-none">
@@ -70,6 +71,7 @@
 							</div>
 						</div>
 					</div>
+				</div>
 			</c:forEach>
 			</div>
 		

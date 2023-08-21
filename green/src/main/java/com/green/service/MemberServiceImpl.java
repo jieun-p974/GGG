@@ -2,6 +2,7 @@ package com.green.service;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -151,5 +152,33 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String dogeonExp(MemberVO vo) {
 		return memberDAO.dogeonExp(vo);
+	}
+
+	// select today pay
+	@Override
+	public List<HashMap<String, Object>> todayPay() {
+		return memberDAO.todayPay();
+	}
+
+	@Override
+	public int todayMem() {
+		return memberDAO.todayMem();
+	}
+
+	// select week pay, member
+	@Override
+	public List<HashMap<String, Object>> weekMem() {
+		return memberDAO.weekMem();
+	}
+
+	@Override
+	public List<HashMap<String, Object>> weekPay() {
+		return memberDAO.weekPay();
+	}
+
+	//select dogeonRate
+	@Override
+	public List<HashMap<String, Object>> dogeonRate() {
+		return memberDAO.dogeonRate();
 	}
 }

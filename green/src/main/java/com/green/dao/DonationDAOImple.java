@@ -67,4 +67,16 @@ public class DonationDAOImple implements DonationDAO{
 		mybatis.insert("DonationDAO.memDon",map);
 	}
 
+	@Override
+	public int countChoice(String id) {
+		System.out.println("mybatis==>countChoice");
+		return mybatis.selectOne("DonationDAO.countChoice",id);
+	}
+
+	@Override
+	public int remainExp(String id) {
+		System.out.println("mybatis==>remainExp");
+		return mybatis.selectOne("DonationDAO.remainExp",id);
+	}
+
 }

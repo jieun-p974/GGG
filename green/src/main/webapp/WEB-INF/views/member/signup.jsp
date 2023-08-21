@@ -37,8 +37,7 @@
 <script src="../../../resources/styles/vendor/select2/select2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>회원가입</title>
 </head>
 

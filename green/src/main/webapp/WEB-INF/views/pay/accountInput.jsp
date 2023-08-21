@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/accountInput.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>계좌 정보 입력</title>
 </head>
 <body>

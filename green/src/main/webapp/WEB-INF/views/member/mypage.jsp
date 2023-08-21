@@ -20,6 +20,7 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="../../../resources/styles/profile.css">
 <link rel="stylesheet" href="../../../resources/styles/mypage.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>마이페이지</title>
 <style type="text/css">
 .info_heon{
@@ -211,13 +212,11 @@
 									<p class="exp_level">현재레벨 : ${myDogam.nowLv}</p>
 									<p class="exp_point">(${myDogam.do_exp}/${myDogam.lev_max_point})</p>
 								</div>
-								<progress id=progress max="${myDogam.lev_max_point}" min=0
-									value="${myDogam.do_exp}"></progress>
+								<progress id=progress max="${myDogam.lev_max_point}" min=0 value="${myDogam.do_exp}"></progress>
 								<div class="exps mt-2 d-flex justify-content-between">
-									<div class="exp_now">레벨1</div>
-									<div class="exp_now">레벨2</div>
-									<div class="exp_end">레벨3(성체)</div>
-								</div>
+		                           <div class="exp_now">레벨 ${myDogam.nowLv}</div>
+		                           <div class="exp_end">레벨 ${myDogam.nowLv+1}</div>
+		                        </div>
 								
 								<div class="d-flex justify-content-between mt-2">
 									<a class="btn btn-warning btn-hover-secondery"

@@ -21,6 +21,7 @@
       location.href = "../../index.jsp";
    </c:if>
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .icon_links {
 	width: 2%;

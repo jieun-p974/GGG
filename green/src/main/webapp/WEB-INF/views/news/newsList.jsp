@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .thumnail {
 	width: 100%;

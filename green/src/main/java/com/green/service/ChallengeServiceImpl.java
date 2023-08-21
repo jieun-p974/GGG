@@ -119,4 +119,9 @@ public class ChallengeServiceImpl implements ChallengeService{
 	public void getPassNCheckSu(HashMap param) {
 		challengeDAO.getPassNCheckSu(param);
 	}
+
+	@Override
+	public List<HashMap<String, Object>> newCert() {
+		return challengeDAO.newCert();
+	}
 }

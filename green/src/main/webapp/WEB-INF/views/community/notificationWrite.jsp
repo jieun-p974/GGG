@@ -4,9 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
 <link href="../../../resources/styles/notification.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <script type="text/javascript">
 	function cancleWrite() {
 		location.href = "notificationList.do"

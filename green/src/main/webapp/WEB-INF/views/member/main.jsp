@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>GGG: 지구를 지켜라</title>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .imgss{
 	position: absolute;

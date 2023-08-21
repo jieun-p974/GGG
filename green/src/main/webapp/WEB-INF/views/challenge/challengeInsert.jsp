@@ -57,6 +57,7 @@
 		});
 	});
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 textarea{
 	resize: vertical;

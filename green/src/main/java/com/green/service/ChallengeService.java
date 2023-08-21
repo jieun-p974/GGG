@@ -59,4 +59,6 @@ public interface ChallengeService {
 	
 	// checksu랑 pass 받은 인증 수 비교하고 성공인지 아닌지 상태 변경
 	void getPassNCheckSu(HashMap param);
+	
+	List<HashMap<String , Object>> newCert();
 }
