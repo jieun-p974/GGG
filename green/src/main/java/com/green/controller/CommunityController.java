@@ -116,11 +116,11 @@ public class CommunityController {
 	@ResponseBody
 	@RequestMapping(value="/getReply.do")
 	public List getReplyList(int board_no) {
-		System.out.println("커뮤니티 컨트롤러 "+board_no);
+		System.out.println("커뮤니티 컨트롤러  글 번호: "+board_no);
 		List<ReplyVO> listRe = communityService.getReplyList(board_no);
-		for(ReplyVO vo : listRe) {
-			System.out.println("댓글 : "+vo.getCom_content());
-		}
+//		for(ReplyVO vo : listRe) {
+//			System.out.println("댓글 : "+vo.getCom_content());
+//		}
 		return listRe;
 	}
 	
