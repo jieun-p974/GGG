@@ -22,21 +22,6 @@ $(function() {
             },
             success : function(rs) {
                $(rs).each(function() {
-                  if (userId != this.id || userType == 1) {
-                     var html = '';
-                     html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
-                     html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
-                     html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
-                     html += '<p class="reply_id col-7 m-0 ms-2">@' + this.id + '</p></div>';
-                     html += '<input type="hidden" name="com_no" value="'+this.com_no+'" />';
-                     html += '<div class="re col-8   ">';
-                     html += '<input type="text" class="reWriting" id="reWriting" type="text" readonly value="'+this.com_content+'" />';
-                     html += '</div><div class="memButtons col-2"><div class="memBtns d-flex justify-content-evenly  align-items-center">';
-                     html += '</div></div></div>';
-
-                     here.append(html);
-
-                  } else if (userId == this.id ){
                      var html = '';
                      html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
                      html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
@@ -46,31 +31,18 @@ $(function() {
                      html += '<div class="re col-8">';
                      html += '<input type="text" class="reWriting" id="reWriting" type="text" readonly value="'+this.com_content+'" />';
                      html += '</div><div class="memButtons col-2 "><div class="memBtns d-flex justify-content-evenly  align-items-center">';
+                  
+                  if (userId == this.id) {
                      html += '<input type="button" class="replymodi btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;" value="수정" id="reEditBtn" />';
                      html += '<input type="button" class="delbtn btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;" value="삭제"  />';
-                     html += '</div></div></div>';
-
-                     here.append(html);
-                     $(".delbtn").on('click',deleteReply);
-                     $(".replymodi").on('click',updateReply);
-                     
-                  } else if (userType == 2) {
-                     var html = '';
-                     html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
-                     html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
-                     html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
-                     html += '<p class="reply_id col-7 m-0 ms-2">@' + this.id + '</p></div>';
-                     html += '<input type="hidden" name="com_no" class="com_no" value="'+this.com_no+'" />';
-                     html += '<div class="re col-8">';
-                     html += '<input type="text" class="reWriting" id="reWriting" type="text" readonly value="'+this.com_content+'" />';
-                     html += '</div><div class="memButtons col-2"><div class="memBtns d-flex justify-content-evenly  align-items-center">';
+                  } else if (userType == '2' ) {
                      html += '<input type="button" class="delbtn btn btn-warning btn-hover-secondery text-capitalize " style="padding: 10px;" value="삭제"  />';
-                     html += '</div></div></div>';
+                  } 
 
-                     here.append(html);
-                     $(".delbtn").on('click',eleteReply);
-                     
-                  }
+                  html += '</div></div></div>';
+                  here.append(html);
+                  $(".delbtn").on('click',deleteReply);
+                  $(".replymodi").on('click',updateReply);
                });
             },
             error : function(request, error) {

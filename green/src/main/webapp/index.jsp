@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>GGG: 지구를 지켜라</title>
-<<<<<<< HEAD
 <link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .imgss{
@@ -30,15 +29,6 @@
 }
 </style>
 
-=======
-<style type="text/css">
-.imgss{
-	position: absolute;
-	top: 50%;
-	z-index: 3;
-}
-</style>
->>>>>>> refs/remotes/origin/ayoung
 </head>
 <body>
 	<c:if test="${userType == 2}">
@@ -192,11 +182,7 @@
 				</div>
 			</div>
 			<div class="row d-flex flex-wrap justify-content-center step-row">
-<<<<<<< HEAD
 				<img class="imgss" src="/resources/imgs/main_dogam.png">
-=======
-				<img class="imgss" alt="main2" src="/resources/imgs/main.png">
->>>>>>> refs/remotes/origin/ayoung
 				<div
 					class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center">
 					<div class="card bg-transparent">
@@ -206,20 +192,11 @@
 								<img class="img-fluid" src="/resources/imgs/main_bear.png" style="width:50%"
 								>
 							</div>
-<<<<<<< HEAD
 							<h3 class="fs-3 text-white">이달의 신규 캐릭터</h3>
 							
 							<p class="fs-4 mb-0 fw-500 text-white">저는 멸종위기 취약등급이에요. <br/>
 							먹이사슬 최상위에 존재하며,<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다. <br/><br/>
 							제가 누군지 궁금하세요?</p>
-=======
-							<h3 class="fs-4 text-white">이달의 신규 캐릭터</h3>
-							<h3 class="fs-4 text-white">멸종위기 취약등급</h3>
-							
-							<p class="fs-7 mb-0 fw-500 text-white">
-								힌트!저는 먹이사슬 최상위에 존재해요.<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다.
-							</p>
->>>>>>> refs/remotes/origin/ayoung
 						</div>
 							
 					</div>
