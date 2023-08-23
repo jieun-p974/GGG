@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.green.domain.MemberVO;
+import com.green.domain.PayVO;
+import com.green.domain.ChalPayVO;
 
 @Repository("payDAO")
 public class PayDAOImpl implements PayDAO {
@@ -31,22 +33,65 @@ public class PayDAOImpl implements PayDAO {
 	}
 
 	@Override
-	public void chalPay(HashMap<String, Object> map){
+	public void chalPay(ChalPayVO vo){
 	System.out.println("mybatis==>chalPay");
-	mybatis.insert("PayDAO.chalPay",map);
+	mybatis.insert("payDAO.chalPay",vo);
 		
 	}
 
 	@Override
-	public void cardIn(HashMap<String, Object> map) {
-		System.out.println("mybatis==>cardIn");
-		mybatis.insert("PayDAO.cardIn",map);
+	public ChalPayVO forPay(ChalPayVO vo) {
+		System.out.println("mybatis==>forPay");
+		return mybatis.selectOne("payDAO.forPay",vo);
 	}
 
 	@Override
-	public void accIn(HashMap<String, Object> map) {
-		System.out.println("mybatis==>accIn");
-		mybatis.insert("PayDAO.accIn",map);
+	public void cardInsert(PayVO vo) {
+		System.out.println("mybatis==>cardInsert");
+		mybatis.insert("payDAO.cardInsert",vo);
 	}
 
+	@Override
+	public void accInsert(PayVO vo) {
+		System.out.println("mybatis==>accInsert");
+		mybatis.insert("payDAO.accInsert",vo);
+	}
+
+	@Override
+	public void receipt(int dogeon_pay_no) {
+		System.out.println("mybatis==>receipt");
+		mybatis.update("payDAO.receipt",dogeon_pay_no);
+		
+	}
+
+	/*
+	 * @Override public void receiptNO(int dogeon_pay_no) {
+	 * System.out.println("mybatis==>receiptNO");
+	 * mybatis.update("payDAO.receiptNO",dogeon_pay_no);
+	 * 
+	 * }
+	 */
+	@Override
+	public void memReceipt(ChalPayVO vo) {
+		// TODO Auto-generated method stub
+		mybatis.insert("payDAO.memReceipt",vo);
+	}
+
+	@Override
+	public int getTimes(int dogeon_pay_no) {
+		int times = mybatis.selectOne("payDAO.getTimes",dogeon_pay_no);
+		System.out.println("도전 횟수 출력 "+times);
+		return times;
+	}
+	
+	@Override
+	public void payTryNum(HashMap map) {
+		// TODO Auto-generated method stub
+		System.out.println("d"+map.get("dogeon_times"));
+		System.out.println("d"+map.get("id"));
+		mybatis.update("payDAO.payTryNum",map);
+	}
+
+	
+	
 }

@@ -13,7 +13,7 @@ public interface CommunityService {
 	void insertCommunity(CommunityVO vo);
 	
 	//community list
-	List<CommunityVO> getCommunityList();
+	List<CommunityVO> getCommunityList(String userId);
 	
 	//get one
 	CommunityVO getCommunityDetail(CommunityVO vo);
@@ -25,15 +25,15 @@ public interface CommunityService {
 	void deleteCommunity(CommunityVO vo);
 
 	//my Community
-	List<CommunityVO> getMyCommunityList(String id);
+	List<CommunityVO> getMyCommunityList(CommunityVO vo);
 	
 	// reply
 	//reply insert
 	void insertReply(ReplyVO vo);
 
 	//reply list
-	List<ReplyVO> getReplyList();
-
+	List<ReplyVO> getReplyList(int board_no);
+	
 	void deleteReply(ReplyVO vo);
 
 	void updateReply(ReplyVO vo);
@@ -43,7 +43,9 @@ public interface CommunityService {
 	// like
 	void insertLike(HeartVO vo);
 	
-	
+	void deleteLike(HeartVO vo);
+
+
 	
 	
 

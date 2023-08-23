@@ -41,7 +41,12 @@ public interface MemberDAO {
 	
 	// member card delete
 	public void cardDelete(MemberVO vo);
+	public void cardNo(MemberVO vo);
 
 	// member bank account delete
 	public void accountDelete(MemberVO vo);
+	public void accountNo(MemberVO vo);
+	
+	// select member dogeon last date
+	public String dogeonExp(MemberVO vo);
 }

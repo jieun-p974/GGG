@@ -46,7 +46,7 @@
 			</div>
 			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 mt-4">
 				<div class="overflow-hidden position-relative mx-auto">
-					<h3 class="text-black mb-0 mt-5 mb-3">진행중인 챌린지</h2>
+					<h3 class="text-black mb-0 mt-5 mb-3">완료된 챌린지</h2>
 					<ul class="now_lists" style="background: #fff">
 						<c:forEach items="${complete}" var="com">
 							<li class="now_list">${com.chal_name}</li>

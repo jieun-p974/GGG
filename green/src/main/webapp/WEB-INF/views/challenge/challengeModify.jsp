@@ -118,7 +118,7 @@ textarea{
 								</div>
 								<div class="calendar d-flex justify-content-between mb-5 p-3">
 									<button class="btn btn-white-back btn-hover-third" type="submit">수정</button>
-									<button class="btn btn-white-back btn-hover-third" type="reset">취소</button>
+									<a class="btn btn-white-back btn-hover-third" href="/challenge/adminChallenge.do" type="reset">취소</a>
 								</div>
 							</form>
 						</div>

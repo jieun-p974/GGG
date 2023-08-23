@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
@@ -38,7 +37,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--===============================================================================================-->
 
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>회원가입</title>
 </head>
 
@@ -47,13 +45,11 @@
 		<%@include file="../layouts/header.jsp"%>
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form mt-5" name="form"
-					action="loginSave.do" method="post" name="userinput">
-		<h4 class="mb-5 "> 🌏&nbsp${userId}님의 회원정보&nbsp🌏 </h4>
+				<form class="login100-form validate-form mt-5" name="form" action="editSave.do" method="post" enctype="multipart/form-data">
+					<h4 class="mb-5 "> 🌏&nbsp${userId}님의 회원정보&nbsp🌏 </h4>
 					<p class=input_title>아이디</p>
 					<div class="wrap-input100 validate-input">
-						 <input class="input100 mt-2 mb-3" type="text"
-							name="id" id="id" value="${userId}" disabled="disabled">
+						 <input class="input100 mt-2 mb-3" type="text" name="id" id="id" value="${userId}" readonly="readonly">
 					</div>
 					
 					<p class=input_title>비밀번호</p>
@@ -95,14 +91,13 @@
 			
 					<p class=input_title> 프로필사진(선택)</p>
 					<div class="wrap-input100 validate-input">
-						 <input class="input100 mt-2 mb-3" type="file" name="file" id="file"
-						onkeyup="enter()" accept=".jpg, .png, .svg, .jpeg"/>
+						 <input class="input100 mt-2 mb-3" type="file" name="file" id="file"/>
 						<span class="focus-input100"></span>
 					</div>
 
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" id="editBtn">수정</button>
+						<button class="login100-form-btn" type="submit" id="editBtn">수정</button>
 					</div>
 
 				</form>
@@ -133,9 +128,8 @@
 				return false;
 			}
 			 		
-			document.userinput.submit();//전송
+			document.form.submit();//전송
 			alert("회원정보가 수정되었습니다.");
-			location.href = "../member/mypage.do"; 
 			
 		});
 		

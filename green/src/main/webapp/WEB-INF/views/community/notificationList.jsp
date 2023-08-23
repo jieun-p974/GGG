@@ -4,10 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
 <link rel="stylesheet" href="/resources/styles/table.css">
-=======
->>>>>>> refs/remotes/origin/ayoung
 <title>관리자 공지 리스트</title>
 </head>
 <body>

@@ -17,6 +17,11 @@
 		(SELECT chal_no FROM mem_chal WHERE chal_no=#{chal_no} AND id=#{userId});
 	</insert> 
 
+	<!-- 챌린지 신청하면 회원 잔여 횟수 차감 -->
+	<update id="minusTryNum">
+		UPDATE member SET tryNum = tryNum-1 WHERE id=#{userId}
+	</update>
+
 	<!-- select one Challenge -->
 	<select id="getChallengeDetail" parameterType="challenge" resultType="challenge">
 		SELECT * FROM challenge WHERE chal_no = #{chal_no}
@@ -39,6 +44,11 @@
 		<if test='chal_img != null'>, chal_img = #{chal_img}, chal_img_addr = #{chal_img_addr}</if>
 		WHERE chal_no=#{chal_no};
 	</update>
+	
+	<!-- delete challenge -->
+	<delete id="deleteChallenge">
+		DELETE FROM challenge WHERE chal_no=#{chal_no}
+	</delete>
 	
 <!-- 	<select id="selectMyChall" parameterType="string" resultType="challenge">
 		SELECT c.chal_no AS chal_no, chal_name
@@ -77,7 +87,7 @@
 	<select id="completeList" resultMap="myChall">
 		SELECT DISTINCT c.chal_no as chal_no,chal_name, m_c_no
 		FROM mem_chal, challenge c
-		WHERE id = #{userId} AND success_YN = 'Y' AND mem_chal.chal_no = c.chal_no;
+		WHERE mem_chal.chal_no = c.chal_no AND id = #{userId} AND (success_YN = 'Y' OR completion_YN='Y');
 	</select>
 	
 	<!-- 인증 갯수 -->
@@ -102,8 +112,11 @@
 	
 	<!-- 인증관리에 필요한 쿼리들 -->
 	<select id="adminCerCheckList" resultType="checkChallenge">
-		SELECT cer_no,m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN FROM certification WHERE pass_YN='N';
+		SELECT cer_no,c.m_c_no, cer_date, cer_img1_nn, cer_img1_addr, pass_YN 
+		FROM certification c, mem_chal m WHERE pass_YN='N' AND chal_no=#{chal_no} 
+		AND c.m_c_no = m.m_c_no AND success_YN='N'
 	</select>
+	
 	<update id="updatePassYN">
 		UPDATE certification SET pass_YN='Y'
 		WHERE cer_no IN (
@@ -111,5 +124,44 @@
 		#{a}
 		</foreach>
 		)
+	</update>
+	
+	<!-- chal_end_date 지나면 complete -->
+	<update id="endDateCheck">
+		UPDATE challenge SET completion_YN = 'Y' WHERE chal_no = #{chal_no}
+	</update>
+	
+	<!-- 밑에 쿼리 3개에 인자 넘길 용으로 만든 select -->
+	<select id="paramSql" resultType="hashmap">
+		SELECT * FROM mem_chal m, certification c WHERE m.m_c_no = c.m_c_no AND 
+		cer_no IN (
+		<foreach collection="arr" item="a" separator="," >
+		#{a}
+		</foreach>
+		)
+	</select>
+	
+	<!-- pass_yn 갯수 -->
+	<select id="passCount" resultType="Integer">
+		SELECT COUNT(*),chal_no,id 
+		FROM certification c, mem_chal m 
+		WHERE chal_no=#{chal_no} AND c.m_c_no = m.m_c_no AND id=#{id} AND pass_YN ='Y'
+	</select>
+	
+	<!-- 챌린지별 chal_check_su -->
+	<select id="checkSu" resultType="Integer">
+		SELECT chal_check_su FROM challenge WHERE chal_no=#{chal_no}
+	</select>
+	
+	<!-- 인증 전부 다되면 success_yn칼럼 값 'y'로 수정하기 -->
+	<update id="updateSuccess">
+		UPDATE mem_chal SET success_YN = 'Y' WHERE chal_no = #{chal_no} AND id = #{id}
+	</update>
+	
+	<!-- 포인트 지급하는 쿼리 -->
+	<update id="givePoint">
+		UPDATE member 
+		SET remainder_point = remainder_point+ (100*(SELECT difficulty FROM challenge WHERE chal_no = #{chal_no})) 
+		WHERE id = #{id}
 	</update>
 </mapper>

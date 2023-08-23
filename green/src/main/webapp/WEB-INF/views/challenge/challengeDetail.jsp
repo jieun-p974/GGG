@@ -34,7 +34,7 @@ $(function(){
 	${""}
 });
 </script>
-<title>뉴스 상세</title>
+<title>챌린지 상세</title>
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>
@@ -46,9 +46,9 @@ $(function(){
 					<div class="card position-relative shadow border-0 h-100">
 						<div class="card-body p-3">
 							<div class="chall_detail">
-								<img class="detail_img"
+								<img class="detail_img col-12"
 									src="/resources/imgs/challImg/${chall.chal_img_addr}" />
-								<div class="detail_content">
+								<div class="detail_content mt-5">
 									<p class="d_title">챌린지: ${chall.chal_name}</p>
 									<p class="d_gigan">기 간: ${chall.chal_start_date} ~
 										${chall.chal_end_date}</p>
@@ -67,8 +67,7 @@ $(function(){
 								</div>
 								<div class="check_btn d-flex justify-content-between">
 									<div></div>
-									<a
-										href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
+									<a href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
 										class="btn btn-white-back2 btn-hover-secondery text-capitalize">신청하기</a>
 								</div>
 							</div>

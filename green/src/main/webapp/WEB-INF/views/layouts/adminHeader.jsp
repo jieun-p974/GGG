@@ -4,12 +4,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
-<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+<!-- <script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script> -->
 <!-- <script src="/resources/js/jquery.min.js"></script> -->
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
+
 <%
 	String userId = (String) session.getAttribute("userId");
 String userName = (String) session.getAttribute("userName");
@@ -64,7 +65,7 @@ System.out.println("현재 세션 : " + userId);
 					</ul>
 					<c:if test="${userId ne null}">
 						<div class="d-flex align-items-center">
-							<a class="btn btn-warning btn-hover-secondery text-capitalize "
+							<a class="btn btn-warning btn-hover-secondery text-capitalize p-3"
 								href="../member/logout.do">로그아웃</a>
 						</div>
 					</c:if>

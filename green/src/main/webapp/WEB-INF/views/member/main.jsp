@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -7,10 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>GGG: 지구를 지켜라</title>
+<style type="text/css">
+.imgss{
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+}
+</style>
 </head>
 <body>
 	<c:if test="${userType == 2}">
-		<h4 style="">${userId}${userName} ${sessionTime} 접속</h4>
+		<h4 style="">${userId} ${userName} ${sessionTime} 접속</h4>
 	</c:if>
 	<%@include file="../layouts/header.jsp"%>
 	<section class="hero-banner position-relative overflow-hidden">
@@ -142,6 +148,7 @@
 				</div>
 			</div>
 			<div class="row d-flex flex-wrap justify-content-center step-row">
+				<img class="imgss" alt="main2" src="/resources/imgs/main.png">
 				<div
 					class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center">
 					<div class="card bg-transparent">
@@ -151,8 +158,9 @@
 								<img class="img-fluid" src="/resources/imgs/bear_shadow.png"
 									alt="">
 							</div>
-							<h3 class="fs-4 text-white">8월의 캐릭터</h3>
+							<h3 class="fs-4 text-white">이달의 신규 캐릭터</h3>
 							<h3 class="fs-4 text-white">멸종위기 취약등급</h3>
+							
 							<p class="fs-7 mb-0 fw-500 text-white">
 								힌트!저는 먹이사슬 최상위에 존재해요.<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다.
 							</p>
@@ -216,15 +224,15 @@
 							<ul class=" mb-0 pl-0">
 								<li class="d-flex align-items-start justify-content-center"><small
 									class="fs-9 text-black ">결제일로 부터 30일간 적용됩니다.</small></li>
-								<li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
+								<li class="d-flex align-items-start">
+									class="ti ti-circle-check fs-4 pe-2"> <span
 									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">7번</span> 도전할 수 있습니다.</span></li>
-								<li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
+								<li class="d-flex align-items-start">
+									class="ti ti-circle-check fs-4 pe-2"> <span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> -->
+								<li class="d-flex align-items-start">
+									class="ti ti-circle-check fs-4 pe-2"> <span
+									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> 
 							</ul>
 						</div>
 						<div
