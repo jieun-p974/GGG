@@ -35,6 +35,22 @@
 .icons{
 	width:30%;
 }
+#progress {
+    appearance: none;
+    width: 100%;
+}
+#progress::-webkit-progress-bar {
+    background:#f0f0f0;
+    border-radius:10px;
+    box-shadow: inset 3px 3px 10px #ccc;
+}
+#progress::-webkit-progress-value {
+    border-radius:10px;
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+    background: linear-gradient(to right, #93F9B9, #1D976C);
+
+}
 </style>
 <jsp:useBean id="now" class="java.util.Date" />
 </head>
@@ -46,24 +62,25 @@
 				<div class="col-lg-12 mb-4 text-center">
 					<div
 						class="profile-picture profile-picture-lg bg-gradient bg-primary mb-4">
-						<img src="/resources/imgs/member/${userImgAddr}" width="144"
+						<img src="/resources/imgs/member/${meminfo.m_img_addr}" width="144"
 							height="144">
-						<h4 class="mt-3">${userName}님</h4>
+						<h4 class="mt-3">${meminfo.name}님</h4>
 						<fmt:parseNumber var="today" value="${now.time / (1000*60*60*24)}"
 							integerOnly="true" scope="request" />
-						<fmt:parseDate var="sdate" value="${userSdate}"
+						<fmt:parseDate var="sdate" value="${meminfo.sdate}"
 							pattern="yyyy-MM-dd" />
 						<fmt:parseNumber var="sdate2"
 							value="${sdate.time / (1000*60*60*24)}" integerOnly="true"
 							scope="request" />
 					</div>
 					<h6 class="mt-5 pt-2">
-						${userId}&nbsp회원님&nbsp환영합니다! <br /> <br /> 🌏&nbspGGG와 함께한지
+						${meminfo.id}&nbsp회원님&nbsp환영합니다! <br /> <br /> 🌏&nbspGGG와 함께한지
 						${today-sdate2}일 째&nbsp🌏
 					</h6>
 					<h6>
-						보유포인트 : ${userPoint} p <br /> <br /> 잔여도전횟수 : ${userTryNum} 회
+						보유포인트 : ${meminfo.remainder_point} p <br /> <br /> 잔여도전횟수 : ${meminfo.tryNum} 회
 					</h6>
+					 <h6 class="mt-4"> 도전권은 ${dogeonGigan} 까지 <br />사용가능합니다.</h6>
 				</div>
 			</div>
 		</div>
@@ -78,15 +95,15 @@
 							<div class="d-flex align-items-center mt-3">
 								<div class="grid">
 									<p class="fs-7 text-black" style="padding: 0">아이디 :
-										${userId}</p>
+										${meminfo.id}</p>
 									<p class="fs-7 text-black" style="padding: 0">전화번호 :
-										${userTel}</p>
+										${meminfo.tel}</p>
 									<p class="fs-7 text-black" style="padding: 0">이메일주소 :
-										${userEmail}</p>
+										${meminfo.email}</p>
 									<p class="fs-7 text-black" style="padding: 0">간편결제 카드등록 여부
-										: ${userCard}</p>
+										: ${meminfo.card_reg_YN}</p>
 									<p class="fs-7 text-black" style="padding: 0">간편결제 등록 여부 :
-										${userAccount}</p>
+										${meminfo.account_reg_YN}</p>
 								</div>
 							</div>
 						</div>
@@ -102,11 +119,11 @@
 							</div>
 							<div>
 								<img alt="회원 정보 수정" src="/resources/imgs/sujung.png" class="icons">
-								<a href="infoEdit.do" class="btn btn-warning btn-hover-secondery text-black" style="width: 215px"  href="infoEdit.do"> 회원정보 수정 </a>
+								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px"  href="infoEdit.do?id=${userId}"> 회원정보 수정 </a>
 							</div>
 							<div>
 								<img alt="결제수단 관리" src="/resources/imgs/paymana.png" class="icons">
-								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px" href="../pay/payment.do?userId=${userId}" > 결제 수단 관리 </a>
+								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px" href="../pay/payment.do?id=${userId}" > 결제 수단 관리 </a>
 							</div>
 						</div>
 					</div>
@@ -151,64 +168,70 @@
 									</div>
 									<div
 										class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-										<a class="btn btn-warning btn-hover-secondery mt-5" href="">개명</a>
+										<p class="fs-3 mt-5"> ${myDogam.do_title} </p>
+										<c:if test= "${myDogam.nowLv eq 3}">
+										<a class="btn btn-warning btn-hover-secondery mt-5" href="../dogam/nickname.do?do_no=${myDogam.do_no}&userId=${userId}">이름지어주기</a>
+										</c:if>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<div
-							class="d-flex col-xxl-8 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3 flex-wrap">
+						<div class="d-flex col-xxl-8 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3 flex-wrap">
 							<!-- lv1 -->
-							<div
-								class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-								<div class="card border-0 shadow">
-									<div class="card-body">
-										<div
-											class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
+								<div class="card border-0 shadow h-100">
+									<div class="card-body h-100 p-3">
+										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img1}">
 										</div>
 									</div>
 								</div>
+											<p class="text-white fs-7 mt-2"> 레벨1 </p>
 							</div>
 							<!-- lv2 -->
-							<div
-								class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-								<div class="card border-0 shadow">
-									<div class="card-body">
-										<div
-											class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
+								<div class="card border-0 shadow h-100">
+									<div class="card-body h-100 p-3">
+										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img2}">
 										</div>
 									</div>
 								</div>
+											<p class="text-white fs-7 mt-2"> 레벨2 </p>
 							</div>
 							<!-- lv3 -->
-							<div
-								class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-								<div class="card border-0 shadow">
-									<div class="card-body">
-										<div
-											class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
+								<div class="card border-0 shadow h-100">
+									<div class="card-body h-100 p-3">
+										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img3}">
 										</div>
 									</div>
 								</div>
+											<p class="text-white fs-7 mt-2"> 레벨3 </p>
 							</div>
 							
-							<div class="animal_exp ms-3 mt-2">
-								<div class="exps mb-2">
+							<div class="animal_exp ms-3 mt-5">
+								<div class="exps mb-2 d-flex justify-content-between">
 									<p class="exp_level">현재레벨 : ${myDogam.nowLv}</p>
-									<p class="exp_point">(${myDogam.do_exp}/${myDogam.lev_max_point})</p>
+									                           <p class="exp_point">다음 레벨까지 (${myDogam.do_exp}/${myDogam.lev_max_point})</p>
 								</div>
 								<progress id=progress max="${myDogam.lev_max_point}" min=0
 									value="${myDogam.do_exp}"></progress>
-								<div class="exps mt-2">
-									<div class="exp_now">레벨1</div>
-									<div class="exp_end">레벨3(성체)</div>
+								<div class="exps mt-2 d-flex justify-content-between">
+									<div class="exp_now">레벨 ${myDogam.nowLv}</div>
+									
+									<c:if test= "${myDogam.nowLv<3}">
+									<div class="exp_end">레벨 ${myDogam.nowLv+1}</div>
+									</c:if>
+									
+									<c:if test= "${myDogam.nowLv eq 3}">
+									<div class="exp_end">만렙달성!</div>
+									</c:if>
 								</div>
 								
-								<div class="d-flex justify-content-between">
+								<div class="d-flex justify-content-between mt-2">
 									<a class="btn btn-warning btn-hover-secondery"
 										href="../dogam/dogam.do">도감전체보기</a> <a
 										class="btn btn-warning btn-hover-secondery"

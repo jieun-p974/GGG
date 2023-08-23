@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.green.dao.CommunityDAO;
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
+import com.green.domain.ReplyVO;
 
 @Service("CommunityService")
 public class CommunityServiceImpl implements CommunityService{
 	@Autowired
 	private CommunityDAO communityDAO;
 	
+	// community
 	//insert
 	@Override
 	public void insertCommunity(CommunityVO vo) {
@@ -22,17 +25,10 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//get Community List
 	@Override
-	public List<CommunityVO> getCommunityList() {
+	public List<CommunityVO> getCommunityList(String userId) {
 		// TODO Auto-generated method stub
-		return communityDAO.getCommunityList();
-	}
-	
-	// Reply List
-	@Override
-	public List<CommunityVO> getReplyList(int board_no) {
-		// TODO Auto-generated method stub
-		return communityDAO.getReplyList(board_no);
-	}
+		return communityDAO.getCommunityList(userId);
+	}	
 	
 	//get one
 	@Override
@@ -56,16 +52,57 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	//my community
 	@Override
-	public List<CommunityVO> getMyCommunityList(String id) {
+	public List<CommunityVO> getMyCommunityList(CommunityVO vo) {
 		// TODO Auto-generated method stub
-		return communityDAO.getMyCommunityList(id);
+		return communityDAO.getMyCommunityList(vo);
+	}
+	
+	// reply
+	// Reply List
+	@Override
+	public List<ReplyVO> getReplyList(int board_no) {
+		// TODO Auto-generated method stub
+		return communityDAO.getReplyList(board_no);
+	}
+	
+	@Override
+	public ReplyVO getReplyDetail(ReplyVO vo) {
+		return communityDAO.getReplyDetail(vo);
+	}
+	
+	@Override
+	public void deleteReply(ReplyVO vo)	 {
+		// TODO Auto-generated method stub
+		communityDAO.deleteReply(vo);
+	}
+	
+	@Override
+	public void updateReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.updateReply(vo);
 	}
 	
 	//insert reply
 	@Override
-	public void insertReply(CommunityVO vo) {
+	public void insertReply(ReplyVO vo) {
 		// TODO Auto-generated method stub
 		communityDAO.replyWrite(vo);
 	}
+	
+	// like
+	// dolike
+	@Override
+	public void insertLike(HeartVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.likeInsert(vo);
+	}
+	
+	// unlike
+	@Override
+	public void deleteLike(HeartVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.deleteLike(vo);
+	}
+	
 	
 }

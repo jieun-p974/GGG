@@ -18,6 +18,8 @@ public interface ChallengeDAO {
 	
 	public void updateChallenge(ChallengeVO vo);
 	
+	public void deleteChall(int chal_no);
+	
 	public List<ChallengeVO> getMyChallengeList(String userId);
 	
 	public List<ChallengeVO> getCompleteList(String userId);
@@ -30,7 +32,13 @@ public interface ChallengeDAO {
 	
 	public MemChallengeVO redirectCheckPage(ChallengeCheckVO vo);
 	
-	public List<ChallengeCheckVO> adminCerCheckList();
+	public List<ChallengeCheckVO> adminCerCheckList(int chal_no);
 	
 	public void updatePassYN(HashMap<String, List<String>> arr);
+	
+	public void endDateCheck(ChallengeVO vo);
+	
+	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr);
+	
+	public void getPassNCheckSu(HashMap param);
 }

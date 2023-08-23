@@ -3,13 +3,17 @@ package com.green.service;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
+import com.green.domain.ReplyVO;
 
 public interface CommunityService {
-	//글 등록
+	
+	// community
+	//community insert
 	void insertCommunity(CommunityVO vo);
 	
-	//글 목록
-	List<CommunityVO> getCommunityList();
+	//community list
+	List<CommunityVO> getCommunityList(String userId);
 	
 	//get one
 	CommunityVO getCommunityDetail(CommunityVO vo);
@@ -21,11 +25,28 @@ public interface CommunityService {
 	void deleteCommunity(CommunityVO vo);
 
 	//my Community
-	List<CommunityVO> getMyCommunityList(String id);
+	List<CommunityVO> getMyCommunityList(CommunityVO vo);
 	
-	void insertReply(CommunityVO vo);
+	// reply
+	//reply insert
+	void insertReply(ReplyVO vo);
 
 	//reply list
-	List<CommunityVO> getReplyList(int board_no);
+	List<ReplyVO> getReplyList(int board_no);
+	
+	void deleteReply(ReplyVO vo);
+
+	void updateReply(ReplyVO vo);
+	
+	ReplyVO getReplyDetail(ReplyVO vo);
+	
+	// like
+	void insertLike(HeartVO vo);
+	
+	void deleteLike(HeartVO vo);
+
+
+	
+	
 
 }

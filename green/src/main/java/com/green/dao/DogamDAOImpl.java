@@ -161,7 +161,13 @@ public class DogamDAOImpl implements DogamDAO {
 		return rs;
 	}
 
-
+	//기부->exp
+		@Override
+		public void donExp(HashMap<String, Object> map) {
+			System.out.println("==>exp의donExp()호출");
+			System.out.println("donExp: "+ map);
+			mybatis.update("DogamDAO.donExp",map);
+		}
 	
 
 

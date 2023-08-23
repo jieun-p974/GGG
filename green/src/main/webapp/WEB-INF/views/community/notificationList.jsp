@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/styles/table.css">
 <title>관리자 공지 리스트</title>
 </head>
 <body>

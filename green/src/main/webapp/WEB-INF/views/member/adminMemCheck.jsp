@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/adminCheck.css" rel="stylesheet"
-	type="text/css">
+<link href="../../../resources/styles/adminCheck.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../../../resources/styles/footer.css">
 <title>회원 관리</title>
 </head>

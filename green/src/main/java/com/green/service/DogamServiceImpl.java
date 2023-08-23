@@ -126,7 +126,11 @@ public class DogamServiceImpl implements DogamService {
 		return rs;
 	}
 
-
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		dogamDAO.donExp(map);
+		
+	}
 
 	
 }

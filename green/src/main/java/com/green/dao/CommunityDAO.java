@@ -3,24 +3,41 @@ package com.green.dao;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
+import com.green.domain.ReplyVO;
 
 public interface CommunityDAO {
 	
+	// 커뮤니티
 	public void communityWrite(CommunityVO vo);
-
-	public List<CommunityVO> getCommunityList();
 
 	public CommunityVO getCommunityDetail(CommunityVO vo);
 
 	public void updateCommunity(CommunityVO vo);
 
 	public void deleteCommunity(CommunityVO vo);
-
-	public List<CommunityVO> getMyCommunityList(String id);
 	
-	public void replyWrite(CommunityVO vo);
+	public List<CommunityVO> getCommunityList(String userId);
 
-	public List<CommunityVO> getReplyList(int board_no);
+	public List<CommunityVO> getMyCommunityList(CommunityVO vo);
+
+	// 댓글
+	public void replyWrite(ReplyVO vo);
+
+	public List<ReplyVO> getReplyList(int board_no);
+	
+	public ReplyVO getReplyDetail(ReplyVO vo);
+
+	public void updateReply(ReplyVO vo);
+	
+	public void deleteReply(ReplyVO vo);
+	
+	// 좋아요
+	public void likeInsert(HeartVO vo);
+	
+	public void deleteLike(HeartVO vo);
+
+
 
 
 }

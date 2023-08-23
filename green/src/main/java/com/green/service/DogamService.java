@@ -53,4 +53,7 @@ public interface DogamService {
 	// name update
 	public int updateDoname(HashMap map);
 	
+	//±âºÎ->exp
+	void donExp(HashMap<String, Object> map);
+	
 }

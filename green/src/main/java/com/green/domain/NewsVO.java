@@ -2,6 +2,7 @@ package com.green.domain;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ public class NewsVO {
 	private int cat_no;
 	private String n_title;
 	private String n_content;
-	private LocalDateTime n_reg_date;
+	private Date n_reg_date;
 	private String n_img1_nn;
 	private String n_img1_addr;
 
@@ -70,11 +71,11 @@ public class NewsVO {
 		this.n_title = n_title;
 	}
 
-	public LocalDateTime getN_reg_date() {
+	public Date getN_reg_date() {
 		return n_reg_date;
 	}
 
-	public void setN_reg_date(LocalDateTime n_reg_date) {
+	public void setN_reg_date(Date n_reg_date) {
 		this.n_reg_date = n_reg_date;
 	}
 

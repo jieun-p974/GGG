@@ -19,13 +19,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.green.domain.ChallengeVO;
 import com.green.domain.MemberVO;
 import com.green.service.ChallengeService;
 import com.green.service.DogamService;
 import com.green.service.DonationService;
+import com.green.service.MailSendService;
 import com.green.service.MemberService;
 
 @Controller
@@ -46,6 +46,8 @@ public class MemberController {
 	private DonationService donationService;
 	@Autowired
 	private DogamService dogamService;
+	@Autowired
+	private MailSendService mailService;
 
 	// id using check
 	@RequestMapping(value = "/idCheck.do", produces = "application/text; charset=utf8")
@@ -60,7 +62,7 @@ public class MemberController {
 	}
 
 	// sign up
-	@RequestMapping("/signupSave.do")
+	@RequestMapping({"/signupSave.do"})
 	public ModelAndView userInsert(MemberVO vo) {
 		
 		int result = memberService.memberInsert(vo);
@@ -75,13 +77,22 @@ public class MemberController {
 		mv.addObject("result", result);
 		return mv;
 	}
+			
+	//이메일 인증
+	@RequestMapping("/mailCheck.do")
+	public @ResponseBody String mailCheck(String email) {
+		return mailService.joinEmail(email);
+	}
 
 	// login
 	@RequestMapping("/loginSave.do")
 	public String login(MemberVO vo, HttpSession session) {
 		MemberVO result = memberService.idCheck_Login(vo);
 		MemberVO memberVo = memberService.memberInfo(vo);
+		String lastDate = memberService.dogeonExp(vo);
+
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
 		if (result == null || result.getId() == null) {
 			return "/member/login";
 		} else {
@@ -102,24 +113,23 @@ public class MemberController {
 			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
 			session.setAttribute("userTryNum", memberVo.getTryNum());
 			session.setAttribute("userVo", memberVo);
+			session.setAttribute("dogeonGigan", lastDate);
 		}
 		return "redirect:/member/main.do";
 	}
-	
+
 	// logout
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/member/main.do";
 	}
-	
+
 	// member info edit
 	@RequestMapping("/editSave.do")
 	public String userUpdate(MemberVO vo) throws IOException {
-		System.out.println("c"+vo.getId());
 		int res = memberService.memberUpdate(vo);
-		System.out.println("ccc"+res);
-		return "redirect:/member/mypage.do";
+		return "redirect:/member/mypage.do?id="+vo.getId();
 	}
 
 	// search id
@@ -129,25 +139,27 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/searchIDsave.do", method = RequestMethod.POST)
-	public String searchID(HttpServletResponse response, @RequestParam("email") String email, Model md)
+	public String searchID(HttpServletResponse response, String email, String name, Model md)
 			throws Exception {
-		md.addAttribute("id", memberService.searchID(response, email));
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		map.put("name", name);
+		md.addAttribute("id", memberService.searchID(response, map));
+		 
 		return "/member/searchID";
 	}
 
 	// search pw
-	@RequestMapping(value = "/searchPassSave.do")
-	public String searchPass() throws Exception {
-		return "/member/searchPass";
+	@RequestMapping(value = "/findpw", method = RequestMethod.GET)
+	public void findPwGET() throws Exception{
 	}
 
-	@RequestMapping(value = "/searchPassSave.do", method = RequestMethod.POST)
-	public String searchPass(HttpServletResponse response, @RequestParam("email") String email, Model md)
-			throws Exception {
-		md.addAttribute("pw", memberService.searchPass(response, email));
-		return "/member/searchPass";
+	@RequestMapping(value = "/findpw", method = RequestMethod.POST)
+	public void findPwPOST(@ModelAttribute MemberVO vo, HttpServletResponse response) throws Exception{
+		memberService.searchPW(response, vo);
 	}
 
+	
 	// member card insert
 	@RequestMapping("/cardSave.do")
 	public String cardInsert(MemberVO vo) throws IOException {
@@ -155,7 +167,7 @@ public class MemberController {
 		memberService.cardYes(vo);
 		return "redirect:/member/mypage.do";
 	}
-	
+
 	// member bank account insert
 	@RequestMapping("/accSave.do")
 	public String accountInsert(MemberVO vo) throws IOException {
@@ -163,38 +175,49 @@ public class MemberController {
 		memberService.accountYes(vo);
 		return "redirect:/member/mypage.do";
 	}
-	
-	//마이페이지에서 나의 도감, 진행중인 챌린지, 기부내역 띄우기
-		@RequestMapping(value="/mypage.do")
-		public void challAndDona(String id, Model model) {
-			
-			 try {
-				 int do_no = dogamService.myYes(id);
-				 System.out.println("dd"+do_no);
-				 if(do_no > 0) {
-						HashMap<String, Object> map = new HashMap<String, Object>();
-						map.put("id", id);
-						map.put("do_no", do_no);
-						
-						System.out.println(map);
-						
-						HashMap<String, Object> myDogam= dogamService.getDetail(map);
-						List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
-						List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
-						model.addAttribute("myDogam", myDogam);
-						model.addAttribute("challList",challList);
-						model.addAttribute("myDonaList", myDonaList);
-						model.addAttribute("check", do_no);
-					} else {
-						List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
-						List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
-						model.addAttribute("challList",challList);
-						model.addAttribute("myDonaList", myDonaList);
-						model.addAttribute("check",do_no);
-					}
-			} catch (Exception e) {
+
+	// 마이페이지에서 나의 도감, 진행중인 챌린지, 기부내역 띄우기
+	@RequestMapping(value = {"/mypage.do"})
+	public void challAndDona(String id, Model model, MemberVO vo) {
+		try {
+			int do_no = dogamService.myYes(id);
+			if (do_no > 0) {
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				map.put("id", id);
+				map.put("do_no", do_no);
+
+				System.out.println(map);
+
+				HashMap<String, Object> myDogam = dogamService.getDetail(map);
+				List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+				List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+				MemberVO meminfo = memberService.memberInfo(vo);
+
+				model.addAttribute("myDogam", myDogam);
+				model.addAttribute("challList", challList);
+				model.addAttribute("myDonaList", myDonaList);
+				model.addAttribute("check", do_no);
+				model.addAttribute("meminfo", meminfo);
+			} else {
+				List<ChallengeVO> challList = challengeService.getMyChallengeList(id);
+				List<HashMap<String, Object>> myDonaList = donationService.myDonaList(id);
+				MemberVO meminfo = memberService.memberInfo(vo);
+				
+				
+				model.addAttribute("challList", challList);
+				model.addAttribute("myDonaList", myDonaList);
+				model.addAttribute("check", do_no);
+				model.addAttribute("meminfo", meminfo);
 			}
-			
-		
+		} catch (Exception e) {
 		}
+
+	}
+	
+	// 정보수정에서 정보띄우기
+	@RequestMapping(value="/infoEdit.do")
+	public void myInfos(MemberVO vo, Model model) {
+		MemberVO meminfo = memberService.memberInfo(vo);
+		model.addAttribute("meminfo", meminfo);
+	}
 }

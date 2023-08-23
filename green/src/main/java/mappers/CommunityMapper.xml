@@ -9,34 +9,45 @@
 		VALUES(#{id}, #{b_content}, #{b_img1}, #{b_img1_addr}, #{b_img2}, #{b_img2_addr}, #{b_img3}, #{b_img3_addr})
 	</insert>
 	
-	<!-- insert reply -->
-	<insert id="replyWrite" parameterType="community">
-		INSERT INTO reply (id, board_no, com_content) 
-		VALUES(#{id},#{board_no},#{com_content})
-	</insert>
-	
-	<!-- show all list -->
+	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
-		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
-		FROM board b, member m 
-		WHERE m.id= b.id 
-		ORDER BY b.regist_date desc
+	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, 
+				m.m_img_addr, 
+				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
+	FROM board b 
+	LEFT JOIN member m
+	ON m.id = b.id
+	left join (SELECT board_no, COUNT(*) AS lcnt FROM b_m_like GROUP BY board_no) AS likecnt
+	on b.board_no = likecnt.board_no 
+	LEFT JOIN (SELECT board_no, COUNT(*) AS rcnt FROM reply GROUP BY board_no) AS replycnt
+	ON b.board_no = replycnt.board_no
+	LEFT JOIN (SELECT board_no, id, COUNT(*) as lchk FROM b_m_like WHERE id=#{userId} GROUP BY board_no) AS likechk
+	ON b.board_no = likechk.board_no
+	ORDER BY b.regist_date desc
+	
 	</select>
 	
-	<!-- show my list -->
+	<!-- show id search list -->
 	<select id="getMyCommunityList" resultType="community">
-		SELECT * FROM board WHERE id = #{id} ORDER BY board_no desc	
+	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, 
+				m.m_img_addr, 
+				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
+	FROM board b 
+	LEFT JOIN member m
+	ON m.id = b.id
+	left join (SELECT board_no, COUNT(*) AS lcnt FROM b_m_like GROUP BY board_no) AS likecnt
+	on b.board_no = likecnt.board_no 
+	LEFT JOIN (SELECT board_no, COUNT(*) AS rcnt FROM reply GROUP BY board_no) AS replycnt
+	ON b.board_no = replycnt.board_no
+	LEFT JOIN (SELECT board_no, id, COUNT(*) as lchk FROM b_m_like WHERE id=#{userId} GROUP BY board_no) AS likechk
+	ON b.board_no = likechk.board_no
+	WHERE b.id=#{id}
+	ORDER BY b.regist_date desc
+
 	</select>
-	
-	<!-- show reply -->
-	<select id="getReplyList" resultType="community">
-		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
-		FROM reply r, member m 
-		WHERE m.id = r.id AND r.board_no = #{board_no} 
-		ORDER BY com_no desc
-	</select>
-	
+
 	<!-- select one Community -->
 	<select id="getCommunityDetail" parameterType="community" resultType="community">
 		SELECT * FROM board WHERE board_no = #{board_no}
@@ -65,5 +76,51 @@
 	<delete id="deleteCommunity" parameterType="community">
 		DELETE FROM board WHERE board_no = #{board_no}
 	</delete>
+	
+	
+	<!-- insert reply -->
+	<insert id="replyWrite" parameterType="community">
+		INSERT INTO reply (id, board_no, com_content) 
+		VALUES(#{id},#{board_no},#{com_content})
+	</insert>
+	
+	<!-- update reply -->
+	<update id="updateReply" parameterType="reply">
+		UPDATE reply SET
+		com_content=#{com_content}
+		WHERE com_no=#{com_no}
+	</update>
+	
+	<!-- delete reply -->
+	<delete id="deleteReply" parameterType="reply">
+		DELETE FROM reply WHERE com_no=#{com_no}
+	</delete>
+	
+	<!-- get reply -->
+	<select id="getReplyList" resultType="reply">
+		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
+		FROM reply r, member m 
+		WHERE m.id = r.id AND r.board_no = #{board_no}
+		ORDER BY com_no desc
+	</select>
+	
+	<!-- insertLike -->
+	<insert id="likeInsert" parameterType="like">
+		INSERT INTO b_m_like ( id, board_no)
+		VALUES( #{id}, #{board_no})
+	</insert>
+	
+	<!-- delete Like -->
+	<delete id="deleteLike" parameterType="like">
+		DELETE FROM b_m_like WHERE id=#{id} AND board_no = #{board_no}
+	</delete>
+	
+	<select id="autocomplete" parameterType="map" resultType="map">
+		SELECT
+			 id
+		FROM member
+		WHERE id LIKE  '%||#{value}||%'
+	</select>
+	
 	
 </mapper>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -8,8 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script
-	src="../../../resources/styles/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../resources/styles/vendor/bootstrap/js/bootstrap.min.js"></script>
 <title>my도감 | 이름 지어주기</title>
 </head>
 <body>
@@ -18,7 +16,6 @@
 	int do_no = Integer.parseInt(request.getParameter("do_no")); 
 	System.out.println("jsp"+do_no);
 %>
-
 	<%@include file="../layouts/header.jsp"%>
 	<section class="pricing position-relative">
 		<div class="container position-relative">
@@ -29,7 +26,7 @@
 				<input type="hidden" name="id" value="${userId}">
 				<button type="submit"> 확인 </button>
 			</form>
-			</div>
+		</div>
 	</section>
 </body>
 </html>
