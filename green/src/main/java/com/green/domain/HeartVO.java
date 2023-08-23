@@ -59,7 +59,5 @@ public class HeartVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-	
 
 }

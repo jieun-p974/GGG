@@ -29,6 +29,11 @@
 	}
 
 	function check() {
+		if (document.form.name.value == "") {
+			alert("이름을 입력하세요.")
+			document.form.name.focus();
+			return false;
+		}
 		if (document.form.email.value == "") {
 			alert("이메일주소를 입력하세요.")
 			document.form.email.focus();
@@ -42,16 +47,13 @@
 		<div class="wrap-login100" style="width: 500px; height: 550px; justify-content: center;">
 			<form class="login100-form validate-form" name="form" action="searchIDsave.do" method="post" name="userinput" id="userinput">
 				<span class="login100-form-title"> 아이디 찾기 </span>
-				<div class="wrap-input100 validate-input" data-validate="이메일주소를 입력하세요">
+				<div class="wrap-input100 validate-input">
+					<p class="label">이름</p>
+					<input class="input100" type="text" name="name" id="name">
+				</div>
+				<div class="wrap-input100 validate-input">
 					<p class="label">이메일</p>
 					<input class="input100" type="email" name="email" id="email">
-				</div>
-				<div class="wrap-input100 validate-input" data-validate="이메일로 받으신 인증번호를 입력하세요">
-					<p class="label">이메일 인증</p>
-					<div class="d-flex col-12">
-						<input class="input100 col-8" type="text" name="num" id="num" placeholder="인증번호 입력">
-						<button class="login100-form-btn" name="Submit" id="Submit" style="background: gray">발송</button>
-					</div>
 				</div>
 				<button class="login100-form-btn" name="Submit" id="Submit">찾기</button>
 				<div class="text-center p-t-12 mt-5">

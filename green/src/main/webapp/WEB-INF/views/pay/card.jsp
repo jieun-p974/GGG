@@ -114,7 +114,6 @@
 							</div>
 						</div>
 					</label>
-
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" id="registBtn" type="submit">등록</button>
 					</div>

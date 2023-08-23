@@ -15,7 +15,6 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <link rel="stylesheet" href="/resources/styles/font.css">
 <title>Insert title here</title>
-
 <script type="text/javascript">
 var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"

@@ -91,7 +91,4 @@ public class PayDAOImpl implements PayDAO {
 		System.out.println("d"+map.get("id"));
 		mybatis.update("payDAO.payTryNum",map);
 	}
-
-	
-	
 }

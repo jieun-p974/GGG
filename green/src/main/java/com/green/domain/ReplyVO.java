@@ -68,6 +68,4 @@ public class ReplyVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
-	
 }

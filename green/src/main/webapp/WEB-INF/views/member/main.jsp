@@ -82,7 +82,7 @@
 				<div
 					class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
 					<h2 class="text-black mb-0">GGG와 함께하는 챌린지란?</h2>
-					<p class="mb-0 fw-500 fs-4">
+					<p class="mb-0 fw-500 fs-7">
 						챌린지를 진행하시면 일정 포인트를 얻을 수 있습니다.<br /> 챌린지를 통해 획득한 포인트를 기부하면 기부하신<br />포인트만큼
 						캐릭터를 성장 시킬 수 있습니다.
 					</p>
@@ -193,6 +193,7 @@
 								<img class="img-fluid" src="/resources/imgs/main_bear.png" style="width:50%">
 							</div>
 							<h3 class="fs-4 text-white">이달의 신규 캐릭터</h3>
+							
 							<p class="fs-7 mb-0 fw-500 text-white">저는 멸종위기 취약등급이에요. <br/>
 							먹이사슬 최상위에 존재하며,<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다. <br/><br/>
 							제가 누군지 궁금하세요?</p>
@@ -231,9 +232,9 @@
 							<ul class=" mb-0 pl-0">
 								<li class="d-flex align-items-start justify-content-center"><small
 									class="fs-9 text-black justify-content-center">결제일로 부터 30일간 적용됩니다.</small></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">3번</span> 도전할 수 있습니다.</span></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
 							</ul>
 						</div>
@@ -264,9 +265,6 @@
 									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">7번</span> 도전할 수 있습니다.</span></li>
 								<li class="d-flex align-items-start"> <span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<li class="d-flex align-items-start">
-									class="ti ti-circle-check fs-4 pe-2"> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> 
 							</ul>
 						</div>
 						<div
@@ -289,16 +287,10 @@
 							<ul class=" mb-0 pl-0">
 								<li class="d-flex align-items-start justify-content-center"><small
 									class="fs-9 text-black">결제일로 부터 30일간 적용됩니다.</small></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 한달동안 챌린지에 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">무제한</span>으로 도전할 수 있습니다.</span></li>
 								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li>
-								<li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black"> Full API Access</span></li> -->
 							</ul>
 						</div>
 						<div

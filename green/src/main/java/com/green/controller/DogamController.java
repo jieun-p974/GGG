@@ -22,7 +22,6 @@ public class DogamController {
 	@Autowired
 	private DogamService dogamService;
 
-	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "{url}.do")
 	public String url(@PathVariable String url) {
 		return "/dogam/" + url;
@@ -80,6 +79,7 @@ public class DogamController {
 		model.addAttribute("mydogam", list);
 		model.addAttribute("detail", dList);
 		model.addAttribute("res", res);
+		model.addAttribute("count",list.size());
 	}
 	
 	// insert

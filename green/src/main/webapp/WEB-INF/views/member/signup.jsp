@@ -39,14 +39,26 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" href="/resources/styles/font.css">
 <title>회원가입</title>
+<style type="text/css">
+.logo{
+	position: fixed;
+	top:4%;
+	left:38%;
+	width: 6%;
+}
+</style>
 </head>
 
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form mt-5" name="form" action="signupSave.do" method="post" enctype="multipart/form-data">
-					<span class="login100-form-title mt-5"> 회원가입 </span>
+				<form class="login100-form validate-form mt-3 mb-3" name="form" action="signupSave.do" method="post" enctype="multipart/form-data">
+						<img class="col-3 p-0 logo" src="../../../resources/imgs/logo4.png"
+						onclick="location.href='../index.jsp'"> 
+					<div class="d-flex align-items-center mb-3">
+						<p class="login100-form-title mt-5 mb-3"> 회원가입 </p>
+					</div>
 					<div class="d-flex">
 						<p class="input_title">아이디</p>
 						<p class="input_title text-warning fs-6">&nbsp;*</p>
@@ -99,13 +111,11 @@
 					<p class="input_title text-warning fs-6">&nbsp;*</p>
 					</div>
 					<div class="wrap-input100 validate-input">
-						
-						<div class="d-flex col-12 p-0">
-							<input class="input100 mt-2 mb-3" type="text" 
-								id="emailCheck" placeholder="인증번호 입력">
-							<button class="login100-form-btn mt-2 mb-3 ms-2"
-							style="width:30%;" onclick="sendEmail()">발송</button>
-							<span class="focus-input100"></span>
+						<div class="d-flex col-12 p-0 flex-wrap">
+							<input class="input100 mt-2 mb-3 mail-check-input col-10" type="text" 
+								 placeholder="인증번호 입력" disabled="disabled">
+							<button class="login100-form-btn mt-2 mb-3 ms-2 col-2" id="mail-Check-Btn" type="button">발송</button>
+							<span class="col-12 text-start p-0" id="mail-check-warn" style="font-size: 0.9rem;"></span>
 						</div>
 					</div>
 					
@@ -148,10 +158,10 @@
 	</div>
 
 	<script type="text/javascript">
-	var message= "<c:out value='${message}' />"
-	
+ 
 	window.onload = function() {
 		document.getElementById('confirm').onclick = check;
+		document.getElementById('mail-Check-Btn').onclick = emailAuth;
 	}
 	function check() {
 		if ($("#id").val() == "" || $("#password").val() == "" || $("#passCheck").val() == ""
@@ -160,39 +170,8 @@
 			return false;
 		}
 		
-		/*	if ($("#id").val() == "") {
-			alert("아이디를 입력해주세요.");
-			$("#id").focus();
-			return false;
-		}
-		 if ($("#password").val() == "") {
-			alert("비밀번호를 입력해주세요.");
-			$("#password").focus();
-			return false;
-		}
-		if ($("#passCheck").val() == "") {
-			alert("비밀번호 확인란을 입력해주세요.");
-			$("#passCheck").focus();
-			return false;
-		} 
-		if ($("#name").val() == "") {
-			alert("이름을 입력해주세요.");
-			$("#name").focus();
-			return false;
-		}
-		if ($("#email").val() == "") {
-			alert("이메일주소를 입력해주세요.");
-			$("#email").focus();
-			return false;
-		}
-		if ($("#emailCheck").val() == "") {
-			alert("인증번호를 입력해주세요.");
-			$("#emailCheck").focus();
-			return false;
-		}
- */
 		document.form.submit();
-		alert(message);
+		alert(form.id.value + "님, 회원가입을 축하드립니다.\n선물로 100포인트를 지급해드렸어요.\n도감에서 대표캐릭터 지정하고, 기부에도 참여해보세요!" );
 	}
 
 	// 아이디 중복체크
@@ -268,51 +247,42 @@
 	      }
 	 });
 	
-	//이메일 보내기
-		/* function sendEmail() {
-			let emailCheck = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
-
-			if (!emailCheck.test($("#email").val())) {
-				alert("이메일 형식에 맞추어 작성하세요");
-			} else {
-				let email = $("#email").val(); //입력한 이메일
-
-				$.ajax({
-					url : "mailSender.do",
-					type : "get",
-					data : {
-						'm_email' : email
-					},
-					success : function(rnum) {
-						//alert("s");
-						alert("기입하신 이메일로 인증번호를 전송했습니다.");
-
-						$("#emailCheckResult").attr("disabled", false); //입력칸 활성화
-						code = rnum;
-
-					},
-					error : function() {
-						alert("f");
-					}
-				});
-
-			}
-
-		} 
-
-		$("#codeInput").blur(function() {
-
-			console.log(code);
-			if (code == $("#codeInput").val()) { //인증번호 같다면
-				$("#emailCheckResult").css("color", "blue");
-				$("#emailCheckResult").text("인증되었습니다.");
-				email = true;
-			} else {
-				$("#emailCheckResult").css("color", "red");
-				$("#emailCheckResult").text("인증번호를 다시 입력해주세요.");
-				email = false;
-			}
-		});*/
+	 function emailAuth() {
+			const email = $('#email').val(); // 이메일 주소값 얻어오기!
+			console.log('완성된 이메일 : ' + email); // 이메일 오는지 확인
+			const checkInput = $('.mail-check-input') // 인증번호 입력하는곳 
+			
+			$.ajax({
+				type : 'get',
+				url : '<c:url value ="/member/mailCheck.do?email="/>'+email, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
+				success : function (data) {
+					console.log("data : " +  data);
+					checkInput.attr('disabled',false);
+					code = data;
+					alert('인증번호가 전송되었습니다.');
+				}, error:function(){
+				}		
+			}); // end ajax
+		}; // end send eamil
+		
+	// 인증번호 비교 
+	// blur -> focus가 벗어나는 경우 발생
+	$('.mail-check-input').blur(function () {
+		const inputCode = $(this).val();
+		const $resultMsg = $('#mail-check-warn');
+		
+		if(inputCode === code){
+			$resultMsg.html('인증번호가 일치합니다.');
+			$resultMsg.css('color','blue');
+			$('#mail-Check-Btn').attr('disabled',true);
+			$('#email').attr('readonly',true);
+		}else{
+			$resultMsg.html('인증번호가 불일치 합니다. 다시 확인해주세요!');
+			$resultMsg.css('color','red');
+		}
+	});
+	
+	
 		
 		// 전화번호 형식 체크
 		 $("#tel").blur(function() {

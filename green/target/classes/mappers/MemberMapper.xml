@@ -41,14 +41,18 @@
 	</update>
 
 	<!-- search id -->
-	<select id="searchID" parameterType="String" resultType="String">
-		select id FROM member where email=#{email}
+	<select id="searchID" parameterType="member" resultType="String">
+		select id FROM member where email=#{email} and name=#{name}
 	</select>
 
 	<!-- search pw -->
-	<select id="searchPass" parameterType="String" resultType="String">
-		select password FROM member where email=#{email}
+	<select id="emailCheck" parameterType="member" resultType="String">
+		select email FROM member where id=#{id}
 	</select>
+	
+	<update id="searchPW">
+	update member set password = #{password} where id=#{id}
+	</update>
 
 	<!-- 포인트 사용(기부시) -->
 	<update id="goDona" parameterType="dona">

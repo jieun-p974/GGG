@@ -30,7 +30,7 @@ pre {
    width: 100%;
    white-space: pre-wrap;
    word-wrap: break-word;
- 
+ }
 </style>
 <title>동물도감 | 상세보기</title>
 </head>
@@ -45,7 +45,7 @@ pre {
 					<div class="card-body p-3">
 						<div class="animal_info mt-3">
 							<input value="${dogam.do_no}" type="hidden"/>
-							<h4 class="mb-1">제 성장 과정이 궁금하세요?</h3>
+							<h4 class="mb-1">제 성장 과정이 궁금하세요?</h4>
 						</div>
 						<div class="animal_level_d pt-5">
 							<div class="row">
@@ -74,7 +74,7 @@ pre {
 			<div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
 				<div class="card position-relative shadow border-0 h-100">
 					<div class="card-body pb-4">
-					<h3 class="mb-5" style="font-weight: bold;">멸종위기 동물<br/> '${dogam.do_title}'을 소개합니다.</h2>
+					<h3 class="text-black mt-5 mb-5 text-center fw-bold">멸종위기 동물 '${dogam.do_title}'을 소개합니다.</h3>
 						<pre class="text-start" style="line-height: 2rem">${dogam.do_content}</pre>
 						<img class="col-12" src="/resources/imgs/dogam/${dogam.do_realimg_addr}" /> 
 					</div>

@@ -30,13 +30,8 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("mybatis ==> memberInsert()");
 		return mybatis.insert("member.memberInsert", vo);
 	}
-
+	
 	// login
-//	@Override
-//	public MemberVO memberLogin(MemberVO vo) {
-//		System.out.println("mybatis ==> idCheck()");
-//		return (MemberVO) mybatis.selectOne("member.idCheck", vo);
-//	}
 	@Override
 	public MemberVO login(MemberVO vo) {
 		System.out.println("mybatis ==> login()");
@@ -60,16 +55,27 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// search id
 	@Override
-	public String searchID(String email) {
+	public String searchID(HashMap map) {
 		System.out.println("mybatis ==> searhID()");
-		return mybatis.selectOne("member.searchID", email);
+		return mybatis.selectOne("member.searchID", map);
 	}
 
 	// search pw
+//	@Override
+//	public String searchPass(String email) {
+//		System.out.println("mybatis ==> searhID()");
+//		return mybatis.selectOne("member.searchPass", email);
+//	}
 	@Override
-	public String searchPass(String email) {
-		System.out.println("mybatis ==> searhID()");
-		return mybatis.selectOne("member.searchPass", email);
+	public String emailCheck(String id) {
+		System.out.println("mybatis ==> emailCheck()");
+		return mybatis.selectOne("member.emailCheck", id);
+	}
+	
+	@Override
+	public int searchPW(MemberVO vo) {
+		System.out.println("mybatis ==> searchPW()");
+		return mybatis.update("member.searchPW", vo);
 	}
 
 	// member card insert

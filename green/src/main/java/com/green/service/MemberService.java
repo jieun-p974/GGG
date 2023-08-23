@@ -14,7 +14,7 @@ public interface MemberService {
 
 	// sign up
 	public int memberInsert(MemberVO vo);
-
+	
 	// login
 	public MemberVO login(MemberVO vo);
 
@@ -25,11 +25,14 @@ public interface MemberService {
 	public int memberUpdate(MemberVO vo);
 
 	// search id
-	public String searchID(HttpServletResponse response, String email) throws Exception;
+	public String searchID(HttpServletResponse response, HashMap map) throws Exception;
 
 	// search pw
-	public String searchPass(HttpServletResponse response, String email) throws Exception;
-
+	//public String searchPass(HttpServletResponse response, String email) throws Exception;
+	public String emailCheck(String id);
+	public void sendEmail(MemberVO vo, String div);
+	public void searchPW(HttpServletResponse response, MemberVO vo) throws Exception;
+	
 	// member card insert
 	public void cardInsert(MemberVO vo);
 	public void cardYes(MemberVO vo);

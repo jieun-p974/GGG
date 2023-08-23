@@ -32,7 +32,7 @@
 			<div
 				class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
 				<div class="calendar d-flex justify-content-between mb-5">
-				<p>* 사진을 보려면 행을 클릭하세요.</p>
+				<p class="text-warning fw-500 mt-3">* 상세 내용을 보려면 행을 클릭하세요.</p>
 					<a class="btn btn-white-back btn-hover-third" href="dogamWrite.do">동물추가하기
 					</a>
 					
@@ -44,7 +44,7 @@
 							<table class="type09" id="chall_list">
 								<thead>
 									<th class="do-th-2">이름</th>
-									<th class="do-th-3">설명</th>
+									<th class="do-th-3">미리보기</th>
 									<th class="do-th-btn">사진</th>
 									<th class="do-th-btn">수정</th>
 									<th class="do-th-btn">삭제</th>

@@ -41,22 +41,33 @@ img{
 							<thead>
 								<th class="do-th-1">NO</th>
 								<th class="do-th-2">이름</th>
+								<th class="do-th-3">실제사진</th>
 								<th class="do-th-3">레벨1</th>
 								<th class="do-th-3">레벨2</th>
 								<th class="do-th-3">레벨3</th>
-								<th class="do-th-btn">삭제</th>
 							</thead>
 							<c:forEach items="${list}" var="dogam">
-								<tbody>
-									<td> ${dogam.do_no} </td>
-									<td> ${dogam.do_title} </td>
-									<td> <img src="/resources/imgs/dogam/${dogam.img1}"> </td>
-									<td> <img src="/resources/imgs/dogam/${dogam.img2}"> </td>
-									<td> <img src="/resources/imgs/dogam/${dogam.img3}"> </td>
-									<td><a href="deleteDogam.do?do_no=${dogam.do_no}" class="btn btn-white-back2 btn-hover-secondery">삭제</a></td>
+							<c:set var="content" value="${dogam.do_content}"/>
+								<tbody >
+									<td style="border-bottom:none;"> ${dogam.do_no} </td>
+									<td style="border-bottom:none;"> ${dogam.do_title} </td>
+									<td style="border-bottom:none;"> <img src="/resources/imgs/dogam/${dogam.do_realimg_addr}"> </td>
+									<td style="border-bottom:none;"> <img src="/resources/imgs/dogam/${dogam.img1}"> </td>
+									<td style="border-bottom:none;"> <img src="/resources/imgs/dogam/${dogam.img2}"> </td>
+									<td style="border-bottom:none;"> <img src="/resources/imgs/dogam/${dogam.img3}"> </td>
 								</tbody>
 							</c:forEach>
 						</table>
+					</div>
+					<div>
+							<table class="type09 col-12" id="chall_list">
+							<thead>
+								<th>설명</th>
+								</thead>
+								<tbody>
+									<td style="border-bottom:none;"> ${content} </td>
+								</tbody>
+								</table>
 					</div>
 				</div>
 			</div>

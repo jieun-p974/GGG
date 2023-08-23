@@ -78,6 +78,4 @@ public class PayServiceImple implements PayService {
 		// TODO Auto-generated method stub
 		payDAO.payTryNum(map);
 	}
-
-
 }

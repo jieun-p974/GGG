@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class DogamVO {
 
-	// dogam 테이블
+	// dogam �뀒�씠釉�
 	private int do_no;
 	private String do_title;
 	private String do_content;
@@ -16,19 +16,19 @@ public class DogamVO {
 	private String do_realimg;
 	private String do_realimg_addr;
 
-	// lv_dogam 테이블
+	// lv_dogam �뀒�씠釉�
 	private int lv_do_no;
 	private int do_lev;
 	private String do_img;
 	private String do_img_addr;
 
-	// mem_dogam 테이블
+	// mem_dogam �뀒�씠釉�
 	private int mem_do_no;
 	private String do_name;
 	private String do_choice_YN;
 	private int do_exp;
 
-	// point_level 테이블
+	// point_level �뀒�씠釉�
 	private int level_no;
 	private int lev_mim_point;
 	private int lev_max_point;
@@ -218,7 +218,7 @@ public class DogamVO {
 		this.lv_img = lv_img;
 	}
 //*************************************************
-	MultipartFile file; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	MultipartFile file; // write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�
 
 	public MultipartFile getFile() {
 		return file;
@@ -230,12 +230,12 @@ public class DogamVO {
 		if (!file.isEmpty()) {
 			this.do_img = file.getOriginalFilename();
 
-			// 실제 저장된 파일명 만들기
+			// �떎�젣 ���옣�맂 �뙆�씪紐� 留뚮뱾湲�
 			UUID uuid = UUID.randomUUID();
 			do_img_addr = uuid.toString() + "_" + do_img;
 
 			// ***********************************************
-			// 해당 경로로 변경
+			// �빐�떦 寃쎈줈濡� 蹂�寃�
 			File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\dogam\\" + do_img_addr);
 
 			try {
@@ -251,7 +251,7 @@ public class DogamVO {
 	}
 
 	// *************************************************
-	MultipartFile file2; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	MultipartFile file2; // write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�
 
 	public MultipartFile getFile2() {
 		return file2;
@@ -260,11 +260,11 @@ public class DogamVO {
 	public void setFile2(MultipartFile file2) {
 		this.file2 = file2;
 
-		// 업로드 파일 접근
+		// �뾽濡쒕뱶 �뙆�씪 �젒洹�
 		if (!file2.isEmpty()) {
 			this.do_realimg = file2.getOriginalFilename();
 
-			// 실제 저장된 파일명 만들기
+			// �떎�젣 ���옣�맂 �뙆�씪紐� 留뚮뱾湲�
 			UUID uuid = UUID.randomUUID();
 			do_realimg = uuid.toString() + "_" + do_realimg;
 

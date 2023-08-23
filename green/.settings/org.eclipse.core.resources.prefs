@@ -3,7 +3,12 @@
 >>>>>>>=refs/remotes/origin/ayoung
 eclipse.preferences.version=1
 encoding//src/main/java/com/green/controller/ChallengeController.java=UTF-8
+<<<<<<< HEAD
 encoding//src/main/webapp/WEB-INF/views/challenge/challengeCertification.jsp=UTF-8
+=======
+encoding//src/main/java/com/green/controller/DogamController.java=UTF-8
+encoding//src/main/java/com/green/domain/DogamVO.java=UTF-8
+>>>>>>> refs/remotes/origin/gaeun
 encoding//src/main/webapp/WEB-INF/views/member/signup.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/pay/payment.jsp=UTF-8
 encoding//src/main/webapp/resources/styles/dogam.css=UTF-8

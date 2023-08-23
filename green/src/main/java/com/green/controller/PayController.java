@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.green.domain.ChalPayVO;
 import com.green.domain.MemberVO;
 import com.green.domain.PayVO;
+import com.green.domain.chalPayVO;
 import com.green.service.MemberService;
 import com.green.service.PayService;
 
@@ -37,7 +38,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 		List<MemberVO> list = null; //
 		List<MemberVO> list2 = null; //
 		list = payService.getPay(userId);
-		list2 = payService.getPay2(userId);
+		list2 = payService.getPay2(userId);  
 		model.addAttribute("list", list);
 		model.addAttribute("list2", list2);
 	}
@@ -63,7 +64,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 
 	// 일반카드로 결제
 	@RequestMapping(value = "/card.do")
-	public void ChalCInsert(Model model, ChalPayVO voc) throws Exception {
+	public void ChalCInsert(Model model, chalPayVO voc) throws Exception {
 		// select 돌려서 dogeon_pay_no받아와서 card insert함
 		// 넘기는 값이 dogeon_pay_no를 vo에 setdogeon_pay_no로 넣기 그다음 insert 문 실행
 		System.out.println("controller" + voc.getDogeon_no());
@@ -84,7 +85,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 
 	// 일반계좌로 결제
 	@RequestMapping(value = "/account.do")
-	public void ChalAInsert(Model model, ChalPayVO voc) throws Exception {
+	public void ChalAInsert(Model model, chalPayVO voc) throws Exception {
 		// select 돌려서 dogeon_pay_no받아와서 acc insert함
 		// 넘기는 값이 dogeon_pay_no를 vo에 setdogeon_pay_no로 넣기 그다음 insert 문 실행
 		payService.chalPay(voc);
@@ -93,7 +94,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 
 	// 결제하기 버튼 누르면(현금영수증->Y)
 	@RequestMapping(value = "/receiptYes.do")
-	public String AccRYInsert(PayVO vo, int dogeon_pay_no,ChalPayVO voc) throws Exception {
+	public String AccRYInsert(PayVO vo, int dogeon_pay_no,chalPayVO voc) throws Exception {
 		if (voc.getReceipt_type_no() == 1 || voc.getReceipt_type_no() == 2) {
 		HashMap map = new HashMap<String, Object>();
 		
