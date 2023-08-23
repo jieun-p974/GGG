@@ -10,6 +10,11 @@
 		location.href = "community.do?userId=${userId}"
 	}
 </script>
+<style type="text/css">
+.previewImg {
+	width: 15%;
+}
+</style>
 <title>커뮤니티 글 작성</title>
 </head>
 <body>
@@ -26,7 +31,9 @@
 					<div class="card-body">
 						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 							<%-- <form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data"> --%>
-							<form action="save.do" method="post" enctype="multipart/form-data" class="row col-12">
+							
+					<!-- 		action="save.do"	 -->
+							<form  method="post" enctype="multipart/form-data" class="row col-12">
 								<div class="editing">
 									<div class="chal_name col-12 mb-3 p-3">
 										<label for="b_content" class="col-12 mb-2 text-start">글 내용</label>
@@ -44,7 +51,7 @@
 
 										<ul id="tag-list" class=" d-flex"></ul>
 
-										<div class="form-group">
+										<div class="form-group d-flex ms-4">
 											<input type="text" id="tag" size="7" placeholder="엔터로 해시태그를 등록해주세요." style="width: 300px;" />
 										</div>
 									</div>
@@ -68,7 +75,7 @@
 										<div id="previewDiv3" class="col-12 mb-1 text-start"></div>
 									</div>
 									<div class="d-flex justify-content-between p-3">
-										<button id="adding" type="submit" class="btn btn-white-back btn-hover-third">등록</button>
+										<button id="adding" type="submit" formaction="save.do" class="btn btn-white-back btn-hover-third">등록</button>
 										<button id="cancel" type="button" onclick="cancleWrite()" class="btn btn-white-back btn-hover-third">취소</button>
 									</div>
 								</div>
@@ -125,11 +132,11 @@
 		$(document).ready(function() {
 			var tag = {};
 			var counter = 0;
-	
 			// 입력한 값을 태그로 생성한다.
 			function addTag(value) {
 				tag[counter] = value;
 				counter++; // del-btn 의 고유 id 가 된다.
+				
 			}
 	
 			// tag 안에 있는 값을 array type 으로 만들어서 넘긴다.
@@ -137,7 +144,7 @@
 				return Object.values(tag).filter(
 						function(word) {
 							return word !== "";
-						});
+				});
 			}
 	
 			// 서버에 제공
@@ -154,7 +161,7 @@
 				if (e.key === "Enter" || e.keyCode == 32) {
 
 					var tagValue = self.val(); // 값 가져오기
-
+						
 					// 해시태그 값 없으면 실행X
 					if (tagValue !== "") {
 
@@ -176,14 +183,14 @@
 				}
 			});
 
-		// 삭제 버튼 
-		// 인덱스 검사 후 삭제
-						$(document).on("click", ".del-btn", function(e) {
-							var index = $(this).attr("idx");
-							tag[index] = "";
-								$(this).parent().remove();
-							});
-						});
+			// 삭제 버튼 
+			// 인덱스 검사 후 삭제
+			$(document).on("click", ".del-btn", function(e) {
+				var index = $(this).attr("idx");
+				tag[index] = "";
+					$(this).parent().remove();
+				});
+			});
 	</script>
 </body>
 </html>

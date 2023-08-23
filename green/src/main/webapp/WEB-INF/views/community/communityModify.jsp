@@ -29,19 +29,19 @@
 							<form action="updateCommunity.do?userId=${userId}" class="row" method="post" enctype="multipart/form-data">
 								<input type="hidden" name="id" value="${userId}" />
 								<input type="hidden" name="userId" value="${userId}" />
-								<input type="hidden" name="board_no" value="${comm.board_no}" />
+								<input type="hidden" name="board_no" value="${community.board_no}" />
 								<div class="chal_name col-12 mb-3 p-3">
 									<label for="b_content" class="col-12 mb-1 text-start">글 내용</label>
-									<textarea class="form-control" name="b_content" id="b_content" autofocus="autofocus">${comm.b_content}</textarea>
+									<textarea class="form-control" name="b_content" id="b_content" autofocus="autofocus">${community.b_content}</textarea>
 								</div>
 								<div class="comm_img  mb-3 col-12 p-3">
 									<label for="comm_img" class="col-12 mb-1 text-start">사진 첨부하기1</label>
 									<input type="file" name="file1" onchange="readURL1(this)" class="col-12 mb-1 text-start" />
 									<div id="previewDiv1" class="col-12 mb-1 text-start">
-										<c:if test="${comm.b_img1_addr != null}">
+										<c:if test="${community.b_img1_addr != null}">
 											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img1_addr}" style="width: 10%;" />
 										</c:if>
-										<c:if test="${comm.b_img1_addr == null}">
+										<c:if test="${community.b_img1_addr == null}">
 											<div>저장된 사진이 없습니다.</div>
 										</c:if>
 									</div>
@@ -50,10 +50,10 @@
 									<label for="comm_img" class="col-12 mb-1 text-start">사진 첨부하기2</label>
 									<input type="file" name="file2" onchange="readURL2(this)" class="col-12 mb-1 text-start" />
 									<div id="previewDiv2" class="col-12 mb-1 text-start">
-										<c:if test="${comm.b_img2_addr != null}">
+										<c:if test="${community.b_img2_addr != null}">
 											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img2_addr}" style="width: 10%;" />
 										</c:if>
-										<c:if test="${comm.b_img2_addr == null}">
+										<c:if test="${community.b_img2_addr == null}">
 											<div>저장된 사진이 없습니다.</div>
 										</c:if>
 									</div>
@@ -62,10 +62,10 @@
 									<label for="comm_img" class="col-12 mb-1 text-start">사진 첨부하기3</label>
 									<input type="file" name="file3" onchange="readURL3(this)" class="col-12 mb-1 text-start" />
 									<div id="previewDiv3" class="col-12 mb-1 text-start">
-										<c:if test="${comm.b_img3_addr != null}">
+										<c:if test="${community.b_img3_addr != null}">
 											<img class="previewImg" src="/resources/imgs/communityImg/${comm.b_img3_addr}" style="width: 10%;" />
 										</c:if>
-										<c:if test="${comm.b_img3_addr == null}">
+										<c:if test="${community.b_img3_addr == null}">
 											<div>저장된 사진이 없습니다.</div>
 										</c:if>
 									</div>
