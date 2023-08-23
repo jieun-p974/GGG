@@ -13,15 +13,17 @@
 		</if>
 	</select>
 
-	<!-- sign up -->
-	<insert id="memberInsert" parameterType="member">
-		insert into member (id, password, name, email
-		<if test='m_img != null'>, m_img, m_img_addr</if>
-		)
-		values (#{id}, #{password}, #{name}, #{email}
-		<if test='m_img != null'>, #{m_img}, #{m_img_addr}</if>
-		)
-	</insert>
+	  <!-- sign up -->
+   <insert id="memberInsert" parameterType="member">
+      insert into member (id, password, name, email
+      <if test= 'tel != null'>, tel </if>
+      <if test='m_img != null'>, m_img, m_img_addr</if>
+      )
+      values (#{id}, #{password}, #{name}, #{email}
+      <if test= 'tel != null'>, #{tel} </if>
+      <if test='m_img != null'>, #{m_img}, #{m_img_addr}</if>
+      )
+   </insert>
 
 	<!-- login -->
 	<select id="login" parameterType="member" resultType="member">

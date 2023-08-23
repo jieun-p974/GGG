@@ -21,7 +21,7 @@
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
 		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />
 		<typeAlias alias="pay" type="com.green.domain.PayVO" />   
-		<typeAlias alias="chalPay" type="com.green.domain.ChalPayVO"/>		   
+		<typeAlias alias="chalPay" type="com.green.domain.ChalPayVO"/>	
 	</typeAliases>
 	
 </configuration> 

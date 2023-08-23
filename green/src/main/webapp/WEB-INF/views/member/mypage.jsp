@@ -82,9 +82,9 @@
 						보유포인트 : ${meminfo.remainder_point} p <br /> <br /> 잔여도전횟수 : ${meminfo.tryNum} 회
 					</h6>
 					</c:if>
-					<c:if test="${userTryNum eq 999}">
+					<c:if test="${meminfo.tryNum eq 999}">
 					<h6>
-						보유포인트 : ${userPoint} p <br /> <br /> 잔여도전횟수 : 무제한
+						보유포인트 : ${meminfo.remainder_point} p <br /> <br /> 잔여도전횟수 : 무제한
 					</h6>
 					</c:if>
 					 <h6 class="mt-4"> 도전권은 ${dogeonGigan} 까지 <br />사용가능합니다.</h6>

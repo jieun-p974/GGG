@@ -2,7 +2,6 @@
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
 <c:if test="${userId == null }">
    <script>
       alert("로그인 하신 후 이용 가능합니다.");
@@ -15,7 +14,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
+<link href="../../../resources/styles/donation.css" rel="stylesheet"
+   type="text/css">
 <link rel="stylesheet" href="/resources/styles/font.css">
 <title>my도감</title>
 </head>
@@ -28,16 +28,14 @@
                class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
                <h3 class="text-black mt-5 mb-5 text-center">🌏 ${userName}님의
                   캐릭터 목록입니다 🌏</h3>
+
                <a class="btn btn-warning btn-hover-secondery section-btn"
                   href="../dogam/dogam.do">전체도감</a>
             </div>
          </div>
          <div class="gibu_list">
             <c:forEach items="${mydogam}" var="mydogam">
-               <c:set var="nochoice" value="${mydogam.do_choice_YN}" />        
-               <c:if test="${nochoice eq 'N'}">
-      			<c:set var="nCount" value="${nCount+1}"/>
-      			</c:if>
+               <c:set var="nomain" value="${mydogam.do_choice_YN}" />
                <div class="gibu">
                   <c:if test="${mydogam.do_choice_YN eq 'Y'}">
                      <div class="card bg-primary">
@@ -46,7 +44,7 @@
                   </c:if>
                   <c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv ne 3}">
                      <div class="card">
-                        <h4 class="text-center text-white mt-3">캐릭터</h4>
+                        <h4 class="text-center text-black mt-3">캐릭터</h4>
                   </c:if>
                   <c:if test="${mydogam.do_choice_YN ne 'Y' && mydogam.nowLv eq 3}">
                      <div class="card bg-none">
@@ -64,14 +62,9 @@
                               test="${mydogam.nowLv ne 3}">
                               <p>현재레벨 : ${mydogam.nowLv}</p>
                            </c:if>
-                           <c:if test="${mydogam.nowLv eq 3 && mydogam.do_name ne null}">
+                           <c:if test="${mydogam.nowLv eq 3}">
                               <p>${userId}님의
                                  ${mydogam.do_name}는<br /> 모두 자랐어요!
-                              </p>
-                           </c:if>
-                            <c:if test="${mydogam.nowLv eq 3 && mydogam.do_name eq null}">
-                              <p>  ${mydogam.do_title}가 모두 자랐어요. <br/>
-                        			      멋진 이름을 지어주세요.
                               </p>
                            </c:if>
                         </a>
@@ -82,22 +75,24 @@
          </c:forEach>
          </div>
       
-      	<c:if test="${nCount eq count}">
-         <div class="pickme align-items-center mt-3" >
+      <c:if test="${nomain eq 'N'}">
+         <div class="pickme mt-5" >
                <img src="../resources/imgs/pickme.png">
             <div class="mb-3">
                <p class="pt-5 mt-5 ms-4 mb-4 fs-3 fw-bold">설정된 대표캐릭터가 없습니다!</p>
-               <p class="ms-4 fs-5">대표 캐릭터를 설정해야 기부시 경험치가 부여됩니다.</p>
+               <p class="ms-4 fs-5">대표 캐릭터를 설정해야 기부시 캐릭터를 성장시킬 수 있는 경험치가
+                  부여됩니다.</p>
             </div>
          </div>
-        </c:if>
+      </c:if>
       
       <c:if test="${res eq 2}">
-      <div class="pickme mt-5 align-items-center" >
-               <img src="../resources/imgs/pickme.png" style="width:60%;">
-            <div class="mb-5">
+      <div class="pickme mt-5" >
+               <img src="../resources/imgs/pickme.png">
+            <div class="mb-3">
                <p class="pt-5 mt-5 ms-4 mb-4 fs-3 fw-bold">나의 캐릭터가 없습니다!</p>
-               <p class="ms-4 fs-5">대표 캐릭터를 설정해야 기부시 경험치가 부여됩니다.</p>
+               <p class="ms-4 fs-5">대표 캐릭터를 설정해야 기부시 캐릭터를 성장시킬 수 있는 경험치가
+                  부여됩니다.</p>
             </div>
          </div>
       </c:if>

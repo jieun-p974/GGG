@@ -22,7 +22,7 @@
 </head>
 <body>
 	<%@include file="../layouts/adminHeader.jsp"%>
-	<section class="service position-relative overflow-hidden">
+	<section class="service position-relative overflow-hidden mt-5">
 		<div class="container position-relative mt-5">
 			<img src="/resources/imgs/service/dot-shape.png"
 				class="shape position-absolute">
