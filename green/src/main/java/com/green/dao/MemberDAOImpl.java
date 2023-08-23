@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -154,13 +156,41 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public List<HashMap<String, Object>> weekMem() {
 		System.out.println("==> weekMem 호출");
-		return mybatis.selectList("member.weekMem");
+		
+		List<HashMap<String, Object>> list = mybatis.selectList("member.weekMem");
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = dtFormat.format(cal.getTime());
+		
+		if(list == null) {
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("daily_mem", 0);
+			map.put("weeks", today);
+			list.add(map);
+			System.out.println(list);
+		}
+		return list;
 	}
 
 	@Override
 	public List<HashMap<String, Object>> weekPay() {
 		System.out.println("==> weekPay 호출");
-		return mybatis.selectList("member.weekPay");
+		
+		List<HashMap<String, Object>> list = mybatis.selectList("member.weekPay");
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = dtFormat.format(cal.getTime());
+
+		if(list == null) {
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("pay_count", 0);
+			map.put("pay_sum", 0);
+			map.put("weeks", today);
+			list.add(map);
+			System.out.println(list);
+		}
+		
+		return list;
 	}
 
 	//select dogeonRate

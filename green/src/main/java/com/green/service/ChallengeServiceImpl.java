@@ -29,6 +29,10 @@ public class ChallengeServiceImpl implements ChallengeService{
 		int res = challengeDAO.challengeSinchung(map);
 		return res;
 	}
+	public int challengeSinchungInf(HashMap map) {
+		int res = challengeDAO.challengeSinchungInf(map);
+		return res;
+	}
 	
 	//get oneget
 	@Override

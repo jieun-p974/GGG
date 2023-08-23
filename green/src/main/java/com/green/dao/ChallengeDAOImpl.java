@@ -31,7 +31,14 @@ public class ChallengeDAOImpl implements ChallengeDAO {
 		mybatis.update("ChallengeDAO.minusTryNum",map);
 		return rst;
 	}
-
+	@Override
+	public int challengeSinchungInf(HashMap map) {
+		System.out.println("Mybatis => chall sinchung And infinityTryNum");
+		int rst= mybatis.insert("ChallengeDAO.challengeSinchung", map);
+		mybatis.update("ChallengeDAO.infinityTryNum",map);
+		return rst;
+	}
+	
 	@Override
 	public List<ChallengeVO> getChallengeList() {
 		System.out.println("Mybatis => chall list");

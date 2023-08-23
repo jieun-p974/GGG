@@ -204,6 +204,14 @@
 						options : {
 							maintainAspectRatio : false,//그래프의 비율 유지 
 							responsive : false,
+							scales : {
+								yAxes : [ {
+									ticks : {
+										beginAtZero : true,
+										stepSize : 1,
+									}
+								} ]
+							},
 							
 						}
 					});

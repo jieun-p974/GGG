@@ -11,6 +11,7 @@ public interface ChallengeDAO {
 	public void challengeWrite(ChallengeVO vo);
 
 	public int challengeSinchung(HashMap map);
+	public int challengeSinchungInf(HashMap map);
 	
 	public List<ChallengeVO> getChallengeList();
 	

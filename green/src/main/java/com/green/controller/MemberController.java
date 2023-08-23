@@ -226,7 +226,10 @@ public class MemberController {
 
 			if (payCount < 1) {
 				nonePay = "오늘 결제한 회원이 없습니다.";
+				System.out.println(nonePay);
 				model.addAttribute("nonePay", nonePay);
+				model.addAttribute("payCount", 0);
+				model.addAttribute("paySum", 0);
 			} else {
 				model.addAttribute("payCount", payCount);
 				model.addAttribute("paySum", paySum);
@@ -237,7 +240,9 @@ public class MemberController {
 			model.addAttribute("todayMem", todayMem);
 		} else {
 			noneMem = "오늘 가입한 회원이 없습니다.";
+			System.out.println(noneMem);
 			model.addAttribute("noneMem", noneMem);
+			model.addAttribute("todayMem", 0);
 		}
 		
 		model.addAttribute("memChal",memChal);

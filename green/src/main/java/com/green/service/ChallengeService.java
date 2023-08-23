@@ -14,6 +14,7 @@ public interface ChallengeService {
 	
 	//challenge sinchung
 	int challengeSinchung(HashMap map);
+	int challengeSinchungInf(HashMap map);
 	
 	//get one
 	ChallengeVO getChallengeDetail(ChallengeVO vo);

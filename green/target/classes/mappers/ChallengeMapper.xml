@@ -21,7 +21,11 @@
 	<update id="minusTryNum">
 		UPDATE member SET tryNum = tryNum-1 WHERE id=#{userId}
 	</update>
-
+	<!-- 무제한권 처리하는 쿼리 -->
+	<update id="infinityTryNum">
+		UPDATE member SET tryNum = 999 where id =#{userId}
+	</update>
+	
 	<!-- select one Challenge -->
 	<select id="getChallengeDetail" parameterType="challenge" resultType="challenge">
 		SELECT * FROM challenge WHERE chal_no = #{chal_no}

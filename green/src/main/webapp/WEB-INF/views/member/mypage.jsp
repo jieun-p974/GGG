@@ -78,9 +78,16 @@
 						${userId}&nbsp회원님&nbsp환영합니다! <br /> <br /> 🌏&nbspGGG와 함께한지
 						${today-sdate2}일 째&nbsp🌏
 					</h6>
+					<c:if test="${userTryNum ne 999}">
 					<h6>
 						보유포인트 : ${userPoint} p <br /> <br /> 잔여도전횟수 : ${userTryNum} 회
 					</h6>
+					</c:if>
+					<c:if test="${userTryNum eq 999}">
+					<h6>
+						보유포인트 : ${userPoint} p <br /> <br /> 잔여도전횟수 : 무제한
+					</h6>
+					</c:if>
 					 <h6 class="mt-4"> 도전권은 ${dogeonGigan} 까지 <br />사용가능합니다.</h6>
 				</div>
 			</div>
