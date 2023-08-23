@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/styles/table.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>관리자 공지 리스트</title>
 </head>
 <body>

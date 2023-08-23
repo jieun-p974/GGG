@@ -3,9 +3,9 @@ package com.green.domain;
 public class HeartVO {
 	
 	/*
-	 * like_no ÁÁ¾Æ¿ä ¹øÈ£  int(5) auto_increment (pk)
-	 * id È¸¿øid varchar(20)
-	 * board_no °Ô½ÃÆÇ ¹øÈ£ int(5)
+	 * like_no ì¢‹ì•„ìš” ë²ˆí˜¸  int(5) auto_increment (pk)
+	 * id íšŒì›id varchar(20)
+	 * board_no ê²Œì‹œíŒ ë²ˆí˜¸ int(5)
 	 */
 	
 	private int like_no;
@@ -59,7 +59,5 @@ public class HeartVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-	
 
 }

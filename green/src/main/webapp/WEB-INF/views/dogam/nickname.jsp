@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="../../../resources/styles/vendor/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>my도감 | 이름 지어주기</title>
 </head>
 <body>

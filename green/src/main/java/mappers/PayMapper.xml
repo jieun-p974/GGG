@@ -2,43 +2,77 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="payDAO">
-	<!-- mem 간편결제수단 select one -->
-	<select id="getPay" parameterType="string" resultType="member">
-		select m.name as name, a.mem_acc_no, a.acc_num as acc_num, a.bank as bank
-		from member m,
-		mem_account a
-		where m.id=a.id and m.id=#{userId}
-	</select>
+
+   <!-- mem 간편결제수단 select one -->
+   <select id="getPay" parameterType="string" resultType="member">
+      select m.name as name, a.mem_acc_no, a.acc_num as acc_num, a.bank as bank
+      from member m,
+      mem_account a
+      where m.id=a.id and m.id=#{userId}
+   </select>
 
 
-	<select id="getCPay" parameterType="string" resultType="member">
-		select m.name as name, c.mem_card_no, c.card_num as card_num, c.card_company
-		as
-		card_company, c.expire_date from member m, mem_card c
-		where m.id=c.id and m.id=#{userId}
-	</select>
+   <select id="getCPay" parameterType="string" resultType="member">
+      select m.name as name, c.mem_card_no, c.card_num as card_num, c.card_company
+      as
+      card_company, c.expire_date from member m, mem_card c
+      where m.id=c.id and m.id=#{userId}
+   </select>
 
+   <!--도전권 결제시 chal_dog_pay 인서트 -->
+   <insert id="chalPay" parameterType="chalPay">
+      INSERT INTO chal_dog_pay(dogeon_no,pay_meth_no,id,last_date,dogeon_pay_date)
+      VALUES(#{dogeon_no},#{pay_meth_no},#{id},(SELECT 
+      DATE_ADD(NOW(),INTERVAL 30 DAY)),now())
+   </insert>
+   
+   <select id="forPay" parameterType="chalPay" resultType="chalPay">
+   SELECT max(dogeon_pay_no) as dogeon_pay_no FROM chal_dog_pay WHERE id = #{id}
+   </select>
 
+   <!-- card에 인서트 -->
+   <insert id="cardInsert" parameterType="pay">
+      INSERT INTO card
+      (dogeon_pay_no,card_num,expiry_date,CVC,card_company,pass_two)
+      VALUES(#{dogeon_pay_no},#{card_num},#{expiry_date},#{CVC},#{card_company},#{pass_two})
+   </insert>
 
-	<!--도전권 결제시 cahl_dog_pay 인서트 -->
-	<insert id="chalPay" parameterType="hashmap">
-		INSERT INTO chal_dog_pay
-		(dogeon_no,pay_meth_no,id,last_date,dogeon_pay_date,cash_receipt_YN)
-		VALUES(#{dogeon_no},#{pay_meth_no},#{id},(SELECT
-		DATE_ADD(NOW(),INTERVAL 30 DAY)),now(),#{cash_receipt_YN})
-	</insert>
-
-	<!-- card에 인서트 -->
-	<insert id="cardIn" parameterType="hashmap">
-		INSERT INTO card
-		(dogeon_pay_no,card_num,expiry_date,CVC,card_company,pass_two)
-		VALUE(#{dogeon_pay_no},#{card_num},#{expiry_date},#{CVC},#{card_company},#{pass_two})
-	</insert>
-
-	<!-- account에 인서트 -->
-	<insert id="accIn" parameterType="hashmap">
-		INSERT INTO account(dogeon_pay_no,acc_num,bank)
-		VALUE(#{dogeon_pay_no},#{acc_num},#{bank})
-	</insert>
+   <!-- account에 인서트 -->
+   <insert id="accInsert" parameterType="pay">
+      INSERT INTO account(dogeon_pay_no,acc_num,bank)
+      VALUES(#{dogeon_pay_no},#{acc_num},#{bank})
+   </insert>
+   
+   <!-- cash_receipt_YN(현금영수증)->Y -->
+   <update id="receipt" parameterType="chalPay" >
+   UPDATE chal_dog_pay SET cash_receipt_YN='Y' WHERE dogeon_pay_no=#{dogeon_pay_no}
+   </update>
+   
+   <!-- cash_receipt_YN(현금영수증)->N -->
+   <!-- 
+    <update id="receiptNo" parameterType="chalPay" >
+   UPDATE chal_dog_pay SET cash_receipt_YN='N' WHERE dogeon_pay_no=#{dogeon_pay_no}
+   </update> 
+    -->
+   
+   <!-- mem_cash_receipt -->
+    <insert id="memReceipt" parameterType="chalPay">
+   INSERT INTO mem_cash_receipt(receipt_type_no,dogeon_pay_no,id,receipt_num)
+   VALUES(#{receipt_type_no},#{dogeon_pay_no},#{id},#{receipt_num})
+   </insert> 
+   
+   <!--  도전 횟수 가져오기 -->
+   <select id="getTimes" resultType="int">
+   SELECT dogeon_times 
+   FROM chal_dogeon c, chal_dog_pay p 
+   WHERE c.dogeon_no = p.dogeon_no AND p.dogeon_pay_no= #{dogeon_pay_no}
+   </select>
+   
+   <!-- 결제시 memTB에 tryNum update -->
+   <update id="payTryNum" parameterType="hashmap">
+   UPDATE member m,chal_dog_pay c, chal_dogeon d
+   SET m.tryNum=#{dogeon_times}
+   WHERE m.id=c.id AND c.dogeon_no=d.dogeon_no AND c.id=#{id}
+   </update>
 </mapper>
    

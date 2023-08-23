@@ -13,15 +13,17 @@
 		</if>
 	</select>
 
-	<!-- sign up -->
-	<insert id="memberInsert" parameterType="member">
-		insert into member (id, password, name, email
-		<if test='m_img != null'>, m_img, m_img_addr</if>
-		)
-		values (#{id}, #{password}, #{name}, #{email}
-		<if test='m_img != null'>, #{m_img}, #{m_img_addr}</if>
-		)
-	</insert>
+	  <!-- sign up -->
+   <insert id="memberInsert" parameterType="member">
+      insert into member (id, password, name, email
+      <if test= 'tel != null'>, tel </if>
+      <if test='m_img != null'>, m_img, m_img_addr</if>
+      )
+      values (#{id}, #{password}, #{name}, #{email}
+      <if test= 'tel != null'>, #{tel} </if>
+      <if test='m_img != null'>, #{m_img}, #{m_img_addr}</if>
+      )
+   </insert>
 
 	<!-- login -->
 	<select id="login" parameterType="member" resultType="member">
@@ -41,14 +43,18 @@
 	</update>
 
 	<!-- search id -->
-	<select id="searchID" parameterType="String" resultType="String">
-		select id FROM member where email=#{email}
+	<select id="searchID" parameterType="member" resultType="String">
+		select id FROM member where email=#{email} and name=#{name}
 	</select>
 
 	<!-- search pw -->
-	<select id="searchPass" parameterType="String" resultType="String">
-		select password FROM member where email=#{email}
+	<select id="emailCheck" parameterType="member" resultType="String">
+		select email FROM member where id=#{id}
 	</select>
+	
+	<update id="searchPW">
+	update member set password = #{password} where id=#{id}
+	</update>
 
 	<!-- 포인트 사용(기부시) -->
 	<update id="goDona" parameterType="dona">
@@ -95,11 +101,45 @@
 	<!-- 마이페이지에 도전권 유효기간 출력 -->
 	<select id="dogeonExp" resultType="string">
 		SELECT p.last_date FROM chal_dogeon d, chal_dog_pay p 
-		WHERE d.dogeon_no = p.dogeon_no AND id=#{id}
+		WHERE d.dogeon_no = p.dogeon_no AND id=#{id} 
+		AND dogeon_pay_no = (SELECT MAX(p.dogeon_pay_no) FROM chal_dogeon d, chal_dog_pay p 
+							WHERE d.dogeon_no = p.dogeon_no AND id=#{id})
 	</select>
 
 	<update id="accountNo" parameterType="member">
 	update member set account_reg_YN = 'N'
 	WHERE id=#{id} and NOT EXISTS (SELECT * FROM mem_account WHERE id=#{id})	
 	</update>
+	
+	<!-- 관리자 메인 페이지에 출력할 내용 -->
+	<select id="todayPay" resultType="hashmap">
+		SELECT COUNT(*) AS pay_count, SUM(d.price) AS pay_sum FROM chal_dog_pay p, chal_dogeon d 
+		WHERE p.dogeon_no = d.dogeon_no AND p.dogeon_pay_date = CURDATE()
+	</select>
+	
+	<select id="todayMem" resultType="Integer">
+		SELECT COUNT(*) AS mem_count FROM member WHERE sdate = CURDATE() AND mem_type_no=1
+	</select>
+	
+	<!-- 관리자 메인 페이지에 출력할 내용 -->
+	<!-- 최근 일주일 동안 가입한 회원 수 -->
+	<select id="weekMem" resultType="hashmap">
+		SELECT IFNULL(COUNT(*),0) AS daily_mem, DATE_FORMAT(sdate, '%Y-%m-%d') AS weeks 
+		FROM member WHERE sdate > DATE_ADD(NOW(),INTERVAL -7 DAY) 
+		GROUP BY sdate
+	</select>
+	<!-- 최근 일주일 동안 결제한 건수와 결제 금액 -->
+	<select id="weekPay" resultType="hashmap">
+		SELECT COUNT(*) AS pay_count, SUM(d.price) AS pay_sum, DATE_FORMAT(dogeon_pay_date, '%Y-%m-%d') AS weeks 
+		FROM chal_dog_pay p, chal_dogeon d
+		WHERE p.dogeon_no = d.dogeon_no
+		AND dogeon_pay_date > DATE_ADD(NOW(),INTERVAL -7 DAY)
+		GROUP BY dogeon_pay_date
+	</select>
+	<!-- 도전권 결제 비율 -->
+	<select id="dogeonRate" resultType="hashmap">
+		SELECT t_cnt, s_cnt, i_cnt FROM (SELECT COUNT(*) t_cnt FROM chal_dog_pay WHERE dogeon_no=1) AS three,
+		(SELECT COUNT(*) s_cnt FROM chal_dog_pay WHERE dogeon_no=2) AS seven,
+		(SELECT COUNT(*) i_cnt FROM chal_dog_pay WHERE dogeon_no=3) AS inf
+	</select>
 </mapper>

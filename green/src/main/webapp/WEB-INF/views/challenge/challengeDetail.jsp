@@ -34,6 +34,7 @@ $(function(){
 	${""}
 });
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>챌린지 상세</title>
 </head>
 <body>

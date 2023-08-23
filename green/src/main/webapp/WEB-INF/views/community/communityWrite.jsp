@@ -10,6 +10,7 @@
 		location.href = "community.do?userId=${userId}"
 	}
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .previewImg {
 	width: 15%;

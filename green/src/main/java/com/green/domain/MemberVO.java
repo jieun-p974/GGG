@@ -239,6 +239,10 @@ public class MemberVO {
 	public void setTryNum(int tryNum) {
 		this.tryNum = tryNum;
 	}
+	public void setMemberAuthKey(String memberAuthKey) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	
 }

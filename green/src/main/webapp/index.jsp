@@ -7,11 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <title>GGG: 지구를 지켜라</title>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .imgss{
 	position: absolute;
 	top: 45%;
 	z-index: 2;
+}
+.top{
+	display: scroll;
+	position: fixed;
+	bottom: 12%;
+	right:5%;
+	width: 80px;
+}
+.top-img{
+	width:100%;
+}
+.introduces{
+	line-height: 2.5rem;
 }
 
 </style>
@@ -31,7 +45,7 @@
 						<h1 class="mb-0 fw-bold">
 							환경 운동을<br />해야하는 이유
 						</h1>
-						<p class="introduce">
+						<p class="introduces">
 							자연 환경 균형 파괴는 우리에게도 영향을 미치므로 <br />야생동물과 서식지 보호는 필수입니다.<br /> 이를
 							통해 우리의 안전과 행복이 보장되며, <br /> 생태계 보호는 우리의 삶과 미래를 지속 가능하게 합니다. <br />
 							"GGG"는 자연 보호를 위한 노력을 의미하며, <br /> 작은 실천부터 시작하는 여러 챌린지를 제안합니다. <br />
@@ -58,11 +72,6 @@
 			</div>
 		
 	</section> 
-
-	
-	
-	
-	
 	<section class="our-service position-relative overflow-hidden">
 		<div class="container">
 			<div class="row">
@@ -89,7 +98,6 @@
 			</div>
 		</div>
 	</section>
- 
 	<section class="portfolio position-relative bg-primary">
 	<div class="container position-relative">
 			<img src="/resources/imgs/service/dot-shape.png"
@@ -171,7 +179,6 @@
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
 					<p class="text-white mb-0 fs-3 mt-3"> 귀여운 캐릭터를 직접 성장시키고, 도감을 모아보세요!</p>
-					
 				</div>
 			</div>
 			<div class="row d-flex flex-wrap justify-content-center step-row">
@@ -225,9 +232,9 @@
 							<ul class=" mb-0 pl-0">
 								<li class="d-flex align-items-start justify-content-center"><small
 									class="fs-9 text-black justify-content-center">결제일로 부터 30일간 적용됩니다.</small></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">3번</span> 도전할 수 있습니다.</span></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
 							</ul>
 						</div>
@@ -254,13 +261,10 @@
 							<ul class=" mb-0 pl-0">
 								<li class="d-flex align-items-start justify-content-center"><small
 									class="fs-9 text-black ">결제일로 부터 30일간 적용됩니다.</small></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">7번</span> 도전할 수 있습니다.</span></li>
-								<li class="d-flex align-items-start"> <span
+								<li class="d-flex align-items-start"><span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> -->
 							</ul>
 						</div>
 						<div
@@ -287,12 +291,6 @@
 									class="fs-7 text-black">🌏 한달동안 챌린지에 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">무제한</span>으로 도전할 수 있습니다.</span></li>
 								<li class="d-flex align-items-start"> <span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li>
-								<li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black"> Full API Access</span></li> -->
 							</ul>
 						</div>
 						<div
@@ -305,6 +303,7 @@
 			</div>
 		</div>
 	</section>
+	<a href="#" class="top"><img class="top-img" alt="top button" src="/resources/imgs/up.png"></a>
 	<%@include file="WEB-INF/views/layouts/footer.jsp"%>
 </body>
 </html>

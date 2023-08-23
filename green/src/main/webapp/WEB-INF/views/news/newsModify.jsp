@@ -14,6 +14,7 @@
 		$("#cat_no").val(checkCate);
 	});
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>뉴스 수정</title>
 </head>
 <body>

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.green.domain.ChallengeVO;
 import com.green.domain.DogamVO;
 import com.green.service.DogamService;
 
@@ -23,7 +22,6 @@ public class DogamController {
 	@Autowired
 	private DogamService dogamService;
 
-	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value = "{url}.do")
 	public String url(@PathVariable String url) {
 		return "/dogam/" + url;
@@ -81,6 +79,7 @@ public class DogamController {
 		model.addAttribute("mydogam", list);
 		model.addAttribute("detail", dList);
 		model.addAttribute("res", res);
+		model.addAttribute("count",list.size());
 	}
 	
 	// insert

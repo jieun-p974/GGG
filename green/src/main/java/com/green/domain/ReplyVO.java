@@ -3,10 +3,10 @@ package com.green.domain;
 public class ReplyVO {
 	
 	/*
-	 * com_no ´ñ±Û¹øÈ£ int(5) auto_increment (pk)
-	 * id È¸¿øid varchar(20)
-	 * board_no °Ô½ÃÆÇ ¹øÈ£ int(5)
-	 * com_content ´ñ±Û ³»¿ë varchar(300)
+	 * com_no ï¿½ï¿½Û¹ï¿½È£ int(5) auto_increment (pk)
+	 * id È¸ï¿½ï¿½id varchar(20)
+	 * board_no ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ int(5)
+	 * com_content ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ varchar(300)
 	 */
 	
 	private String id;
@@ -68,6 +68,4 @@ public class ReplyVO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
-	
 }

@@ -276,7 +276,6 @@ samp {
   font-size: 1em;
 }
 
-
 pre {
    width: 100%;
    white-space: pre-wrap;
@@ -10940,7 +10939,7 @@ textarea.form-control-lg {
   /* background-image: url(/resources/imgs/hero/right-background.svg); */
   background-color: #8AB6A9;
   background-repeat: no-repeat;
-  z-index: -1;
+  z-index: -1;	
 }
 .hero-banner .left-hero-color {
   padding-top: 250px;
@@ -10998,7 +10997,8 @@ textarea.form-control-lg {
   height: 20rem;
 }
 .service {
-  padding: 150px 0;
+  padding: 70px 0;
+   background-image: url(/resources/imgs/service/service-backlayer.svg);
 }
 .service::before {
   position: absolute;
@@ -11067,6 +11067,7 @@ textarea.form-control-lg {
 .our-service {
   padding: 150px 0;
   background-color: #F9F9FB;
+  
 }
 .our-service::before {
   position: absolute;
@@ -11076,7 +11077,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(/resources/imgs/our-service/our-service-background.svg);
+   background-image: url(/resources/imgs/service/service-backlayer.svg);
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
@@ -11119,7 +11120,6 @@ textarea.form-control-lg {
   width: 100%;
   height: 92%;
   background-size: contain;
-  background-image: url(/resources/imgs/portfolio/portfolio-backoverlay.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11137,7 +11137,7 @@ textarea.form-control-lg {
 }
 .portfolio .step-row {
   padding-top: 70px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 .portfolio .card {
   border-radius: 30px;

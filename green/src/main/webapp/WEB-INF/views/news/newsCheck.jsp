@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="/resources/styles/table.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>뉴스 관리</title>
 <style type="text/css">
 .thumnail {

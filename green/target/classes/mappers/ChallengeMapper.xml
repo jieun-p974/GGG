@@ -21,7 +21,11 @@
 	<update id="minusTryNum">
 		UPDATE member SET tryNum = tryNum-1 WHERE id=#{userId}
 	</update>
-
+	<!-- 무제한권 처리하는 쿼리 -->
+	<update id="infinityTryNum">
+		UPDATE member SET tryNum = 999 where id =#{userId}
+	</update>
+	
 	<!-- select one Challenge -->
 	<select id="getChallengeDetail" parameterType="challenge" resultType="challenge">
 		SELECT * FROM challenge WHERE chal_no = #{chal_no}
@@ -164,4 +168,12 @@
 		SET remainder_point = remainder_point+ (100*(SELECT difficulty FROM challenge WHERE chal_no = #{chal_no})) 
 		WHERE id = #{id}
 	</update>
+	
+	<!-- 인증 목록 최근 5개만 -->
+	<select id="newCert" resultType="hashmap">
+		SELECT id, chal_name, cer_date FROM challenge c, mem_chal m, certification ct
+		WHERE c.chal_no = m.chal_no AND m.m_c_no = ct.m_c_no AND pass_YN='N'
+		ORDER BY cer_date DESC
+		LIMIT 3
+	</select>
 </mapper>

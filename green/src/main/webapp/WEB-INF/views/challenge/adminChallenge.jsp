@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="/resources/styles/table.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <script type="text/javascript">
 	$(function() {	
 		$("#challList").change(function(){
@@ -31,6 +32,7 @@
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>';
+					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -47,6 +49,7 @@
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>';
+					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -63,6 +66,7 @@
 					html += '<td>${chall.chal_end_date}</td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
 					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>';
+					html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>';
 					html += '</tbody>';
 				
 				</c:forEach>
@@ -114,7 +118,7 @@
 										<td>${chall.chal_end_date}</td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>
 										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}&chal_no=${chall.chal_no}">인증관리</a></td>
-										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_no=${chall.chal_no}">삭제</a></td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteChall.do?chal_no=${chall.chal_no}">삭제</a></td>
 									</tbody>
 								</c:forEach>
 							</table>

@@ -58,7 +58,9 @@
                <h2 class="text-black mt-5 mb-3">결제 페이지</h2>
             </div>
          </div>
-      <form class="jjj" action="pay.do" method="post">
+      <form class="jjj" id="jjj" method="post">
+       	<input type="hidden" name="id" value="${userId}" />
+
          <div class="mem_info">
             <h4>결제자</h4>
             <h6>${userName}(${userTel})</h6>
@@ -74,15 +76,14 @@
          </div>
 
          <div class="pay_method mt-4">
-            <h4>결제수단</h4>
+            <h4>결제수단</h4><!-- pay_method_no -->
             <div class="selecting">
                <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                      <h2 class="accordion-header " id="headingOne">
                         <button class="accordion-button collapsed" type="button"
                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                           aria-expanded="false" aria-controls="collapseOne">간편
-                           계좌</button>
+                           aria-expanded="false" aria-controls="collapseOne">간편 계좌</button>
                      </h2>
                      <div id="collapseOne" class="accordion-collapse collapse"
                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -111,8 +112,7 @@
                      <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button"
                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                           aria-expanded="false" aria-controls="collapseTwo">간편
-                           카드</button>
+                           aria-expanded="false" aria-controls="collapseTwo">간편 카드</button>
                      </h2>
                      <div id="collapseTwo" class="accordion-collapse collapse"
                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -140,14 +140,10 @@
                   </div>
                </div>
                <div class="mt-3 m-0 row col-12">
-                  <a class="bg-gray p-4" href="">일반 결제</a> 
-                  <a class="mt-3 bg-gray p-4" href="">일반 카드</a>
+                  <button class="bg-gray p-4" id="aBtn" onclick="accGo()"name="pay_meth_no" value="1">일반 결제</button> 
+                  <button class="mt-3 bg-gray p-4" id="cBtn" onclick="cardGo()" name="pay_meth_no" value="2">일반 카드</button>
                </div>
 
-            </div>
-            <div class="d-flex justify-content-between mt-3">
-               <div></div>
-               <button class="btn btn-white-back btn-hover-third " onclick="go()">결제하기</button>
             </div>
          </div>
       </form>
@@ -155,5 +151,16 @@
       </div>
    </section>
    <%@include file="../layouts/footer.jsp"%>
+   <script type="text/javascript">
+   $(function(){
+	   $("#cBtn").on("click",function(){
+		  $("#jjj").attr("action","card.do").submit();
+	   });
+	   
+	   $("#aBtn").on("click",function(){
+			  $("#jjj").attr("action","account.do").submit();
+		   });
+   });
+   </script>
 </body>
 </html>

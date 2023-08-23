@@ -8,7 +8,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>Insert title here</title>
+<script type="text/javascript">
+var msg= "<c:out value='${msg}' />"
+var url= "<c:out value='${url}' />"
+
+if(msg.length >0 && url.length >0){
+	
+	alert(msg);
+	location.href=url;
+}
+</script>
 </head>
 <body>
 <%@include file="../layouts/header.jsp"%>
