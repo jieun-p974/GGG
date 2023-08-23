@@ -7,35 +7,77 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.green.dao.PayDAO;
+import com.green.domain.ChalPayVO;
 import com.green.domain.MemberVO;
+import com.green.domain.PayVO;
 
 @Service("payService")
-public class PayServiceImple implements PayService{
+public class PayServiceImple implements PayService {
 
 	@Autowired
 	private PayDAO payDAO;
+
 	@Override
 	public List<MemberVO> getPay(String userId) {
 		// TODO Auto-generated method stub
 		return payDAO.getPay(userId);
 	}
+
 	@Override
-	public List<MemberVO> getPay2(String userId) {  //간편카드
+	public List<MemberVO> getPay2(String userId) { // 간편카드
 		// TODO Auto-generated method stub
 		return payDAO.getCPay(userId);
 	}
+
 	@Override
-	public void chalPay(HashMap<String, Object> map) {
-		payDAO.chalPay(map);
+	public void chalPay(ChalPayVO vo) {
+		payDAO.chalPay(vo);
 	}
+
 	@Override
-	public void cardIn(HashMap<String, Object> map) {
-		payDAO.cardIn(map);
+	public ChalPayVO forPay(ChalPayVO vo) {
+		// TODO Auto-generated method stub
+		return payDAO.forPay(vo);
+	}
+
+	@Override
+	public void cardInsert(PayVO vo) {
+		// TODO Auto-generated method stub
+		payDAO.cardInsert(vo);
+	}
+
+	@Override
+	public void accInsert(PayVO vo) {
+		// TODO Auto-generated method stub
+		payDAO.accInsert(vo);
+	}
+
+	@Override
+	public void receipt(int dogeon_pay_no) {
+		// TODO Auto-generated method stub
+		payDAO.receipt(dogeon_pay_no);
+	}
+
+	/*
+	 * @Override public void receiptNO(int dogeon_pay_no) { // TODO Auto-generated
+	 * method stub payDAO.receiptNO(dogeon_pay_no); }
+	 */
+	@Override
+	public void memReceipt(ChalPayVO vo) {
+		// TODO Auto-generated method stub
+		payDAO.memReceipt(vo);
 		
 	}
 	@Override
-	public void accIn(HashMap<String, Object> map) {
-		payDAO.accIn(map);
-		
+	public int getTimes(int dogeon_pay_no) {
+		return payDAO.getTimes(dogeon_pay_no);
 	}
+
+	@Override
+	public void payTryNum(HashMap map) {
+		// TODO Auto-generated method stub
+		payDAO.payTryNum(map);
+	}
+
+
 }

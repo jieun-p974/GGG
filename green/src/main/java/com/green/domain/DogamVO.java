@@ -217,7 +217,6 @@ public class DogamVO {
 	public void setLv_img(String lv_img) {
 		this.lv_img = lv_img;
 	}
-
 //*************************************************
 	MultipartFile file; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 

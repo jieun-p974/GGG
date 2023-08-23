@@ -214,7 +214,7 @@ public class MemberController {
 		List<HashMap<String, Object>> todayPay = memberService.todayPay();
 		int todayMem = memberService.todayMem();
 		
-		// 인증 목록 최근 5개
+		// 인증 목록 최근 3개
 		List<HashMap<String, Object>> memChal = challengeService.newCert();
 
 		String nonePay = "";

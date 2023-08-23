@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:if test="${userId == null }">
@@ -14,8 +14,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="../../../resources/styles/donation.css" rel="stylesheet"
-	type="text/css">
+<link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/styles/font.css">
 <title>my도감</title>
 </head>

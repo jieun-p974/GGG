@@ -193,12 +193,9 @@
 								<img class="img-fluid" src="/resources/imgs/main_bear.png" style="width:50%">
 							</div>
 							<h3 class="fs-4 text-white">이달의 신규 캐릭터</h3>
-							
 							<p class="fs-7 mb-0 fw-500 text-white">저는 멸종위기 취약등급이에요. <br/>
 							먹이사슬 최상위에 존재하며,<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다. <br/><br/>
 							제가 누군지 궁금하세요?</p>
-							
-						
 						</div>
 					</div>
 			</div>
@@ -267,9 +264,9 @@
 									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">7번</span> 도전할 수 있습니다.</span></li>
 								<li class="d-flex align-items-start"> <span
 									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
-									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> -->
+								<li class="d-flex align-items-start">
+									class="ti ti-circle-check fs-4 pe-2"> <span
+									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> 
 							</ul>
 						</div>
 						<div

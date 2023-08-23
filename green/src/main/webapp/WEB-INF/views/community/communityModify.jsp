@@ -10,10 +10,10 @@
       location.href = "community.do?userId=${userId}"
    }
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>커뮤니티 글 수정하기</title>
 </head>
 <body>
-
    <%@include file="../layouts/header.jsp"%>
    <section class="pricing position-relative overflow-hidden">
       <div class="container position-relative">

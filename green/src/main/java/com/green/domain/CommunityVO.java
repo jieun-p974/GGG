@@ -43,18 +43,15 @@ public class CommunityVO {
 	private int hashtag_no;
 	private int b_t_no;
 	private String t_content;
-
-	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	
+	MultipartFile file1; 
 	MultipartFile file2;
 	MultipartFile file3;
-	
-	public CommunityVO() {
-
-   }
 
    public MultipartFile getFile1() {
       return file1;
    }
+
 
    public void setFile1(MultipartFile file1) {
       this.file1 = file1;
@@ -312,7 +309,5 @@ public class CommunityVO {
 	public void setT_content(String t_content) {
 		this.t_content = t_content;
 	}
-
-	
 
 }

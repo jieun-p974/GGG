@@ -3,9 +3,9 @@ package com.green.domain;
 public class HeartVO {
 	
 	/*
-	 * like_no ���ƿ� ��ȣ  int(5) auto_increment (pk)
-	 * id ȸ��id varchar(20)
-	 * board_no �Խ��� ��ȣ int(5)
+	 * like_no 좋아요 번호  int(5) auto_increment (pk)
+	 * id 회원id varchar(20)
+	 * board_no 게시판 번호 int(5)
 	 */
 	
 	private int like_no;

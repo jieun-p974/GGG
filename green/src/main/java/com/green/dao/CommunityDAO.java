@@ -8,7 +8,7 @@ import com.green.domain.ReplyVO;
 
 public interface CommunityDAO {
 	
-	// Ŀ�´�Ƽ
+	// 커뮤니티
 	public void communityWrite(CommunityVO vo);
 
 	public CommunityVO getCommunityDetail(CommunityVO vo);
@@ -21,7 +21,7 @@ public interface CommunityDAO {
 
 	public List<CommunityVO> getMyCommunityList(CommunityVO vo);
 
-	// ���
+	// 댓글
 	public void replyWrite(ReplyVO vo);
 
 	public List<ReplyVO> getReplyList(int board_no);
@@ -32,7 +32,7 @@ public interface CommunityDAO {
 	
 	public void deleteReply(ReplyVO vo);
 	
-	// ���ƿ�
+	// 좋아요
 	public void likeInsert(HeartVO vo);
 	
 	public void deleteLike(HeartVO vo);

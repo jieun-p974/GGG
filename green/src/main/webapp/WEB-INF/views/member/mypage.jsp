@@ -50,7 +50,6 @@
     background: #1D976C;
     background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
     background: linear-gradient(to right, #93F9B9, #1D976C);
-
 }
 </style>
 <jsp:useBean id="now" class="java.util.Date" />
@@ -181,7 +180,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="d-flex col-xxl-8 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3 flex-wrap">
 							<!-- lv1 -->
 							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
@@ -240,7 +238,6 @@
 			<!-- 도전중인 챌린지, 기부내역 -->
 			<section class="pricing position-relative overflow-hidden">
 				<div class="container position-relative">
-
 					<div class="row justify-content-center">
 						<div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-6 col-12">
 							<div class="card position-relative shadow border-0 h-100">

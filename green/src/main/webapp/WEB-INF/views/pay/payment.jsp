@@ -15,30 +15,16 @@
 <link rel="stylesheet" 	href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
 <link rel="stylesheet" href="../../../resources/styles/payment.css">
 <link rel="stylesheet" href="/resources/styles/font.css">
-<style type="text/css">
-.pm{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-    gap: 1%;
-}
-</style>
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>
-	<section class="service position-relative overflow-hidden">
-		<div class="container position-relative">
-			<div class="row">
-				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-black mt-5 mb-3">결제 수단 관리</h2>
-				</div>
-			</div>
-	<div class="wrapper row mt-5 justify-content-center">
+	<section class="service position-relative overflow-hidden d-flex justify-content-center">
+	<div class="wrapper row mt-5">
 		<!-- 간편카드 -->
-		<div class="card px-5 col-xl-8 mb-5" style="border: none;">
+		<div class="card px-5 col-xl-auto mb-5" style="width: 400px; border: none;">
 			<div class="my-3">
 				<h5 class="mt-3 fw-bold">등록된 카드</h5>
 			</div>
-			<div class="pm">
 			<c:forEach items="${list2}" var="payc">
 				<div class="debit-card mb-2">
 					<div class="d-flex flex-column h-90">
@@ -63,7 +49,6 @@
 
 				<c:set var="mcn" value="${payc.mem_card_no}" />
 			</c:forEach>
-			</div>
 				<button class="add">
 					<a href="../member/cardRegist.do?userId=${userId}">
 					<img src="/resources/imgs/payadd.png" style="height:45px; width:45px;">
@@ -75,11 +60,10 @@
 		</div>
 
 		<!-- 간편계좌 -->
-		<div class="card px-5 col-xl-8" style="border: none;">
+		<div class="card px-5 col-xl-auto" style="width: 400px; border: none;">
 			<div class="my-3">
 				<h5 class="mt-3 fw-bold">등록된 계좌</h5>
 			</div>
-			<div class="pm">
 			<c:forEach items="${list}" var="payb">
 				<div class="debit-acc mb-2">
 					<div class="d-flex flex-column h-90">
@@ -102,7 +86,6 @@
 				</div>
 				<c:set var="man" value="${payb.mem_acc_no}" />
 			</c:forEach>
-			</div>
 				<button class="add">
 					<a href="../member/accountRegist.do?userId=${userId}">
 					<img src="/resources/imgs/payadd.png" style="height:45px; width:45px;">
