@@ -131,6 +131,4 @@
    <update id="donExp" parameterType="dona">
    UPDATE mem_dogam SET do_exp = do_exp + #{don_point} WHERE id=#{id} AND do_choice_YN='Y' 
    </update>
-   
-   
 </mapper>

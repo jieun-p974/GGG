@@ -136,5 +136,4 @@
 		(SELECT COUNT(*) s_cnt FROM chal_dog_pay WHERE dogeon_no=2) AS seven,
 		(SELECT COUNT(*) i_cnt FROM chal_dog_pay WHERE dogeon_no=3) AS inf
 	</select>
-	
 </mapper>

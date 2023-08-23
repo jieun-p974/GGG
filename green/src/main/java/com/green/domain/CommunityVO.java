@@ -21,31 +21,34 @@ public class CommunityVO {
     * b_img3_addr 커뮤니티이미지경로3 varchar(100) 
     */
 
-   private int board_no;
-   private String id;
-   private String b_content;
-   private LocalDateTime regist_date;
-   private String b_img1;
-   private String b_img1_addr;
-   private String b_img2;
-   private String b_img2_addr;
-   private String b_img3;
-   private String b_img3_addr;
-   
-   private String m_img_addr;
-   private int com_no;
-   private String com_content;
-   private int like_no;
-   private int likecnt;
-   private int replycnt;
-   private int likechk;
-   private String userId;
+	private int board_no;
+	private String id;
+	private String b_content;
+	private LocalDateTime regist_date;
+	private String b_img1;
+	private String b_img1_addr;
+	private String b_img2;
+	private String b_img2_addr;
+	private String b_img3;
+	private String b_img3_addr;
+	
+	private String m_img_addr;
+	private int com_no;
+	private String com_content;
+	private int like_no;
+	private int likecnt;
+	private int replycnt;
+	private int likechk;
+	private String userId;
+	private int hashtag_no;
+	private int b_t_no;
+	private String t_content;
 
-   MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
-   MultipartFile file2;
-   MultipartFile file3;
-   
-   public CommunityVO() {
+	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	MultipartFile file2;
+	MultipartFile file3;
+	
+	public CommunityVO() {
 
    }
 
@@ -286,5 +289,30 @@ public class CommunityVO {
       this.userId = userId;
    }
 
+	public int getHashtag_no() {
+		return hashtag_no;
+	}
+
+	public void setHashtag_no(int hashtag_no) {
+		this.hashtag_no = hashtag_no;
+	}
+
+	public int getB_t_no() {
+		return b_t_no;
+	}
+
+	public void setB_t_no(int b_t_no) {
+		this.b_t_no = b_t_no;
+	}
+
+	public String getT_content() {
+		return t_content;
+	}
+
+	public void setT_content(String t_content) {
+		this.t_content = t_content;
+	}
+
+	
 
 }
