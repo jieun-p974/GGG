@@ -113,9 +113,9 @@
 	
 	<!-- 관리자 메인 페이지에 출력할 내용 -->
 	<select id="todayPay" resultType="hashmap">
-		SELECT COUNT(*) AS pay_count, SUM(d.price) AS pay_sum FROM chal_dog_pay p, chal_dogeon d 
-		WHERE p.dogeon_no = d.dogeon_no AND p.dogeon_pay_date = CURDATE()
-	</select>
+      SELECT COUNT(*) AS pay_count, IFNULL(SUM(d.price),0) AS pay_sum FROM chal_dog_pay p, chal_dogeon d 
+      WHERE p.dogeon_no = d.dogeon_no AND p.dogeon_pay_date = CURDATE()
+   </select>
 	
 	<select id="todayMem" resultType="Integer">
 		SELECT COUNT(*) AS mem_count FROM member WHERE sdate = CURDATE() AND mem_type_no=1

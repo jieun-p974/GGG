@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HashTagVO;
 import com.green.domain.HeartVO;
 import com.green.domain.NotificationVO;
 import com.green.domain.ReplyVO;
@@ -53,13 +54,29 @@ public class CommunityController {
 	
 	// community list (all, my)
 	@RequestMapping("/community.do")
-	public void getCommunityList(Model model,CommunityVO vo) {
+	public void getCommunityList(Model model,CommunityVO vo, String searchOption, String searchKeyword) {
 		List<CommunityVO> list = null;
-		if (vo.getId() != null) {
+		List<HashTagVO> htlist = null;
+		List<HashTagVO> htTop = null;
+		if (searchKeyword != null) {
+			System.out.println("searco"+searchOption+"searchk"+searchKeyword);
+			HashMap map = new HashMap();
+			map.put("searchOption", searchOption);
+			map.put("searchKeyword", searchKeyword);
+			list = communityService.getIdCommunityList(map);
+//		} else if (vo.getT_content() != null){
+//			list = communityService.getIdCommunityList(vo);
+	//		list = communityService.getHashTagCommunityList(vo);
+		} else if (vo.getId() != null) {
 			list = communityService.getMyCommunityList(vo);
 		} else {
 			list = communityService.getCommunityList(vo.getUserId());
 		}
+		
+		htlist = communityService.getHashTagList(vo.getBoard_no());
+		htTop = communityService.getHashTagTOP5();
+		model.addAttribute("htlist", htlist);
+		model.addAttribute("htTop", htTop);
 		model.addAttribute("list", list);
 	}
 	

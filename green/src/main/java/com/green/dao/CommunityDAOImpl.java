@@ -1,5 +1,6 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HashTagVO;
 import com.green.domain.HeartVO;
 import com.green.domain.ReplyVO;
 
@@ -27,6 +29,23 @@ public class CommunityDAOImpl implements CommunityDAO {
 		System.out.println("Mybatis => community list");
 		return mybatis.selectList("CommunityDAO.getCommunityList", userId);
 	}
+	
+	public List<CommunityVO> getMyCommunityList(CommunityVO vo) {
+		System.out.println("Mybatis=> my community");
+		return mybatis.selectList("CommunityDAO.getMyCommunityList", vo);
+	}
+	
+	@Override	
+	public List<CommunityVO> getIdCommunityList(HashMap map) {
+		System.out.println("Mybatis=> my community");
+		return mybatis.selectList("CommunityDAO.getIdCommunityList", map);
+	}
+
+	@Override
+	public List<CommunityVO> getHashTagCommunityList(CommunityVO vo) {
+		System.out.println("Mybatis => hashtag community list");
+		return mybatis.selectList("CommunityDAO.getHashTagCommunityList", vo);
+	}
 
 	public CommunityVO getCommunityDetail(CommunityVO vo) {
 		System.out.println("Mybatis=> community detail");
@@ -41,11 +60,6 @@ public class CommunityDAOImpl implements CommunityDAO {
 	public void deleteCommunity(CommunityVO vo) {
 		System.out.println("Mybatis=> community delete");
 		mybatis.delete("CommunityDAO.deleteCommunity", vo);
-	}
-	
-	public List<CommunityVO> getMyCommunityList(CommunityVO vo) {
-		System.out.println("Mybatis=> my community");
-		return mybatis.selectList("CommunityDAO.getMyCommunityList", vo);
 	}
 	
 	public ReplyVO getReplyDetail(ReplyVO vo) {
@@ -85,5 +99,14 @@ public class CommunityDAOImpl implements CommunityDAO {
 		mybatis.delete("CommunityDAO.deleteLike", vo);
 	}
 	
+	public List<HashTagVO> getHashTagList(int board_no) {
+		System.out.println("Mybatis=> hashTag list");
+		return mybatis.selectList("CommunityDAO.getHashTagList",board_no);
+	}
+	
+	public List<HashTagVO> getHashTagTOP5() {
+		System.out.println("Mybatis=> hashTag list");
+		return mybatis.selectList("CommunityDAO.getHashTagTOP5");
+	}
 	
 }
