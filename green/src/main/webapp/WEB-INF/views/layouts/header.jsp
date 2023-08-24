@@ -92,6 +92,9 @@
 							<a class="nav-link text-capitalize" href="../news/newsList.do">뉴스 </a>
 						</li>
 						<li class="nav-item">
+							<a class="nav-link text-capitalize" href="../dogam/dogam.do">도감 </a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link text-capitalize" href="../member/map.do">제로웨이스트샵 </a>
 						</li>
 						<%-- <c:if test="${userType == 1}">
