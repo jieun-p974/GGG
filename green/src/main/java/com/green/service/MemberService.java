@@ -1,6 +1,7 @@
 package com.green.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +14,7 @@ public interface MemberService {
 
 	// sign up
 	public int memberInsert(MemberVO vo);
-
+	
 	// login
 	public MemberVO login(MemberVO vo);
 
@@ -24,11 +25,14 @@ public interface MemberService {
 	public int memberUpdate(MemberVO vo);
 
 	// search id
-	public String searchID(HttpServletResponse response, String email) throws Exception;
+	public String searchID(HttpServletResponse response, HashMap map) throws Exception;
 
 	// search pw
-	public String searchPass(HttpServletResponse response, String email) throws Exception;
-
+	//public String searchPass(HttpServletResponse response, String email) throws Exception;
+	public String emailCheck(String id);
+	public void sendEmail(MemberVO vo, String div);
+	public void searchPW(HttpServletResponse response, MemberVO vo) throws Exception;
+	
 	// member card insert
 	public void cardInsert(MemberVO vo);
 	public void cardYes(MemberVO vo);
@@ -50,4 +54,15 @@ public interface MemberService {
 	
 	// select member dogeon last date
 	String dogeonExp(MemberVO vo);
+	
+	// select today pay, member
+	List<HashMap<String, Object>> todayPay();
+	int todayMem();
+	
+	// select week pay, member
+	List<HashMap<String, Object>> weekMem();
+	List<HashMap<String, Object>> weekPay();
+	
+	//select dogeonRate
+	List<HashMap<String, Object>> dogeonRate();
 }

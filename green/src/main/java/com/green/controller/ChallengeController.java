@@ -58,9 +58,22 @@ public class ChallengeController {
 		MemberVO vo = new MemberVO();
 		vo.setId(userId);
 		int tryNum = memberService.memberInfo(vo).getTryNum();
-		if(tryNum > 0) {
+		if(tryNum > 0 && tryNum < 999) {
 			int result = challengeService.challengeSinchung(map);
 	
+			if (result > 0) {
+				rd.addFlashAttribute("msg", "신청이 완료되었습니다.");
+				rd.addFlashAttribute("url", "/challenge/myChallenge.do?userId=" + userId);
+	
+				return "redirect:/challenge/challengeDetail.do?chal_no=" + chal_no;
+			}
+			rd.addFlashAttribute("msg", "이미 신청한 챌린지 입니다.");
+			rd.addFlashAttribute("url", "/challenge/challengeList.do");
+
+			return "redirect:/challenge/challengeDetail.do?chal_no=" + chal_no;
+		}else if(tryNum == 999){
+			int result = challengeService.challengeSinchungInf(map);
+			
 			if (result > 0) {
 				rd.addFlashAttribute("msg", "신청이 완료되었습니다.");
 				rd.addFlashAttribute("url", "/challenge/myChallenge.do?userId=" + userId);

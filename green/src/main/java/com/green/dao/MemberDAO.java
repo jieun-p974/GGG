@@ -1,6 +1,7 @@
 package com.green.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.green.domain.MemberVO;
 
@@ -11,7 +12,7 @@ public interface MemberDAO {
 
 	// sign up
 	public int memberInsert(MemberVO vo);
-
+	
 	// login
 	// public MemberVO memberLogin(MemberVO vo);
 	public MemberVO login(MemberVO vo);
@@ -23,10 +24,12 @@ public interface MemberDAO {
 	public int memberUpdate(MemberVO vo);
 
 	// search id
-	public String searchID(String email);
-
+	public String searchID(HashMap map);
+	
 	// search pw
-	public String searchPass(String email);
+	//public String searchPass(String email);
+	public String emailCheck(String id);
+	public int searchPW(MemberVO vo);
 
 	//기부시 포인트 사용
 	public void goDona(HashMap<String, Object> map);
@@ -49,4 +52,16 @@ public interface MemberDAO {
 	
 	// select member dogeon last date
 	public String dogeonExp(MemberVO vo);
+	
+	// select today pay, member
+	public List<HashMap<String , Object>> todayPay();
+	public int todayMem();
+	
+	
+	//select week pay, member
+	public List<HashMap<String, Object>> weekMem();
+	public List<HashMap<String, Object>> weekPay();
+	
+	//select dogeonRate
+	public List<HashMap<String, Object>> dogeonRate();
 }

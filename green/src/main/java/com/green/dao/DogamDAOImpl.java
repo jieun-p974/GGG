@@ -161,13 +161,13 @@ public class DogamDAOImpl implements DogamDAO {
 		return rs;
 	}
 
-	//±âºÎ->exp
-		@Override
-		public void donExp(HashMap<String, Object> map) {
-			System.out.println("==>expÀÇdonExp()È£Ãâ");
-			System.out.println("donExp: "+ map);
-			mybatis.update("DogamDAO.donExp",map);
-		}
+	//ê¸°ë¶€->exp
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		System.out.println("==>expì˜donExp()í˜¸ì¶œ");
+		System.out.println("donExp: "+ map);
+		mybatis.update("DogamDAO.donExp",map);
+	}
 	
 
 

@@ -93,6 +93,7 @@
 
 	}
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>기부처 등록</title>
 </head>
 <body>

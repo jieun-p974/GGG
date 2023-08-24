@@ -20,7 +20,7 @@
 		if (document.form.n_title.value == "") {
 			alert("제목을 입력해주세요.")
 			document.form.n_title.focus();
-			return false; 
+			return false;
 		}
 
 		if (document.form.n_content.value == "") {
@@ -33,6 +33,7 @@
 
 	}
 </script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>뉴스 작성</title>
 </head>
 <body>

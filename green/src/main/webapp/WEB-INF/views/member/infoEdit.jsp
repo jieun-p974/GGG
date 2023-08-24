@@ -36,8 +36,8 @@
 <script src="../../../resources/styles/vendor/select2/select2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-
-<title>회원가입</title>
+<link rel="stylesheet" href="/resources/styles/font.css">
+<title>회원정보수정</title>
 </head>
 
 <body>
@@ -46,10 +46,10 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form mt-5" name="form" action="editSave.do" method="post" enctype="multipart/form-data">
-					<h4 class="mb-5 "> 🌏&nbsp${userId}님의 회원정보&nbsp🌏 </h4>
+					<p class="d-flex fs-4 mb-5 justify-content-center"> 🌏&nbsp ${meminfo.id}님의 회원정보&nbsp🌏 </p	>
 					<p class=input_title>아이디</p>
 					<div class="wrap-input100 validate-input">
-						 <input class="input100 mt-2 mb-3" type="text" name="id" id="id" value="${userId}" readonly="readonly">
+						 <input class="input100 mt-2 mb-3" type="text" name="id" id="id" value="${meminfo.id}" readonly="readonly">
 					</div>
 					
 					<p class=input_title>비밀번호</p>
@@ -72,20 +72,20 @@
 					
 					<p class=input_title> 이름</p>
 					<div class="wrap-input100 validate-input">
-						 <input class="input100 mt-2 mb-3" type="text" name="name" id="name" value="${userName}" disabled>
+						 <input class="input100 mt-2 mb-3" type="text" name="name" id="name" value="${meminfo.name}" readonly="readonly">
 					</div>
 					
 					<p class=input_title> 전화번호</p>
 					<div class="wrap-input100 validate-input">
 						 <input class="input100 mt-2 mb-3" type="text" name="tel"
-							id="tel" value="${userTel}" onkeyup="enter()">
+							id="tel" value="${meminfo.tel}" onkeyup="enter()">
 							<span class="focus-input100"></span>
 					</div>
 					
 					<p class=input_title> 이메일주소</p>
 					<div class="wrap-input100 validate-input">
 						 <input class="input100 mt-2 mb-3" type="email" name="email"
-							id="email" placeholder="이메일주소를 입력하세요." value="${userEmail}" disabled="disabled">
+							id="email" placeholder="이메일주소를 입력하세요." value="${meminfo.email}" readonly="readonly">
 					</div>
 
 			

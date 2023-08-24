@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -6,19 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>GGG: 지구를 지켜라</title>
-<style type="text/css">
-.imgss{
-	position: absolute;
-	top: 45%;
-	z-index: 2;
-}
-</style>
 </head>
 <body>
 	<c:if test="${userType == 2}">
-		<h4 style="">${userId} ${userName} ${sessionTime} 접속</h4>
+		<h4 style="">${userId}${userName} ${sessionTime} 접속</h4>
 	</c:if>
-	<%@include file="../layouts/header.jsp"%>
+	<%@include file="../layouts/header.jsp" %>
 	<section class="hero-banner position-relative overflow-hidden">
 		<div class="container">
 			<div class="row d-flex flex-wrap align-items-center">
@@ -46,44 +40,7 @@
 			</div>
 		</div>
 	</section>
-	
- 	<section class="service position-relative overflow-hidden">
-		
-			<div class="d-flex align-items-center justify-content-center ms-5"> 
-				<img class="img-fluid" src="/resources/imgs/main_guide.png" style="width:60%;">
-			</div>
-		
-	</section> 
-
-	
-	
-	
-	
-	<section class="our-service position-relative overflow-hidden">
-		<div class="container">
-			<div class="row">
-				<div class="col-xxl-8 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-					<img src="/resources/imgs/main_chal.png"
-						class="img-fluid">
-				</div>
-				<div
-					class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
-					<h2 class="text-black mb-0">GGG와 함께하는 챌린지란?</h2>
-					<p class="mb-0 fw-500 fs-7">
-						챌린지를 진행하시면 일정 포인트를 얻을 수 있습니다.<br /> 챌린지를 통해 획득한 포인트를 기부하면 기부하신<br />포인트만큼
-						캐릭터를 성장 시킬 수 있습니다.
-					</p>
-
-					<div class="d-flex align-items-center mt-3">
-						<a class="btn btn-warning btn-hover-secondery"
-							href="/challenge/challengeList.do" style="z-index: 0;">챌린지
-							구경하기</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-		<section class="service position-relative overflow-hidden">
+	<section class="service position-relative overflow-hidden">
 		<div class="container position-relative">
 			<img src="/resources/imgs/service/dot-shape.png"
 				class="shape position-absolute">
@@ -101,12 +58,8 @@
 					<div class="card-body">
 						<div
 							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-							<img class="img-fluid" src="/resources/imgs/grade.png">
+							<img class="img-fluid" src="/resources/imgs/grade.png" alt="">
 						</div>
-							<p class="fw-500 fs-7 text-black"> 우리가 흔히 알고 있는 수많은 동물들이 멸종 위기에 처해있습니다.<br/>
-							GGG는 소중한 동물친구들을 모티브삼아 캐릭터로 만들었습니다. <br/>
-							커피 한잔 가격으로 기부도 하고, 귀여운 캐릭터도 키워보는 건 어떠세요?</p>
-							
 					</div>
 				</div>
 			</div>
@@ -117,11 +70,9 @@
 						<div class="card-body">
 							<div
 								class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<img class="img-grade" src="/resources/imgs/dogam/c8edf3b3-c405-423f-b885-fceaf85197e0_코알라.jpg"
-								onmouseover="this.src='/resources/imgs/dogam/1223b8b7-2307-4446-90a3-72469c2626c9_코알라3.jpg'"
-								onmouseout="this.src='/resources/imgs/dogam/c8edf3b3-c405-423f-b885-fceaf85197e0_코알라.jpg'">
+								<img class="img-grade" src="/resources/imgs/panda.jpg" alt="">
 							</div>
-							<h5 class="mb-0 fw-500">코알라</h5>
+							<h5 class="mb-0 fw-500">판다</h5>
 							<h3 class="fs-4">취약등급</h3>
 						</div>
 					</div>
@@ -132,12 +83,10 @@
 						<div class="card-body">
 							<div
 								class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<img class="img-grade" src="/resources/imgs/dogam/962cff43-8526-4d49-bb91-c6a65db545f8_황제펭귄.jpg"
-								onmouseover="this.src='/resources/imgs/dogam/f74ddc05-cba7-4111-a9ee-2e3ae5799ca5_황제펭귄3.jpg'"
-								onmouseout="this.src='/resources/imgs/dogam/962cff43-8526-4d49-bb91-c6a65db545f8_황제펭귄.jpg'">
+								<img class="img-grade" src="/resources/imgs/girin.jpg" alt="">
 							</div>
-							<h5 class="mb-0 fw-500">황제펭귄</h5>
-							<h3 class="fs-4">준위협등급</h3>
+							<h5 class="mb-0 fw-500">기린</h5>
+							<h3 class="fs-4">취약등급</h3>
 						</div>
 					</div>
 				</div>
@@ -147,16 +96,37 @@
 						<div class="card-body">
 							<div
 								class="overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<img class="img-grade" src="/resources/imgs/dogam/6a010ccb-091f-4003-ab96-d75bee4e9fce_바다거북.jpg"
-								onmouseover="this.src='/resources/imgs/dogam/40e1f773-908a-47a9-ad81-0d745d63f4f1_바다거북3.jpg'"
-								onmouseout="this.src='/resources/imgs/dogam/6a010ccb-091f-4003-ab96-d75bee4e9fce_바다거북.jpg'">
+								<img class="img-grade" src="/resources/imgs/orang.jpg" alt="">
 							</div>
-							<h5 class="mb-0 fw-500">바다거북</h5>
-							<h3 class="fs-4">위기등급</h3>
+							<h5 class="mb-0 fw-500">오랑우탄</h5>
+							<h3 class="fs-4">위급등급</h3>
 						</div>
 					</div>
 				</div>
-				
+			</div>
+		</div>
+	</section>
+	<section class="our-service position-relative overflow-hidden">
+		<div class="container">
+			<div class="row">
+				<div class="col-xxl-8 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+					<img src="/resources/imgs/our-service/our-service.svg"
+						class="img-fluid">
+				</div>
+				<div
+					class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
+					<h2 class="text-black mb-0">GGG와 함께하는 챌린지란?</h2>
+					<div class="d-flex align-items-center mt-3">
+						<a class="btn btn-warning btn-hover-secondery"
+							href="/challenge/challengeList.do" style="z-index: 0;">챌린지
+							구경하기</a>
+					</div>
+					<p class="mb-0 fw-500 fs-7">
+						챌린지를 진행하시면 일정 포인트를 얻을 수 있습니다.<br /> 챌린지를 통해 획득한 포인트를 기부하면 기부하신<br />포인트만큼
+						캐릭터를 성장 시킬 수 있습니다.
+					</p>
+
+				</div>
 			</div>
 		</div>
 	</section>
@@ -165,37 +135,31 @@
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<p class="text-white mb-0 fs-3"> 귀여운 캐릭터를 직접 성장시키고, 도감을 모아보세요!</p>
-					
+					<h2 class="text-white mb-0">다양한 캐릭터들을 성장시켜보세요!</h2>
+					<a href="/dogam/dogam.do"
+						class="btn btn-warning btn-hover-secondery section-btn">당장
+						만나러가기</a>
 				</div>
 			</div>
 			<div class="row d-flex flex-wrap justify-content-center step-row">
-				<img class="imgss z-2"src="/resources/imgs/main_dogam.png">
 				<div
 					class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center">
 					<div class="card bg-transparent">
 						<div class="card-body">
 							<div
 								class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-								<img class="img-fluid" src="/resources/imgs/main_bear.png" style="width:50%">
+								<img class="img-fluid" src="/resources/imgs/bear_shadow.png"
+									alt="">
 							</div>
-							<h3 class="fs-4 text-white">이달의 신규 캐릭터</h3>
-							
-							<p class="fs-7 mb-0 fw-500 text-white">저는 멸종위기 취약등급이에요. <br/>
-							먹이사슬 최상위에 존재하며,<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다. <br/><br/>
-							제가 누군지 궁금하세요?</p>
-							
-						
+							<h3 class="fs-4 text-white">8월의 캐릭터</h3>
+							<h3 class="fs-4 text-white">멸종위기 취약등급</h3>
+							<p class="fs-7 mb-0 fw-500 text-white">
+								힌트!저는 먹이사슬 최상위에 존재해요.<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다.
+							</p>
 						</div>
 					</div>
-			</div>
 				</div>
-										 <div class="d-flex align-items-center justify-content-center">
-				<a href="/dogam/dogam.do"
-							class="btn btn-warning btn-hover-secondery section-btn z-3">바로
-							만나러가기</a>
 			</div>
-	
 		</div>
 	</section>
 	<section class="pricing position-relative overflow-hidden">
@@ -210,29 +174,33 @@
 			<div class="row justify-content-center price-plan">
 				<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
 					<div class="card position-relative shadow border-0 h-100">
-						<div class="card-body pt-5 p-3">
+						<div class="card-body pb-4">
 							<small class="fs-7 d-block text-warning text-center">3회
 								도전권</small>
 							<h2 class="mb-4 text-center position-relative">
-								<sub class="fs-2 text-black justify-content-center">3,000</sub><sup
-									class="fs-6 position-absolute">₩</sup>
+								<sub class="fs-2 text-black">0</sub><sup
+									class="fs-6 position-absolute">$</sup>
 							</h2>
-							<p class="fs-7 text-center fw-500"></p>
-							<ul class=" mb-0 pl-0">
-								<li class="d-flex align-items-start justify-content-center"><small
-									class="fs-9 text-black justify-content-center">결제일로 부터 30일간 적용됩니다.</small></li>
+							<small class="fs-7 d-block text-center">Free</small>
+							<p class="fs-7 text-center fw-500">For individuals looking
+								for a simple CRM solution</p>
+							<ul class="list-unstyled mb-0 pl-0">
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">3번</span> 도전할 수 있습니다.</span></li>
+									class="fs-7 text-black">Basic CRM features</span></li>
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
+									class="fs-7 text-black">Unlimited Personal Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Email Power Tools</span></li>
 							</ul>
 						</div>
 						<div
 							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
 							<a href="#"
-								class="btn btn-warning btn-hover-secondery text-capitalize">도전권 결제</a>
+								class="btn btn-warning btn-hover-secondery text-capitalize">Set
+								Started</a>
 						</div>
 					</div>
 				</div>
@@ -241,72 +209,80 @@
 						<div
 							class="position-absolute badge bg-warning d-inline-block mx-auto">
 							Most Popular</div>
-						<div class="card-body pt-5 p-3">
+						<div class="card-body pb-4">
 							<small class="fs-7 d-block text-warning text-center">7회
 								도전권</small>
 							<h2 class="mb-4 text-center position-relative">
-								<sub class="fs-2 text-black">5,000</sub><sup
-									class="fs-6 position-absolute">₩</sup>
+								<sub class="fs-2 text-black">49</sub><sup
+									class="fs-6 position-absolute">$</sup>
 							</h2>
-							<p class="fs-7 text-center fw-500"></p>
-							<ul class=" mb-0 pl-0">
-								<li class="d-flex align-items-start justify-content-center"><small
-									class="fs-9 text-black ">결제일로 부터 30일간 적용됩니다.</small></li>
+							<small class="fs-7 d-block text-center">Free</small>
+							<p class="fs-7 text-center fw-500">For individuals looking
+								for a simple CRM solution</p>
+							<ul class="list-unstyled mb-0 pl-0">
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">🌏 한달동안 챌린지에<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">7번</span> 도전할 수 있습니다.</span></li>
+									class="fs-7 text-black">Basic CRM features</span></li>
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
+									class="fs-7 text-black">Unlimited Personal Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">Unlimited Shared Pipelines</span></li> -->
+									class="fs-7 text-black">Email Power Tools</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Unlimited Shared Pipelines</span></li>
 							</ul>
 						</div>
 						<div
 							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
 							<a href="#"
-								class="btn btn-warning btn-hover-secondery text-capitalize">도전권 결제</a>
+								class="btn btn-warning btn-hover-secondery text-capitalize">Set
+								Started</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
 					<div class="card position-relative shadow border-0 h-100">
-						<div class="card-body pt-5 p-3">
+						<div class="card-body pb-4">
 							<small class="fs-7 d-block text-warning text-center">무제한
 								도전권</small>
 							<h2 class="mb-4 text-center position-relative">
-								<sub class="fs-2 text-black">10,000</sub><sup
-									class="fs-6 position-absolute">₩</sup>
+								<sub class="fs-2 text-black">99</sub><sup
+									class="fs-6 position-absolute">$</sup>
 							</h2>
-							<p class="fs-7 text-center fw-500"></p>
-							<ul class=" mb-0 pl-0">
-								<li class="d-flex align-items-start justify-content-center"><small
-									class="fs-9 text-black">결제일로 부터 30일간 적용됩니다.</small></li>
+							<small class="fs-7 d-block text-center">Free</small>
+							<p class="fs-7 text-center fw-500">For individuals looking
+								for a simple CRM solution</p>
+							<ul class="list-unstyled mb-0 pl-0">
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">🌏 한달동안 챌린지에 <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">무제한</span>으로 도전할 수 있습니다.</span></li>
+									class="fs-7 text-black">Basic CRM features</span></li>
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black">🌏 챌린지를 달성하시면 챌린지의<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;난이도x100만큼 포인트를<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지급합니다.</span></li>
-								<!-- <li class="d-flex align-items-start"><i
+									class="fs-7 text-black">Unlimited Personal Pipelines</span></li>
+								<li class="d-flex align-items-start"><i
+									class="ti ti-circle-check fs-4 pe-2"></i> <span
+									class="fs-7 text-black">Email Power Tools</span></li>
+								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
 									class="fs-7 text-black">Unlimited Shared Pipelines</span></li>
 								<li class="d-flex align-items-start"><i
 									class="ti ti-circle-check fs-4 pe-2"></i> <span
-									class="fs-7 text-black"> Full API Access</span></li> -->
+									class="fs-7 text-black"> Full API Access</span></li>
 							</ul>
 						</div>
 						<div
 							class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
 							<a href="#"
-								class="btn btn-warning btn-hover-secondery text-capitalize">도전권 결제</a>
+								class="btn btn-warning btn-hover-secondery text-capitalize">Set
+								Started</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<%@include file="../layouts/footer.jsp"%>
+	<%@include file="../layouts/footer.jsp" %>
 </body>
 </html>

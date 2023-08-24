@@ -1,6 +1,5 @@
 package com.green.dao;
 
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,9 +19,13 @@ public interface PayDAO {
 	//일반계좌 insert
 	public void accInsert(PayVO vo);
 	public void receipt(int dogeon_pay_no);
-//	public void receiptNO(int dogeon_pay_no);
+
 	public void memReceipt(ChalPayVO vo);
 	
 	public int getTimes(int dogeon_pay_no);
 	public void payTryNum(HashMap map);
+
+	//간편계좌로 챌린지 결제
+	public MemberVO myAc(MemberVO vo);
+	public MemberVO myCard(MemberVO vo);
 }

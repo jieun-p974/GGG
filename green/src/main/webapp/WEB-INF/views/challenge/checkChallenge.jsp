@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>챌린지 인증</title>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .c_img {
 	width: 30%;

@@ -56,4 +56,14 @@ public class DonationServiceImple implements DonationService {
 		donationDAO.memDon(map);
 	}
 
+	@Override
+	public int countChoice(String id) {
+		return donationDAO.countChoice(id);
+	}
+
+	@Override
+	public int remainExp(String id) {
+		return donationDAO.remainExp(id);
+	}
+
 }

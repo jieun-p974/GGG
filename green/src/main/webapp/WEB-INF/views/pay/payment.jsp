@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" 	href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous">
 <link rel="stylesheet" href="../../../resources/styles/payment.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>

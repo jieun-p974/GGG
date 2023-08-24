@@ -8,6 +8,10 @@
 <!-- <script src="/resources/js/jquery.min.js"></script> -->
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
 
@@ -24,6 +28,7 @@ String userImgAddr = (String) session.getAttribute("userImgAddr");
 int userType = (Integer) session.getAttribute("userType");
 System.out.println("현재 세션 : " + userId);
 %>
+
 <meta charset=" UTF-8">
 </head>
 
@@ -50,16 +55,11 @@ System.out.println("현재 세션 : " + userId);
 				</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto p-0">
-						<li class="nav-item"><a class="nav-link text-capitalize"
-							aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
-						<li class="nav-item"><a class="nav-link text-capitalize"
-							href="../challenge/adminChallenge.do">챌린지관리</a></li>
-						<li class="nav-item"><a class="nav-link text-capitalize"
-							href="../dogam/dogamCheck.do">도감관리</a></li>
-						<li class="nav-item"><a class="nav-link text-capitalize"
-							href="../donation/adDonationList.do">기부관리 </a></li>
-						<li class="nav-item"><a class="nav-link text-capitalize"
-							href="../news/newsCheck.do">뉴스관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" aria-current="page" href="../community/community.do?userId=${userId}">커뮤니티관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../challenge/adminChallenge.do">챌린지관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../dogam/dogamCheck.do">도감관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../donation/adDonationList.do">기부관리 </a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../news/newsCheck.do">뉴스관리</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize" href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
 						<li class="nav-item"><a class="nav-link text-capitalize" href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
 					</ul>
@@ -96,7 +96,7 @@ System.out.println("현재 세션 : " + userId);
 			<div class="offcanvas-body pt-0">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link text-capitalize"
-						aria-current="page" href="../community/community.do">커뮤니티 관리</a></li>
+						aria-current="page" href="../community/community.do?userId=${userId}">커뮤니티 관리</a></li>
 					<li class="nav-item"><a class="nav-link text-capitalize"
 						href="../challenge/adminChallenge.do">챌린지관리</a></li>
 					<li class="nav-item"><a class="nav-link text-capitalize"
