@@ -14,7 +14,6 @@ var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
 
 if(msg.length >0 && url.length >0){
-	
 	alert(msg);
 	location.href=url;
 }
@@ -31,7 +30,7 @@ $(function(){
 	}
 	$("#d_level").append(star2);
 	
-	${""}
+	
 });
 </script>
 <link rel="stylesheet" href="/resources/styles/font.css">
@@ -68,8 +67,10 @@ $(function(){
 								</div>
 								<div class="check_btn d-flex justify-content-between">
 									<div></div>
-									<a href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
+									<c:if test="${userId ne null}">
+										<a href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
 										class="btn btn-white-back2 btn-hover-secondery text-capitalize">신청하기</a>
+									</c:if>
 								</div>
 							</div>
 						</div>
