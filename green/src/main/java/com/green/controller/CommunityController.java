@@ -43,14 +43,14 @@ public class CommunityController {
 	
 	//community
 	@RequestMapping(value="/enterCommWrite.do")
-	public String communityInsert(CommunityVO vo, Model model) throws IOException{
+	public String communityInsert(CommunityVO vo, Model model, HttpSession session) throws IOException{
 		communityService.insertCommunity(vo);
 		int board_no = communityService.getBoardNo();
 		System.out.println("컨트롤러 보드넘버"+board_no);
 		System.out.println("컨트롤러 아이디"+vo.getId());
-		model.addAttribute("comm", communityService.getCommunityDetail(vo));
-		
-		return "redirect:/community/communityWrite.do?board_no="+board_no;
+		session.setAttribute("boardNO", board_no);
+	//	model.addAttribute("comm", communityService.getCommunityDetail(vo));
+		return "redirect:/community/communityWrite.do?board_no="+board_no+"&id="+vo.getId();
 	}
 	
 	// community list 
@@ -82,6 +82,7 @@ public class CommunityController {
 	public void getCommunityDetail(CommunityVO vo, Model model) {
 		model.addAttribute("comm", communityService.getCommunityDetail(vo));
 		int board_no = vo.getBoard_no();
+		System.out.println("detailboardno");
 		List<HashTagVO> ghtlist = null;
 		ghtlist = communityService.getHashTag(board_no);
 		model.addAttribute("ghtlist", ghtlist);

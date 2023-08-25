@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function cancleWrite() {
-		location.href="deleteCommunity.do?board_no=${comm.board_no}&userId=${userId}"
+		location.href="deleteCommunity.do?board_no=${boardNO}&userId=${userId}"
 	}
 </script>
 <link rel="stylesheet" href="/resources/styles/font.css">
@@ -31,14 +31,15 @@
 			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
 				<div class="card border-0 shadow">
 					<div class="card-body">
-						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+						<div
+							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 							<%-- <form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data"> --%>
 
 							<!-- 		action="save.do"	 -->
 							<form method="post" enctype="multipart/form-data" class="row col-12" action="updateCommunity.do?userId=${userId}">
 								<input type="hidden" name="id" value="${userId}" />
 								<input type="hidden" name="userId" value="${userId}" />
-								<input type="hidden" name="board_no" value="${comm.board_no}" />
+								<input type="hidden" name="board_no" value="${boardNO}" />
 								<div class="editing">
 									<div class="chal_name col-12 mb-3 p-3">
 										<label for="b_content" class="col-12 mb-2 text-start">글 내용</label>

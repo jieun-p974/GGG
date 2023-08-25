@@ -157,7 +157,7 @@
       
 		$(document).ready(function() {
 			var tag = {};
-			var counter = $("#htlistsize").val()
+			var counter = $("#htlistsize").val();
 			counter++;
 			
 			// 입력한 값을 태그로 생성한다.
