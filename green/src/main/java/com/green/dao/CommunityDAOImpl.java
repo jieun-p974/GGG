@@ -23,6 +23,12 @@ public class CommunityDAOImpl implements CommunityDAO {
 		System.out.println("Mybatis => community insert");
 		mybatis.insert("CommunityDAO.communityWrite",vo);
 	}
+	
+	@Override
+	public int getBoardNo() {
+		System.out.println("Mybatis => getBoardNo");
+		return mybatis.selectOne("CommunityDAO.getBoardNo");
+	}
 
 	@Override
 	public List<CommunityVO> getCommunityList(String userId) {
@@ -103,10 +109,25 @@ public class CommunityDAOImpl implements CommunityDAO {
 		System.out.println("Mybatis=> hashTag list");
 		return mybatis.selectList("CommunityDAO.getHashTagList",board_no);
 	}
+
+	public List<HashTagVO> getHashTag(int board_no) {
+		System.out.println("Mybatis=> getHashTag list");
+		return mybatis.selectList("CommunityDAO.getHashTag",board_no);
+	}
 	
 	public List<HashTagVO> getHashTagTOP5() {
-		System.out.println("Mybatis=> hashTag list");
+		System.out.println("Mybatis=> hashTagTop5 list");
 		return mybatis.selectList("CommunityDAO.getHashTagTOP5");
+	}
+	
+	public void boardtagInsert(HashTagVO vo) {
+		System.out.println("mybatis => hashtag insert");
+		mybatis.insert("CommunityDAO.boardtagInsert", vo);
+	}
+
+	public void deleteHashTag(HashTagVO vo) {
+		System.out.println("mybatis => hashtag delete");
+		mybatis.insert("CommunityDAO.deleteHashTag", vo);
 	}
 	
 }

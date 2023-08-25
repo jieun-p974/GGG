@@ -103,10 +103,12 @@
                         <div class="grid">
                            <p class="fs-7 text-black" style="padding: 0">아이디 :
                               ${meminfo.id}</p>
-                           <p class="fs-7 text-black" style="padding: 0">전화번호 :
-                              ${meminfo.tel}</p>
                            <p class="fs-7 text-black" style="padding: 0">이메일주소 :
                               ${meminfo.email}</p>
+                           <p class="fs-7 text-black" style="padding: 0">전화번호 :
+                              ${meminfo.tel}</p>
+                           <p class="fs-7 text-black" style="padding: 0">주소 :
+                              ${meminfo.address}</p>
                            <p class="fs-7 text-black" style="padding: 0">간편결제 카드등록 여부
                               : ${meminfo.card_reg_YN}</p>
                            <p class="fs-7 text-black" style="padding: 0">간편결제 등록 여부 :

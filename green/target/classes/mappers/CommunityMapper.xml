@@ -4,17 +4,24 @@
 <mapper namespace="CommunityDAO">
 
 	<!-- insert community -->
+<!-- 	
 	<insert id="communityWrite" parameterType="community">
 		INSERT INTO board (id, b_content,b_img1,b_img1_addr,b_img2,b_img2_addr,b_img3,b_img3_addr)
 		VALUES(#{id}, #{b_content}, #{b_img1}, #{b_img1_addr}, #{b_img2}, #{b_img2_addr}, #{b_img3}, #{b_img3_addr})
 	</insert>
-	
+	 -->
+	 <insert id="communityWrite" parameterType="community">
+		INSERT INTO board (id)
+		VALUES(#{id})
+	</insert>
+	<select id="getBoardNo" resultType="Integer">
+		SELECT MAX(board_no) from board
+	</select>
 	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
 	<![CDATA[   
 	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, 
-				m.m_img_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, m.m_img_addr, 
 				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
 	FROM board b 
 	LEFT JOIN member m
@@ -32,8 +39,7 @@
 	<!-- show my search list -->
 	<select id="getMyCommunityList" resultType="community">
 	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, 
-				m.m_img_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, m.m_img_addr, 
 				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
 	FROM board b 
 	LEFT JOIN member m
@@ -49,11 +55,10 @@
 
 	</select>
 	
-	<!-- show id search list -->
+	<!-- show search list -->
 	<select id="getIdCommunityList" resultType="community">
 	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, 
-				m.m_img_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, m.m_img_addr, 
 				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
 	FROM board b 
 	LEFT JOIN member m
@@ -67,10 +72,8 @@
 	 <if test="searchOption == 't_content'"> 
 	LEFT JOIN board_tag t
 	ON b.board_no = t.board_no	
-	LEFT JOIN hashtag h
-	ON t.hashtag_no = h.hashtag_no
-	WHERE h.t_content = '${searchKeyword}'
-	ORDER BY b.regist_date DESC, t.b_t_no desc
+	WHERE t.t_content = '${searchKeyword}'
+	ORDER BY b.regist_date DESC
 	</if> 
 	
 	<if test="searchOption == 'id'"> 
@@ -80,51 +83,47 @@
 
 	</select>
 	
-<!-- 	
-	show hashtag search list
-	<select id="getHashTagCommunityList" resultType="community">
-	<![CDATA[   	
-	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, 
-				m.m_img_addr, 
-				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
-	FROM board b 
-	LEFT JOIN member m
-	ON m.id = b.id
-	left join (SELECT board_no, COUNT(*) AS lcnt FROM b_m_like GROUP BY board_no) AS likecnt
-	on b.board_no = likecnt.board_no 
-	LEFT JOIN (SELECT board_no, COUNT(*) AS rcnt FROM reply GROUP BY board_no) AS replycnt
-	ON b.board_no = replycnt.board_no
-	LEFT JOIN (SELECT board_no, id, COUNT(*) as lchk FROM b_m_like WHERE id=#{userId} GROUP BY board_no) AS likechk
-	ON b.board_no = likechk.board_no
-	WHERE h.t_content = #{t_content}
-	ORDER BY b.regist_date desc
-	]]>	
-	</select>
--->
-	
 	<!-- show hashtag list // WHERE t.board_no = #{board_no} -->
 	<select id="getHashTagList" resultType="hashTag">
 	<![CDATA[   
-	SELECT t.board_no, b.id, b.b_content, t.b_t_no, t.hashtag_no, h.t_content
+	SELECT b.board_no, b.id, b.b_content, t.b_t_no, t.t_content
 	FROM board b
 	LEFT JOIN board_tag t
 	ON b.board_no = t.board_no
-	LEFT JOIN hashtag h
-	ON t.hashtag_no = h.hashtag_no
-	ORDER BY b.regist_date DESC, t.b_t_no DESC
+	ORDER BY b.regist_date DESC, t.b_t_no 
+	]]>	
+	</select>
+
+	<!-- show hashtag list // WHERE t.board_no = #{board_no} -->
+	<select id="getHashTag" resultType="hashTag">
+	<![CDATA[   
+	SELECT b.board_no, b.id, b.b_content, t.b_t_no, t.t_content
+	FROM board b
+	LEFT JOIN board_tag t
+	ON b.board_no = t.board_no
+	WHERE b.board_no = #{board_no}
+	ORDER BY b.regist_date DESC, t.b_t_no 
 	]]>	
 	</select>
 	
 	<!-- hashtag TOP 5 -->
 	<select id="getHashTagTOP5" resultType="hashTag">
 	<![CDATA[
-		SELECT bt.hashtag_no, COUNT(*) htcnt, h.t_content 
-		FROM board_tag bt, hashtag h 
-		WHERE bt.hashtag_no = h.hashtag_no
-		GROUP BY h.hashtag_no ORDER BY htcnt DESC LIMIT 5
+		SELECT t_content, COUNT(*) htcnt
+		FROM board_tag
+		GROUP BY t_content ORDER BY htcnt DESC LIMIT 5
 	]]>
 	</select>
+	
+	<!-- hashTag insert -->
+	<insert id="boardtagInsert" parameterType="hashTag">
+		INSERT INTO board_tag (board_no, t_content) VALUES(#{board_no}, #{t_content})
+	</insert>
+	
+	<!-- delete hashTag -->
+	<delete id="deleteHashTag" parameterType="hashTag">
+		DELETE FROM board_tag WHERE board_no = #{board_no} AND t_content = #{t_content}
+	</delete>
 
 	<!-- select one Community -->
 	<select id="getCommunityDetail" parameterType="community" resultType="community">

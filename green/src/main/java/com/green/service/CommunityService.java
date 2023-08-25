@@ -14,6 +14,8 @@ public interface CommunityService {
 	//community insert
 	void insertCommunity(CommunityVO vo);
 	
+	int getBoardNo();
+	
 	//community list
 	List<CommunityVO> getCommunityList(String userId);
 	
@@ -56,6 +58,12 @@ public interface CommunityService {
 	List<HashTagVO> getHashTagList(int board_no);
 
 	List<HashTagVO> getHashTagTOP5();
+
+	List<HashTagVO> getHashTag(int board_no);
+
+	void boardtagInsert(HashTagVO vo);
+
+	void deleteHashTag(HashTagVO vo);
 
 
 

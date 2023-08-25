@@ -11,7 +11,6 @@ public class HashTagVO {
 	 * board_no 글 번호 int(5)
 	 */
 	
-	private int hashtag_no;
 	private String id;
 	private String t_content;
 	private int b_t_no;
@@ -20,16 +19,6 @@ public class HashTagVO {
 
 	public HashTagVO() {
 		
-	}
-
-
-	public int getHashtag_no() {
-		return hashtag_no;
-	}
-
-
-	public void setHashtag_no(int hashtag_no) {
-		this.hashtag_no = hashtag_no;
 	}
 
 

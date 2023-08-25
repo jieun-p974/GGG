@@ -34,8 +34,6 @@ public class CommunityController {
 	@Autowired
 	private NotificationService notificationService;
 	
-	
-	
 	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
@@ -43,16 +41,19 @@ public class CommunityController {
 		return "/community/"+url;
 	}
 	
-	
 	//community
-	// community insert
-	@RequestMapping(value="/save.do")
-	public String communityInsert(CommunityVO vo) throws IOException{
+	@RequestMapping(value="/enterCommWrite.do")
+	public String communityInsert(CommunityVO vo, Model model) throws IOException{
 		communityService.insertCommunity(vo);
-		return "redirect:/community/community.do?userId="+vo.getUserId();
+		int board_no = communityService.getBoardNo();
+		System.out.println("컨트롤러 보드넘버"+board_no);
+		System.out.println("컨트롤러 아이디"+vo.getId());
+		model.addAttribute("comm", communityService.getCommunityDetail(vo));
+		
+		return "redirect:/community/communityWrite.do?board_no="+board_no;
 	}
 	
-	// community list (all, my)
+	// community list 
 	@RequestMapping("/community.do")
 	public void getCommunityList(Model model,CommunityVO vo, String searchOption, String searchKeyword) {
 		List<CommunityVO> list = null;
@@ -64,15 +65,11 @@ public class CommunityController {
 			map.put("searchOption", searchOption);
 			map.put("searchKeyword", searchKeyword);
 			list = communityService.getIdCommunityList(map);
-//		} else if (vo.getT_content() != null){
-//			list = communityService.getIdCommunityList(vo);
-	//		list = communityService.getHashTagCommunityList(vo);
 		} else if (vo.getId() != null) {
 			list = communityService.getMyCommunityList(vo);
 		} else {
 			list = communityService.getCommunityList(vo.getUserId());
 		}
-		
 		htlist = communityService.getHashTagList(vo.getBoard_no());
 		htTop = communityService.getHashTagTOP5();
 		model.addAttribute("htlist", htlist);
@@ -84,11 +81,15 @@ public class CommunityController {
 	@RequestMapping(value= {"/communityModify.do","/communityDetail.do"})
 	public void getCommunityDetail(CommunityVO vo, Model model) {
 		model.addAttribute("comm", communityService.getCommunityDetail(vo));
+		int board_no = vo.getBoard_no();
+		List<HashTagVO> ghtlist = null;
+		ghtlist = communityService.getHashTag(board_no);
+		model.addAttribute("ghtlist", ghtlist);
 	}
 	
 	// modify
 	@RequestMapping(value = "/updateCommunity.do")
-	public String updateCommunity(@ModelAttribute("community") CommunityVO vo) {
+	public String updateCommunity(@ModelAttribute("community") CommunityVO vo, Model model) {
 		communityService.updateCommunity(vo);
 		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
@@ -100,6 +101,18 @@ public class CommunityController {
 		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/insertTag.do")
+	public void boardtagInsert(HashTagVO vo) throws IOException{
+		communityService.boardtagInsert(vo);
+	}
+	
+	// delete
+	@ResponseBody
+	@RequestMapping(value = "/deleteTag.do")
+	public void deleteHashTag(HashTagVO vo) throws IOException{
+		communityService.deleteHashTag(vo);
+	}
 	
 	//reply
 	//reply get one
@@ -141,7 +154,6 @@ public class CommunityController {
 		return listRe;
 	}
 	
-	
 	//like
 	//click like
 	@RequestMapping(value="/like.do")
@@ -155,7 +167,6 @@ public class CommunityController {
 		communityService.deleteLike(vo);
 		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
-	
 	
 	
 	// announcement notification

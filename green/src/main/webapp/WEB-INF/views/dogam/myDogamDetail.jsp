@@ -8,12 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../../../resources/styles/myDogamDetail.css"rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/styles/font.css">
-<title>my동물도감 | 상세보기</title>
+<title>🌏my도감 | 상세보기</title>
 <style type="text/css">
 .tabs{
-	position: fixed;
-	left:14%;
-	top:15.5%;
+   position: fixed;
+   left:14%;
+   top:15.5%;
 }
 pre {
    width: 100%;
@@ -44,13 +44,13 @@ pre {
                         <div class="exp_now">레벨 ${detail.nowLv}</div>
                         
                         <c:if test= "${detail.nowLv<3}">
-							<div class="exp_end">레벨 ${detail.nowLv+1}</div>
-						</c:if>
-									
-						<c:if test= "${detail.nowLv eq 3}">
-							<div class="exp_end">만렙달성!</div>
-						</c:if>
-									
+                     <div class="exp_end">레벨 ${detail.nowLv+1}</div>
+                  </c:if>
+                           
+                  <c:if test= "${detail.nowLv eq 3}">
+                     <div class="exp_end">만렙달성!</div>
+                  </c:if>
+                           
                         </div>
                      </div>
                      <c:if test="${detail.do_name ne null}">
@@ -65,27 +65,32 @@ pre {
                      </div>
                      <c:if test="${detail.do_choice_YN eq 'N' && detail.nowLv ne 3}">
                         <div class="d-flex align-items-center justify-content-center">
-                       	 <a href="mainChoice.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 대표캐릭터 설정</a>
+                           <a href="mainChoice.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 대표캐릭터 설정</a>
                         </div>
                      </c:if>
                      
                      <c:if test="${detail.do_choice_YN eq 'Y'}">
                         <div class="d-flex align-items-center justify-content-center">
-                      		<a href="mainCancle.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 대표캐릭터 설정취소</a>
+                            <a href="mainCancle.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 대표캐릭터 설정취소</a>
                         </div>
                      </c:if>
                      
                      <c:if test="${detail.nowLv eq 3}">
-	                    <div class="d-flex justify-content-center">
-		                    <c:if test="${detail.do_name eq null}">
-		                    	<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 지어주기</a>
-		                    </c:if>
-		                    <c:if test="${detail.do_name ne null}">
-		                    	
-		                    	<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 바꾸기</a>
-		                    </c:if>
-		                    
-	                    </div>
+                       <div class="d-flex justify-content-center">
+                          <c:if test="${detail.do_name eq null}">
+                             <div class="d-flex justify-content-center">
+                             <a href="goods.do?do_no=${detail.do_no}&userId=${userId}" id="goods" class="btn btn-warning btn-hover-secondery"> 굿즈 신청</a>
+                             <a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 지어주기</a>
+                             </div>
+                          </c:if>
+                          <c:if test="${detail.do_name ne null}">
+                             <div class="d-flex justify-content-center">
+                             <a href="goods.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 굿즈 신청</a>
+                             <a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 바꾸기</a>
+                             </div>
+                          </c:if>
+                          
+                       </div>
                      </c:if>
                   </div>
                </div>
@@ -94,8 +99,8 @@ pre {
                <div class="card position-relative shadow border-0 h-70">
                   <div class="card-body pb-4">
                      <h3 class="text-black mt-5 mb-5 text-center fw-bold">멸종위기 동물 '${detail.do_title}'을 소개합니다.</h3>
- 						<pre class="text-start" style="line-height: 2rem">${detail.do_content}</pre>
-						<img class="col-12" src="/resources/imgs/dogam/${detail.do_realimg_addr}" /> 
+                   <pre class="text-start" style="line-height: 2rem">${detail.do_content}</pre>
+                  <img class="col-12" src="/resources/imgs/dogam/${detail.do_realimg_addr}" /> 
                   </div>
                   <div class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
                      <a href="dogam.do" class="btn btn-warning btn-hover-secondery text-capitalize">전체도감보기</a>

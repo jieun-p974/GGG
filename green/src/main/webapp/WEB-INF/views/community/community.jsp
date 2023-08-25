@@ -128,7 +128,7 @@
 														
 														<ul id="tag-list" class=" d-flex">
 															<c:forEach items="${htlist}" var="hashTag">
-																<c:if test="${community.board_no == hashTag.board_no}">
+																<c:if test="${(community.board_no == hashTag.board_no) && hashTag.t_content != null}">
 																	<li class="tag-item ms-2 list-unstyled">#${hashTag.t_content}</li>
 																</c:if>
 															</c:forEach>	
@@ -198,7 +198,7 @@
 								<div class="col-lg-12 mb-4 d-flex justify-content-around">
 									<a href="community.do?id=${userId}&userId=${userId}"class="btn btn-white-back btn-hover-third"style="padding: 15px">내 피드</a>
 									<a href="community.do?userId=${userId}" class="btn btn-white-back btn-hover-third" style="padding: 15px">전체 피드</a>
-									<a href="communityWrite.do" class="btn btn-white-back btn-hover-third" style="padding: 15px">글쓰기</a>
+									<a href="enterCommWrite.do?id=${userId}" class="btn btn-white-back btn-hover-third" style="padding: 15px">글쓰기</a>
 								</div>
 								<form action="community.do" class="search">
 									<div class="col-sm-12 mb-4 d-flex justify-content-around">

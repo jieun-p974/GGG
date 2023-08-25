@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function cancleWrite() {
-		location.href = "community.do?userId=${userId}"
+		location.href="deleteCommunity.do?board_no=${comm.board_no}&userId=${userId}"
 	}
 </script>
 <link rel="stylesheet" href="/resources/styles/font.css">
@@ -32,15 +33,18 @@
 					<div class="card-body">
 						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 							<%-- <form action="${contextPath}/board/itemUpload" method="post" enctype="multipart/form-data"> --%>
-							
-					<!-- 		action="save.do"	 -->
-							<form  method="post" enctype="multipart/form-data" class="row col-12">
+
+							<!-- 		action="save.do"	 -->
+							<form method="post" enctype="multipart/form-data" class="row col-12" action="updateCommunity.do?userId=${userId}">
+								<input type="hidden" name="id" value="${userId}" />
+								<input type="hidden" name="userId" value="${userId}" />
+								<input type="hidden" name="board_no" value="${comm.board_no}" />
 								<div class="editing">
 									<div class="chal_name col-12 mb-3 p-3">
 										<label for="b_content" class="col-12 mb-2 text-start">글 내용</label>
 										<textarea name="b_content" id="b_content" placeholder="글을입력하세요" class="form-control"></textarea>
 									</div>
-									
+
 
 									<div class="tr_hashTag_area">
 										<p>
@@ -58,8 +62,6 @@
 									</div>
 
 
-									<input type="hidden" name="id" value="${userId}" />
-									<input type="hidden" name="userId" value="${userId}" />
 									<div class="comm_img col-12 p-3">
 										<label for="comm_img" class="col-12 mb-1 text-start">사진 첨부하기1</label>
 										<input type="file" name="file1" onchange="readURL1(this)" class="col-12 mb-1 text-start">
@@ -76,7 +78,7 @@
 										<div id="previewDiv3" class="col-12 mb-1 text-start"></div>
 									</div>
 									<div class="d-flex justify-content-between p-3">
-										<button id="adding" type="submit" formaction="save.do" class="btn btn-white-back btn-hover-third">등록</button>
+										<button id="adding" type="submit" class="btn btn-white-back btn-hover-third">등록</button>
 										<button id="cancel" type="button" onclick="cancleWrite()" class="btn btn-white-back btn-hover-third">취소</button>
 									</div>
 								</div>
@@ -137,32 +139,30 @@
 			function addTag(value) {
 				tag[counter] = value;
 				counter++; // del-btn 의 고유 id 가 된다.
-				
 			}
-	
+
 			// tag 안에 있는 값을 array type 으로 만들어서 넘긴다.
 			function marginTag() {
-				return Object.values(tag).filter(
-						function(word) {
-							return word !== "";
+				return Object.values(tag).filter( function(word) {
+					return word !== "";
 				});
 			}
-	
+
 			// 서버에 제공
 			$("#tag-form").on("submit", function(e) {
 				var value = marginTag(); // return array
 				$("#rdTag").val(value);
 				$(this).submit();
 			});
-	
-			$("#tag").on("keypress",function(e) {
+
+			$("#tag").on("keypress", function(e) {
 				var self = $(this);
 
 				//엔터나 스페이스바 눌렀을때 실행
 				if (e.key === "Enter" || e.keyCode == 32) {
-
+					
 					var tagValue = self.val(); // 값 가져오기
-						
+
 					// 해시태그 값 없으면 실행X
 					if (tagValue !== "") {
 
@@ -173,7 +173,7 @@
 
 						// 해시태그가 중복되었는지 확인
 						if (result.length == 0) {
-							$("#tag-list").append("<li class='tag-item ms-2 list-unstyled'>   #" + tagValue + " <span class='del-btn' idx='" + counter + "'>❌</span></li>");
+							$("#tag-list").append("<li class='tag-item ms-2 list-unstyled'>   #"+ tagValue+ " <span class='del-btn' idx='" + counter + "'>❌</span></li>");
 							addTag(tagValue);
 							self.val("");
 						} else {
@@ -189,9 +189,9 @@
 			$(document).on("click", ".del-btn", function(e) {
 				var index = $(this).attr("idx");
 				tag[index] = "";
-					$(this).parent().remove();
-				});
+				$(this).parent().remove();
 			});
+		});
 	</script>
 </body>
 </html>

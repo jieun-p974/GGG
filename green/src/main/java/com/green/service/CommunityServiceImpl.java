@@ -25,6 +25,10 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.communityWrite(vo);
 	}
 	
+	public int getBoardNo() {
+		return communityDAO.getBoardNo();
+	}
+	
 	//get Community List
 	@Override
 	public List<CommunityVO> getCommunityList(String userId) {
@@ -127,10 +131,25 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 
 	@Override
+	public List<HashTagVO> getHashTag(int board_no) {
+		// TODO Auto-generated method stub
+		return communityDAO.getHashTag(board_no);
+	}
+
+	@Override
 	public List<HashTagVO> getHashTagTOP5() {
 		// TODO Auto-generated method stub
 		return communityDAO.getHashTagTOP5();
 	}
 	
+	@Override
+	public void boardtagInsert(HashTagVO vo) {
+		communityDAO.boardtagInsert(vo);
+	}
+
+	@Override
+	public void deleteHashTag(HashTagVO vo) {
+		communityDAO.deleteHashTag(vo);
+	}
 	
 }

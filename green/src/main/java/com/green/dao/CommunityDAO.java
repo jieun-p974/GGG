@@ -13,6 +13,8 @@ public interface CommunityDAO {
 	// 커뮤니티
 	public void communityWrite(CommunityVO vo);
 
+	public int getBoardNo();
+	
 	public CommunityVO getCommunityDetail(CommunityVO vo);
 
 	public void updateCommunity(CommunityVO vo);
@@ -46,6 +48,12 @@ public interface CommunityDAO {
 	public List<HashTagVO> getHashTagList(int board_no);
 
 	public List<HashTagVO> getHashTagTOP5();
+
+	public List<HashTagVO> getHashTag(int board_no);
+
+	public void boardtagInsert(HashTagVO vo);
+
+	public void deleteHashTag(HashTagVO vo);
 
 
 

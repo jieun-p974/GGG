@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -52,8 +51,7 @@
                      챌린지 성공으로 포인트를 얻어 동물을 키우는 등 보상이 가능하며, <br /> 어려울 때는 동료들과 소통하여 지속
                      가능한 행동을 지지합니다. <br /> 시작은 커피 텀블러 사용이나 다회용기 이용에서부터 가능합니다.
                   </p>
-                  <a href="../pay/challengePay.do?userId=${userId}"
-                     class="btn btn-warning btn-hover-secondery"> GGG와 함께 하기 </a>
+                  <a class="btn btn-warning btn-hover-secondery" onclick="goPay()"> GGG와 함께 하기 </a>
                </div>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -214,7 +212,7 @@
                class="col-xxl-12 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
                <p class="pricing-head text-black mb-0 position-relative fw-bold fs-3 mb-3">지금 바로 도전권을 구매하고, </p>
                <p class="pricing-head text-black mb-0 position-relative fw-bold fs-3 mb-5"> 지구를 지키는 챌린지에 참여해보세요</p>
-         <a href="../pay/challengePay.do?userId=${userId}" class="btn btn-warning btn-hover-secondery text-capitalize mt-5">도전권 결제</a>
+         <a  class="btn btn-warning btn-hover-secondery text-capitalize mt-5" onclick="goPay()">도전권 결제</a>
          </div>
          <div class="row justify-content-center price-plan">
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
@@ -294,14 +292,15 @@
    <a href="#" class="top"><img class="top-img" alt="top button" src="/resources/imgs/up.png"></a>
    <%@include file="WEB-INF/views/layouts/footer.jsp"%>
    <script type="text/javascript">
+   
    function goPay(){
-
       if(${userTryNum >0 && userTryNum<999}){
          alert("잔여 도전권이 남아있습니다!");
       }else if(${sysYear < dogeonGigan && userTryNum==999}){
          alert("유효기간이 지나지 않았습니다!");
+         //location.href="index.do";
       }else{
-         location.href="../pay/challengePay.do?userId=${userId}";
+         location.href="../pay/challengePay.do?userId=${userId}"; 
       }
       
    }
