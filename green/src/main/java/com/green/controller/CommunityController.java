@@ -1,6 +1,7 @@
 package com.green.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,15 +34,12 @@ public class CommunityController {
 	@Autowired
 	private NotificationService notificationService;
 	
-	
-	
 	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
 		System.out.println("community"+url);
 		return "/community/"+url;
 	}
-	
 	
 	//community
 	// community insert
@@ -146,6 +144,19 @@ public class CommunityController {
 	@RequestMapping(value="/saveNoti.do")
 	public String notificationInsert(NotificationVO vo) throws IOException{
 		notificationService.insertNotification(vo);
+		List<String> memList = notificationService.getAllMem();
+
+		int ann_no = notificationService.getAnnNo();
+		
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String,Object>>();
+		for(String s:memList) {
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("id", s);
+			map.put("ann_no", ann_no);
+			list.add(map);
+		}
+		notificationService.annCheckInsert(list);
+		
 		return "redirect:/community/notificationList.do";
 	}
 	

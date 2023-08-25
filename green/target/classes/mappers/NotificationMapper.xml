@@ -3,10 +3,28 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NotificationDAO">
 
-	<!-- insert community -->
+	<!-- insert announcement -->
 	<insert id="notificationWrite" parameterType="noti">
 		INSERT INTO announcement (id, ann_title, ann_content)
 		VALUES(#{id}, #{ann_title}, #{ann_content})
+	</insert>
+	
+	<!-- select ann_no -->
+	<select id="getAnnNo" resultType="int">
+		SELECT MAX(ann_no) FROM announcement 
+	</select>
+	
+	<!-- select all member -->
+	<select id="getAllMem" resultType="string">
+		SELECT id FROM member WHERE mem_type_no = 1
+	</select>
+	
+	<!-- insert ann_check -->
+	<insert id="annCheckInsert" parameterType="hashmap">
+		INSERT INTO ann_check (id, ann_no) VALUES 
+		<foreach collection="list" item="item" separator=",">
+		(#{item.id}, #{item.ann_no})
+		</foreach>
 	</insert>
 	
 	<!-- show all list -->
@@ -32,5 +50,14 @@
 		DELETE FROM announcement WHERE ann_no = #{ann_no}
 	</delete>
 	
+	<!-- 읽은 공지 삭제 -->
+	<delete id="deleteReadNoti">
+		DELETE FROM ann_check WHERE ann_ck_no = #{ann_ck_no}
+	</delete>
+	
+	<!-- 안읽은 공지 조회 -->
+	<select id="getUnreadNoti" resultType="hashmap">
+		SELECT * FROM ann_check c,announcement a WHERE c.ann_no = a.ann_no AND c.id = #{id}
+	</select>
 	
 </mapper>

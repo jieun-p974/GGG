@@ -6,15 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../../../resources/styles/notification.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/styles/font.css">
-<script type="text/javascript">
-	function cancleWrite() {
-		location.href = "notificationList.do"
-	}
-</script>
 <title>공지작성</title>
 </head>
 <body>
-<%@include file= "../layouts/header.jsp"%>
+<%@include file= "../layouts/adminHeader.jsp"%>
 <section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row">
@@ -27,9 +22,9 @@
 				<div class="card border-0 shadow">
 					<div class="card-body">
 						<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-							<form action="saveNoti.do" method="post" enctype="multipart/form-data" class="row col-12">
+							<form action="saveNoti.do" method="post" enctype="multipart/form-data" id="here" class="row col-12">
 								<div class="noti_write col-12 mb-3 p-3">
-									<input type="hidden" name="id" value="${userId}" />
+									<input type="hidden" name="id" id="id" value="${userId}" />
 									<label for="ann_title" class="col-12 mb-1 text-start">공지 제목</label>
 									<input type="text" name="ann_title" id="ann_title" class="form-control" placeholder="공지  제목을 작성해주세요.">
 								</div>
@@ -38,7 +33,7 @@
 									<textarea class="form-control" name="ann_content" id="ann_content" autofocus="autofocus" placeholder="공지  내용을 입력해주세요."></textarea>
 								</div>
 								<div class="buttons d-flex justify-content-between mb-5 p-3">
-									<button class="btn btn-white-back btn-hover-third" id="adding" type="submit">등록</button>
+									<button class="btn btn-white-back btn-hover-third" id="adding" type="button">등록</button>
 									<button class="btn btn-white-back btn-hover-third" id="cancel" type="button" onclick="cancleWrite()">취소</button>
 								</div>
 							</form>
@@ -49,5 +44,10 @@
 		</div>
 	</section>
 <%@include file="../layouts/footer.jsp"%>
+<script type="text/javascript">
+	function cancleWrite() {
+		location.href = "notificationList.do"
+	}
+</script>
 </body>
 </html>

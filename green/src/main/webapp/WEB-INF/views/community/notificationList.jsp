@@ -10,11 +10,11 @@
 </head>
 <body>
 	<%@include file="../layouts/adminHeader.jsp"%>
-	<section class="service position-relative overflow-hidden">
+	<section class="service position-relative overflow-hidden mt-5">
 		<div class="container position-relative">
 			<img src="/resources/imgs/service/dot-shape.png"
 				class="shape position-absolute">
-			<div class="row">
+			<div class="row mt-5">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
 					<h2 class="text-black mb-0 mt-5 mb-3">공지 관리 페이지</h2>
@@ -42,10 +42,11 @@
 								</thead>
 								<c:forEach items="${listNO}" var="noti" varStatus="noti2">
 									<tbody>
-										<td>${listNO.size()-noti2.index}</td>
-										<td>${noti.id}</td>
-										<td>${noti.ann_date}</td>
-										<td>${noti.ann_title}</td>
+										
+										<td><a href="notificationDetail.do?ann_no=${noti.ann_no}">${listNO.size()-noti2.index}</a></td>
+										<td><a href="notificationDetail.do?ann_no=${noti.ann_no}">${noti.id}</a></td>
+										<td><a href="notificationDetail.do?ann_no=${noti.ann_no}">${noti.ann_date}</a></td>
+										<td><a href="notificationDetail.do?ann_no=${noti.ann_no}">${noti.ann_title}</a></td>
 										<td><a class="btn btn-warning btn-hover-secondery"
 											href="notificationModify.do?ann_no=${noti.ann_no}"> 수정 </a></td>
 										<td><a class="btn btn-warning btn-hover-secondery"

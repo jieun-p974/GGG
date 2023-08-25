@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,21 @@ public class NotificationServiceImpl implements NotificationService{
 		public void insertNotification(NotificationVO vo) {
 			// TODO Auto-generated method stub
 			notificationDAO.notificationWrite(vo);
+		}
+		
+		@Override
+		public int getAnnNo(){
+			return notificationDAO.getAnnNo();
+		}
+		
+		@Override
+		public List<String> getAllMem(){
+			return notificationDAO.getAllMem();
+		}
+		
+		@Override
+		public void annCheckInsert(List<HashMap<String, Object>> list) {
+			notificationDAO.annCheckInsert(list);
 		}
 		
 		//get Community List
@@ -43,8 +59,15 @@ public class NotificationServiceImpl implements NotificationService{
 			// TODO Auto-generated method stub
 			notificationDAO.deleteNotification(vo);
 		}
-		
-		
-		
+
+		@Override
+		public void deleteReadNoti(NotificationVO vo) {
+			notificationDAO.deleteReadNoti(vo);
+		}
+
+		@Override
+		public List<HashMap<String, Object>> getUnreadNoti(String id) {
+			return notificationDAO.getUnreadNoti(id);
+		}
 }
 	
