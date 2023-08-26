@@ -61,8 +61,8 @@ public class NotificationServiceImpl implements NotificationService{
 		}
 
 		@Override
-		public void deleteReadNoti(NotificationVO vo) {
-			notificationDAO.deleteReadNoti(vo);
+		public void deleteReadNoti(int ann_ck_no) {
+			notificationDAO.deleteReadNoti(ann_ck_no);
 		}
 
 		@Override

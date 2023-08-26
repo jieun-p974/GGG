@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
-<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- <script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script> -->
 <!-- <script src="/resources/js/jquery.min.js"></script> -->
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -59,10 +59,49 @@
 .ddd:hover{
    cursor: pointer;
 }
-
 </style>
+<script type="text/javascript">
+$(function(){
+	var id = $("#id").val();
+	if(typeof id == "undefined" || id == null || id == ""){
+	}else{
+		$.ajax({
+			type:"get",
+			url:"../noti/notiCount.do",
+			data: {
+				id: '<%=userId%>'
+			}, success:function(rs){
+				if(rs.length > 1){
+					for(var i = 0; i < rs.length; i++){
+						console.log(rs);
+						$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ann_ck_no+'&ann_no='+rs[i].ann_no+'">'+rs[i].writer+' : '+rs[i].ann_title+'</a></li>')
+						if(i < rs.length-1){
+							$('#notis').append('<li><hr></li>');
+						}
+					}
+					$('#bell').append(rs.length);
+				}else if(rs.length == 1 && rs[0].unread == 0){
+					$('#bell').remove();
+					$('#notis').remove();
+				}else{
+					for(var i = 0; i < rs.length; i++){
+						console.log(rs);
+						$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ann_ck_no+'&ann_no='+rs[i].ann_no+'">'+rs[i].writer+' : '+rs[i].ann_title+'</a></li>')
+						if(i < rs.length-1){
+							$('#notis').append('<li><hr></li>');
+						}
+					}
+					$('#bell').append(rs.length);
+				}
+				
+			}, error:function(){
+				alert("에러발생");
+			}
+		}); 
+	}
+});
+</script>
 </head>
-
 <body>
    <header class="main-header position-fixed w-100">
       <div class="container">
@@ -78,8 +117,14 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav me-auto">
-                  <li class="nav-item">
-                     <a class="nav-link text-capitalize" aria-current="page" href="../community/community.do?userId=${userId}">그린커뮤니티</a>
+                  <li class="nav-item me-5"><a href="#">커뮤니티</a>
+                  	<ul class="depth_c p-4">
+                  		<li><a class="nav-link text-capitalize" aria-current="page" href="../community/community.do?userId=${userId}">그린커뮤니티</a></li>
+                  		<li><hr></li>
+                  		<li><a class="nav-link text-capitalize" aria-current="page" href="../community/notificationListUser.do?userId=${userId}">공지</a></li>
+                  		<li><hr></li>
+                  		<li><a class="nav-link text-capitalize" href="../news/newsList.do">뉴스 </a></li>
+                  	</ul>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link text-capitalize" href="../challenge/challengeList.do">챌린지</a>
@@ -89,9 +134,6 @@
                   </li>
                   <li class="nav-item">
                      <a class="nav-link text-capitalize" href="../dogam/dogam.do">도감</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link text-capitalize" href="../news/newsList.do">뉴스 </a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link text-capitalize" href="../member/map.do">제로웨이스트샵 </a>
@@ -114,41 +156,31 @@
                   <div class="d-flex align-items-center ddd">
                      <!-- 여기에 프로필 사진이랑 이름 띄우고 클릭하면 모달로 마이페이지 로그아웃 뜨게 -->
                      <c:if test="${userType == 1}">
-                        <%-- <div class="btn-group">
-                           <a class="pBtn d-flex align-items-center me-3 dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="box-shadow: none;">
-                              <img class="profile_img me-1" alt="프로필 사진" src="/resources/imgs/member/${userImgAddr}">
-                              <p class="m-0" style="font-size:17px;"><%= userName %></p>
-                           </a>
-                            <div class="dropdown-menu" style="font-size:17px">
-                                  <div class="row">
-                                     <div class="mInfo">
-                                        <img class="profile_img2 me-1" alt="프로필 사진" src="/resources/imgs/member/${userImgAddr}">
-                                    <p class="m-0" style="font-size:17px;"><%= userName %></p>
-                                     </div>
-                                 <hr class="dropdown-divider ms-4" style="width:260px;">
-                                     <div class="btns d-flex justify-content-between">
-                                    <a class="btn btnss" href="../member/mypage.do?id=${userId }">마이페이지</a>
-                                    <a class="btn btnss" href="../member/logout.do">로그아웃</a>
-                                     </div>
-                                  </div>
-                                </div>
-                        </div> --%>
                         <ul class="menu">
                            <li><a class="pBtn d-flex align-items-center me-3 dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="box-shadow: none;">
                               <img class="profile_img me-1" alt="프로필 사진" src="/resources/imgs/member/${userImgAddr}">
                               <p class="m-0" style="font-size:17px;"><%= userName %></p>
                            </a>
-                            <ul class="depth_1 p-2 text-center">
+                            <ul class="depth_1 p-2 text-center navbar-nav">
                                   <li><img class="profile_img2 me-1 mt-3" alt="프로필 사진" src="/resources/imgs/member/${userImgAddr}"></li>
                               <li><p class="m-0 mt-2" style="font-size:17px;"><%= userName %></p></li>
                                   <li>
                                      <hr>
                                      <div class="btns d-flex justify-content-between mb-3">
-                                    <a class="btn btnss text-black" href="../member/mypage.do?id=${userId }">마이페이지</a>
-                                    <a class="btn btnss text-black" href="../member/logout.do">로그아웃</a>
+                                     <input type="hidden" id="id" value="${userId}"/>
+                                    <a class="btn btn-white-back2 btn-hover-secondery" href="../member/mypage.do?id=${userId }">마이페이지</a>
+                                    <a class="btn btn-white-back2 btn-hover-secondery" href="../member/logout.do">로그아웃</a>
                                      </div>
                                   </li>
                                 </ul>
+                              </li>
+                              <li class="nav-item">
+                              	<div class="pt-4 pb-4">
+								    <img class="profile_img position-relative" alt="종" src="/resources/imgs/bell.png">
+								</div>
+                              	<div id="bell" class="position-absolute text-center"></div>
+                              	<ul class="depth_1_1 p-4" id="notis">
+                              	</ul>
                               </li>
                         </ul>
                      </c:if>
@@ -212,7 +244,7 @@
             </c:if>
             <c:if test="${userId eq null}">
                <div class="d-flex align-items-center">
-                  <a class="btn btn-warning btn-hover-secondery text-capitalize " href="../member/login.do">로그인</a>
+                  <button class="btn btn-warning btn-hover-secondery text-capitalize " href="../member/login.do">로그인</button>
                </div>
             </c:if>
          </div>

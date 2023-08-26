@@ -23,7 +23,7 @@ public interface NotificationDAO {
 	
 	public NotificationVO getNotificationDetail(NotificationVO vo);
 	
-	public void deleteReadNoti(NotificationVO vo);
+	public void deleteReadNoti(int ann_ck_no);
 	
 	public List<HashMap<String, Object>> getUnreadNoti(String id); 
 }

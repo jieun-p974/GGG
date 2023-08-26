@@ -30,7 +30,7 @@ public interface NotificationService {
 	//delete
 	void deleteNotification(NotificationVO vo);
 
-	void deleteReadNoti(NotificationVO vo);
+	void deleteReadNoti(int ann_ck_no);
 	
 	List<HashMap<String, Object>> getUnreadNoti(String id);
 }

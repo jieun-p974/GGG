@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +16,12 @@
 <title>공지 확인</title>
 </head>
 <body>
-<%@include file= "../layouts/adminHeader.jsp"%>
+   <c:if test="${sessionScope.userType == 1}">
+      <%@include file="../layouts/header.jsp"%>
+   </c:if>
+   <c:if test="${sessionScope.userType == 2}">
+      <%@include file="../layouts/adminHeader.jsp"%>
+   </c:if>
 <section class="pricing position-relative overflow-hidden">
 	<div class="container position-relative">
 		<div class="row">
@@ -42,6 +49,18 @@
 						</div>
 					</div>
 				</div>
+				<c:if test="${sessionScope.userType == 1}">
+					<div class="d-flex justify-content-between p-3">
+                        <div></div>
+                        <a href="/community/communityListUser.do" class="btn btn-white-back btn-hover-third">목록보기</a>
+                     </div>
+			    </c:if>
+			    <c:if test="${sessionScope.userType == 2}">
+			    	<div class="d-flex justify-content-between p-3">
+                        <div></div>
+                        <a href="/community/communityList.do" class="btn btn-white-back btn-hover-third">목록보기</a>
+                     </div>
+			    </c:if>
 			</div>
 		</div>
 	</div>

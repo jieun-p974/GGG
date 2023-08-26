@@ -161,7 +161,7 @@ public class CommunityController {
 	}
 	
 	// notification list 
-	@RequestMapping("/notificationList.do")
+	@RequestMapping(value= {"/notificationList.do","/notificationListUser.do"})
 	public void getNotificationList(Model model) {
 		List<NotificationVO> listNO = null;
 		listNO = notificationService.getNotificationList();

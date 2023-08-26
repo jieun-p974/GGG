@@ -27,12 +27,11 @@ a {
 }
 
 .menu>li:hover .depth_1 {
-	width:350px;
-	height:215px;
+	width: 350px;
 	display: block;
 	background: rgb(252, 252, 252);
-	border-radius:10px;
-	box-shadow:5px 5px 10px -5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px -5px;
 }
 
 .menu .depth_1 {
@@ -46,19 +45,46 @@ a {
 .menu .depth_1 a {
 	display: block;
 	background: none;
-	
 }
-.depth_1>li>div>a:hover{
-	color:#445C4C;
+.depth_1>li>div>a:hover {
+	color: #445C4C;
+}
+
+
+.navbar-nav>li {
+	position: relative;
+}
+
+.navbar-nav>li:hover .depth_c {
+	width: 200px;
+	display: block;
+	background: rgb(252, 252, 252);
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px -5px;
+}
+
+.navbar-nav .depth_c {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: left;
+}
+
+.navbar-nav .depth_c a {
+	display: block;
+	background: none;
+}
+.depth_c>li>div>a:hover {
+	color: #445C4C;
 }
 
 .navbar-nav>li:hover .depth_2 {
-	width:350px;
-	height:320px;
+	width: 350px;
 	display: block;
 	background: rgb(252, 252, 252);
-	border-radius:10px;
-	box-shadow:5px 5px 10px -5px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px -5px;
 }
 
 .navbar-nav .depth_2 {
@@ -72,8 +98,40 @@ a {
 .navbar-nav .depth_2 a {
 	display: block;
 	background: none;
-	
 }
-.depth_2>li>div>a:hover{
-	color:#445C4C;
+
+.depth_2>li>div>a:hover {
+	color: #445C4C;
+}
+
+#bell {
+	top: 25px;
+	left: 30px;
+	width: 20px;
+	height: 20px;
+	background: red;
+	color:#fff;
+	border-radius: 50%;
+	padding:auto;
+	margin:auto;
+}
+
+.menu>li:hover .depth_1_1 {
+	width: 350px;
+	display: block;
+	background: rgb(252, 252, 252);
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px -5px;
+}
+
+.menu .depth_1_1 {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+.menu .depth_1_1 a {
+	display: block;
+	padding: 5px;
 }

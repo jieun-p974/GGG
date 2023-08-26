@@ -51,13 +51,13 @@
 	</delete>
 	
 	<!-- 읽은 공지 삭제 -->
-	<delete id="deleteReadNoti">
+	<delete id="deleteReadNoti" parameterType="int">
 		DELETE FROM ann_check WHERE ann_ck_no = #{ann_ck_no}
 	</delete>
 	
 	<!-- 안읽은 공지 조회 -->
 	<select id="getUnreadNoti" resultType="hashmap">
-		SELECT * FROM ann_check c,announcement a WHERE c.ann_no = a.ann_no AND c.id = #{id}
+		SELECT ann_ck_no, a.id AS writer, a.ann_no, ann_date, ann_title, ann_content FROM ann_check c,announcement a WHERE c.ann_no = a.ann_no AND c.id = #{id}
 	</select>
 	
 </mapper>

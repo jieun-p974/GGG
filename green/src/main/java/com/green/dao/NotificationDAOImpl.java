@@ -61,9 +61,9 @@ public class NotificationDAOImpl implements NotificationDAO {
 	}
 
 	@Override
-	public void deleteReadNoti(NotificationVO vo) {
+	public void deleteReadNoti(int ann_ck_no) {
 		System.out.println("Mybatis=> delete read notification");
-		mybatis.delete("NotificationDAO.deleteReadNoti",vo);
+		mybatis.delete("NotificationDAO.deleteReadNoti",ann_ck_no);
 	}
 	
 	@Override
