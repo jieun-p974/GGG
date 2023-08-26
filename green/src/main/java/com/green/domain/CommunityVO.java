@@ -33,16 +33,11 @@ public class CommunityVO {
 	private String b_img3_addr;
 	
 	private String m_img_addr;
-	private int com_no;
-	private String com_content;
 	private int like_no;
 	private int likecnt;
 	private int replycnt;
 	private int likechk;
 	private String userId;
-	private int hashtag_no;
-	private int b_t_no;
-	private String t_content;
 	
 	MultipartFile file1; 
 	MultipartFile file2;
@@ -51,7 +46,6 @@ public class CommunityVO {
    public MultipartFile getFile1() {
       return file1;
    }
-
 
    public void setFile1(MultipartFile file1) {
       this.file1 = file1;
@@ -77,7 +71,6 @@ public class CommunityVO {
          }
       }
    }
-
 
    public MultipartFile getFile2() {
       return file2;
@@ -230,22 +223,6 @@ public class CommunityVO {
       this.b_img3 = b_img3;
    }
    
-   public String getCom_content() {
-      return com_content;
-   }
-
-   public void setCom_content(String com_content) {
-      this.com_content = com_content;
-   }
-   
-   public int getCom_no() {
-      return com_no;
-   }
-
-   public void setCom_no(int com_no) {
-      this.com_no = com_no;
-   }
-   
    public int getLike_no() {
       return like_no;
    }
@@ -286,28 +263,5 @@ public class CommunityVO {
       this.userId = userId;
    }
 
-	public int getHashtag_no() {
-		return hashtag_no;
-	}
-
-	public void setHashtag_no(int hashtag_no) {
-		this.hashtag_no = hashtag_no;
-	}
-
-	public int getB_t_no() {
-		return b_t_no;
-	}
-
-	public void setB_t_no(int b_t_no) {
-		this.b_t_no = b_t_no;
-	}
-
-	public String getT_content() {
-		return t_content;
-	}
-
-	public void setT_content(String t_content) {
-		this.t_content = t_content;
-	}
 
 }

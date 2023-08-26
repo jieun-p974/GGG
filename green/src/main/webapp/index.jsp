@@ -186,7 +186,6 @@
                   <div class="card-body" style="z-index: 1;">
                      <div
                         class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-
                         <img class="img-fluid" src="/resources/imgs/main_animal.png" style="width:50%"
                         >
                      </div>
@@ -308,6 +307,5 @@
       
    }
    </script>
-
 </body>
 </html>

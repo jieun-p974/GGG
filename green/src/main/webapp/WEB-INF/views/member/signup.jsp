@@ -359,9 +359,6 @@
 			    }).open();    
 			 
 			}
-		  
-
-		
 	</script>
 </body>
 </html>

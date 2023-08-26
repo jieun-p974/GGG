@@ -12,6 +12,9 @@
 	type="text/css">
 <link rel="stylesheet" href="/resources/styles/font.css">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> refs/remotes/origin/seul
 <title>도감 사진추가</title>
 =======
 <title>관리자 | 도감 관리</title>

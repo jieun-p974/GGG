@@ -1,52 +1,60 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
+import com.green.domain.HashTagVO;
 import com.green.domain.HeartVO;
 import com.green.domain.ReplyVO;
 
 public interface CommunityService {
 	
-	// community
-	//community insert
-	void insertCommunity(CommunityVO vo);
-	
-	//community list
+	// 커뮤니티 Community
 	List<CommunityVO> getCommunityList(String userId);
 	
-	//get one
+	List<CommunityVO> getSearchCommunityList(HashMap map);
+	
+	List<CommunityVO> getMyCommunityList(CommunityVO vo);
+
+	void insertCommunity(CommunityVO vo);
+	
+	int getBoardNo();
+	
 	CommunityVO getCommunityDetail(CommunityVO vo);
 	
-	//modify
 	void updateCommunity(CommunityVO vo);
-
-	//delete
+	
 	void deleteCommunity(CommunityVO vo);
 
-	//my Community
-	List<CommunityVO> getMyCommunityList(CommunityVO vo);
+	// 해시태그 HashTag
+	List<HashTagVO> getHashTagList(int board_no);
 	
-	// reply
-	//reply insert
-	void insertReply(ReplyVO vo);
+	List<HashTagVO> getHashTagTOP5();
+	
+	List<HashTagVO> getHashTag(int board_no);
+	
+	void boardtagInsert(HashTagVO vo);
+	
+	void deleteHashTag(HashTagVO vo);
 
-	//reply list
+	// 댓글 Reply
 	List<ReplyVO> getReplyList(int board_no);
+
+	void insertReply(ReplyVO vo);
 	
-	void deleteReply(ReplyVO vo);
+	ReplyVO getReplyDetail(ReplyVO vo);
 
 	void updateReply(ReplyVO vo);
 	
-	ReplyVO getReplyDetail(ReplyVO vo);
+	void deleteReply(ReplyVO vo);
 	
-	// like
+	// 좋아요 Like
 	void insertLike(HeartVO vo);
 	
 	void deleteLike(HeartVO vo);
 
 
-	
-	
+
 
 }

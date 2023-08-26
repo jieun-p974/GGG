@@ -219,17 +219,13 @@ public class DogamVO {
 		this.lv_img = lv_img;
 	}
 	
-	
-	
-public int getGoods_no() {
+	public int getGoods_no() {
 		return goods_no;
 	}
 
 	public void setGoods_no(int goods_no) {
 		this.goods_no = goods_no;
 	}
-
-
 
 	//*************************************************
 	MultipartFile file; // write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�

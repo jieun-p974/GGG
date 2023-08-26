@@ -11,7 +11,9 @@
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+<!-- 
 <script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+ -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/dropDown.css">

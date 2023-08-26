@@ -77,6 +77,7 @@ var msg= "<c:out value='${msg}' />"
                               <p class="fs-4">Lv ${mydogam.nowLv}</p>
                            </c:if>
                            <c:if test="${mydogam.nowLv eq 3 && mydogam.do_name ne null}">
+<<<<<<< HEAD
                               <p class="fs-6">${userId}님의   ${mydogam.do_name}</p>
                            </c:if>
                            <c:if test="${mydogam.nowLv eq 3 && mydogam.goods_no eq 1}">
@@ -85,6 +86,15 @@ var msg= "<c:out value='${msg}' />"
                             <c:if test="${mydogam.nowLv eq 3 && mydogam.do_name eq null}">
                               <p>  ${mydogam.do_title}가 모두 자랐어요. <br/>
                                        멋진 이름을 지어주세요.
+=======
+                              <p>${userId}님의
+                                 ${mydogam.do_name}는<br /> 모두 자랐어요!
+>>>>>>> refs/remotes/origin/seul
+                              </p>
+                           </c:if>
+                            <c:if test="${mydogam.nowLv eq 3 && mydogam.do_name eq null}">
+                              <p>  ${mydogam.do_title}가 모두 자랐어요. <br/>
+                                  	멋진 이름을 지어주세요.
                               </p>
                            </c:if>
                         </a>
@@ -99,7 +109,10 @@ var msg= "<c:out value='${msg}' />"
 =======
       
          <c:if test="${nCount eq count}">
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/gaeun
+=======
+>>>>>>> refs/remotes/origin/seul
          <div class="pickme align-items-center mt-3" >
                <img src="../resources/imgs/pickme.png">
             <div class="mb-3">

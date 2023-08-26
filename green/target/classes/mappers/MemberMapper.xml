@@ -13,7 +13,7 @@
       </if>
    </select>
 
-	<!-- sign up -->
+     <!-- sign up -->
    <insert id="memberInsert" parameterType="member">
       insert into member (id, password, name, email
       <if test= 'tel != null'>, tel </if>

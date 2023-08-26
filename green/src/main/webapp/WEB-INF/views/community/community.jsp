@@ -63,147 +63,169 @@
    color: #000000;
    background-color: #ffffff;
 }
+
+.tag-top {
+	line-height: 1.3;
+    font-size: 1.3rem;
+}
+
 </style>
 <title>그린 커뮤니티</title>
 </head>
 <body>
-   <c:if test="${sessionScope.userType == 1}">
-      <%@include file="../layouts/header.jsp"%>
-   </c:if>
-   <c:if test="${sessionScope.userType == 2}">
-      <%@include file="../layouts/adminHeader.jsp"%>
-   </c:if>
-   <section class="pricing position-relative overflow-hidden">
-      <div class="container position-relative">
-         <div class="row justify-content-center">
-            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
-               <div class="card position-relative shadow border-0 h-100 col-xxl-11 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
-                  <div class="col-xxl-12 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 d-flex justify-content-center">
-                     <div class="col-xxl-11 col-xl-11 col-lg-11 col-md-6 col-sm-6 col-12">
-                        <!-- DB board -->
-                        <c:forEach items="${list}" var="community">
-                           <ul class="list-unstyled mt-5">
-                              <li class="media d-flex justify-content-between">
-                                 <div class=" col-2 ">
-                                    <div class="d-flex justify-content-around align-items-end p-3">
-                                       <c:if test="${sessionScope.userId == community.id}">
-                                          <a href="communityModify.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 15px;">수정</a>
-                                       </c:if>
-                                       <c:if test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
-                                          <a href="deleteCommunity.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 15px;">삭제</a>
-                                       </c:if>
-                                    </div>
-                                    <div class="profile-picture justify-content-center d-flex p-3">
-                                       <img class="p_img " src="/resources/imgs/member/${community.m_img_addr}">
-                                    </div>
-                                 </div>
-                                 <div class="media-body col-10 ">
-                                    <div class="row">
-                                       <div class="d-flex justify-content-between">
-                                          <div class="media-title mt-0 mb-1 col-8 fw-bold h4">@${community.id}</div>
-                                       </div>
-                                       <div>
-                                          <!-- 등록된 사진이 있을 시 출력 -->
-                                          <div class="b_img">
-                                             <c:if test="${community.b_img1_addr != null}">
-                                                <img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" />
-                                             </c:if>
-                                             <c:if test="${community.b_img2_addr != null}">
-                                                <img class="board_img" src="/resources/imgs/communityImg/${community.b_img2_addr}" />
-                                             </c:if>
-                                             <c:if test="${community.b_img3_addr != null}">
-                                                <img class="board_img" src="/resources/imgs/communityImg/${community.b_img3_addr}" />
-                                             </c:if>
-                                          </div>
-                                          <!-- 등록된 글 내용 -->
-                                          <pre class="writing p-3 mt-3"><c:out value="${community.b_content}" /></pre>
-                                       </div>
-                                    </div>
-                                    <hr style="margin: 0.5rem" />
-                                    <!-- 좋아요 버튼 -->
-                                    <div class="media-feed-control d-flex justify-content-end align-items-center" style="height: 1rem">
-
-                                       <c:if test="${community.likechk < 1}">
-                                          <div  class="icon_links d-flex me-2 heart hh">
-                                       </c:if>
-                                       <c:if test="${community.likechk > 0}">
-                                          <div  class="icon_links d-flex me-2 hearted hh">
-                                       </c:if>
-                                             <input type="hidden" id="iddd" name="id" value="${userId}" />
-                                             <input type="hidden" name="board_no" id="board_nod" value="${community.board_no}" />
-                                          </div>    
-                                       <input type="text" class="likecntd" name="likecnt" id="likecntd"  disabled value="${community.likecnt}" />
-                                       <!-- 댓글 버튼  -->
-                                       <input type="hidden" id="board_no" name="board_no" value="${community.board_no}" />
-                                       <button class="icon_links me-4 ms-3 p-0 d-flex showBtn" style="background: none; border: none;" id="showBtn">
-                                          <img class="sns_icon_comment me-1" src="/resources/imgs/comment.png" /> ${community.replycnt}
-                                       </button>
-                                       <!-- 공유 버튼 -->
-                                       <a href="#" class="icon_links">
-                                          <img class="sns_icon_share me-2 ms-2" src="/resources/imgs/share.png" />
-                                       </a>
-                                      </div>
-                                    <hr style="margin: 0.5rem" />
-                                    <!-- 댓글 달기 -->
-                                    <div class="media-body-reply-block comments">
-                                       <!-- 댓글작성 창 -->
-                                       <form action="reply.do?userId=${userId}" method="post">
-                                          <div class="replyWrite d-flex align-items-center">
-                                             <img class="r_img col-sm-0" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
-                                             <p class="reply_id col-2 m-0 ms-2">@${userId}</p>
-                                             <input type="hidden" id="idd" name="id" value="${userId}" />
-                                             <input type="hidden" name="board_no" value="${community.board_no}" />
-                                             <input type="hidden" id="usert" name="mem_type_no" value="${userType}" />
-                                             <input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
-                                             <button class="ms-4 btn btn-warning btn-hover-secondery text-capitalize " type="submit" style="padding: 15px;">댓글등록</button>
-                                          </div>
-                                       </form>
-                                       <hr style="margin: 0.5rem" />
-                                       <div class="listRe">
-                                          <div class="list" id="listRe">
-                                          <!-- 댓글 달리는 위치 -->
-
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                           </ul>
-                           <hr style="margin: 0.5rem" />
-                        </c:forEach>
-                     </div>
-                  </div>
-                  <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
-                     <div class="row justify-content-center mt-5">
-                        <div class="col-lg-12 mb-4 d-flex justify-content-around">
-                           <a href="community.do?id=${userId}&userId=${userId}"class="btn btn-white-back btn-hover-third"style="padding: 15px">내 피드</a>
-                           <a href="community.do?userId=${userId}" class="btn btn-white-back btn-hover-third" style="padding: 15px">전체 피드</a>
-                           <a href="communityWrite.do" class="btn btn-white-back btn-hover-third" style="padding: 15px">글쓰기</a>
-                        </div>
-                        <form action="community.do" class="search">
-                           <div class="col-sm-12 mb-4 d-flex justify-content-around">
-                              <select name="searchOption" class="searchOption">
-                                 <option value="id">ID</option>
-                                 <option value="hashTag">hashTag</option>
-                              </select>
-                              <input class="searchText col-7" type="text" name="id" placeholder=" 검색어 입력" id="autoComplete" />
-                              <input type="hidden" name="userId" value="${userId}" />
-                              <button class="btn btn-white-back btn-hover-third" style="padding: 15px">검색</button>
-                           </div>
-                        </form>
-                        <div class="col-sm-12">
-                           1위 #환경보호(100,200회)<br /> 2위 #제로웨이스트(50,123회)<br /> 3위
-                           #플로깅(10,500회)<br />
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <%@include file="../layouts/footer.jsp"%>
-   <script src="/resources/js/custom.js"></script>
-   <script src="/resources/js/community.js"></script>
+	<c:if test="${sessionScope.userType == 1}">
+		<%@include file="../layouts/header.jsp"%>
+	</c:if>
+	<c:if test="${sessionScope.userType == 2}">
+		<%@include file="../layouts/adminHeader.jsp"%>
+	</c:if>
+	<section class="pricing position-relative overflow-hidden">
+		<div class="container position-relative">
+			<div class="row justify-content-center">
+				<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
+					<div class="card position-relative shadow border-0 h-100 col-xxl-11 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+						<div class="col-xxl-12 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 d-flex justify-content-center">
+							<div class="col-xxl-11 col-xl-11 col-lg-11 col-md-6 col-sm-6 col-12">
+								<!-- DB board -->
+								<c:forEach items="${list}" var="community">
+									<ul class="list-unstyled mt-5">
+										<li class="media d-flex justify-content-between">
+											<div class=" col-2 ">
+												<div class="d-flex justify-content-around align-items-end p-3">
+													<c:if test="${sessionScope.userId == community.id}">
+														<a href="communityModify.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 15px;">수정</a>
+													</c:if>
+													<c:if test="${sessionScope.userId == community.id or sessionScope.userType == 2}">
+														<a href="deleteCommunity.do?board_no=${community.board_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery text-capitalize " style="padding: 15px;">삭제</a>
+													</c:if>
+												</div>
+												<div class="profile-picture justify-content-center d-flex p-3">
+													<img class="p_img " src="/resources/imgs/member/${community.m_img_addr}">
+												</div>
+											</div>
+											<div class="media-body col-10 ">
+												<div class="row">
+													<div class="d-flex justify-content-between">
+														<div class="media-title mt-0 mb-1 col-8 fw-bold h4">@${community.id}</div>
+													</div>
+													<div>
+														<!-- 등록된 사진이 있을 시 출력 -->
+														<div class="b_img">
+															<c:if test="${community.b_img1_addr != null}">
+																<img class="board_img" src="/resources/imgs/communityImg/${community.b_img1_addr}" />
+															</c:if>
+															<c:if test="${community.b_img2_addr != null}">
+																<img class="board_img" src="/resources/imgs/communityImg/${community.b_img2_addr}" />
+															</c:if>
+															<c:if test="${community.b_img3_addr != null}">
+																<img class="board_img" src="/resources/imgs/communityImg/${community.b_img3_addr}" />
+															</c:if>
+														</div>
+														<!-- 등록된 글 내용 -->
+														<pre class="writing p-3 mt-3" style="line-height: 1.2"><c:out value="${community.b_content}" /></pre>
+														
+														<ul id="tag-list" class=" d-flex">
+															<c:forEach items="${htlist}" var="hashTag">
+																<c:if test="${(community.board_no == hashTag.board_no) && hashTag.t_content != null}">
+																	<li class="tag-item ms-2 list-unstyled">#${hashTag.t_content}</li>
+																</c:if>
+															</c:forEach>	
+														</ul>
+														
+													</div>
+												</div>
+												<hr style="margin: 0.5rem" />
+												<!-- 좋아요 버튼 -->
+												<div class="media-feed-control d-flex justify-content-end align-items-center" style="height: 1rem">
+													<c:if test="${community.likechk < 1}">
+														<div  class="icon_links d-flex me-2 heart hh">
+															<input type="hidden" id="iddd" name="id" value="${userId}" />
+															<input type="hidden" name="board_no" id="board_nod" value="${community.board_no}" />
+														</div>	 
+													</c:if>
+													<c:if test="${community.likechk > 0}">
+														<div  class="icon_links d-flex me-2 hearted hh">
+															<input type="hidden" id="iddd" name="id" value="${userId}" />
+															<input type="hidden" name="board_no" id="board_nod" value="${community.board_no}" />
+														</div>	 
+													</c:if>
+													<input type="text" class="likecntd" name="likecnt" id="likecntd"  disabled value="${community.likecnt}" />
+													<!-- 댓글 버튼  -->
+													<input type="hidden" id="board_no" name="board_no" value="${community.board_no}" />
+													<button class="icon_links me-4 ms-3 p-0 d-flex showBtn" style="background: none; border: none;" id="showBtn">
+														<img class="sns_icon_comment me-1" src="/resources/imgs/comment.png" /> ${community.replycnt}
+													</button>
+													<!-- 공유 버튼 -->
+													<a href="#" class="icon_links">
+														<img class="sns_icon_share me-2 ms-2" src="/resources/imgs/share.png" />
+													</a>
+								  				</div>
+												<hr style="margin: 0.5rem" />
+												<!-- 댓글 달기 -->
+												<div class="media-body-reply-block comments">
+													<!-- 댓글작성 창 -->
+													<form action="reply.do?userId=${userId}" method="post">
+														<div class="replyWrite d-flex align-items-center">
+															<img class="r_img col-sm-0" src="/resources/imgs/member/${sessionScope.userImgAddr}" />
+															<p class="reply_id col-2 m-0 ms-2">@${userId}</p>
+															<input type="hidden" id="idd" name="id" value="${userId}" />
+															<input type="hidden" name="board_no" value="${community.board_no}" />
+															<input type="hidden" id="usert" name="mem_type_no" value="${userType}" />
+															<input name="com_content" class="com_content col-7" type="text" placeholder="댓글 입력">
+															<button class="ms-4 btn btn-warning btn-hover-secondery text-capitalize " type="submit" style="padding: 15px;">댓글등록</button>
+														</div>
+													</form>
+													<hr style="margin: 0.5rem" />
+													<div class="listRe">
+														<div class="list" id="listRe">
+														<!-- 댓글 달리는 위치 -->
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<hr style="margin: 0.5rem" />
+								</c:forEach>
+							</div>
+						</div>
+						<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12 tabs">
+							<div class="row justify-content-center mt-5">
+								<div class="col-lg-12 mb-4 d-flex justify-content-around">
+									<a href="community.do?id=${userId}&userId=${userId}"class="btn btn-white-back btn-hover-third"style="padding: 15px">내 피드</a>
+									<a href="community.do?userId=${userId}" class="btn btn-white-back btn-hover-third" style="padding: 15px">전체 피드</a>
+									<a href="enterCommWrite.do?id=${userId}" class="btn btn-white-back btn-hover-third" style="padding: 15px">글쓰기</a>
+								</div>
+								<form action="community.do" class="search">
+									<div class="col-sm-12 mb-4 d-flex justify-content-around">
+										<select name="searchOption" class="searchOption">
+											<option value="id">ID</option>
+											<option value="t_content">hashTag</option>
+										</select>
+										<input class="searchText col-7" type="text" name="searchKeyword" placeholder=" 검색어 입력" id="autoComplete" />
+										<input type="hidden" name="userId" value="${userId}" />
+										<button class="btn btn-white-back btn-hover-third" style="padding: 15px">검색</button>
+									</div>
+								</form>
+								<div class="col-sm-12">
+									<ul id="tag-list" class="htTop p-0">
+										<c:forEach items="${htTop}" var="htTop" varStatus="htTop2">
+											<li class="tag-top ms-2 list-unstyled d-flex justify-content-between col-7">
+												<div class="hashTag-content">${htTop2.index+1}위 &nbsp; #${htTop.t_content}</div>
+												<div class="hashTag-content">(${htTop.htcnt}회)</div>
+											</li>
+										</c:forEach>	
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<%@include file="../layouts/footer.jsp"%>
+<script src="/resources/js/custom.js"></script>
+<script src="/resources/js/community.js"></script>
 </body>
 </html>

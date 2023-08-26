@@ -155,4 +155,53 @@ $(".hh").each(function(index, element) {
             });
       }
    });
+<<<<<<< HEAD
 });
+=======
+});
+
+
+//1번 첨부파일 미리보기
+function readURL1(obj) {
+	let reader = new FileReader();
+	if (!obj.files.length) {
+		return;
+	}
+	reader.readAsDataURL(obj.files[0]);
+	reader.onload = function(e) {
+		let img = $('<img style="width:10%" class="previewImg"/>');
+		$(img).attr('src', e.target.result);
+		$("#previewDiv1").empty();
+		$('#previewDiv1').append(img);
+	}
+}
+//2번 첨부파일 미리보기
+function readURL2(obj) {
+	let reader = new FileReader();
+	if (!obj.files.length) {
+		return;
+	}
+	reader.readAsDataURL(obj.files[0]);
+	reader.onload = function(e) {
+		let img = $('<img style="width:10%" class="previewImg"/>');
+		$(img).attr('src', e.target.result);
+		$("#previewDiv2").empty();
+		$('#previewDiv2').append(img);
+	}
+}
+//3번 첨부파일 미리보기
+function readURL3(obj) {
+	let reader = new FileReader();
+	if (!obj.files.length) {
+		return;
+	}
+	reader.readAsDataURL(obj.files[0]);
+	reader.onload = function(e) {
+		let img = $('<img style="width:10%" class="previewImg"/>');
+		$(img).attr('src', e.target.result);
+		$("#previewDiv3").empty();
+		$('#previewDiv3').append(img);
+	}
+}
+  
+>>>>>>> refs/remotes/origin/seul

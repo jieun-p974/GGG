@@ -249,6 +249,5 @@ MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
    
 }
