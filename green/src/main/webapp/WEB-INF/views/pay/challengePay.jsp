@@ -25,7 +25,7 @@
    crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
-.payMethod {
+.payMethod { 
    margin: 10px;
    padding: 10px;
    text-align: center;
