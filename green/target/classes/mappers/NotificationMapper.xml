@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NotificationDAO">
+	
+	<!-- 공지 목록   Notification list -->
+	<select id="getNotificationList" resultType="noti">
+		SELECT * from announcement order by ann_no desc
+	</select>
 
-	<!-- insert community -->
+	<!-- 공지 작성   Notification insert -->
 	<insert id="notificationWrite" parameterType="noti">
 		INSERT INTO announcement (id, ann_title, ann_content)
 		VALUES(#{id}, #{ann_title}, #{ann_content})
 	</insert>
 	
-	<!-- show all list -->
-	<select id="getNotificationList" resultType="noti">
-		SELECT * from announcement order by ann_no desc
-	</select>
-	
-	<!-- select one Notification -->
+	<!-- 공지 하나   get one Notification -->
 	<select id="getNotificationDetail" parameterType="noti" resultType="noti">
 		SELECT * FROM announcement WHERE ann_no = #{ann_no}
 	</select>
 	
-	<!-- updateNotification -->
+	<!-- 공지 수정   Notification modify -->
 	<update id="updateNotification" parameterType="noti">
 		UPDATE announcement SET 
 		ann_title=#{ann_title},
@@ -27,10 +27,9 @@
 		WHERE ann_no = #{ann_no}
 	</update>
 	
-	<!-- deleteNotification -->
+	<!-- 공지 삭제   Notification delete -->
 	<delete id="deleteNotification" parameterType="noti">
 		DELETE FROM announcement WHERE ann_no = #{ann_no}
 	</delete>
-	
 	
 </mapper>

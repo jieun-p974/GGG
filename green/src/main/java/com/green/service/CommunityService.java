@@ -10,60 +10,50 @@ import com.green.domain.ReplyVO;
 
 public interface CommunityService {
 	
-	// community
-	//community insert
+	// 커뮤니티 Community
+	List<CommunityVO> getCommunityList(String userId);
+	
+	List<CommunityVO> getSearchCommunityList(HashMap map);
+	
+	List<CommunityVO> getMyCommunityList(CommunityVO vo);
+
 	void insertCommunity(CommunityVO vo);
 	
 	int getBoardNo();
 	
-	//community list
-	List<CommunityVO> getCommunityList(String userId);
-	
-	//get one
 	CommunityVO getCommunityDetail(CommunityVO vo);
 	
-	//modify
 	void updateCommunity(CommunityVO vo);
-
-	//delete
+	
 	void deleteCommunity(CommunityVO vo);
-	
-	//my Community
-	List<CommunityVO> getMyCommunityList(CommunityVO vo);
 
-	//id search Community
-	List<CommunityVO> getIdCommunityList(HashMap map);
+	// 해시태그 HashTag
+	List<HashTagVO> getHashTagList(int board_no);
 	
-	//hashTag search Community
-	List<CommunityVO> getHashTagCommunityList(CommunityVO vo);
+	List<HashTagVO> getHashTagTOP5();
 	
-	// reply
-	//reply insert
-	void insertReply(ReplyVO vo);
+	List<HashTagVO> getHashTag(int board_no);
+	
+	void boardtagInsert(HashTagVO vo);
+	
+	void deleteHashTag(HashTagVO vo);
 
-	//reply list
+	// 댓글 Reply
 	List<ReplyVO> getReplyList(int board_no);
+
+	void insertReply(ReplyVO vo);
 	
-	void deleteReply(ReplyVO vo);
+	ReplyVO getReplyDetail(ReplyVO vo);
 
 	void updateReply(ReplyVO vo);
 	
-	ReplyVO getReplyDetail(ReplyVO vo);
+	void deleteReply(ReplyVO vo);
 	
-	// like
+	// 좋아요 Like
 	void insertLike(HeartVO vo);
 	
 	void deleteLike(HeartVO vo);
 
-	List<HashTagVO> getHashTagList(int board_no);
-
-	List<HashTagVO> getHashTagTOP5();
-
-	List<HashTagVO> getHashTag(int board_no);
-
-	void boardtagInsert(HashTagVO vo);
-
-	void deleteHashTag(HashTagVO vo);
 
 
 

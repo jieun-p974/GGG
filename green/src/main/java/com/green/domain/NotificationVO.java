@@ -21,8 +21,6 @@ public class NotificationVO {
 
 	}
 
-
-
 	public int getAnn_no() {
 		return ann_no;
 	}

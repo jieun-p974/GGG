@@ -124,7 +124,7 @@
 															</c:if>
 														</div>
 														<!-- 등록된 글 내용 -->
-														<pre class="writing p-3 mt-3"><c:out value="${community.b_content}" /></pre>
+														<pre class="writing p-3 mt-3" style="line-height: 1.2"><c:out value="${community.b_content}" /></pre>
 														
 														<ul id="tag-list" class=" d-flex">
 															<c:forEach items="${htlist}" var="hashTag">
@@ -228,8 +228,8 @@
 			</div>
 		</div>
 	</section>
-	<%@include file="../layouts/footer.jsp"%>
-	<script src="/resources/js/custom.js"></script>
-	<script src="/resources/js/community.js"></script>
+<%@include file="../layouts/footer.jsp"%>
+<script src="/resources/js/custom.js"></script>
+<script src="/resources/js/community.js"></script>
 </body>
 </html>

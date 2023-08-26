@@ -2,22 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CommunityDAO">
-
-	<!-- insert community -->
-<!-- 	
-	<insert id="communityWrite" parameterType="community">
-		INSERT INTO board (id, b_content,b_img1,b_img1_addr,b_img2,b_img2_addr,b_img3,b_img3_addr)
-		VALUES(#{id}, #{b_content}, #{b_img1}, #{b_img1_addr}, #{b_img2}, #{b_img2_addr}, #{b_img3}, #{b_img3_addr})
-	</insert>
-	 -->
-	 <insert id="communityWrite" parameterType="community">
-		INSERT INTO board (id)
-		VALUES(#{id})
-	</insert>
-	<select id="getBoardNo" resultType="Integer">
-		SELECT MAX(board_no) from board
-	</select>
-	<!-- show all community list -->
+<!-- Community -->
+	<!-- Community List 게시글 전체 리스트  -->
 	<select id="getCommunityList" resultType="community">
 	<![CDATA[   
 	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
@@ -33,10 +19,38 @@
 	LEFT JOIN (SELECT board_no, id, COUNT(*) as lchk FROM b_m_like WHERE id=#{userId} GROUP BY board_no) AS likechk
 	ON b.board_no = likechk.board_no
 	ORDER BY b.regist_date DESC
-  ]]>	
+	 ]]>	
 	</select>
 	
-	<!-- show my search list -->
+	<!-- Community Search List 게시글 검색 리스트 (ID, HashTag) -->
+	<select id="getSearchCommunityList" resultType="community">
+	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, m.m_img_addr, 
+				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
+	FROM board b 
+	LEFT JOIN member m
+	ON m.id = b.id
+	left join (SELECT board_no, COUNT(*) AS lcnt FROM b_m_like GROUP BY board_no) AS likecnt
+	on b.board_no = likecnt.board_no 
+	LEFT JOIN (SELECT board_no, COUNT(*) AS rcnt FROM reply GROUP BY board_no) AS replycnt
+	ON b.board_no = replycnt.board_no
+	LEFT JOIN (SELECT board_no, id, COUNT(*) as lchk FROM b_m_like WHERE id=#{userId} GROUP BY board_no) AS likechk
+	ON b.board_no = likechk.board_no
+	
+	 <if test="searchOption == 't_content'"> 
+	LEFT JOIN board_tag t
+	ON b.board_no = t.board_no	
+	WHERE t.t_content = '${searchKeyword}'
+	ORDER BY b.regist_date DESC
+	</if> 
+	
+	<if test="searchOption == 'id'"> 
+	WHERE m.id = '${searchKeyword}'
+	ORDER BY b.regist_date DESC
+	</if>
+	</select>
+
+	<!-- Community My List 내 게시글 리스트  -->
 	<select id="getMyCommunityList" resultType="community">
 	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
 				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, m.m_img_addr, 
@@ -52,85 +66,23 @@
 	ON b.board_no = likechk.board_no
 	WHERE b.id=#{id}
 	ORDER BY b.regist_date desc
-
 	</select>
 	
-	<!-- show search list -->
-	<select id="getIdCommunityList" resultType="community">
-	SELECT b.board_no, b.id, b.b_content, b.regist_date, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr, m.m_img_addr, 
-				IFNULL(likecnt.lcnt,0) AS likecnt, IFNULL(replycnt.rcnt,0) AS replycnt, IFNULL(likechk.lchk,0) AS likechk
-	FROM board b 
-	LEFT JOIN member m
-	ON m.id = b.id
-	left join (SELECT board_no, COUNT(*) AS lcnt FROM b_m_like GROUP BY board_no) AS likecnt
-	on b.board_no = likecnt.board_no 
-	LEFT JOIN (SELECT board_no, COUNT(*) AS rcnt FROM reply GROUP BY board_no) AS replycnt
-	ON b.board_no = replycnt.board_no
-	LEFT JOIN (SELECT board_no, id, COUNT(*) as lchk FROM b_m_like WHERE id=#{userId} GROUP BY board_no) AS likechk
-	ON b.board_no = likechk.board_no
-	 <if test="searchOption == 't_content'"> 
-	LEFT JOIN board_tag t
-	ON b.board_no = t.board_no	
-	WHERE t.t_content = '${searchKeyword}'
-	ORDER BY b.regist_date DESC
-	</if> 
-	
-	<if test="searchOption == 'id'"> 
-	WHERE m.id = '${searchKeyword}'
-	ORDER BY b.regist_date DESC
-	</if>
-
-	</select>
-	
-	<!-- show hashtag list // WHERE t.board_no = #{board_no} -->
-	<select id="getHashTagList" resultType="hashTag">
-	<![CDATA[   
-	SELECT b.board_no, b.id, b.b_content, t.b_t_no, t.t_content
-	FROM board b
-	LEFT JOIN board_tag t
-	ON b.board_no = t.board_no
-	ORDER BY b.regist_date DESC, t.b_t_no 
-	]]>	
-	</select>
-
-	<!-- show hashtag list // WHERE t.board_no = #{board_no} -->
-	<select id="getHashTag" resultType="hashTag">
-	<![CDATA[   
-	SELECT b.board_no, b.id, b.b_content, t.b_t_no, t.t_content
-	FROM board b
-	LEFT JOIN board_tag t
-	ON b.board_no = t.board_no
-	WHERE b.board_no = #{board_no}
-	ORDER BY b.regist_date DESC, t.b_t_no 
-	]]>	
-	</select>
-	
-	<!-- hashtag TOP 5 -->
-	<select id="getHashTagTOP5" resultType="hashTag">
-	<![CDATA[
-		SELECT t_content, COUNT(*) htcnt
-		FROM board_tag
-		GROUP BY t_content ORDER BY htcnt DESC LIMIT 5
-	]]>
-	</select>
-	
-	<!-- hashTag insert -->
-	<insert id="boardtagInsert" parameterType="hashTag">
-		INSERT INTO board_tag (board_no, t_content) VALUES(#{board_no}, #{t_content})
+	<!-- Community Insert 게시글 등록 -->
+	<insert id="communityWrite" parameterType="community">
+		INSERT INTO board (id)
+		VALUES(#{id})
 	</insert>
+	<select id="getBoardNo" resultType="Integer">
+		SELECT MAX(board_no) from board
+	</select>
 	
-	<!-- delete hashTag -->
-	<delete id="deleteHashTag" parameterType="hashTag">
-		DELETE FROM board_tag WHERE board_no = #{board_no} AND t_content = #{t_content}
-	</delete>
-
-	<!-- select one Community -->
+	<!-- Community Detail 게시글 하나 -->
 	<select id="getCommunityDetail" parameterType="community" resultType="community">
 		SELECT * FROM board WHERE board_no = #{board_no}
 	</select>
 	
-	<!-- updateCommunity -->
+	<!-- Community Update 게시글 수정 -->
 	<update id="updateCommunity" parameterType="community">
 		UPDATE board SET 
 		b_content=#{b_content}
@@ -149,31 +101,56 @@
 		WHERE board_no = #{board_no}
 	</update>
 	
-	<!-- delete Community -->
+	<!-- Community Delete 게시글 삭제 -->
 	<delete id="deleteCommunity" parameterType="community">
 		DELETE FROM board WHERE board_no = #{board_no}
 	</delete>
+
+<!-- HashTag -->
+	<!-- HashTag List 해시태그 목록 -->
+	<select id="getHashTagList" resultType="hashTag">
+	<![CDATA[   
+	SELECT b.board_no, b.id, b.b_content, t.b_t_no, t.t_content
+	FROM board b
+	LEFT JOIN board_tag t
+	ON b.board_no = t.board_no
+	ORDER BY b.regist_date DESC, t.b_t_no 
+	]]>	
+	</select>
 	
+	<!-- HashTag TOP5 해시태그 사용 순위 5 -->
+	<select id="getHashTagTOP5" resultType="hashTag">
+	<![CDATA[
+		SELECT t_content, COUNT(*) htcnt
+		FROM board_tag
+		GROUP BY t_content ORDER BY htcnt DESC LIMIT 5
+	]]>
+	</select>
 	
-	<!-- insert reply -->
-	<insert id="replyWrite" parameterType="community">
-		INSERT INTO reply (id, board_no, com_content) 
-		VALUES(#{id},#{board_no},#{com_content})
+	<!-- HashTag List in Board 글 하나의 해시태그 목록 -->
+	<select id="getHashTag" resultType="hashTag">
+	<![CDATA[   
+	SELECT b.board_no, b.id, b.b_content, t.b_t_no, t.t_content
+	FROM board b
+	LEFT JOIN board_tag t
+	ON b.board_no = t.board_no
+	WHERE b.board_no = #{board_no}
+	ORDER BY b.regist_date DESC, t.b_t_no 
+	]]>	
+	</select>
+	
+	<!-- HashTag Insert 해시태그 등록 -->
+	<insert id="boardtagInsert" parameterType="hashTag">
+		INSERT INTO board_tag (board_no, t_content) VALUES(#{board_no}, #{t_content})
 	</insert>
 	
-	<!-- update reply -->
-	<update id="updateReply" parameterType="reply">
-		UPDATE reply SET
-		com_content=#{com_content}
-		WHERE com_no=#{com_no}
-	</update>
-	
-	<!-- delete reply -->
-	<delete id="deleteReply" parameterType="reply">
-		DELETE FROM reply WHERE com_no=#{com_no}
+	<!-- HashTag Delete 해시태그 삭제 -->
+	<delete id="deleteHashTag" parameterType="hashTag">
+		DELETE FROM board_tag WHERE board_no = #{board_no} AND t_content = #{t_content}
 	</delete>
-	
-	<!-- get reply -->
+
+<!-- Reply -->
+	<!-- Reply List 댓글 목록 -->
 	<select id="getReplyList" resultType="reply">
 		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
 		FROM reply r, member m 
@@ -181,13 +158,32 @@
 		ORDER BY com_no desc
 	</select>
 	
-	<!-- insertLike -->
+	<!-- Reply Insert 댓글 등록 -->
+	<insert id="replyWrite" parameterType="community">
+		INSERT INTO reply (id, board_no, com_content) 
+		VALUES(#{id},#{board_no},#{com_content})
+	</insert>
+	
+	<!-- Reply Update 댓글 수정 -->
+	<update id="updateReply" parameterType="reply">
+		UPDATE reply SET
+		com_content=#{com_content}
+		WHERE com_no=#{com_no}
+	</update>
+	
+	<!-- Reply Delete 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="reply">
+		DELETE FROM reply WHERE com_no=#{com_no}
+	</delete>
+	
+<!-- Like -->
+	<!-- Like Insert 좋아요 등록 -->
 	<insert id="likeInsert" parameterType="like">
 		INSERT INTO b_m_like ( id, board_no)
 		VALUES( #{id}, #{board_no})
 	</insert>
 	
-	<!-- delete Like -->
+	<!-- UnLike 좋아요 취소 -->
 	<delete id="deleteLike" parameterType="like">
 		DELETE FROM b_m_like WHERE id=#{id} AND board_no = #{board_no}
 	</delete>
