@@ -30,4 +30,7 @@ public interface PayService {
 	MemberVO myCard(MemberVO vo);
 	
 	void deleteChalD(HashMap map);
+	
+	PayVO searchAccInfo(int dogeon_pay_no);
+	PayVO searchCardInfo(int dogeon_pay_no);
 }

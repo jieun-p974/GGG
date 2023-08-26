@@ -23,13 +23,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.green.domain.ChalPayVO;
 import com.green.domain.ChallengeVO;
 import com.green.domain.MemberVO;
+import com.green.domain.PayVO;
 import com.green.service.ChallengeService;
 import com.green.service.DogamService;
 import com.green.service.DonationService;
 import com.green.service.MailSendService;
 import com.green.service.MemberService;
+import com.green.service.PayService;
 
 @Controller
 @RequestMapping("/member/")
@@ -51,6 +54,8 @@ public class MemberController {
 	private DogamService dogamService;
 	@Autowired
 	private MailSendService mailService;
+	@Autowired
+	private PayService payService;
 
 	// id using check
 	@RequestMapping(value = "/idCheck.do", produces = "application/text; charset=utf8")
@@ -186,6 +191,23 @@ public class MemberController {
 	// �������������� ���� ����, �������� ç����, ��γ��� ����
 	@RequestMapping(value = {"/mypage.do"})
 	public void challAndDona(String id, Model model, MemberVO vo) {
+		ChalPayVO pvo = new ChalPayVO();
+		pvo.setId(id);
+		System.out.println("사용할 id "+pvo.getId());
+		ChalPayVO rs = payService.forPay(pvo);
+		if(rs != null) {
+			PayVO acVo = payService.searchAccInfo(rs.getDogeon_pay_no());
+			System.out.println("acvo "+acVo);
+			PayVO cVo = payService.searchCardInfo(rs.getDogeon_pay_no());
+			System.out.println("cvo "+cVo);
+			
+			if(acVo == null && cVo==null) {
+				HashMap map = new HashMap<String, Object>();
+		        map.put("id", id);
+		        payService.deleteChalD(map);
+			}
+		}
+		
 		try {
 			int do_no = dogamService.myYes(id);
 			if (do_no > 0) {

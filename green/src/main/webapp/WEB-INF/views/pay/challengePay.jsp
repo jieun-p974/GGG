@@ -25,7 +25,7 @@
    crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
-.payMethod { 
+.payMethod {
    margin: 10px;
    padding: 10px;
    text-align: center;
@@ -155,10 +155,6 @@
    </section>
    <%@include file="../layouts/footer.jsp"%>
    <script type="text/javascript">
-   <c:if test="${sessionScope.userId == null }">
-   alert("로그인 하신 후 이용 가능합니다.");
-   location.href = "../../index.jsp";
-</c:if>
    $(function(){
 	   $("#cBtn").on("click",function(){
 		  $("#jjj").attr("action","card.do").submit();

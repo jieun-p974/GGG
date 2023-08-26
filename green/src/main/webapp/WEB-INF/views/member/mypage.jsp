@@ -88,6 +88,7 @@
 					</h6>
 					</c:if>
 					 <h6 class="mt-4"> 도전권은 ${dogeonGigan} 까지 <br />사용가능합니다.</h6>
+					 <a class="btn btn-warning btn-hover-secondery" onclick="goPay()"> GGG와 함께 하기 </a>
 				</div>
 			</div>
 		</div>
@@ -132,7 +133,7 @@
 							</div>
 							<div>
 								<img alt="결제수단 관리" src="/resources/imgs/paymana.png" class="icons">
-								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px" href="../pay/payment.do?id=${userId}" > 결제 수단 관리 </a>
+								<a class="btn btn-warning btn-hover-secondery text-black" style="width: 215px" href="../pay/payment.do?userId=${userId}" > 결제 수단 관리 </a>
 							</div>
 						</div>
 					</div>
@@ -305,6 +306,17 @@
 			<%@include file="../layouts/footer.jsp"%>
 		</div>
 	</div>
-
+<script type="text/javascript">
+   function goPay(){
+      if(${userTryNum >0 && userTryNum<999}){
+         alert("잔여 도전권이 남아있습니다!");
+      }else if(${sysYear < dogeonGigan && userTryNum==999}){
+         alert("유효기간이 지나지 않았습니다!");
+      }else{
+         location.href="../pay/challengePay.do?userId=${userId}";
+      }
+      
+   }
+   </script>
 </body>
 </html>

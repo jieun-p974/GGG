@@ -57,7 +57,7 @@ public class PayServiceImple implements PayService {
 		// TODO Auto-generated method stub
 		payDAO.receipt(dogeon_pay_no);
 	}
-	
+
 	@Override
 	public void memReceipt(ChalPayVO vo) {
 		// TODO Auto-generated method stub
@@ -91,5 +91,17 @@ public class PayServiceImple implements PayService {
 	public void deleteChalD(HashMap map) {
 		// TODO Auto-generated method stub
 		payDAO.deleteChalD(map);
+	}
+
+	@Override
+	public PayVO searchAccInfo(int dogeon_pay_no) {
+		// TODO Auto-generated method stub
+		return payDAO.searchAccInfo(dogeon_pay_no);
+	}
+
+	@Override
+	public PayVO searchCardInfo(int dogeon_pay_no) {
+		// TODO Auto-generated method stub
+		return payDAO.searchCardInfo(dogeon_pay_no);
 	}
 }

@@ -30,4 +30,7 @@ public interface PayDAO {
 	public MemberVO myCard(MemberVO vo);
 	//챌린지도전권 삭제
 	public void deleteChalD(HashMap map);
+	
+	public PayVO searchAccInfo(int dogeon_pay_no);
+	public PayVO searchCardInfo(int dogeon_pay_no);
 }

@@ -10,11 +10,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/resources/styles/font.css">
-<<<<<<< HEAD
 <title>🌏캐릭터도감</title>
-=======
-<title>도감</title>
->>>>>>> refs/remotes/origin/seul
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>

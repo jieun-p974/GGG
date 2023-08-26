@@ -35,6 +35,7 @@ public class PayDAOImpl implements PayDAO {
 	@Override
 	public void chalPay(ChalPayVO vo){
 	System.out.println("mybatis==>chalPay");
+	System.out.println("chalPay"+vo.getDogeon_no()+", "+vo.getPay_meth_no()+","+vo.getId());
 	mybatis.insert("payDAO.chalPay",vo);
 		
 	}
@@ -42,6 +43,7 @@ public class PayDAOImpl implements PayDAO {
 	@Override
 	public ChalPayVO forPay(ChalPayVO vo) {
 		System.out.println("mybatis==>forPay");
+		System.out.println("forPay"+vo.getId());
 		return mybatis.selectOne("payDAO.forPay",vo);
 	}
 
@@ -99,6 +101,18 @@ public class PayDAOImpl implements PayDAO {
 	@Override
 	public void deleteChalD(HashMap map) {
 		// TODO Auto-generated method stub
+		System.out.println("야 니가 범인이냐?!");
 		mybatis.delete("payDAO.deleteChalD",map);
+	}
+
+	@Override
+	public PayVO searchAccInfo(int dogeon_pay_no) {
+		System.out.println("sai "+dogeon_pay_no);
+		return mybatis.selectOne("payDAO.searchAccInfo",dogeon_pay_no);
+	}
+	@Override
+	public PayVO searchCardInfo(int dogeon_pay_no) {
+		System.out.println("sci "+dogeon_pay_no);
+		return mybatis.selectOne("payDAO.searchCardInfo",dogeon_pay_no);
 	}
 }

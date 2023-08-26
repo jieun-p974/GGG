@@ -36,8 +36,7 @@
 	</insert>
 
 	<select id="forPay" parameterType="chalPay" resultType="chalPay">
-		SELECT max(dogeon_pay_no) as dogeon_pay_no FROM chal_dog_pay WHERE id =
-		#{id}
+		SELECT max(dogeon_pay_no) as dogeon_pay_no FROM chal_dog_pay WHERE id = #{id}
 	</select>
 
    <!-- card에 인서트 -->
@@ -85,5 +84,15 @@
 	DELETE c FROM chal_dog_pay c JOIN member m 
 	WHERE c.id=m.id AND m.tryNum=0 AND c.id=#{id}
 	</delete>
+	
+	<!-- 결제 정보 있는지 검색 계좌 -->
+	<select id="searchAccInfo" resultType="pay">
+		SELECT * FROM account WHERE dogeon_pay_no = #{dogeon_pay_no}
+	</select>
+	
+	<!-- 결제 정보 있는지 검색 카드 -->
+	<select id="searchCardInfo" resultType="pay">
+		SELECT * FROM card WHERE dogeon_pay_no = #{dogeon_pay_no}
+	</select>
 </mapper>
    

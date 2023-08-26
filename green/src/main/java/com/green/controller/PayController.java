@@ -1,3 +1,4 @@
+
 package com.green.controller;
 
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import com.green.service.PayService;
 
 @Controller
 @RequestMapping("/pay/")
-public class PayController { // �솕硫대쭔 �씠�룞(DB�뿰寃곗� XX)
+public class PayController { // 화면만 이동(DB연결은 XX)
 
    @Autowired
    private PayService payService;
@@ -59,7 +60,7 @@ public class PayController { // �솕硫대쭔 �씠�룞(DB�뿰寃곗� X
 
       return "redirect:/member/mypage.do";
    }
-
+   
    //간편카드로 결제
    @RequestMapping(value="/payMyCard.do")
    public String payMyCard(Model model,MemberVO vo, ChalPayVO voc,PayVO pvo) {
@@ -119,13 +120,7 @@ public class PayController { // �솕硫대쭔 �씠�룞(DB�뿰寃곗� X
 	   model.addAttribute("forPay", payService.forPay(voc));
 	   MemberVO memAc = payService.myAc(vo);
 	   model.addAttribute("memAc",memAc);
-	   HashMap map = new HashMap<String, Object>();
-	      
-	      map.put("id", voc.getId());
-	      payService.deleteChalD(map);
-
    }
-   
    
    // 일반계좌로 결제
    @RequestMapping(value = "/account.do")
@@ -134,6 +129,7 @@ public class PayController { // �솕硫대쭔 �씠�룞(DB�뿰寃곗� X
       // 넘기는 값이 dogeon_pay_no를 vo에 setdogeon_pay_no로 넣기 그다음 insert 문 실행
       payService.chalPay(voc);
       model.addAttribute("forPay", payService.forPay(voc));
+
       HashMap map = new HashMap<String, Object>();
       
       map.put("id", voc.getId());
@@ -170,4 +166,5 @@ public class PayController { // �솕硫대쭔 �씠�룞(DB�뿰寃곗� X
       }
       
    }
+
 }
