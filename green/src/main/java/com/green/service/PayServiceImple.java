@@ -58,10 +58,6 @@ public class PayServiceImple implements PayService {
 		payDAO.receipt(dogeon_pay_no);
 	}
 
-	/*
-	 * @Override public void receiptNO(int dogeon_pay_no) { // TODO Auto-generated
-	 * method stub payDAO.receiptNO(dogeon_pay_no); }
-	 */
 	@Override
 	public void memReceipt(ChalPayVO vo) {
 		// TODO Auto-generated method stub
@@ -77,5 +73,23 @@ public class PayServiceImple implements PayService {
 	public void payTryNum(HashMap map) {
 		// TODO Auto-generated method stub
 		payDAO.payTryNum(map);
+	}
+
+	@Override
+	public MemberVO myAc(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return payDAO.myAc(vo);
+	}
+
+	@Override
+	public MemberVO myCard(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return payDAO.myCard(vo);
+	}
+
+	@Override
+	public void deleteChalD(HashMap map) {
+		// TODO Auto-generated method stub
+		payDAO.deleteChalD(map);
 	}
 }

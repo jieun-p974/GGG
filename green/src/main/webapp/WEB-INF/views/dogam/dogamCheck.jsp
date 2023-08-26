@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="/resources/styles/table.css">
 <link rel="stylesheet" href="/resources/styles/font.css">
 <script type="text/javascript">
-	function insert() {
-		location.href = "dogamWrite.do"
-	}
+   function insert() {
+      location.href = "dogamWrite.do"
+   }
 </script>
 <title>도감 관리</title>
 </head>

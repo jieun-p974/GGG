@@ -60,6 +60,27 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       return "redirect:/member/mypage.do";
    }
 
+   //간편카드로 결제
+   @RequestMapping(value="/payMyCard.do")
+   public String payMyCard(Model model,MemberVO vo, ChalPayVO voc,PayVO pvo) {
+	   payService.chalPay(voc);
+	   ChalPayVO res= payService.forPay(voc);
+	   MemberVO myCard=payService.myCard(vo);
+	   model.addAttribute("myCard",myCard);
+	   
+	   pvo.setDogeon_pay_no(res.getDogeon_pay_no());
+	   
+	   payService.cardInsert(pvo);
+	   
+	   HashMap map = new HashMap<String, Object>();
+	   map.put("id", voc.getId());
+	   map.put("dogeon_times", payService.getTimes(pvo.getDogeon_pay_no()));
+	      
+	  payService.payTryNum(map);
+	  
+      return "redirect:/member/main.do";
+   }
+
    // 일반카드로 결제
    @RequestMapping(value = "/card.do")
    public void ChalCInsert(Model model, ChalPayVO voc) throws Exception {
@@ -71,6 +92,10 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       payService.chalPay(voc);
       model.addAttribute("forPay", payService.forPay(voc));
 
+      HashMap map = new HashMap<String, Object>();
+      
+      map.put("id", voc.getId());
+      payService.deleteChalD(map);
    }
 
    // 결제하기 버튼 누르면
@@ -86,7 +111,22 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       
       return "redirect:/member/main.do";
    }
+   
+   //간편계좌 선택 결제
+   @RequestMapping(value="/payMyAcc.do")
+   public void payMyAcc(Model model,MemberVO vo, ChalPayVO voc) throws Exception {
+	   payService.chalPay(voc);
+	   model.addAttribute("forPay", payService.forPay(voc));
+	   MemberVO memAc = payService.myAc(vo);
+	   model.addAttribute("memAc",memAc);
+	   HashMap map = new HashMap<String, Object>();
+	      
+	      map.put("id", voc.getId());
+	      payService.deleteChalD(map);
 
+   }
+   
+   
    // 일반계좌로 결제
    @RequestMapping(value = "/account.do")
    public void ChalAInsert(Model model, ChalPayVO voc) throws Exception {
@@ -94,6 +134,11 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       // 넘기는 값이 dogeon_pay_no를 vo에 setdogeon_pay_no로 넣기 그다음 insert 문 실행
       payService.chalPay(voc);
       model.addAttribute("forPay", payService.forPay(voc));
+      HashMap map = new HashMap<String, Object>();
+      
+      map.put("id", voc.getId());
+      payService.deleteChalD(map);
+
    }
 
    // 결제하기 버튼 누르면(현금영수증 유무)
@@ -109,35 +154,21 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       payService.payTryNum(map);
       payService.receipt(dogeon_pay_no);// 현금영수증->Y
       payService.memReceipt(voc);
+      
       return "redirect:/member/main.do";
       } else {
          HashMap map = new HashMap<String, Object>();
          
          map.put("id", voc.getId());
          map.put("dogeon_times", payService.getTimes(voc.getDogeon_pay_no()));
-         
-//         payService.receiptNO(dogeon_pay_no);
+
          payService.accInsert(vo);
          payService.payTryNum(map);
+      //   payService.deleteChalD(map);
          
          return "redirect:/member/main.do";
       }
       
    }
- 
-   /*
-    * // 결제하기 버튼 누르면(현금영수증 N)
-    * 
-    * @RequestMapping(value = "/receiptNo.do") public String AccRNInsert(PayVO vo,
-    * int dogeon_pay_no,ChalPayVO voc) throws Exception { HashMap map = new
-    * HashMap<String, Object>();
-    * 
-    * map.put("id", voc.getId()); map.put("dogeon_times",
-    * payService.getTimes(voc.getDogeon_pay_no()));
-    * 
-    * payService.receiptNO(dogeon_pay_no); payService.accInsert(vo);
-    * payService.payTryNum(map);
-    * 
-    * return "redirect:/member/main.do"; }
-    */
+
 }

@@ -12,129 +12,129 @@
 <title>뉴스 관리</title>
 <style type="text/css">
 .thumnail {
-	width: 40%;
+   width: 40%;
 }
 </style>
 <script type="text/javascript">
-	$(function() {
-		$("#category").change(
-		function() {
-			var selected = $("#category").val();
-			var html = "";
+   $(function() {
+      $("#category").change(
+      function() {
+         var selected = $("#category").val();
+         var html = "";
 
-			if (selected == "1") {
-				<c:forEach items="${list}" var="news">
-				<c:if test="${news.cat_no == 1}">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+         if (selected == "1") {
+            <c:forEach items="${list}" var="news">
+            <c:if test="${news.cat_no == 1}">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:if>
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			} else if (selected == "2") {
-				<c:forEach items="${list}" var="news">
-				<c:if test="${news.cat_no == 2}">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+            </c:if>
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         } else if (selected == "2") {
+            <c:forEach items="${list}" var="news">
+            <c:if test="${news.cat_no == 2}">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:if>
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			} else if (selected == "3") {
-				<c:forEach items="${list}" var="news">
-				<c:if test="${news.cat_no == 3}">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+            </c:if>
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         } else if (selected == "3") {
+            <c:forEach items="${list}" var="news">
+            <c:if test="${news.cat_no == 3}">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:if>
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			} else if (selected == "4") {
-				<c:forEach items="${list}" var="news">
-				<c:if test="${news.cat_no == 4}">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+            </c:if>
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         } else if (selected == "4") {
+            <c:forEach items="${list}" var="news">
+            <c:if test="${news.cat_no == 4}">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:if>
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			} else if (selected == "5") {
-				<c:forEach items="${list}" var="news">
-				<c:if test="${news.cat_no == 5}">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+            </c:if>
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         } else if (selected == "5") {
+            <c:forEach items="${list}" var="news">
+            <c:if test="${news.cat_no == 5}">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:if>
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			} else if (selected == "6") {
-				<c:forEach items="${list}" var="news">
-				<c:if test="${news.cat_no == 6}">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+            </c:if>
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         } else if (selected == "6") {
+            <c:forEach items="${list}" var="news">
+            <c:if test="${news.cat_no == 6}">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:if>
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			} else {
-				<c:forEach items="${list}" var="news">
-				html += '<tbody>';
-				html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
-				html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
-				html += '<td> ${news.n_title}</td>';
-				html += '<td> ${news.n_reg_date}</td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
-				html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
-				html += '</tbody>';
+            </c:if>
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         } else {
+            <c:forEach items="${list}" var="news">
+            html += '<tbody>';
+            html += '<input type="hidden" name="news_no" value="${news.news_no}"></input>';
+            html += '<td style="width: 30%;"><img src="/resources/imgs/newsImg/${news.n_img1_addr}" alt="뉴스 썸네일" class="thumnail"></td>';
+            html += '<td> ${news.n_title}</td>';
+            html += '<td> ${news.n_reg_date}</td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="newsModify.do?news_no=${news.news_no}"> 수정 </a></td>';
+            html += '<td><a class="btn btn-white-back2 btn-hover-secondery" href="deleteNews.do?news_no=${news.news_no}">삭제 </a></td>';
+            html += '</tbody>';
 
-				</c:forEach>
-				$("tbody").remove();
-				$("#newsList").append(html);
-			}
-		});
-	});
+            </c:forEach>
+            $("tbody").remove();
+            $("#newsList").append(html);
+         }
+      });
+   });
 </script>
 </head>
 <body>

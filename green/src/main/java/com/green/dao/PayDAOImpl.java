@@ -64,13 +64,6 @@ public class PayDAOImpl implements PayDAO {
 		
 	}
 
-	/*
-	 * @Override public void receiptNO(int dogeon_pay_no) {
-	 * System.out.println("mybatis==>receiptNO");
-	 * mybatis.update("payDAO.receiptNO",dogeon_pay_no);
-	 * 
-	 * }
-	 */
 	@Override
 	public void memReceipt(ChalPayVO vo) {
 		// TODO Auto-generated method stub
@@ -90,5 +83,22 @@ public class PayDAOImpl implements PayDAO {
 		System.out.println("d"+map.get("dogeon_times"));
 		System.out.println("d"+map.get("id"));
 		mybatis.update("payDAO.payTryNum",map);
+	}
+
+	@Override
+	public MemberVO myAc(MemberVO vo) {
+		return mybatis.selectOne("payDAO.myAc",vo);
+	}
+
+	@Override
+	public MemberVO myCard(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("payDAO.myCard",vo);
+	}
+
+	@Override
+	public void deleteChalD(HashMap map) {
+		// TODO Auto-generated method stub
+		mybatis.delete("payDAO.deleteChalD",map);
 	}
 }

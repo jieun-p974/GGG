@@ -83,7 +83,6 @@
             </div>
          </c:forEach>
          </div>
-      
       	<c:if test="${nCount eq count}">
          <div class="pickme align-items-center mt-3" >
                <img src="../resources/imgs/pickme.png">

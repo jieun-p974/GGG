@@ -50,7 +50,6 @@ pre {
                   <c:if test= "${detail.nowLv eq 3}">
                      <div class="exp_end">만렙달성!</div>
                   </c:if>
-                           
                         </div>
                      </div>
                      <c:if test="${detail.do_name ne null}">

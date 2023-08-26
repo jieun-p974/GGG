@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 textarea{
-	resize: vertical;
-	height: 20rem; 
+   resize: vertical;
+   height: 20rem; 
 }
 </style>
 <title>챌린지 등록</title>

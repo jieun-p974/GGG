@@ -15,6 +15,15 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <link rel="stylesheet" href="/resources/styles/font.css">
 <title>Insert title here</title>
+<style type="text/css">
+pre {
+   width: 100%;
+   text-align:left;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+ }
+
+</style>
 <script type="text/javascript">
 var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
@@ -46,15 +55,16 @@ if(msg.length >0 && url.length >0){
                       <fmt:formatDate var="don_start_date" value="${dona.don_start_date}" pattern="yyyyMMdd"/>
                       <fmt:formatDate var="don_end_date" value="${dona.don_end_date}" pattern="yyyyMMdd"/>
                      <c:if test="${don_start_date<nowDate && don_end_date>nowDate}">
-                     <a href="goDonation2.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
+                     <a href="goDonation.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
                      </c:if>
                      </div>
                <div class="card">
                   <div class="card-body">
-                     <div
-                        class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+                     <h3 class="mb-5" style="font-weight: bold;font-size:2.4rem" value="${dona.don_name }">${dona.don_name}</h3>
+                     <div class="overflow-hidden mb-5 position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+
                         <div class="pross">
-                           <div class="barUpper">
+                           <div class="barUpper mt-3">
                               <!-- 포인트 퍼센트 -->
                               <fmt:formatNumber type="percent"
                                  value="${dona.don_point_sum/dona.don_goal}" var="percent"
@@ -81,7 +91,7 @@ if(msg.length >0 && url.length >0){
                               <progress id=progress max=100 min=0
                                  value="${dona.don_point_sum/dona.don_goal*100}"></progress>
                            </div>
-                           <div class="barDown">
+                           <div class="barDown mb-3">
                               <div class="donadate">${dona.don_start_date}~
                                  ${dona.don_end_date}까지</div>
                               <div class="nowpoint">${dona.don_point_sum }/
@@ -89,7 +99,9 @@ if(msg.length >0 && url.length >0){
                            </div>
                         </div>
                      </div>
-                     <h3 class="fs-4 text-black" value="${dona.don_name }">${dona.don_ex}</h3>
+               		
+                		<h4 class="fs-4 text-black mt-5" style="font-weight:bolder"value="${dona.don_name }">"${dona.don_summary}"</h4>
+                    <pre class="fs-6 text-black mt-4" style="line-height:1.4em;font-weight:lighter;" value="${dona.don_name }">${dona.don_ex}</pre>
                      <img class="img-fluid" src="/resources/imgs/donaImg/${dona.d_img1_addr}" alt="">
                   </div>
                </div>

@@ -16,7 +16,7 @@
 <title>공지 확인</title>
 </head>
 <body>
-   <c:if test="${sessionScope.userType == 1}">
+   <c:if test="${sessionScope.userType == 1 }"> 
       <%@include file="../layouts/header.jsp"%>
    </c:if>
    <c:if test="${sessionScope.userType == 2}">

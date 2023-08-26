@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 textarea{
-	resize: vertical;
-	height: 20rem; 
+   resize: vertical;
+   height: 20rem; 
 }
 </style>
 <title>챌린지 등록</title>
@@ -87,27 +87,27 @@ textarea{
 				return false;
 			}
 
-			if (document.form.chal_start_date.value == "") {
-				alert("챌린지 시작일을 입력하세요.")
-				document.form.chal_start_date.focus();
-				return false;
-			}
+         if (document.form.chal_start_date.value == "") {
+            alert("챌린지 시작일을 입력하세요.")
+            document.form.chal_start_date.focus();
+            return false;
+         }
 
-			if (document.form.chal_end_date.value == "") {
-				alert("챌린지 종료일을 입력하세요.")
-				document.form.chal_end_date.focus();
-				return false;
-			}
+         if (document.form.chal_end_date.value == "") {
+            alert("챌린지 종료일을 입력하세요.")
+            document.form.chal_end_date.focus();
+            return false;
+         }
 
-			if (document.form.chal_ex.value == "") {
-				alert("챌린지 설명을 입력하세요.")
-				document.form.chal_ex.focus();
-				return false;
-			}
+         if (document.form.chal_ex.value == "") {
+            alert("챌린지 설명을 입력하세요.")
+            document.form.chal_ex.focus();
+            return false;
+         }
 
-			document.form.submit(); //전송
+         document.form.submit(); //전송
 
-		}
-	</script>
+      }
+   </script>
 </body>
 </html>
