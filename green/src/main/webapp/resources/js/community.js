@@ -155,6 +155,9 @@ $(".hh").each(function(index, element) {
             });
       }
    });
+<<<<<<< HEAD
+});
+=======
 });
 
 
@@ -201,3 +204,4 @@ function readURL3(obj) {
 	}
 }
   
+>>>>>>> refs/remotes/origin/seul

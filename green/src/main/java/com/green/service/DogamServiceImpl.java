@@ -132,5 +132,20 @@ public class DogamServiceImpl implements DogamService {
 		
 	}
 
+	// insert Goods
+	@Override
+	public int insertGoods(HashMap map) {
+		int rs= dogamDAO.insertGoods(map);
+		return rs;
+	}
+
+	// search goods
+	@Override
+	public int searchGoods(HashMap map) {
+		int rs= dogamDAO.searchGoods(map);
+		return rs;
+	}
+	
+	
 	
 }

@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.CommunityVO;
@@ -8,20 +9,28 @@ import com.green.domain.NotificationVO;
 import com.green.domain.ReplyVO;
 
 public interface NotificationService {
-	
-	//공지 목록   Notification list
-	List<NotificationVO> getNotificationList();
-
-	// 공지 작성   Notification insert
+	//community insert
 	void insertNotification(NotificationVO vo);
 	
-	//공지 하나   get one Notification
+	int getAnnNo();
+	
+	List<String> getAllMem();
+	
+	void annCheckInsert(List<HashMap<String, Object>> list);
+	
+	//community list
+	List<NotificationVO> getNotificationList();
+	
+	//get one
 	NotificationVO getNotificationDetail(NotificationVO vo);
 	
-	//공지 수정   Notification modify
+	//modify
 	void updateNotification(NotificationVO vo);
 
-	//공지 삭제   Notification delete
+	//delete
 	void deleteNotification(NotificationVO vo);
 
+	void deleteReadNoti(int ann_ck_no);
+	
+	List<HashMap<String, Object>> getUnreadNoti(String id);
 }

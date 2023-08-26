@@ -51,7 +51,8 @@
                         </thead>
                         <c:forEach items="${list}" var="dogam">
                            <tbody>
-                              <input type="hidden" name="do_no" id="do_no" value="${dogam.do_no}">
+                              <input type="hidden" name="do_no" id="do_no"
+                                 value="${dogam.do_no}">
                               <td><a href="dogamCheckImg.do?do_no=${dogam.do_no}">${dogam.do_title}</a></td>
                               <td style="width:45%">
                                  <a href="dogamCheckImg.do?do_no=${dogam.do_no}">${dogam.do_yoyak}</a>

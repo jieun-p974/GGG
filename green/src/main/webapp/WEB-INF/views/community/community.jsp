@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="../../../resources/styles/cmnt.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
@@ -16,54 +17,51 @@
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
 <script type="text/javascript">
-	<c:if test="${sessionScope.userId == null }">
-		alert("로그인 하신 후 이용 가능합니다.");
-		location.href = "../../index.jsp";
-	</c:if>
+   <c:if test="${sessionScope.userId == null }">
+      alert("로그인 하신 후 이용 가능합니다.");
+      location.href = "../../index.jsp";
+   </c:if>
 </script>
 <style type="text/css">
 .icon_links {
-	width: 2%;
+   width: 2%;
 }
-
 .sns_icon_like {
-	width: 100%;
+   width: 100%;
 }
-
 .sns_icon_comment {
-	width: 100%;
+   width: 100%;
 }
-
 .sns_icon_share {
-	width: 100%;
+   width: 100%;
 }
 
 .reWriting {
-	border: none;
-	width: 100%;
+   border: none;
+   width: 100%;
 }
 
 .heart {
-	background-image: url(/resources/imgs/heart.png);
-	background-size: contain;
-	width: 2%;
-	height: 100%;
-	background-repeat: no-repeat;
+   background-image: url(/resources/imgs/heart.png);
+   background-size: contain;
+   width: 2%;
+   height: 100%;
+   background-repeat: no-repeat;
 }
 
 .hearted {
-	background-image: url(/resources/imgs/hearted.png);
-	background-size: contain;
-	width: 2%;
-	height: 100%;
-	background-repeat: no-repeat;
+   background-image: url(/resources/imgs/hearted.png);
+   background-size: contain;
+   width: 2%;
+   height: 100%;
+   background-repeat: no-repeat;
 }
 
 .likecntd {
-	border: none;
-	width: 2%;
-	color: #000000;
-	background-color: #ffffff;
+   border: none;
+   width: 2%;
+   color: #000000;
+   background-color: #ffffff;
 }
 
 .tag-top {
@@ -139,7 +137,6 @@
 												<hr style="margin: 0.5rem" />
 												<!-- 좋아요 버튼 -->
 												<div class="media-feed-control d-flex justify-content-end align-items-center" style="height: 1rem">
-
 													<c:if test="${community.likechk < 1}">
 														<div  class="icon_links d-flex me-2 heart hh">
 															<input type="hidden" id="iddd" name="id" value="${userId}" />
@@ -182,7 +179,6 @@
 													<div class="listRe">
 														<div class="list" id="listRe">
 														<!-- 댓글 달리는 위치 -->
-
 														</div>
 													</div>
 												</div>

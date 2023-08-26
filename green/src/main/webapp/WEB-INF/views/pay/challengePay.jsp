@@ -81,23 +81,23 @@
                <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                      <h2 class="accordion-header " id="headingOne">
-                        <button class="accordion-button collapsed" type="button"
-                           data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                            aria-expanded="false" aria-controls="collapseOne">간편 계좌</button>
                      </h2>
-                     <div id="collapseOne" class="accordion-collapse collapse"
-                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="accounts">
                               <div class="method">
                                  <c:forEach items="${list}" var="payb">
-                                    <a class="">
+                                    <button style="border:none;" class="pay_meth_no" id="MABtn" name="pay_meth_no" value="3" href="payMyAcc.do?id=${userId }&mem_acc_no=${payb.mem_acc_no}" >
                                     <div class="payMethod">
-                                       <p hidden="hidden">${payb.mem_acc_no}</p>
+                                       <input type="hidden" name="mem_acc_no" value="${payb.mem_acc_no}">
+                                       <input type="hidden" name="bank" value="${payb.bank}"/>
+                                       <input type="hidden" name="acc_num" value="${payb.acc_num}"/>
                                        <p class="mt-2 mb-5 text-white fw-bold">${payb.bank}</p>
                                        <p class="text-white fw-bold">${payb.acc_num}</p>
                                        </div>
-                                    </a>
+                                    </button>
                                  </c:forEach>
                               </div>
                               <div class="d-flex justify-content-between">
@@ -110,24 +110,27 @@
                   </div>
                   <div class="accordion-item">
                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button"
-                           data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                            aria-expanded="false" aria-controls="collapseTwo">간편 카드</button>
                      </h2>
-                     <div id="collapseTwo" class="accordion-collapse collapse"
-                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                            <div class="cards">
                            <div class="method">
                               <c:forEach items="${list2}" var="payc">
-                                 <a class="">
+                                 <button style="border:none;" class="pay_meth_no" id="MCBtn" name="pay_meth_no" value="4">
                                  <div class="payMethod">
-                                    <p hidden="hidden">${payc.mem_card_no}</p>
+                                    <input type="hidden" name="mem_card_no" value="${payc.mem_card_no}">
+                                    <input type="hidden" name="card_company" value="${payc.card_company}">
+                                    <input type="hidden" name="card_num" value="${payc.card_num}">
+                                    <input type="hidden" name="expiry_date" value="${payc.expire_date}">
                                     <p class="mt-2 mb-5 text-white fw-bold">${payc.card_company}</p>
                                     <p class="text-white fw-bold">${payc.card_num}</p>
                                     <p class="text-white fw-bold">${payc.expire_date}</p>
-                                    </div>
-                                 </a>
+                                    <input type="hidden" value="${payc.CVC}">
+                                    <input type="hidden" value="${payc.pass_two}">
+                                  </div>
+                                 </button>
                               </c:forEach>
                               </div>
                               <div class="d-flex justify-content-between">
@@ -160,6 +163,12 @@
 	   $("#aBtn").on("click",function(){
 			  $("#jjj").attr("action","account.do").submit();
 		   });
+ 	   $("#MABtn").on("click",function(){
+			  $("#jjj").attr("action","payMyAcc.do").submit();
+		   }); 
+ 	   $("#MCBtn").on("click",function(){
+			  $("#jjj").attr("action","payMyCard.do").submit(); 
+		   }); 
    });
    </script>
 </body>

@@ -25,12 +25,12 @@ $(function() {
          <c:forEach items="${list}" var="dona">
          <c:if test="${dona.don_end_date > today}">
             html += '<tbody>';
-            html += '<td>${dona.don_no}</td>';
+            html += '<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}"></input>';
             html += '<td>${dona.don_name}</td>';
             html += '<td>${dona.don_start_date}</td>';
             html += '<td>${dona.don_end_date}</td>';
-            html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
-            html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+            html += '<td><a class="btn btn-warning btn-hover-secondery"href="donationModify.do?don_no=${dona.don_no}">수정</a></td>';
+            html += '<td><a class="btn btn-warning btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></td>';
             html += '</tbody>';
          </c:if>
          </c:forEach>
@@ -41,12 +41,12 @@ $(function() {
          <c:forEach items="${list}" var="dona">
          <c:if test="${dona.don_end_date < today}">
             html += '<tbody>';
-            html += '<td>${dona.don_no}</td>';
+            html += '<input type="hidden" name="don_no" id="don_no" value="${dona.don_no}"></input>';
             html += '<td>${dona.don_name}</td>';
             html += '<td>${dona.don_start_date}</td>';
             html += '<td>${dona.don_end_date}</td>';
-            html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
-            html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+            html += '<td><a class="btn btn-warning btn-hover-secondery" href="donationModify.do?don_no=${dona.don_no}">수정</a></td>';
+            html += '<td><a class="btn btn-warning btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></td>';
             html += '</tbody>';
          </c:if>
          </c:forEach>
@@ -57,12 +57,12 @@ $(function() {
          <c:forEach items="${list}" var="dona">
          
             html += '<tbody>';
-            html += '<td>${dona.don_no}</td>';
+            html += ' <input type="hidden" name="don_no" id="don_no" value="${dona.don_no}"></input>';
             html += '<td>${dona.don_name}</td>';
             html += '<td>${dona.don_start_date}</td>';
             html += '<td>${dona.don_end_date}</td>';
-            html += '<td><button class="modify"><a href="donationModify.do?don_no=${dona.don_no}">수정</a></button></td>';
-            html += '<td><button><a href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></button></td>';
+            html += '<td><a class="btn btn-warning btn-hover-secondery" href="donationModify.do?don_no=${dona.don_no}">수정</a></td>';
+            html += '<td><a class="btn btn-warning btn-hover-secondery" href="deleteDona.do?don_no=${dona.don_no}">삭제 </a></td>';
             html += '</tbody>';
          
          </c:forEach>
@@ -106,7 +106,7 @@ $(function() {
                         </thead>
                         <c:forEach items="${list}" var="dona">
                            <tbody>
-                              <input type="hidden" name="don_no" id="don_no" value="${dona.don_no}">
+                              <input type="hidden" name="don_no" id="don_no" value="${dona.don_no}"></input>
                               <td>${dona.don_name}</td>
                               <td>${dona.don_start_date}</td>
                               <td>${dona.don_end_date}</td>

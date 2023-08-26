@@ -193,7 +193,7 @@ $(document).ready(function() {
 				url : "deleteTag.do",
 				data : {
 					"board_no" : board_no,
-					"t_content" : t_content1
+					"t_content" : t_content1 
 				},
 				sucssess: function(data) {
 					//alert(tagValue+"보드번호:"+${comm.board_no});

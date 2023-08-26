@@ -168,8 +168,20 @@ public class DogamDAOImpl implements DogamDAO {
 		System.out.println("donExp: "+ map);
 		mybatis.update("DogamDAO.donExp",map);
 	}
-	
 
+	//insertGoods
+	@Override
+	public int insertGoods(HashMap map) {
+		System.out.println("mybatis ==> insertGoods()");
+		int rs = mybatis.insert("DogamDAO.insertGoods", map);
+		return rs;
+	}
 
+	@Override
+	public int searchGoods(HashMap map) {
+		System.out.println("mybatis ==> searchGoods()");
+		int rs = mybatis.selectOne("DogamDAO.searchGoods", map);
+		return rs;
+	}
 
 }

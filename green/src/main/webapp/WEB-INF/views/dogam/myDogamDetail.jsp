@@ -50,13 +50,12 @@ pre {
                   <c:if test= "${detail.nowLv eq 3}">
                      <div class="exp_end">만렙달성!</div>
                   </c:if>
-                           
                         </div>
                      </div>
                      <c:if test="${detail.do_name ne null}">
                      <p class="d-flex justify-content-center fs-5 text-green"> 제 이름은 ${detail.do_name}입니다. </p>
                      </c:if>
-                     <div class="animal_level d-flex align-items-center mb-5">
+                     <div class="animal_level d-flex align-items-center mb-3">
                         <img class="level_img1 me-2" src="../resources/imgs/dogam/${detail.img1}" style="width:95px; height:95px;"/>
                         <img class="arrow1 me-2" src="../../../resources/imgs/arrow.png" />
                         <img class="level_img2 me-2" src="../resources/imgs/dogam/${detail.img2}" style="width:95px; height:95px;"/>
@@ -76,21 +75,26 @@ pre {
                      </c:if>
                      
                      <c:if test="${detail.nowLv eq 3}">
-                       <div class="d-flex justify-content-center">
-                          <c:if test="${detail.do_name eq null}">
-                             <div class="d-flex justify-content-center">
-                             <a href="goods.do?do_no=${detail.do_no}&userId=${userId}" id="goods" class="btn btn-warning btn-hover-secondery"> 굿즈 신청</a>
-                             <a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 지어주기</a>
-                             </div>
-                          </c:if>
-                          <c:if test="${detail.do_name ne null}">
-                             <div class="d-flex justify-content-center">
-                             <a href="goods.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 굿즈 신청</a>
-                             <a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 바꾸기</a>
-                             </div>
-                          </c:if>
-                          
-                       </div>
+	                    <div class="d-flex justify-content-center">
+		                    <c:if test="${detail.do_name eq null && detail.goods_no ne 1}">
+		                    	<div class="d-flex justify-content-center">
+		                    	<a href="goods.do?do_no=${detail.do_no}&userId=${userId}" id="goods" class="btn btn-warning btn-hover-secondery"> 굿즈 신청</a>
+		                    	<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 지어주기</a>
+		                    	</div>
+		                    </c:if>
+		                    <c:if test="${detail.do_name ne null && detail.goods_no ne 1}">
+		                    	<div class="d-flex justify-content-center">
+		                    	<a href="goods.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 굿즈 신청</a>
+		                    	<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 바꾸기</a>
+		                    	</div>
+		                    </c:if>
+		                    <c:if test="${detail.do_name eq null && detail.goods_no eq 1}">
+		                    	<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 지어주기</a>
+		                    </c:if>
+		                    <c:if test="${detail.do_name ne null && detail.goods_no eq 1}">
+		                    	<a href="nickname.do?do_no=${detail.do_no}&userId=${userId}" class="btn btn-warning btn-hover-secondery"> 이름 바꾸기</a>
+		                    </c:if>
+	                    </div>
                      </c:if>
                   </div>
                </div>

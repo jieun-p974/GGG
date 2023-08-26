@@ -13,7 +13,7 @@
    }
 </script>
 <link rel="stylesheet" href="/resources/styles/font.css">
-<title>기부처 등록</title>
+<title>기부처 수정</title>
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>
@@ -55,8 +55,8 @@
                         <textarea name="don_summary" id="don_summary"class="form-control" placeholder="기부처의 간단소개를 적어주세요.">${dona.don_summary}</textarea>
                      </div>
                      <div class="d_img1_nn col-12 mb-3 p-3">
-                        <label for="d_img1_nn" class="col-12 mb-1 text-start">챌린지 이미지</label>
-                        <input type="file" name="file" class="col-12">
+                        <label for="d_img1_nn" class="col-12 mb-1 text-start">기부처 이미지</label>
+                        <input type="file" name="file" id="file" class="col-12" value="/resources/imgs/donaImg/${dona.d_img1_addr}">
                      </div>
                      <div class="buttons d-flex justify-content-between mb-5 p-3">
                         <button class="btn btn-white-back btn-hover-third" id="adding" type="submit">등록</button>

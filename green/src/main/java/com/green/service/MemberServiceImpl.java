@@ -82,7 +82,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public void sendEmail(MemberVO vo, String div) {
-		// Mail Server 설정
+		//Mail Server 설정
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.gmail.com"; 
 		String hostSMTPid = "letgoggg.0731@gmail.com";
@@ -103,7 +103,7 @@ public class MemberServiceImpl implements MemberService {
 			msg += vo.getPassword() + "</p></div>"; 
 		}
 		
-		// 받는 사람 E-Mail 주소
+		// �޴� ��� E-Mail �ּ�
 		String mail = vo.getEmail();
 		try {
 			HtmlEmail email = new HtmlEmail();
@@ -131,7 +131,7 @@ public class MemberServiceImpl implements MemberService {
 		PrintWriter out = response.getWriter();
 		// 가입된 아이디가 없으면
 		if(memberDAO.idCheck(vo) == null) {
-			out.print("등록되지 않은 아이디입니다.");
+			out.print("등록되지 않은 아이디입니다..");
 			out.close();
 		}
 		// 가입된 이메일이 아니면

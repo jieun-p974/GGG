@@ -1,6 +1,7 @@
 package com.green.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class CommunityController {
 	// 화면만 이동(DB연결은 XX)
 	@RequestMapping(value="{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("community"+url);
+		System.out.println("community / "+url);
 		return "/community/"+url;
 	}
 	
@@ -47,7 +48,6 @@ public class CommunityController {
 		List<HashTagVO> htlist = null;
 		List<HashTagVO> htTop = null;
 		if (searchKeyword != null) {
-			System.out.println("searco"+searchOption+"searchk"+searchKeyword);
 			HashMap map = new HashMap();
 			map.put("searchOption", searchOption);
 			map.put("searchKeyword", searchKeyword);
@@ -90,7 +90,6 @@ public class CommunityController {
 	public void getCommunityDetail(CommunityVO vo, Model model) {
 		model.addAttribute("comm", communityService.getCommunityDetail(vo));
 		int board_no = vo.getBoard_no();
-		System.out.println("detailboardno");
 		List<HashTagVO> ghtlist = null;
 		
 		//HashTag List in Board 글 하나의 해시태그 목록
@@ -179,42 +178,52 @@ public class CommunityController {
 		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
-	
-/*	공지사항 관련   announcement || notification   */
-/*	공지 목록   notification list   */ 
-	@RequestMapping("/notificationList.do")
+	// announcement notification
+	// notification insert
+	@RequestMapping(value="/saveNoti.do")
+	public String notificationInsert(NotificationVO vo) throws IOException{
+		notificationService.insertNotification(vo);
+		List<String> memList = notificationService.getAllMem();
+
+		int ann_no = notificationService.getAnnNo();
+		
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String,Object>>();
+		for(String s:memList) {
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("id", s);
+			map.put("ann_no", ann_no);
+			list.add(map);
+		}
+		notificationService.annCheckInsert(list);
+		
+		return "redirect:/community/notificationList.do";
+	}
+
+	// notification list 
+	@RequestMapping(value= {"/notificationList.do","/notificationListUser.do"})
 	public void getNotificationList(Model model) {
 		List<NotificationVO> listNO = null;
 		listNO = notificationService.getNotificationList();
 		model.addAttribute("listNO", listNO);
 	}
 	
-/*	공지 등록   notification insert   */
-	@RequestMapping(value="/saveNoti.do")
-	public String notificationInsert(NotificationVO vo) throws IOException{
-		notificationService.insertNotification(vo);
-		return "redirect:/community/notificationList.do";
-	}
-	
-/*	공지 하나   get one notification   */
+	// get one notification
 	@RequestMapping(value= {"/notificationModify.do","/notificationDetail.do"})
 	public void getNotificationDetail(NotificationVO vo, Model model) {
 		model.addAttribute("noti", notificationService.getNotificationDetail(vo));
 	}
 	
-/*	공지 수정   notification modify   */
+	// notification modify
 	@RequestMapping(value = "/updateNotification.do")
 	public String updateNotification(@ModelAttribute("notificatioin") NotificationVO vo) {
 		notificationService.updateNotification(vo);
 		return "redirect:/community/notificationList.do";
 	}
 	
-/*	공지 삭제   notification delete   */
+	// notification delete
 	@RequestMapping(value = "/deleteNotification.do")
 	public String deleteNotification(NotificationVO vo) {
 		notificationService.deleteNotification(vo);
 		return "redirect:/community/notificationList.do";
 	}
-
-	
 }

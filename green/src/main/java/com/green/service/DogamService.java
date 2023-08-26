@@ -56,4 +56,8 @@ public interface DogamService {
 	//기부->exp
 	void donExp(HashMap<String, Object> map);
 	
+	//insertGoods
+	public int insertGoods(HashMap map);
+	
+	public int searchGoods(HashMap map);
 }

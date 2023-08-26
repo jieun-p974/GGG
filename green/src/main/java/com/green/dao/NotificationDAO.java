@@ -1,25 +1,29 @@
 package com.green.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.NotificationVO;
 
 public interface NotificationDAO {
-
-	//Notification List
-	public List<NotificationVO> getNotificationList();
 	
-	//Notification Insert
 	public void notificationWrite(NotificationVO vo);
-
-	//Notification Get One
-	public NotificationVO getNotificationDetail(NotificationVO vo);
 	
-	//Notification Update
+	public int getAnnNo();
+	
+	public List<String> getAllMem();
+	
+	public void annCheckInsert(List<HashMap<String, Object>> list);
+
 	public void updateNotification(NotificationVO vo);
 
-	//Notification Delete
 	public void deleteNotification(NotificationVO vo);
 	
-
+	public List<NotificationVO> getNotificationList();
+	
+	public NotificationVO getNotificationDetail(NotificationVO vo);
+	
+	public void deleteReadNoti(int ann_ck_no);
+	
+	public List<HashMap<String, Object>> getUnreadNoti(String id); 
 }

@@ -21,8 +21,16 @@ public interface PayService {
 	void accInsert(PayVO vo);
 	//현금영수증 신청
 	void receipt(int dogeon_pay_no);
-//	void receiptNO(int dogeon_pay_no);
+
 	void memReceipt(ChalPayVO vo);
 	int getTimes(int dogeon_pay_no);
 	void payTryNum(HashMap map);
+	
+	MemberVO myAc(MemberVO vo);
+	MemberVO myCard(MemberVO vo);
+	
+	void deleteChalD(HashMap map);
+	
+	PayVO searchAccInfo(int dogeon_pay_no);
+	PayVO searchCardInfo(int dogeon_pay_no);
 }

@@ -9,89 +9,89 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberVO {
 
-   private String id;
-   private int mem_type_no;
-   private String password;
-   private String name;
-   private String tel;
-   private String email;
-   private Date sdate;
-   private String card_reg_YN;
-   private String account_reg_YN;
-   private int remainder_point;
-   private String m_img;
-   private String m_img_addr;
-   private int tryNum;
-   private String address;
-   
-   //mem_card table
-   private int mem_card_no;
-   private String card_num;
-   private String expire_date;
-   private int CVC;
-   private String card_company;
-   private int pass_two;
-   
-   //mem_account table
-   private int mem_acc_no;
-   private String acc_num;
-   private String bank;
-   
-   
-   public int getMem_card_no() {
-      return mem_card_no;
-   }
-   public void setMem_card_no(int mem_card_no) {
-      this.mem_card_no = mem_card_no;
-   }
-   public String getCard_num() {
-      return card_num;
-   }
-   public void setCard_num(String card_num) {
-      this.card_num = card_num;
-   }
-   public String getExpire_date() {
-      return expire_date;
-   }
-   public void setExpire_date(String expire_date) {
-      this.expire_date = expire_date;
-   }
-   public int getCVC() {
-      return CVC;
-   }
-   public void setCVC(int cVC) {
-      CVC = cVC;
-   }
-   public String getCard_company() {
-      return card_company;
-   }
-   public void setCard_company(String card_company) {
-      this.card_company = card_company;
-   }
-   public int getPass_two() {
-      return pass_two;
-   }
-   public void setPass_two(int pass_two) {
-      this.pass_two = pass_two;
-   }
-   public int getMem_acc_no() {
-      return mem_acc_no;
-   }
-   public void setMem_acc_no(int mem_acc_no) {
-      this.mem_acc_no = mem_acc_no;
-   }
-   public String getAcc_num() {
-      return acc_num;
-   }
-   public void setAcc_num(String acc_num) {
-      this.acc_num = acc_num;
-   }
-   public String getBank() {
-      return bank;
-   }
-   public void setBank(String bank) {
-      this.bank = bank;
-   }
+	private String id;
+	private int mem_type_no;
+	private String password;
+	private String name;
+	private String tel;
+	private String email;
+	private Date sdate;
+	private String card_reg_YN;
+	private String account_reg_YN;
+	private int remainder_point;
+	private String m_img;
+	private String m_img_addr;
+	private int tryNum;
+	private String address;
+	
+	//mem_card table
+	private int mem_card_no;
+	private String card_num;
+	private String expire_date;
+	private int CVC;
+	private String card_company;
+	private int pass_two;
+	
+	//mem_account table
+	private int mem_acc_no;
+	private String acc_num;
+	private String bank;
+	
+	
+	public int getMem_card_no() {
+		return mem_card_no;
+	}
+	public void setMem_card_no(int mem_card_no) {
+		this.mem_card_no = mem_card_no;
+	}
+	public String getCard_num() {
+		return card_num;
+	}
+	public void setCard_num(String card_num) {
+		this.card_num = card_num;
+	}
+	public String getExpire_date() {
+		return expire_date;
+	}
+	public void setExpire_date(String expire_date) {
+		this.expire_date = expire_date;
+	}
+	public int getCVC() {
+		return CVC;
+	}
+	public void setCVC(int cVC) {
+		CVC = cVC;
+	}
+	public String getCard_company() {
+		return card_company;
+	}
+	public void setCard_company(String card_company) {
+		this.card_company = card_company;
+	}
+	public int getPass_two() {
+		return pass_two;
+	}
+	public void setPass_two(int pass_two) {
+		this.pass_two = pass_two;
+	}
+	public int getMem_acc_no() {
+		return mem_acc_no;
+	}
+	public void setMem_acc_no(int mem_acc_no) {
+		this.mem_acc_no = mem_acc_no;
+	}
+	public String getAcc_num() {
+		return acc_num;
+	}
+	public void setAcc_num(String acc_num) {
+		this.acc_num = acc_num;
+	}
+	public String getBank() {
+		return bank;
+	}
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
 
    //내 챌린지 조인
    private ChallengeVO challengeVO;
@@ -103,44 +103,44 @@ public class MemberVO {
       this.challengeVO = challengeVO;
    }
 
-   public MemberVO() {}
-   
-   //*************************************************
-MultipartFile file;   // write.jsp에 파일첨부시 name="file"과 동일한 변수명
-   
-   public MultipartFile getFile() {
-      return file;
-   }
-   public void setFile(MultipartFile file) {
-      this.file = file;
-      
-      // 업로드 파일 접근   
-      if(! file.isEmpty()){
-         this.m_img = file.getOriginalFilename();
-         
-         // 실제 저장된 파일명 만들기
-         UUID uuid = UUID.randomUUID();
-         m_img_addr = uuid.toString() + "_" + m_img;
-         
-         //***********************************************
-         // 해당 경로로 변경
-         File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\member\\"+m_img_addr);
-         
-         try {
-            file.transferTo(f);
-            
-         } catch (IllegalStateException e) {            
-            e.printStackTrace();
-         } catch (IOException e) {
-            
-            e.printStackTrace();
-         }
-      }
-   }
-   
-   public String getId() {
-      return id;
-   }
+	public MemberVO() {}
+	
+	//*************************************************
+MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+		
+		// 업로드 파일 접근	
+		if(! file.isEmpty()){
+			this.m_img = file.getOriginalFilename();
+			
+			// 실제 저장된 파일명 만들기
+			UUID uuid = UUID.randomUUID();
+			m_img_addr = uuid.toString() + "_" + m_img;
+			
+			//***********************************************
+			// 해당 경로로 변경
+			File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\member\\"+m_img_addr);
+			
+			try {
+				file.transferTo(f);
+				
+			} catch (IllegalStateException e) {				
+				e.printStackTrace();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public String getId() {
+		return id;
+	}
 
    public void setId(String id) {
       this.id = id;
@@ -231,24 +231,23 @@ MultipartFile file;   // write.jsp에 파일첨부시 name="file"과 동일한 �
       return m_img_addr;
    }
 
-   public void setM_img_addr(String m_img_addr) {
-      this.m_img_addr = m_img_addr;
-   }
-   public int getTryNum() {
-      return tryNum;
-   }
-   public void setTryNum(int tryNum) {
-      this.tryNum = tryNum;
-   }
-   public void setMemberAuthKey(String memberAuthKey) {
-      
-   }
-   public String getAddress() {
-      return address;
-   }
-   public void setAddress(String address) {
-      this.address = address;
-   }
-
+	public void setM_img_addr(String m_img_addr) {
+		this.m_img_addr = m_img_addr;
+	}
+	public int getTryNum() {
+		return tryNum;
+	}
+	public void setTryNum(int tryNum) {
+		this.tryNum = tryNum;
+	}
+	public void setMemberAuthKey(String memberAuthKey) {
+		
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
    
 }

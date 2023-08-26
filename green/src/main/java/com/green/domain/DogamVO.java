@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class DogamVO {
 
-	// dogam �뀒�씠釉�
+	// dogam table
 	private int do_no;
 	private String do_title;
 	private String do_content;
@@ -16,29 +16,30 @@ public class DogamVO {
 	private String do_realimg;
 	private String do_realimg_addr;
 
-	// lv_dogam �뀒�씠釉�
+	// lv_dogam table
 	private int lv_do_no;
 	private int do_lev;
 	private String do_img;
 	private String do_img_addr;
 
-	// mem_dogam �뀒�씠釉�
+	// mem_dogam table
 	private int mem_do_no;
 	private String do_name;
 	private String do_choice_YN;
 	private int do_exp;
 
-	// point_level �뀒�씠釉�
+	// point_level table
 	private int level_no;
 	private int lev_mim_point;
 	private int lev_max_point;
-
+	
 	private String img1;
 	private String img2;
 	private String img3;
 	private int nowLv;
 	private String lv_img;
 
+	private int goods_no; 
 	public DogamVO() {
 	}
 
@@ -217,7 +218,16 @@ public class DogamVO {
 	public void setLv_img(String lv_img) {
 		this.lv_img = lv_img;
 	}
-//*************************************************
+	
+	public int getGoods_no() {
+		return goods_no;
+	}
+
+	public void setGoods_no(int goods_no) {
+		this.goods_no = goods_no;
+	}
+
+	//*************************************************
 	MultipartFile file; // write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�
 
 	public MultipartFile getFile() {
@@ -266,7 +276,7 @@ public class DogamVO {
 
 			// �떎�젣 ���옣�맂 �뙆�씪紐� 留뚮뱾湲�
 			UUID uuid = UUID.randomUUID();
-			do_realimg = uuid.toString() + "_" + do_realimg;
+			do_realimg_addr = uuid.toString() + "_" + do_realimg;
 
 			// ***********************************************
 			// 해당 경로로 변경
