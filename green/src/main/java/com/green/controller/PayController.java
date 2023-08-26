@@ -78,6 +78,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 	   map.put("dogeon_times", payService.getTimes(pvo.getDogeon_pay_no()));
 	      
 	  payService.payTryNum(map);
+	  
       return "redirect:/member/main.do";
    }
 
@@ -92,6 +93,10 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       payService.chalPay(voc);
       model.addAttribute("forPay", payService.forPay(voc));
 
+      HashMap map = new HashMap<String, Object>();
+      
+      map.put("id", voc.getId());
+      payService.deleteChalD(map);
    }
 
    // 결제하기 버튼 누르면
@@ -115,7 +120,13 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 	   model.addAttribute("forPay", payService.forPay(voc));
 	   MemberVO memAc = payService.myAc(vo);
 	   model.addAttribute("memAc",memAc);
+	   HashMap map = new HashMap<String, Object>();
+	      
+	      map.put("id", voc.getId());
+	      payService.deleteChalD(map);
+
    }
+   
    
    // 일반계좌로 결제
    @RequestMapping(value = "/account.do")
@@ -124,6 +135,12 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       // 넘기는 값이 dogeon_pay_no를 vo에 setdogeon_pay_no로 넣기 그다음 insert 문 실행
       payService.chalPay(voc);
       model.addAttribute("forPay", payService.forPay(voc));
+
+      HashMap map = new HashMap<String, Object>();
+      
+      map.put("id", voc.getId());
+      payService.deleteChalD(map);
+
    }
 
    // 결제하기 버튼 누르면(현금영수증 유무)
@@ -139,6 +156,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       payService.payTryNum(map);
       payService.receipt(dogeon_pay_no);// 현금영수증->Y
       payService.memReceipt(voc);
+      
       return "redirect:/member/main.do";
       } else {
          HashMap map = new HashMap<String, Object>();
@@ -148,6 +166,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 
          payService.accInsert(vo);
          payService.payTryNum(map);
+      //   payService.deleteChalD(map);
          
          return "redirect:/member/main.do";
       }

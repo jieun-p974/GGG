@@ -28,4 +28,6 @@ public interface PayService {
 	
 	MemberVO myAc(MemberVO vo);
 	MemberVO myCard(MemberVO vo);
+	
+	void deleteChalD(HashMap map);
 }

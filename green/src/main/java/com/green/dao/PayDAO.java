@@ -28,4 +28,6 @@ public interface PayDAO {
 	//간편계좌로 챌린지 결제
 	public MemberVO myAc(MemberVO vo);
 	public MemberVO myCard(MemberVO vo);
+	//챌린지도전권 삭제
+	public void deleteChalD(HashMap map);
 }

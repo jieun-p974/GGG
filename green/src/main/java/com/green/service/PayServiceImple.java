@@ -86,4 +86,10 @@ public class PayServiceImple implements PayService {
 		// TODO Auto-generated method stub
 		return payDAO.myCard(vo);
 	}
+
+	@Override
+	public void deleteChalD(HashMap map) {
+		// TODO Auto-generated method stub
+		payDAO.deleteChalD(map);
+	}
 }

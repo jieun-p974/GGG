@@ -53,8 +53,9 @@
 												<fmt:formatNumber type="percent" value="${dona.don_point_sum/dona.don_goal}"
 													var="percent" pattern="0%" />
 												<p class="percent">${percent}</p>
-												<p class="point">${dona.don_point_sum}P</p>
+												<p class="point">${dona.don_goal}P</p>
 											</div>
+											<p class="point">현재 기부 포인트:${dona.don_point_sum}P</p>
 										</div>
 									</div>
 	
@@ -71,8 +72,7 @@
 						<h4 class="text-black">여러분의 참여로 이만큼 모였어요</h4>
 					</div>
 					<div class="col-sm-12">
-						<p class="text-black">총 기부 포인트 <c:out value="${total}" />P</p>
-						<p class="text-black">기부 참여 인원 11,521명</p>
+						<p class="text-black">🌏총 기부 포인트 <c:out value="${total}" />P</p>
 					</div>
 				</div>
 			</div>

@@ -287,9 +287,9 @@
       </div>
    </section>
       <c:set var="now" value="<%=new java.util.Date()%>" />
-                                           <c:set var="sysYear">
-                                                      <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />
-                                               </c:set>    
+        <c:set var="sysYear">
+         <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />
+        </c:set>    
    <a href="#" class="top"><img class="top-img" alt="top button" src="/resources/imgs/up.png"></a>
    <%@include file="../layouts/footer.jsp"%>
    <script type="text/javascript">

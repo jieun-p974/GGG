@@ -95,4 +95,10 @@ public class PayDAOImpl implements PayDAO {
 		// TODO Auto-generated method stub
 		return mybatis.selectOne("payDAO.myCard",vo);
 	}
+
+	@Override
+	public void deleteChalD(HashMap map) {
+		// TODO Auto-generated method stub
+		mybatis.delete("payDAO.deleteChalD",map);
+	}
 }

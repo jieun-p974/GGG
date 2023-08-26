@@ -244,7 +244,7 @@
                      class="position-absolute badge bg-warning d-inline-block mx-auto">
                      Most Popular</div>
                   <div class="card-body pt-5 p-3">
-                     <small class="fs-7 d-block text-warning text-center">7회
+                     <small class="fs-7 d-block text-warning text-center">7회 
                         도전권</small>
                      <h2 class="mb-4 text-center position-relative">
                         <sub class="fs-2 text-black">5,000</sub><sup
@@ -287,9 +287,9 @@
       </div>
    </section>
      <c:set var="now" value="<%=new java.util.Date()%>" />
-                                           <c:set var="sysYear">
-                                                      <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />
-                                               </c:set>    
+      <c:set var="sysYear">
+       <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />
+      </c:set>    
    <a href="#" class="top"><img class="top-img" alt="top button" src="/resources/imgs/up.png"></a>
    <%@include file="WEB-INF/views/layouts/footer.jsp"%>
    <script type="text/javascript">
