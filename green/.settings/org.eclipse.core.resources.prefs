@@ -7,7 +7,17 @@ encoding//src/main/java/com/green/controller/ChallengeController.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/challenge/challengeCertification.jsp=UTF-8
 =======
 encoding//src/main/java/com/green/controller/DogamController.java=UTF-8
+encoding//src/main/java/com/green/controller/PayController.java=UTF-8
+encoding//src/main/java/com/green/dao/DogamDAO.java=UTF-8
+encoding//src/main/java/com/green/dao/DogamDAOImpl.java=UTF-8
 encoding//src/main/java/com/green/domain/DogamVO.java=UTF-8
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/gaeun
+=======
+encoding//src/main/java/com/green/domain/MemberVO.java=UTF-8
+encoding//src/main/java/com/green/service/DogamService.java=UTF-8
+encoding//src/main/java/com/green/service/MailSendService.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/dogam/goods.jsp=UTF-8
 >>>>>>> refs/remotes/origin/gaeun
 encoding//src/main/webapp/WEB-INF/views/member/signup.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/pay/payment.jsp=UTF-8
@@ -17,4 +27,7 @@ encoding//src/main/webapp/resources/styles/donation.css=UTF-8
 encoding//src/main/webapp/resources/styles/login.css=UTF-8
 encoding//src/main/webapp/resources/styles/myDogamDetail.css=UTF-8
 encoding//src/main/webapp/resources/styles/signup.css=UTF-8
+<<<<<<< HEAD
 separateDerivedEncodings=true
+=======
+>>>>>>> refs/remotes/origin/gaeun

@@ -164,12 +164,24 @@ public class DogamDAOImpl implements DogamDAO {
 	//기부->exp
 	@Override
 	public void donExp(HashMap<String, Object> map) {
-		System.out.println("==>exp의donExp()호출");
+		System.out.println("==>exp�쓽donExp()�샇異�");
 		System.out.println("donExp: "+ map);
 		mybatis.update("DogamDAO.donExp",map);
 	}
-	
 
+	//insertGoods
+	@Override
+	public int insertGoods(HashMap map) {
+		System.out.println("mybatis ==> insertGoods()");
+		int rs = mybatis.insert("DogamDAO.insertGoods", map);
+		return rs;
+	}
 
+	@Override
+	public int searchGoods(HashMap map) {
+		System.out.println("mybatis ==> searchGoods()");
+		int rs = mybatis.selectOne("DogamDAO.searchGoods", map);
+		return rs;
+	}
 
 }

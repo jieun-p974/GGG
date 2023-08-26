@@ -20,7 +20,7 @@
       });
    });
 </script>
-<title>도감 추가</title>
+<title>관리자 | 도감 관리</title>
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>

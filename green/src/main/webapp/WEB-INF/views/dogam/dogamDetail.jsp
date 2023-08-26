@@ -32,7 +32,7 @@ pre {
    word-wrap: break-word;
  }
 </style>
-<title>동물도감 | 상세보기</title>
+<title>캐릭터도감 | 상세보기</title>
 </head>
 <body>
 		<%@include file="../layouts/header.jsp"%>

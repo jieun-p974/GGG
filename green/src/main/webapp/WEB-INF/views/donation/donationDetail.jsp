@@ -15,6 +15,7 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <link rel="stylesheet" href="/resources/styles/font.css">
 <title>Insert title here</title>
+<<<<<<< HEAD
 <style type="text/css">
 pre {
    width: 100%;
@@ -24,6 +25,8 @@ pre {
  }
 
 </style>
+=======
+>>>>>>> refs/remotes/origin/gaeun
 <script type="text/javascript">
 var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
@@ -55,7 +58,7 @@ if(msg.length >0 && url.length >0){
                       <fmt:formatDate var="don_start_date" value="${dona.don_start_date}" pattern="yyyyMMdd"/>
                       <fmt:formatDate var="don_end_date" value="${dona.don_end_date}" pattern="yyyyMMdd"/>
                      <c:if test="${don_start_date<nowDate && don_end_date>nowDate}">
-                     <a href="goDonation.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
+                     <a href="goDonation2.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
                      </c:if>
                      </div>
                <div class="card">

@@ -57,7 +57,7 @@ public class MemberServiceImpl implements MemberService {
 
 		if (id == null) {
 			out.println("<script>");
-			out.println("alert('ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.');");
+			out.println("alert('ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
@@ -65,7 +65,7 @@ public class MemberServiceImpl implements MemberService {
 		} else {
 			out.println("<script>");
 			out.println("var id = '" + id + "';");
-			out.print("alert(id + ' ìœ¼ë¡œ ê°€ì…ë˜ì–´ ìˆìŠµë‹ˆë‹¤.');");
+			out.print("alert(id + ' À¸·Î °¡ÀÔµÇ¾î ÀÖ½À´Ï´Ù.');");
 			out.print("location.href = 'login.do';");
 			out.println("</script>");
 			out.close();
@@ -82,28 +82,28 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public void sendEmail(MemberVO vo, String div) {
-		// Mail Server ì„¤ì •
+		// Mail Server ¼³Á¤
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.gmail.com"; 
 		String hostSMTPid = "letgoggg.0731@gmail.com";
 		String hostSMTPpwd = "dolauwmpcdaghtfe";
 
-		// ë³´ë‚´ëŠ” ì‚¬ëŒ EMail, ì œëª©, ë‚´ìš©
+		// º¸³»´Â »ç¶÷ EMail, Á¦¸ñ, ³»¿ë
 		String fromEmail = "letgoggg.0731@gmail.com";
 		String fromName = "GGG";
 		String subject = "";
 		String msg = "";
 
 		if(div.equals("searchPW")) {
-			subject = "[GGG] ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ ì…ë‹ˆë‹¤.";
+			subject = "[GGG] ÀÓ½Ã ºñ¹Ğ¹øÈ£ ÀÔ´Ï´Ù.";
 			msg += "<div align='center' style='border:1px solid silver; '>";
 			msg += "<h3 style='color: green;'>";
-			msg += vo.getId() + "ë‹˜ì˜ ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ ì…ë‹ˆë‹¤. ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³€ê²½í•˜ì—¬ ì‚¬ìš©í•˜ì„¸ìš”.</h3>";
-			msg += "<p>ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ : ";
+			msg += vo.getId() + "´ÔÀÇ ÀÓ½Ã ºñ¹Ğ¹øÈ£ ÀÔ´Ï´Ù. ºñ¹Ğ¹øÈ£¸¦ º¯°æÇÏ¿© »ç¿ëÇÏ¼¼¿ä.</h3>";
+			msg += "<p>ÀÓ½Ã ºñ¹Ğ¹øÈ£ : ";
 			msg += vo.getPassword() + "</p></div>"; 
 		}
 		
-		// ë°›ëŠ” ì‚¬ëŒ E-Mail ì£¼ì†Œ
+		// ¹Ş´Â »ç¶÷ E-Mail ÁÖ¼Ò
 		String mail = vo.getEmail();
 		try {
 			HtmlEmail email = new HtmlEmail();
@@ -121,7 +121,7 @@ public class MemberServiceImpl implements MemberService {
 			email.setHtmlMsg(msg);
 			email.send();
 		} catch (Exception e) {
-			System.out.println("ë©”ì¼ë°œì†¡ ì‹¤íŒ¨ : " + e);
+			System.out.println("¸ŞÀÏ¹ß¼Û ½ÇÆĞ : " + e);
 		}
 		
 	}
@@ -129,28 +129,28 @@ public class MemberServiceImpl implements MemberService {
 	public void searchPW(HttpServletResponse response, MemberVO vo) throws Exception  {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		// ê°€ì…ëœ ì•„ì´ë””ê°€ ì—†ìœ¼ë©´
+		// °¡ÀÔµÈ ¾ÆÀÌµğ°¡ ¾øÀ¸¸é
 		if(memberDAO.idCheck(vo) == null) {
-			out.print("ë“±ë¡ë˜ì§€ ì•Šì€ ì•„ì´ë””ì…ë‹ˆë‹¤.");
+			out.print("µî·ÏµÇÁö ¾ÊÀº ¾ÆÀÌµğÀÔ´Ï´Ù.");
 			out.close();
 		}
-		// ê°€ì…ëœ ì´ë©”ì¼ì´ ì•„ë‹ˆë©´
+		// °¡ÀÔµÈ ÀÌ¸ŞÀÏÀÌ ¾Æ´Ï¸é
 		else if(memberDAO.emailCheck(vo.getId()) == null) {
-			out.print("ë“±ë¡ë˜ì§€ ì•Šì€ ì´ë©”ì¼ì…ë‹ˆë‹¤.");
+			out.print("µî·ÏµÇÁö ¾ÊÀº ÀÌ¸ŞÀÏÀÔ´Ï´Ù.");
 			out.close();
 		}else {
-			// ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ ìƒì„±
+			// ÀÓ½Ã ºñ¹Ğ¹øÈ£ »ı¼º
 			String pw = "";
 			for (int i = 0; i < 12; i++) {
 				pw += (char) ((Math.random() * 26) + 97);
 			}
 			vo.setPassword(pw);
-			// ë¹„ë°€ë²ˆí˜¸ ë³€ê²½
+			// ºñ¹Ğ¹øÈ£ º¯°æ
 			memberDAO.searchPW(vo);
-			// ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ ë©”ì¼ ë°œì†¡
+			// ºñ¹Ğ¹øÈ£ º¯°æ ¸ŞÀÏ ¹ß¼Û
 			sendEmail(vo, "searchPW");
 
-			out.print("ì´ë©”ì¼ë¡œ ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë°œì†¡í•˜ì˜€ìŠµë‹ˆë‹¤.");
+			out.print("ÀÌ¸ŞÀÏ·Î ÀÓ½Ã ºñ¹Ğ¹øÈ£¸¦ ¹ß¼ÛÇÏ¿´½À´Ï´Ù.");
 			out.close();
 		}
 		

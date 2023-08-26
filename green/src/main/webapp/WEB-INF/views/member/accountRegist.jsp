@@ -55,33 +55,33 @@
 </script>
 
 <body>
-   <div class="limiter">
-      <%@include file="../layouts/header.jsp"%>
-      <div class="container-login100">
-         <div class="wrap-login100">
-            <form class="login100-form validate-form" name="form" action="accSave.do" method="post">
-               <input type="hidden" name="id" value="${userId}">
-               <h4 class="mb-5">간편결제 | 계좌등록</h4>
-               <label class="d-block">
-                  <div class="d-flex position-relative flex-wrap">
-                     <p class="col-12 text-start ps-0">은행사</p>
-                     <select class="bankinfo mt-2 me-3" style="height: 45px;" name="bank" id="bank">
-                        <option value="" selected>- 은행선택 -</option>
-                        <option value='KB국민은행'>KB국민은행</option>
-                        <option value='신한은행'>신한은행</option>
-                        <option value='우리은행'>우리은행</option>
-                        <option value='하나은행'>하나은행</option>
-                        <option value='신한은행'>신한은행</option>
-                        <option value='SC제일은행'>SC제일은행</option>
-                        <option value='씨티은행'>씨티은행</option>
-                        <option value='산업은행'>산업은행</option>
-                        <option value='NH농협은행'>NH농협은행</option>
-                        <option value='수협은행'>수협은행</option>
-                        <option value='케이뱅크'>케이뱅크</option>
-                        <option value='카카오뱅크'>카카오뱅크</option>
-                        <option value='토스뱅크'>토스뱅크</option>
-                     </select>
-                  </div>
+	<div class="limiter">
+		<%@include file="../layouts/header.jsp"%>
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" name="form" action="accSave.do" method="post">
+					<input type="hidden" name="id" value="${userId}">
+					<h4 class="mb-5">간편결제 | 계좌등록</h4>
+					<label class="d-block">
+						<div class="d-flex position-relative flex-wrap">
+							<p class="col-12 text-start ps-0">은행사</p>
+							<select class="bankinfo mt-2 me-3" style="height: 45px;" name="bank" id="bank">
+								<option value="" selected>- 은행선택 -</option>
+								<option value='KB국민은행'>KB국민은행</option>
+								<option value='신한은행'>신한은행</option>
+								<option value='우리은행'>우리은행</option>
+								<option value='하나은행'>하나은행</option>
+								<option value='신한은행'>신한은행</option>
+								<option value='SC제일은행'>SC제일은행</option>
+								<option value='씨티은행'>씨티은행</option>
+								<option value='산업은행'>산업은행</option>
+								<option value='NH농협은행'>NH농협은행</option>
+								<option value='수협은행'>수협은행</option>
+								<option value='케이뱅크'>케이뱅크</option>
+								<option value='카카오뱅크'>카카오뱅크</option>
+								<option value='토스뱅크'>토스뱅크</option>
+							</select>
+						</div>
 
                   <div class="wrap-input100 validate-input mt-5">
                      <p class="col-12 text-start ps-0">계좌번호</p>

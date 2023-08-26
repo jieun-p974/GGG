@@ -186,13 +186,15 @@
                   <div class="card-body" style="z-index: 1;">
                      <div
                         class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-                        <img class="img-fluid" src="/resources/imgs/main_bear.png" style="width:50%"
+
+                        <img class="img-fluid" src="/resources/imgs/main_animal.png" style="width:50%"
                         >
                      </div>
                      <h3 class="fs-4 text-white">이달의 신규 캐릭터</h3>
                      
-                     <p class="fs-7 mb-0 fw-500 text-white">저는 멸종위기 취약등급이에요. <br/>
-                     먹이사슬 최상위에 존재하며,<br /> 생의 대부분을 바다와 빙하 주변에서 보낸답니다. <br/><br/>
+                     <p class="fs-7 mb-0 fw-500 text-white">저는 멸종위기 위협등급이에요. <br/>
+                    오리 같기도 하고, 너구리 같기도 한 엉뚱한 외모로<br/>
+                    포켓몬 고라파덕의 모티브가 되었어요.<br /><br/> 
                      제가 누군지 궁금하세요?</p>
                   </div>
                      
@@ -244,7 +246,7 @@
                      class="position-absolute badge bg-warning d-inline-block mx-auto">
                      Most Popular</div>
                   <div class="card-body pt-5 p-3">
-                     <small class="fs-7 d-block text-warning text-center">7회 
+                     <small class="fs-7 d-block text-warning text-center">7회
                         도전권</small>
                      <h2 class="mb-4 text-center position-relative">
                         <sub class="fs-2 text-black">5,000</sub><sup
@@ -287,10 +289,10 @@
       </div>
    </section>
      <c:set var="now" value="<%=new java.util.Date()%>" />
-      <c:set var="sysYear">
-       <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />
-      </c:set>    
-   <a href="#" class="top"><img class="top-img" alt="top button" src="/resources/imgs/up.png"></a>
+                                           <c:set var="sysYear">
+                                                      <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" />
+                                               </c:set>    
+   <a href="#" class="top"><img class="top-img" alt="top button" src="/resources/imgs/main_up.png"></a>
    <%@include file="WEB-INF/views/layouts/footer.jsp"%>
    <script type="text/javascript">
    

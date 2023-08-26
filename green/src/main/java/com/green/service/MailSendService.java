@@ -38,26 +38,26 @@ public class MailSendService {
 					+ "<div align='center' style='border:1px solid silver; font-family: Noto Sans KR';>"
 					+ "<h2 style='color: green;'>해당 인증번호를 인증번호 확인란에 기입하여 주세요.</h2>"
 					+ "<h3>인증 번호는 " + authNumber + " 입니다.</h3>"
-					+ "<img style='width:300px;' src='https://img.freepik.com/premium-vector/save-earth-concept-illustration_266639-19.jpg'/></div>";
+					+ "<img src='https://mblogthumb-phinf.pstatic.net/MjAyMzA4MjNfMTE1/MDAxNjkyNzc0NTk0ODY0.FkNi8NeuVr1lUOOM-rDJfjpGG-vxaBF9h6yfikETjZMg.TvZF2zsprq_Z8onFMHSKr4OZtgDBGRdqDaXqmZmsayAg.PNG.wlahdl/IMG_0835.PNG?type=w800'/></div>";
 			;
 			mailSend(setFrom, toMail, title, content);
 			return Integer.toString(authNumber);
 		}
 		
 		//이메일 전송 메소드
-		public void mailSend(String setFrom, String toMail, String title, String content) { 
-			MimeMessage message = mailSender.createMimeMessage();
-			// true 매개값을 전달하면 multipart 형식의 메세지 전달이 가능.문자 인코딩 설정도 가능하다.
-			try {
-				MimeMessageHelper helper = new MimeMessageHelper(message,true,"utf-8");
-				helper.setFrom(setFrom);
-				helper.setTo(toMail);
-				helper.setSubject(title);
-				// true 전달 > html 형식으로 전송 , 작성하지 않으면 단순 텍스트로 전달.
-				helper.setText(content,true);
-				mailSender.send(message);
-			} catch (MessagingException e) {
-				e.printStackTrace();
-			}
+				public void mailSend(String setFrom, String toMail, String title, String content) { 
+					MimeMessage message = mailSender.createMimeMessage();
+					// true 매개값을 전달하면 multipart 형식의 메세지 전달이 가능.문자 인코딩 설정도 가능하다.
+					try {
+						MimeMessageHelper helper = new MimeMessageHelper(message,true,"utf-8");
+						helper.setFrom(setFrom);
+						helper.setTo(toMail);
+						helper.setSubject(title);
+						// true 전달 > html 형식으로 전송 , 작성하지 않으면 단순 텍스트로 전달.
+						helper.setText(content,true);
+						mailSender.send(message);
+					} catch (MessagingException e) {
+						e.printStackTrace();
+					}
+				}
 		}
-}

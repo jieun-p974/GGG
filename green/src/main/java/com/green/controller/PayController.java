@@ -18,7 +18,7 @@ import com.green.service.PayService;
 
 @Controller
 @RequestMapping("/pay/")
-public class PayController { // 화면만 이동(DB연결은 XX)
+public class PayController { // �솕硫대쭔 �씠�룞(DB�뿰寃곗� XX)
 
    @Autowired
    private PayService payService;
@@ -170,5 +170,4 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       }
       
    }
-
 }

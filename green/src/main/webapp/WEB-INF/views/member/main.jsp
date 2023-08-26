@@ -81,7 +81,6 @@
                   챌린지를 진행하시면 일정 포인트를 얻을 수 있습니다.<br /> 챌린지를 통해 획득한 포인트를 기부하면 기부하신<br />포인트만큼
                   캐릭터를 성장 시킬 수 있습니다.
                </p>
-
                <div class="d-flex align-items-center mt-3">
                   <a class="btn btn-warning btn-hover-secondery"
                      href="/challenge/challengeList.do" style="z-index: 0;">챌린지
@@ -289,7 +288,6 @@
    <%@include file="../layouts/footer.jsp"%>
    <script type="text/javascript">
    function goPay(){
-
       if(${userTryNum >0 && userTryNum<999}){
          alert("잔여 도전권이 남아있습니다!");
       }else if(${sysYear < dogeonGigan && userTryNum==999}){

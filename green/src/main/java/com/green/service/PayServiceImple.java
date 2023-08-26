@@ -57,7 +57,7 @@ public class PayServiceImple implements PayService {
 		// TODO Auto-generated method stub
 		payDAO.receipt(dogeon_pay_no);
 	}
-
+	
 	@Override
 	public void memReceipt(ChalPayVO vo) {
 		// TODO Auto-generated method stub

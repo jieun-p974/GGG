@@ -26,8 +26,8 @@ import com.green.service.NotificationService;
 @Controller 
 @RequestMapping("/community/")
 public class CommunityController {
-	
-	private static final HashMap<String, Object> data = new HashMap<String, Object>();
+   
+   private static final HashMap<String, Object> data = new HashMap<String, Object>();
 
 	@Autowired
 	private CommunityService communityService;
@@ -187,6 +187,4 @@ public class CommunityController {
 		notificationService.deleteNotification(vo);
 		return "redirect:/community/notificationList.do";
 	}
-
-	
 }
