@@ -20,6 +20,7 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="../../../resources/styles/profile.css">
 <link rel="stylesheet" href="../../../resources/styles/mypage.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>마이페이지</title>
 <style type="text/css">
 .info_heon{
@@ -49,7 +50,6 @@
     background: #1D976C;
     background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
     background: linear-gradient(to right, #93F9B9, #1D976C);
-
 }
 </style>
 <jsp:useBean id="now" class="java.util.Date" />
@@ -77,9 +77,16 @@
 						${meminfo.id}&nbsp회원님&nbsp환영합니다! <br /> <br /> 🌏&nbspGGG와 함께한지
 						${today-sdate2}일 째&nbsp🌏
 					</h6>
+					<c:if test="${userTryNum ne 999}">
 					<h6>
 						보유포인트 : ${meminfo.remainder_point} p <br /> <br /> 잔여도전횟수 : ${meminfo.tryNum} 회
 					</h6>
+					</c:if>
+					<c:if test="${meminfo.tryNum eq 999}">
+					<h6>
+						보유포인트 : ${meminfo.remainder_point} p <br /> <br /> 잔여도전횟수 : 무제한
+					</h6>
+					</c:if>
 					 <h6 class="mt-4"> 도전권은 ${dogeonGigan} 까지 <br />사용가능합니다.</h6>
 				</div>
 			</div>
@@ -96,10 +103,12 @@
 								<div class="grid">
 									<p class="fs-7 text-black" style="padding: 0">아이디 :
 										${meminfo.id}</p>
-									<p class="fs-7 text-black" style="padding: 0">전화번호 :
-										${meminfo.tel}</p>
 									<p class="fs-7 text-black" style="padding: 0">이메일주소 :
 										${meminfo.email}</p>
+									<p class="fs-7 text-black" style="padding: 0">전화번호 :
+										${meminfo.tel}</p>
+									<p class="fs-7 text-black" style="padding: 0">주소 :
+										${meminfo.address}</p>
 									<p class="fs-7 text-black" style="padding: 0">간편결제 카드등록 여부
 										: ${meminfo.card_reg_YN}</p>
 									<p class="fs-7 text-black" style="padding: 0">간편결제 등록 여부 :
@@ -176,14 +185,13 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="d-flex col-xxl-8 col-xl-10 col-lg-10 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3 flex-wrap">
 							<!-- lv1 -->
 							<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center" style="height: 350px">
 								<div class="card border-0 shadow h-100">
 									<div class="card-body h-100 p-3">
 										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img1}">
+											<img class="img-grade" style="width:80%; height:auto;"  src="/resources/imgs/dogam/${myDogam.img1}">
 										</div>
 									</div>
 								</div>
@@ -194,7 +202,7 @@
 								<div class="card border-0 shadow h-100">
 									<div class="card-body h-100 p-3">
 										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img2}">
+											<img class="img-grade" style="width:80%; height:auto;" src="/resources/imgs/dogam/${myDogam.img2}">
 										</div>
 									</div>
 								</div>
@@ -205,7 +213,7 @@
 								<div class="card border-0 shadow h-100">
 									<div class="card-body h-100 p-3">
 										<div class="h-100 overflow-hidden rounded-circle position-relative d-flex align-items-center justify-content-center mx-auto text-center">
-											<img class="img-grade" src="/resources/imgs/dogam/${myDogam.img3}">
+											<img class="img-grade" style="width:80%; height:auto;" src="/resources/imgs/dogam/${myDogam.img3}">
 										</div>
 									</div>
 								</div>
@@ -246,7 +254,6 @@
 			<!-- 도전중인 챌린지, 기부내역 -->
 			<section class="pricing position-relative overflow-hidden">
 				<div class="container position-relative">
-
 					<div class="row justify-content-center">
 						<div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-6 col-12">
 							<div class="card position-relative shadow border-0 h-100">

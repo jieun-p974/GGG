@@ -1,27 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
 <link href="../../../resources/styles/dogamWrite.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+   type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <script type="text/javascript">
-	$(function(){
-		$("#write").click(function(){
-			var form = document.getElementById("dogamInput");
-					
-			if($("#do_title").val().length()==0 || $("#do_content").val().length()==0){
-				alert("입력이 완료되지 않았습니다.");
-				return false;
-			}
-		});
-	});
+   $(function(){
+      $("#write").click(function(){
+         var form = document.getElementById("dogamInput");
+               
+         if($("#do_title").val().length()==0 || $("#do_content").val().length()==0){
+            alert("입력이 완료되지 않았습니다.");
+            return false;
+         }
+      });
+   });
 </script>
-<title>도감 추가</title>
+<title>관리자 | 도감 관리</title>
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>

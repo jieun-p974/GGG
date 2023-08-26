@@ -185,6 +185,28 @@ public class DogamController {
 			return "redirect:/dogam/dogamDetail.do?do_no=" + do_no;
 						
 		}
-
+		
+	
+	// insert goods
+		@RequestMapping(value = "/goodsSinchung.do")
+		public String insertGoods(int do_no, String id, RedirectAttributes rd) throws IOException {
+						
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("do_no", do_no);
+			map.put("userId", id);
 			
+			int cnt = dogamService.searchGoods(map);
+			System.out.println("cnt몇개임 알려줏메메ㅔㅔㅔㅔㅔ" + cnt);
+			//굿즈 있는 지 찾아와서 검색하고 그 결과 따라서 insert
+			if(cnt<1) {
+				dogamService.insertGoods(map);
+				rd.addFlashAttribute("msg", "굿즈 신청되었습니다.");
+				rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + id);
+			}
+			if(cnt>=1) {
+				rd.addFlashAttribute("msg", "이미 신청하셨습니다.");
+				rd.addFlashAttribute("url", "/dogam/myDogam.do?id=" + id);
+			}
+			return "redirect:/dogam/myDogam.do?id=" + id;
+		}			
 }

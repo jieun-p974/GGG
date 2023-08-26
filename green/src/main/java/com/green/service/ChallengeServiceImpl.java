@@ -29,6 +29,10 @@ public class ChallengeServiceImpl implements ChallengeService{
 		int res = challengeDAO.challengeSinchung(map);
 		return res;
 	}
+	public int challengeSinchungInf(HashMap map) {
+		int res = challengeDAO.challengeSinchungInf(map);
+		return res;
+	}
 	
 	//get oneget
 	@Override
@@ -118,5 +122,10 @@ public class ChallengeServiceImpl implements ChallengeService{
 	@Override
 	public void getPassNCheckSu(HashMap param) {
 		challengeDAO.getPassNCheckSu(param);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> newCert() {
+		return challengeDAO.newCert();
 	}
 }

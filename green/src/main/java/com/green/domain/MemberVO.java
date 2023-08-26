@@ -22,8 +22,9 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	private int tryNum;
+	private String address;
 	
-	//mem_card 테이블
+	//mem_card table
 	private int mem_card_no;
 	private String card_num;
 	private String expire_date;
@@ -31,7 +32,7 @@ public class MemberVO {
 	private String card_company;
 	private int pass_two;
 	
-	//mem_account 테이블
+	//mem_account table
 	private int mem_acc_no;
 	private String acc_num;
 	private String bank;
@@ -105,7 +106,7 @@ public class MemberVO {
 	public MemberVO() {}
 	
 	//*************************************************
-	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
+MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	
 	public MultipartFile getFile() {
 		return file;
@@ -240,8 +241,13 @@ public class MemberVO {
 		this.tryNum = tryNum;
 	}
 	public void setMemberAuthKey(String memberAuthKey) {
-		// TODO Auto-generated method stub
 		
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	

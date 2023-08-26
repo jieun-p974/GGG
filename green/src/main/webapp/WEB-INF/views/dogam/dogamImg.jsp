@@ -8,12 +8,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
 <link href="../../../resources/styles/newsWrite.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
-
-<title>도감 사진추가</title>
+<link rel="stylesheet" href="/resources/styles/font.css">
+<title>관리자 | 도감 관리</title>
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>

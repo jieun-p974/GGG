@@ -16,7 +16,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
-
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>비밀번호 찾기</title>
 <%
 	String userID = (String) session.getAttribute("userID");
@@ -30,7 +30,7 @@ String userEmail = (String) session.getAttribute("userEmail");
 <body>
 	<div class="container-login100">
 		<div class="wrap-login100" style="width: 500px; height: 650px; justify-content: center;">
-			<form class="login100-form validate-form" name="form" action="searchPassSave.do" method="post" name="userinput" id="userinput">
+		<!-- 	<form class="login100-form validate-form" name="form" action="searchPassSave.do" method="post" name="userinput" id="userinput"> -->
 				<span class="login100-form-title"> 비밀번호 찾기 </span>
 				<div class="wrap-input100 validate-input" data-validate="아이디를 입력하세요">
 					<p class="label">아이디</p>
@@ -39,11 +39,11 @@ String userEmail = (String) session.getAttribute("userEmail");
 				<div class="wrap-input100 validate-input" data-validate="이메일주소를 입력하세요">
 					<p class="label">이메일주소</p>
 					<div class="d-flex col-12">
-					<input class="input100 col-9" type="email" name="email" id="email">
-						<button class="login100-form-btn mb-5 col-3" id="findBtn" type="button" style="background: gray;">발송</button>
+					<input class="input100 col-12" type="email" name="email" id="email">
+					<!-- 	<button class="login100-form-btn mb-5 col-3" id="findBtn" type="button" style="background: gray;">발송</button> -->
 				</div>
 				</div>  
-				<button class="login100-form-btn" name="Submit" id="Submit">찾기</button>
+				<button class="login100-form-btn" name="Submit" id="findBtn">찾기</button>
 
 				<div class="text-center p-t-12 mt-5">
 					<a class="txt2" href="../member/login.do"> 로그인 </a>
@@ -51,14 +51,14 @@ String userEmail = (String) session.getAttribute("userEmail");
 					<a class="txt2" href="../member/searchID.do"> 아이디 찾기 </a>
 				</div>
 
-			</form>
+			<!--  </form>-->
 		</div>
 	</div>
 	<script>
 
 
 	window.onload = function() {
-		document.getElementById('Submit').onclick = check;
+		document.getElementById('findBtn').onclick = check;
 		document.getElementById('findBtn').onclick = emailAuth;
 	}
 

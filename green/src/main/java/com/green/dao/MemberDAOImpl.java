@@ -1,6 +1,9 @@
 package com.green.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,7 +130,6 @@ public class MemberDAOImpl implements MemberDAO {
 		mybatis.update("member.accountNo", vo);
 	}
 	
-	
 	@Override
 	public void goDona(HashMap<String, Object> map) {
 		System.out.println("==>goDona()호출");
@@ -143,14 +145,64 @@ public class MemberDAOImpl implements MemberDAO {
 		return lastDate;
 	}
 
+	//select today pay, member
+	@Override
+	public List<HashMap<String, Object>> todayPay() {
+		System.out.println("==> todayPay 호출");
+		return mybatis.selectList("member.todayPay");
+	}
 
+	@Override
+	public int todayMem() {
+		System.out.println("==> todayMem 호출");
+		return mybatis.selectOne("member.todayMem");
+	}
+	
+	//select week pay, member
+	@Override
+	public List<HashMap<String, Object>> weekMem() {
+		System.out.println("==> weekMem 호출");
+		
+		List<HashMap<String, Object>> list = mybatis.selectList("member.weekMem");
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = dtFormat.format(cal.getTime());
+		
+		if(list == null) {
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("daily_mem", 0);
+			map.put("weeks", today);
+			list.add(map);
+			System.out.println(list);
+		}
+		return list;
+	}
 
+	@Override
+	public List<HashMap<String, Object>> weekPay() {
+		System.out.println("==> weekPay 호출");
+		
+		List<HashMap<String, Object>> list = mybatis.selectList("member.weekPay");
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = dtFormat.format(cal.getTime());
 
+		if(list == null) {
+			HashMap<String,Object> map = new HashMap<String, Object>();
+			map.put("pay_count", 0);
+			map.put("pay_sum", 0);
+			map.put("weeks", today);
+			list.add(map);
+			System.out.println(list);
+		}
+		
+		return list;
+	}
 
-
-
-
-
-
-
+	//select dogeonRate
+	@Override
+	public List<HashMap<String, Object>> dogeonRate() {
+		System.out.println("==> dogeonRate 호출");
+		return mybatis.selectList("member.dogeonRate");
+	}
 }

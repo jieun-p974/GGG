@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -8,13 +8,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 textarea{
-	resize: vertical;
-	height: 15rem;
+   resize: vertical;
+   height: 15rem;
 }
 </style>
-<title>도감 수정</title>
+<title>관리자 | 도감 관리</title>
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>

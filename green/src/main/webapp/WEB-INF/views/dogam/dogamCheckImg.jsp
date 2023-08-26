@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="/resources/styles/table.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <script type="text/javascript">
 	function insert() {
 		location.href = "dogamWrite.do"
@@ -19,7 +20,7 @@ img{
 	width: 60%;
 }
 </style>
-<title>도감 관리</title>
+<title>관리자 | 도감 관리</title>
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>

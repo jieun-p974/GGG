@@ -22,4 +22,7 @@ public interface DonationDAO{
 	public void goDona(HashMap<String, Object> map);
 	public void memDon(HashMap<String, Object> map);
 	
+	public int countChoice(String id);
+	
+	public int remainExp(String id);
 }

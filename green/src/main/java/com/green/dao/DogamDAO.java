@@ -52,6 +52,10 @@ public interface DogamDAO {
 	// name update
 	public int updateDoname(HashMap map);
 	
-	//±âºÎ->exp¿¡ Àû¸³
-		public void donExp(HashMap<String, Object> map);
+	//æ¹²ê³•ï¿½->expï¿½ë¿‰ ï¿½ìŸ»ç”±ï¿½
+	public void donExp(HashMap<String, Object> map);
+	
+	// insert goods
+	public int insertGoods(HashMap map);
+	public int searchGoods(HashMap map); 
 }

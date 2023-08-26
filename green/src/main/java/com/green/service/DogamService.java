@@ -53,7 +53,11 @@ public interface DogamService {
 	// name update
 	public int updateDoname(HashMap map);
 	
-	//±âºÎ->exp
+	//æ¹²ê³•ï¿½->exp
 	void donExp(HashMap<String, Object> map);
 	
+	//insertGoods
+	public int insertGoods(HashMap map);
+	
+	public int searchGoods(HashMap map);
 }

@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="../../../resources/styles/table.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .detail_img{
     width:30%;

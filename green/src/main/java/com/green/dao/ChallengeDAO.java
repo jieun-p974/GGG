@@ -11,6 +11,7 @@ public interface ChallengeDAO {
 	public void challengeWrite(ChallengeVO vo);
 
 	public int challengeSinchung(HashMap map);
+	public int challengeSinchungInf(HashMap map);
 	
 	public List<ChallengeVO> getChallengeList();
 	
@@ -41,4 +42,6 @@ public interface ChallengeDAO {
 	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr);
 	
 	public void getPassNCheckSu(HashMap param);
+	
+	public List<HashMap<String , Object>> newCert();
 }

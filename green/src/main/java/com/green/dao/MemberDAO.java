@@ -1,6 +1,7 @@
 package com.green.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.green.domain.MemberVO;
 
@@ -52,5 +53,15 @@ public interface MemberDAO {
 	// select member dogeon last date
 	public String dogeonExp(MemberVO vo);
 	
+	// select today pay, member
+	public List<HashMap<String , Object>> todayPay();
+	public int todayMem();
 	
+	
+	//select week pay, member
+	public List<HashMap<String, Object>> weekMem();
+	public List<HashMap<String, Object>> weekPay();
+	
+	//select dogeonRate
+	public List<HashMap<String, Object>> dogeonRate();
 }

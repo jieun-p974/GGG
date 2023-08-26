@@ -1,7 +1,10 @@
 package com.green.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +37,7 @@ public class MemberController {
 
 	@RequestMapping(value = "{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("memberController ìš”ì²­ -----> " + url);
+		System.out.println("memberController ¿äÃ» -----> " + url);
 		return "/member/" + url;
 	}
 
@@ -54,23 +57,24 @@ public class MemberController {
 	@ResponseBody
 	public String idcheck(MemberVO vo) {
 		MemberVO memberVo = memberService.idCheck_Login(vo);
-		String result = "ID ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.";
-		
+		String result = "ID »ç¿ë °¡´ÉÇÕ´Ï´Ù.";
+
 		if (memberVo != null)
-			result = "ì¤‘ë³µëœ ì•„ì´ë”” ì…ë‹ˆë‹¤.";
+			result = "Áßº¹µÈ ¾ÆÀÌµğ ÀÔ´Ï´Ù.";
 		return result;
 	}
 
 	// sign up
 	@RequestMapping({"/signupSave.do"})
 	public ModelAndView userInsert(MemberVO vo) {
-		
+
 		int result = memberService.memberInsert(vo);
-		
-		String message = "ê°€ì…ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤";
+
+		String message = "°¡ÀÔµÇÁö ¾Ê¾Ò½À´Ï´Ù";
 		if (result > 0) {
-			message = vo.getId() + "ë‹˜, ê°€ì…ì„ ì¶•í•˜ë“œë¦½ë‹ˆë‹¤!";}
-		
+			message = vo.getId() + "´Ô, °¡ÀÔÀ» ÃàÇÏµå¸³´Ï´Ù!";
+		}
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");
 		mv.addObject("message", message);
@@ -78,7 +82,7 @@ public class MemberController {
 		return mv;
 	}
 			
-	//ì´ë©”ì¼ ì¸ì¦
+	//ÀÌ¸ŞÀÏ ÀÎÁõ
 	@RequestMapping("/mailCheck.do")
 	public @ResponseBody String mailCheck(String email) {
 		return mailService.joinEmail(email);
@@ -96,8 +100,8 @@ public class MemberController {
 		if (result == null || result.getId() == null) {
 			return "/member/login";
 		} else {
-			System.out.println("[" + result.getId() + "] ë¡œê·¸ì¸ ì ‘ì† ");
-			session.setMaxInactiveInterval(60 * 60); // ì„¸ì…˜ìœ ì§€ì‹œê°„ 60ë¶„
+			System.out.println("[" + result.getId() + "] ·Î±×ÀÎ Á¢¼Ó ");
+			session.setMaxInactiveInterval(60 * 60); // ¼¼¼ÇÀ¯Áö½Ã°£ 60ºĞ
 			session.setAttribute("sessionTime", new Date().toLocaleString());
 			session.setAttribute("userId", memberVo.getId());
 			session.setAttribute("userType", memberVo.getMem_type_no());
@@ -112,8 +116,10 @@ public class MemberController {
 			session.setAttribute("userImg", memberVo.getM_img());
 			session.setAttribute("userImgAddr", memberVo.getM_img_addr());
 			session.setAttribute("userTryNum", memberVo.getTryNum());
+			session.setAttribute("userAddr", memberVo.getAddress());
 			session.setAttribute("userVo", memberVo);
 			session.setAttribute("dogeonGigan", lastDate);
+			System.out.println("c" + lastDate);
 		}
 		return "redirect:/member/main.do";
 	}
@@ -128,6 +134,7 @@ public class MemberController {
 	// member info edit
 	@RequestMapping("/editSave.do")
 	public String userUpdate(MemberVO vo) throws IOException {
+		System.out.println("c" + vo.getId());
 		int res = memberService.memberUpdate(vo);
 		return "redirect:/member/mypage.do?id="+vo.getId();
 	}
@@ -176,7 +183,7 @@ public class MemberController {
 		return "redirect:/member/mypage.do";
 	}
 
-	// ë§ˆì´í˜ì´ì§€ì—ì„œ ë‚˜ì˜ ë„ê°, ì§„í–‰ì¤‘ì¸ ì±Œë¦°ì§€, ê¸°ë¶€ë‚´ì—­ ë„ìš°ê¸°
+	// ¸¶ÀÌÆäÀÌÁö¿¡¼­ ³ªÀÇ µµ°¨, ÁøÇàÁßÀÎ Ã§¸°Áö, ±âºÎ³»¿ª ¶ç¿ì±â
 	@RequestMapping(value = {"/mypage.do"})
 	public void challAndDona(String id, Model model, MemberVO vo) {
 		try {
@@ -213,8 +220,119 @@ public class MemberController {
 		}
 
 	}
+
+	// amdinMain¿¡ ¿À´Ã °áÁ¦ °Ç¼ö, ±İ¾×, °¡ÀÔÀÎ¿ø¼ö Ãâ·Â
+	@RequestMapping(value = "/adminMain.do")
+	public void todayPayAndMem(Model model) {
+		// ¿À´Ã Áı°è
+		List<HashMap<String, Object>> todayPay = memberService.todayPay();
+		int todayMem = memberService.todayMem();
+		
+		// ÀÎÁõ ¸ñ·Ï ÃÖ±Ù 3°³
+		List<HashMap<String, Object>> memChal = challengeService.newCert();
+
+		String nonePay = "";
+		String noneMem = "";
+
+		for (HashMap<String, Object> d : todayPay) {
+			int payCount = Integer.parseInt(String.valueOf(d.get("pay_count")));
+			int paySum = Integer.parseInt(String.valueOf(d.get("pay_sum")));
+
+			if (payCount < 1) {
+				nonePay = "¿À´Ã °áÁ¦ÇÑ È¸¿øÀÌ ¾ø½À´Ï´Ù.";
+				System.out.println(nonePay);
+				model.addAttribute("nonePay", nonePay);
+				model.addAttribute("payCount", 0);
+				model.addAttribute("paySum", 0);
+			} else {
+				model.addAttribute("payCount", payCount);
+				model.addAttribute("paySum", paySum);
+			}
+		}
+
+		if (todayMem > 0) {
+			model.addAttribute("todayMem", todayMem);
+		} else {
+			noneMem = "¿À´Ã °¡ÀÔÇÑ È¸¿øÀÌ ¾ø½À´Ï´Ù.";
+			System.out.println(noneMem);
+			model.addAttribute("noneMem", noneMem);
+			model.addAttribute("todayMem", 0);
+		}
+		
+		model.addAttribute("memChal",memChal);
+	}
+
+	@RequestMapping(value = "/chartsData.do")
+	public @ResponseBody List weekPayAndMem(Model model) {
+		// ÀÏÁÖÀÏ ³¯Â¥ ±¸ÇÏ±â
+		List<String> weekList = new ArrayList();
+		for (int i = 0; i < 7; i++) {
+			Calendar cal = Calendar.getInstance();
+			SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String today = dtFormat.format(cal.getTime());
+			cal.add(cal.DATE, -6);
+			cal.add(Calendar.DATE, i);
+			weekList.add(dtFormat.format(cal.getTime()));
+		}
+
+		// ÀÏÁÖÀÏ°£ Áı°è
+		List<HashMap<String, Object>> weekMemCount = memberService.weekMem();
+		List<HashMap<String, Object>> weekPayCount = memberService.weekPay();
+		List<HashMap<String, Object>> dogeonRate = memberService.dogeonRate();
+		
+		String noneWeekMem = "";
+		String noneWeekPay = "";
+		List<HashMap<String, Object>> ajaxList = new ArrayList();
+
+		if (weekMemCount.size() < 1) {
+			noneWeekMem = "ÀÏÁÖÀÏ°£ °¡ÀÔÇÑ È¸¿øÀÌ ¾ø½À´Ï´Ù.";
+			model.addAttribute("noneWeekMem", noneWeekMem);
+		} else {
+			for (String d : weekList) {
+				HashMap ajaxMap = new HashMap<String, Object>();
+				ajaxMap.put("daily_mem", 0);
+				ajaxMap.put("pay_count", 0);
+				ajaxMap.put("pay_sum", 0);
+				ajaxMap.put("weeks", d);
+				ajaxList.add(ajaxMap);
+			}
+			for (HashMap w : weekMemCount) {
+				for (HashMap a : ajaxList) {
+					if (w.get("weeks").equals(a.get("weeks"))) {
+						a.put("daily_mem", w.get("daily_mem"));
+					}
+				}
+			}
+		}
+
+		if (weekPayCount.size() < 1) {
+			noneWeekPay = "ÀÏÁÖÀÏ°£ °áÁ¦ÇÑ È¸¿øÀÌ ¾ø½À´Ï´Ù.";
+			model.addAttribute("noneWeekPay", noneWeekPay);
+		} else {
+			for (HashMap p : weekPayCount) {
+				for (HashMap a : ajaxList) {
+					if (p.get("weeks").equals(a.get("weeks"))) {
+						a.put("pay_count", p.get("pay_count"));
+						a.put("pay_sum", p.get("pay_sum"));
+					}
+				}
+			}
+		}
+
+		for(HashMap d : dogeonRate) {
+			for(HashMap a:ajaxList) {
+				a.put("t_cnt", d.get("t_cnt"));
+				a.put("s_cnt", d.get("s_cnt"));
+				a.put("i_cnt", d.get("i_cnt"));
+			}
+		}
+		
+		model.addAttribute("weekMemCount", ajaxList);
+
+		return ajaxList;
+	}
 	
-	// ì •ë³´ìˆ˜ì •ì—ì„œ ì •ë³´ë„ìš°ê¸°
+	// Á¤º¸¼öÁ¤¿¡¼­ Á¤º¸¶ç¿ì±â
 	@RequestMapping(value="/infoEdit.do")
 	public void myInfos(MemberVO vo, Model model) {
 		MemberVO meminfo = memberService.memberInfo(vo);

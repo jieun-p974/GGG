@@ -1,6 +1,7 @@
 package com.green.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -53,4 +54,15 @@ public interface MemberService {
 	
 	// select member dogeon last date
 	String dogeonExp(MemberVO vo);
+	
+	// select today pay, member
+	List<HashMap<String, Object>> todayPay();
+	int todayMem();
+	
+	// select week pay, member
+	List<HashMap<String, Object>> weekMem();
+	List<HashMap<String, Object>> weekPay();
+	
+	//select dogeonRate
+	List<HashMap<String, Object>> dogeonRate();
 }

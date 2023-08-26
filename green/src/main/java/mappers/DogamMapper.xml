@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="DogamDAO">
-	
+
 	<!-- admin list -->
 	<select id="getAdminDogam" resultType="dogam">
 		SELECT do_no, do_title, do_content, do_yoyak, do_realimg, do_realimg_addr
@@ -41,11 +41,12 @@
 	<![CDATA[
 	SELECT distinct mb.id, d.do_no, d.do_title, d.do_content, d.do_realimg_addr,
 	a.img1, b.img2, c.img3,	m.do_name, m.do_exp, m.do_choice_YN, 
-	(SELECT distinct max(p.level_no) from point_level p, mem_dogam m
+	(SELECT p.level_no from point_level p, mem_dogam m
 	WHERE m.do_exp >= p.lev_mim_point AND m.do_exp<=p.lev_max_point
-	AND m.do_no=${do_no}) as nowLv,
-	(SELECT distinct do_img_addr from lv_dogam WHERE do_lev=nowLv AND do_no=${do_no}) as lv_img,
-	(SELECT distinct lev_max_point FROM point_level WHERE level_no= nowLv) as lev_max_point
+	AND m.do_no=${do_no} AND m.id='${id}') as nowLv,
+	(SELECT do_img_addr from lv_dogam WHERE do_lev=nowLv AND do_no=${do_no}) as lv_img,
+	(SELECT distinct lev_max_point FROM point_level WHERE level_no= nowLv) as lev_max_point,
+	(SELECT COUNT(goods_no) FROM goods WHERE id='${id}' AND do_no=${do_no}) AS goods_no
 	FROM dogam d, lv_dogam l, mem_dogam m, member mb,
 	(SELECT distinct l.do_img_addr AS img1 FROM lv_dogam l, mem_dogam m, member mb
 	WHERE l.do_no=m.do_no AND m.id=mb.id AND l.do_lev = 1 AND l.do_no=${do_no}) a,
@@ -129,6 +130,16 @@
 	update mem_dogam set do_choice_YN='N', do_name='${do_name}'
 	WHERE id='${userId}' and do_no=${do_no} and do_exp=3000
 	</update>
+	
+	<!-- insert goods -->
+	<insert id="insertGoods" parameterType="hashmap">
+	insert into goods(id, do_no) values('${userId}', ${do_no})
+	</insert>
+	
+	<!-- search goods -->
+	<select id="searchGoods" parameterType="hashmap" resultType="Integer">
+	select count(id) from goods WHERE id='${userId}' AND do_no=${do_no}
+	</select> 
 	
 	<!-- 기부포인트->exp적립 -->
 	<update id="donExp" parameterType="dona">

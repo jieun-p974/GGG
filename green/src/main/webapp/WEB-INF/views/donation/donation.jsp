@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .tabs {
     position: fixed;
@@ -25,7 +26,7 @@
 		<div class="container position-relative">
 			<div class="row">
 				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-white mt-5 mb-3">열심히 모은 포인트를 지구를 위해 사용해 보세요</h2>
+					<h2 class="text-black mt-5 mb-3 text-center col-12">열심히 모은 포인트를 지구를 위해 사용해 보세요</h2>
 				</div>
 			</div>
 			<div class="gibu_list">

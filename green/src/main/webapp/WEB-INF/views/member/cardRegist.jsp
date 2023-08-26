@@ -37,7 +37,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>결제수단관리 | 카드등록</title>
 </head>
 <script type="text/javascript">
@@ -85,7 +85,7 @@ function check() {
 				<form class="login100-form validate-form" name="form"
 					action="cardSave.do"  method="post">
 					<input type="hidden" name="id" value="${userId}"/>
-					<h4 class="mb-5">간편결제 계좌등록</h4>
+					<h4 class="mb-5">간편결제 | 계좌등록</h4>
 					<label class="d-block">
 					<div class="d-flex position-relative flex-wrap">
 							<p class="col-12 text-start ps-0">카드사</p>

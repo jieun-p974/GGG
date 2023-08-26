@@ -20,6 +20,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 <script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>아이디 찾기</title>
 </head>
 <script>
@@ -54,14 +55,6 @@
 					<p class="label">이메일</p>
 					<input class="input100" type="email" name="email" id="email">
 				</div>
-				
-				<!-- <div class="wrap-input100 validate-input" data-validate="이메일로 받으신 인증번호를 입력하세요">
-					<p class="label">이메일 인증</p>
-					<div class="d-flex col-12">
-						<input class="input100 col-8" type="text" name="num" id="num" placeholder="인증번호 입력">
-						<button class="login100-form-btn" name="Submit" id="Submit" style="background: gray">발송</button>
-					</div>
-				</div> -->
 				<button class="login100-form-btn" name="Submit" id="Submit">찾기</button>
 				<div class="text-center p-t-12 mt-5">
 					<a class="txt2" href="../member/login.do"> 로그인 </a> <a>&nbsp&nbsp|&nbsp&nbsp</a>
