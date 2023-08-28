@@ -26,7 +26,7 @@ $(function() {
                      html += '<div class="reply d-flex align-items-center m-1 p-1 justify-content-around" style="border: 1px solid black; border-radius: 15px">';
                      html += '<div class="r_profile d-flex col-2 align-items-center ps-2">';
                      html += '<img class="r_p_img col-sm-0-1" src="/resources/imgs/member/'+this.m_img_addr+'" />';
-                     html += '<p class="reply_id col-7 m-0 ms-2">@'+ this.id + '</p></div>';
+                     html += '<p class="reply_id col-8 m-0 ms-2">@'+ this.id + '</p></div>';
                      html += '<input type="hidden" name="com_no" id="com_no" value="'+this.com_no+'" />';
                      html += '<div class="re col-8">';
                      html += '<input type="text" class="reWriting" id="reWriting" type="text" readonly value="'+this.com_content+'" />';
@@ -155,53 +155,49 @@ $(".hh").each(function(index, element) {
             });
       }
    });
-<<<<<<< HEAD
-});
-=======
 });
 
 
 //1번 첨부파일 미리보기
 function readURL1(obj) {
-	let reader = new FileReader();
-	if (!obj.files.length) {
-		return;
-	}
-	reader.readAsDataURL(obj.files[0]);
-	reader.onload = function(e) {
-		let img = $('<img style="width:10%" class="previewImg"/>');
-		$(img).attr('src', e.target.result);
-		$("#previewDiv1").empty();
-		$('#previewDiv1').append(img);
-	}
+   let reader = new FileReader();
+   if (!obj.files.length) {
+      return;
+   }
+   reader.readAsDataURL(obj.files[0]);
+   reader.onload = function(e) {
+      let img = $('<img style="width:10%" class="previewImg"/>');
+      $(img).attr('src', e.target.result);
+      $("#previewDiv1").empty();
+      $('#previewDiv1').append(img);
+   }
 }
 //2번 첨부파일 미리보기
 function readURL2(obj) {
-	let reader = new FileReader();
-	if (!obj.files.length) {
-		return;
-	}
-	reader.readAsDataURL(obj.files[0]);
-	reader.onload = function(e) {
-		let img = $('<img style="width:10%" class="previewImg"/>');
-		$(img).attr('src', e.target.result);
-		$("#previewDiv2").empty();
-		$('#previewDiv2').append(img);
-	}
+   let reader = new FileReader();
+   if (!obj.files.length) {
+      return;
+   }
+   reader.readAsDataURL(obj.files[0]);
+   reader.onload = function(e) {
+      let img = $('<img style="width:10%" class="previewImg"/>');
+      $(img).attr('src', e.target.result);
+      $("#previewDiv2").empty();
+      $('#previewDiv2').append(img);
+   }
 }
 //3번 첨부파일 미리보기
 function readURL3(obj) {
-	let reader = new FileReader();
-	if (!obj.files.length) {
-		return;
-	}
-	reader.readAsDataURL(obj.files[0]);
-	reader.onload = function(e) {
-		let img = $('<img style="width:10%" class="previewImg"/>');
-		$(img).attr('src', e.target.result);
-		$("#previewDiv3").empty();
-		$('#previewDiv3').append(img);
-	}
+   let reader = new FileReader();
+   if (!obj.files.length) {
+      return;
+   }
+   reader.readAsDataURL(obj.files[0]);
+   reader.onload = function(e) {
+      let img = $('<img style="width:10%" class="previewImg"/>');
+      $(img).attr('src', e.target.result);
+      $("#previewDiv3").empty();
+      $('#previewDiv3').append(img);
+   }
 }
   
->>>>>>> refs/remotes/origin/seul

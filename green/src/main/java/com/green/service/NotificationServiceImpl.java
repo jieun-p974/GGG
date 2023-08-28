@@ -69,5 +69,25 @@ public class NotificationServiceImpl implements NotificationService{
 		public List<HashMap<String, Object>> getUnreadNoti(String id) {
 			return notificationDAO.getUnreadNoti(id);
 		}
+
+		@Override
+		public List<HashMap<String, Object>> getUnreadLike(String id) {
+			return notificationDAO.getUnreadLike(id);
+		}
+
+		@Override
+		public void updateRead_YN(int like_no) {
+			notificationDAO.updateRead_YN(like_no);
+		}
+
+		@Override
+		public List<HashMap<String, Object>> getAllNotis(String id) {
+			return notificationDAO.getAllNotis(id);
+		}
+
+		@Override
+		public void comment_YN(int com_no) {
+			notificationDAO.comment_YN(com_no);
+		}
 }
 	

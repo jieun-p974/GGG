@@ -38,7 +38,9 @@
 				<form action="/challenge/yesChecked.do" method="post">
 				<div class="calendar d-flex justify-content-between mb-5">
 					<div></div>
+					<c:if test="${count > 0}">
 					<button class="btn btn-white-back btn-hover-third" type="submit">인증하기</button>
+					</c:if>
 				</div>
 				<div class="card border-0 shadow">
 					<div class="card-body">

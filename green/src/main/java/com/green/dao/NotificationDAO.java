@@ -26,4 +26,12 @@ public interface NotificationDAO {
 	public void deleteReadNoti(int ann_ck_no);
 	
 	public List<HashMap<String, Object>> getUnreadNoti(String id); 
+	
+	public List<HashMap<String,Object>> getUnreadLike(String id);
+	
+	public void updateRead_YN(int like_no);
+	
+	public List<HashMap<String, Object>> getAllNotis(String id);
+	
+	public void comment_YN(int com_no);
 }

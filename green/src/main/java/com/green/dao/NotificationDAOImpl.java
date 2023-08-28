@@ -71,6 +71,25 @@ public class NotificationDAOImpl implements NotificationDAO {
 		System.out.println("Mybatis=> get unread notification");
 		return mybatis.selectList("NotificationDAO.getUnreadNoti",id);
 	}
+	@Override
+	public List<HashMap<String, Object>> getUnreadLike(String id) {
+		System.out.println("Mybatis => get unread like");
+		return mybatis.selectList("NotificationDAO.getUnreadLike",id);
+	}
+	@Override
+	public void updateRead_YN(int like_no) {
+		System.out.println("Mybatis => update read_YN");
+		mybatis.update("NotificationDAO.updateRead_YN",like_no);
+	}
+	@Override
+	public List<HashMap<String, Object>> getAllNotis(String id) {
+		System.out.println("Mybatis => select get all notifications");
+		return mybatis.selectList("NotificationDAO.getAllNotis",id);
+	}
+	@Override
+	public void comment_YN(int com_no) {
+		mybatis.update("NotificationDAO.comment_YN",com_no);
+	}
 	
 	
 }

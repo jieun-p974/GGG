@@ -1,5 +1,10 @@
 package com.green.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,33 +27,53 @@ public class NotificationController {
 	@ResponseBody
 	@RequestMapping(value="/notiCount.do")
 	public List<HashMap<String, Object>> countNotification(String id) {
-		List<HashMap<String, Object>> list = null;
+		List<HashMap<String, Object>> listAll = null;
+
 		HashMap<String,Object> map = new HashMap<String, Object>();
+		
 		if(id != null) {
-			list = notificationService.getUnreadNoti(id);
+			listAll = notificationService.getAllNotis(id);
 			
-			if(list.size() > 0) {
-				return list;
+			if(listAll.size() > 0) {
+				for(HashMap d : listAll) {
+					System.out.println("알림 있"+d);
+				}
+				return listAll;
 			}else {
 				map.put("id", id);
-				map.put("unread", 0);
+				map.put("noti_unread", 0);
 				
-				list.add(map);
-				for(HashMap d : list) {
+				listAll.add(map);
+				
+				for(HashMap d : listAll) {
 					System.out.println("알림 없"+d);
 				}
-				return list;
+				return listAll;
 			}
+			
 		}else {
 			return null;
 		}
+		
 	}
 	
 	@RequestMapping(value="/deleteReadNoti.do")
 	public String readNoti(int ann_ck_no, int ann_no) {
-		System.out.println("읽은 공지 삭제");
 		notificationService.deleteReadNoti(ann_ck_no);
 		
 		return "redirect:../community/notificationDetail.do?ann_no="+ann_no;
+	}
+	
+	@RequestMapping(value="/updateRead_YN.do")
+	public String updateRead_YN(int like_no, String id) {
+		System.out.println("id"+id);
+		notificationService.updateRead_YN(like_no);
+		return "redirect:../community/community.do?id="+id;
+	}
+	
+	@RequestMapping(value="/comment_YN.do")
+	public String comment_YN(int com_no, String id) {
+		notificationService.comment_YN(com_no);
+		return "redirect:../community/community.do?id="+id;
 	}
 }

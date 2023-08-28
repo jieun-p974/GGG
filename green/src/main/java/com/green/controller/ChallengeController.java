@@ -187,6 +187,7 @@ public class ChallengeController {
 	@RequestMapping(value = "/adminChallengeCertList")
 	public void adminCerCheckList(Model model, String chal_name, int chal_no) {
 		List<ChallengeCheckVO> list = challengeService.adminCerCheckList(chal_no);
+		model.addAttribute("count", list.size());
 		model.addAttribute("cerList", list);
 		model.addAttribute("chal_name", chal_name);
 	}

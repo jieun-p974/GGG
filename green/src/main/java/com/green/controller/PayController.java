@@ -96,7 +96,6 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       HashMap map = new HashMap<String, Object>();
       
       map.put("id", voc.getId());
-      payService.deleteChalD(map);
    }
 
    // 결제하기 버튼 누르면
@@ -133,7 +132,6 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       HashMap map = new HashMap<String, Object>();
       
       map.put("id", voc.getId());
-      payService.deleteChalD(map);
 
    }
 
@@ -160,7 +158,6 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 
          payService.accInsert(vo);
          payService.payTryNum(map);
-      //   payService.deleteChalD(map);
          
          return "redirect:/member/main.do";
       }

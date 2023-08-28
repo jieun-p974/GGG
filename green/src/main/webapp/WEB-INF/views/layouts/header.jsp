@@ -72,26 +72,41 @@ $(function(){
 				id: '<%=userId%>'
 			}, success:function(rs){
 				if(rs.length > 1){
+					var html='';
+					var html2 = '';
+					console.log(rs);
 					for(var i = 0; i < rs.length; i++){
-						console.log(rs);
-						$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ann_ck_no+'&ann_no='+rs[i].ann_no+'">'+rs[i].writer+' : '+rs[i].ann_title+'</a></li>')
+						if(rs[i].num > 0){
+							if(isNaN(rs[i].ck)){
+								if(rs[i].ck.length > 1){
+									$('#notis').append('<li class="nav-item"><a href="../noti/comment_YN.do?com_no='+rs[i].num+'&id='+rs[i].gets+'">'+rs[i].who+'님이 '+rs[i].gets+'님의 게시글에 댓글을 달았습니다.</a></li>')
+								}else{
+									$('#notis').append('<li class="nav-item"><a href="../noti/updateRead_YN.do?like_no='+rs[i].num+'&id='+rs[i].gets+'">'+rs[i].who+'님이 '+rs[i].gets+'님의 게시글을 좋아합니다.</a></li>')
+								}
+							}else{
+								$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ck+'&ann_no='+rs[i].num+'">[공지]'+rs[i].who+' : '+rs[i].gets+'</a></li>')
+							}
+						}
 						if(i < rs.length-1){
 							$('#notis').append('<li><hr></li>');
 						}
 					}
-					$('#bell').append(rs.length);
-				}else if(rs.length == 1 && rs[0].unread == 0){
+					
+					console.log(html2);
+					$('#bell').addClass('red_dot');
+				}else if(rs.length == 1 && rs[0].noti_unread == 0 ){
 					$('#bell').remove();
+					$('#bell').removeClass('red_dot');
+					$('#notis').removeClass('depth_1_1');
 					$('#notis').remove();
 				}else{
 					for(var i = 0; i < rs.length; i++){
-						console.log(rs);
-						$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ann_ck_no+'&ann_no='+rs[i].ann_no+'">'+rs[i].writer+' : '+rs[i].ann_title+'</a></li>')
-						if(i < rs.length-1){
-							$('#notis').append('<li><hr></li>');
+						if(isNaN(rs[i].ck)){
+							$('#notis').append('<li class="nav-item"><a href="../noti/updateRead_YN.do?like_no='+rs[i].num+'&id='+rs[i].gets+'">'+rs[i].who+'님이 '+rs[i].gets+'님의 게시글을 좋아합니다.</a></li>')
+						}else{
+							$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ck+'&ann_no='+rs[i].num+'">'+rs[i].who+' : '+rs[i].gets+'</a></li>')
 						}
 					}
-					$('#bell').append(rs.length);
 				}
 				
 			}, error:function(){

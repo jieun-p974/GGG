@@ -11,6 +11,27 @@
    }
 </script>
 <link rel="stylesheet" href="/resources/styles/font.css">
+<style type="text/css">
+.previewImg {
+   width: 15%;
+}
+.tag-item {
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    border: 4px solid;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    width: fit-content;
+    position: relative;
+    background: #8AB6A9;
+    color: #ffffff;
+}
+.del-btn {
+color: #858585;
+}
+</style>
 <title>커뮤니티 글 수정하기</title>
 </head>
 <body>
@@ -36,27 +57,27 @@
                         </div>
                         
                         <div class="tr_hashTag_area">
-							<div class="form-group">
-								<input type="hidden" value="" name="tag" id="rdTag" />
-							</div>
-							
-							<ul id="tag-list" class=" d-flex">
-								<c:forEach items="${ghtlist}" var="hashTag" varStatus="htlist">
-									<c:if test="${hashTag.t_content != null}">
-										<input type="hidden" value="${ghtlist.size()}" name="htlistsize" id="htlistsize"/> 
-										<li class="tag-item ms-2 list-unstyled">#${hashTag.t_content}
-										<input type="hidden" value="${hashTag.t_content}" class="t_content" name="t_content" id="t_content"/> 
-											<span class='del-btn' id="${htlist.index+1}">❌</span>
-										</li>
-									</c:if> 
-								</c:forEach>
-							</ul>
+                     <div class="form-group">
+                        <input type="hidden" value="" name="tag" id="rdTag" />
+                     </div>
+                     
+                     <ul id="tag-list" class=" d-flex">
+                        <c:forEach items="${ghtlist}" var="hashTag" varStatus="htlist">
+                           <c:if test="${hashTag.t_content != null}">
+                              <input type="hidden" value="${ghtlist.size()}" name="htlistsize" id="htlistsize"/> 
+                              <li class="tag-item ms-2 list-unstyled" style="padding-left:10px">#${hashTag.t_content}
+                              <input type="hidden" value="${hashTag.t_content}" class="t_content" name="t_content" id="t_content"/> 
+                                 <span class='del-btn' id="${htlist.index+1}">❌</span>
+                              </li>
+                           </c:if> 
+                        </c:forEach>
+                     </ul>
 
-							<div class="form-group d-flex ms-4">
-								<input type="text" id="tag" size="7" placeholder="엔터로 해시태그를 등록해주세요." style="width: 300px;" />
-							</div>
-						</div>
-									
+                     <div class="form-group d-flex ms-4">
+                        <input type="text" id="tag" size="7" placeholder="엔터로 태그를 등록해주세요." style="width: 300px;" />
+                     </div>
+                  </div>
+                           
                         <div class="comm_img  mb-3 col-12 p-3">
                            <label for="comm_img" class="col-12 mb-1 text-start">사진 첨부하기1</label>
                            <input type="file" name="file1" onchange="readURL1(this)" class="col-12 mb-1 text-start" />
@@ -108,103 +129,103 @@
 
 <script>
 $(document).ready(function() {
-	var tag = {};
-	var counter = $("#htlistsize").val();
-	counter++;
-	
-	// 입력한 값을 태그로 생성한다.
-	function addTag(tagValue) {
-		tag[counter] = tagValue;
-		counter++; // del-btn 의 고유 id 가 된다.
-	}
+   var tag = {};
+   var counter = $("#htlistsize").val();
+   counter++;
+   
+   // 입력한 값을 태그로 생성한다.
+   function addTag(tagValue) {
+      tag[counter] = tagValue;
+      counter++; // del-btn 의 고유 id 가 된다.
+   }
 
-	$("#tag").on("keypress", function(e) {
-		var self = $(this);
+   $("#tag").on("keypress", function(e) {
+      var self = $(this);
 
-		//엔터나 스페이스바 눌렀을때 실행
-		if (e.key === "Enter" || e.keyCode == 32) {
-			var tagValue = self.val(); // 값 가져오기
+      //엔터나 스페이스바 눌렀을때 실행
+      if (e.key === "Enter" || e.keyCode == 32) {
+         var tagValue = self.val(); // 값 가져오기
 
-			// 해시태그 값 없으면 실행X
-			if (tagValue !== "") {
+         // 해시태그 값 없으면 실행X
+         if (tagValue !== "") {
 
-				// 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
-				var result = Object.values(tag).filter(function(word) {
-					return word === tagValue;
-				})
+            // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
+            var result = Object.values(tag).filter(function(word) {
+               return word === tagValue;
+            })
 
-				// 해시태그가 중복되었는지 확인
-				if (result.length == 0) {
-					$("#tag-list").append("<li class='tag-item ms-2 list-unstyled'>   #"+ tagValue+ " <span class='del-btn' id='" + counter + "'>❌</span></li>");
-					addTag(tagValue);
-					self.val("");
-					var board_no = ${comm.board_no};
-					var num = counter-1;
-					$.ajax({
-						type : "POST",
-						url : "insertTag.do",
-						data : {
-							"board_no" : board_no,
-							"t_content" : tagValue
-						},
-						sucssess: function(data) {
-							//alert(tagValue+"보드번호:"+${comm.board_no});
-						},
-						error : function(request,status,error) {
-							alert("code:"+ request.status+ "\n"+ "message:"+ request.responseText+ "\n"   + "error:"+ error);
-						}
-					});  
-				} else { 
-					alert("태그값이 중복됩니다.");
-				}
-			}
-			e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
-		}
-	});
+            // 해시태그가 중복되었는지 확인
+            if (result.length == 0) {
+               $("#tag-list").append("<li class='tag-item list-unstyled' style='padding-left:10px'>   #"+ tagValue+ " <span class='del-btn' id='" + counter + "'>✕</span></li>");
+               addTag(tagValue);
+               self.val("");
+               var board_no = ${comm.board_no};
+               var num = counter-1;
+               $.ajax({
+                  type : "POST",
+                  url : "insertTag.do",
+                  data : {
+                     "board_no" : board_no,
+                     "t_content" : tagValue
+                  },
+                  sucssess: function(data) {
+                     //alert(tagValue+"보드번호:"+${comm.board_no});
+                  },
+                  error : function(request,status,error) {
+                     alert("code:"+ request.status+ "\n"+ "message:"+ request.responseText+ "\n"   + "error:"+ error);
+                  }
+               });  
+            } else { 
+               alert("태그값이 중복됩니다.");
+            }
+         }
+         e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
+      }
+   });
 
-	// 삭제 버튼 
-	// 인덱스 검사 후 삭제
-	$(document).on("click", ".del-btn", function(e) {
-		var index = $(this).attr("id");
-		var t_content1 = $(this).siblings("#t_content").val();
-		var t_content2 = tag[index];
-		var board_no = ${comm.board_no};
-		
-		if(typeof t_content1 == "undefined" || t_content1 == null || t_content1 == ""){
-			$.ajax({
-				type : "POST",
-				url : "deleteTag.do",
-				data : {
-					"board_no" : board_no,
-					"t_content" : t_content2
-				},
-				sucssess: function(data) {
-					//alert(tagValue+"보드번호:"+${comm.board_no});
-				},
-				error : function(request,status,error) {
-					alert("code:"+ request.status+ "\n"+ "message:"+ request.responseText+ "\n"   + "error:"+ error);
-				}
-			});  
-			$(this).parent().remove();
-			
-		}else if(typeof t_content2 == "undefined" || t_content2 == null || t_content2 == ""){
-			$.ajax({
-				type : "POST",
-				url : "deleteTag.do",
-				data : {
-					"board_no" : board_no,
-					"t_content" : t_content1 
-				},
-				sucssess: function(data) {
-					//alert(tagValue+"보드번호:"+${comm.board_no});
-				},
-				error : function(request,status,error) {
-					alert("code:"+ request.status+ "\n"+ "message:"+ request.responseText+ "\n"   + "error:"+ error);
-				}
-			});  
-			$(this).parent().remove();
-		}
-	}); 
+   // 삭제 버튼 
+   // 인덱스 검사 후 삭제
+   $(document).on("click", ".del-btn", function(e) {
+      var index = $(this).attr("id");
+      var t_content1 = $(this).siblings("#t_content").val();
+      var t_content2 = tag[index];
+      var board_no = ${comm.board_no};
+      
+      if(typeof t_content1 == "undefined" || t_content1 == null || t_content1 == ""){
+         $.ajax({
+            type : "POST",
+            url : "deleteTag.do",
+            data : {
+               "board_no" : board_no,
+               "t_content" : t_content2
+            },
+            sucssess: function(data) {
+               //alert(tagValue+"보드번호:"+${comm.board_no});
+            },
+            error : function(request,status,error) {
+               alert("code:"+ request.status+ "\n"+ "message:"+ request.responseText+ "\n"   + "error:"+ error);
+            }
+         });  
+         $(this).parent().remove();
+         
+      }else if(typeof t_content2 == "undefined" || t_content2 == null || t_content2 == ""){
+         $.ajax({
+            type : "POST",
+            url : "deleteTag.do",
+            data : {
+               "board_no" : board_no,
+               "t_content" : t_content1 
+            },
+            sucssess: function(data) {
+               //alert(tagValue+"보드번호:"+${comm.board_no});
+            },
+            error : function(request,status,error) {
+               alert("code:"+ request.status+ "\n"+ "message:"+ request.responseText+ "\n"   + "error:"+ error);
+            }
+         });  
+         $(this).parent().remove();
+      }
+   }); 
 }); 
 </script>
 <script src="/resources/js/custom.js"></script>

@@ -33,4 +33,12 @@ public interface NotificationService {
 	void deleteReadNoti(int ann_ck_no);
 	
 	List<HashMap<String, Object>> getUnreadNoti(String id);
+	
+	List<HashMap<String, Object>> getUnreadLike(String id);
+	
+	void updateRead_YN(int like_no);
+	
+	List<HashMap<String,Object>> getAllNotis(String id);
+	
+	void comment_YN(int com_no);
 }

@@ -33,7 +33,7 @@
 									<textarea class="form-control" name="ann_content" id="ann_content" autofocus="autofocus" placeholder="공지  내용을 입력해주세요."></textarea>
 								</div>
 								<div class="buttons d-flex justify-content-between mb-5 p-3">
-									<button class="btn btn-white-back btn-hover-third" id="adding" type="button">등록</button>
+									<button class="btn btn-white-back btn-hover-third" id="adding" type="submit" >등록</button>
 									<button class="btn btn-white-back btn-hover-third" id="cancel" type="button" onclick="cancleWrite()">취소</button>
 								</div>
 							</form>

@@ -50,11 +50,11 @@ if(msg.length >0 && url.length >0){
             <div
                class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 text-center">
                <div class="d-flex justify-content-between mb-5">  
-                     <a href="" class="btn btn-warning btn-hover-secondery section-btn">모금함   소개</a> 
+                     <a href="" class="btn btn-warning btn-hover-secondery section-btn"style="background-color:#445C4C; color:white">모금함   소개</a> 
                      <fmt:formatDate value="${now}" pattern="yyyyMMdd" var="nowDate" />  
                       <fmt:formatDate var="don_start_date" value="${dona.don_start_date}" pattern="yyyyMMdd"/>
                       <fmt:formatDate var="don_end_date" value="${dona.don_end_date}" pattern="yyyyMMdd"/>
-                     <c:if test="${don_start_date<nowDate && don_end_date>nowDate}">
+                      <c:if test="${don_start_date<=nowDate && don_end_date>nowDate}">
                      <a href="goDonation2.do?id=${userId}&don_no=${dona.don_no}" class="btn btn-warning btn-hover-secondery section-btn">기부하기</a>
                      </c:if>
                      </div>
