@@ -35,7 +35,7 @@
                            <p class="mt-2 mb-5 text-white fw-bold">${payc.card_company}</p>
                         </div>
                         <div class="input">
-                           <input type="radio" name="card" id="check">
+                           <input type="radio" name="mem_card_no" id="card" value="${payc.mem_card_no}">
                         </div>
                      </div>
                   </label>
@@ -55,7 +55,7 @@
                </a>
             </button>
          <div class="btn mb-4">
-            <a href="deleteCard.do?mem_card_no=${mcn}&id=${userId}">카드삭제</a>
+            <a id="delBtn" href="#">카드삭제</a>
          </div>
       </div>
 
@@ -74,7 +74,7 @@
                            <p class="mt-2 mb-3 text-white fw-bold">${payb.bank}</p>
                         </div>
                         <div class="input">
-                           <input type="radio" name="bank" id="check">
+                           <input type="radio" name="mem_acc_no" id="bank" value="${payb.mem_acc_no}">
                         </div>
                      </div>
                   </label>
@@ -92,10 +92,60 @@
                </a>
             </button>
          <div class="btn mb-4">
-            <a href="deleteAccount.do?mem_acc_no=${man}&id=${userId}">계좌삭제</a>
+            <a id="delBtn2" href="#">계좌삭제</a>
          </div>
       </div>
    </div>
    </section>
+   <script type="text/javascript">
+   $(function(){
+     
+     //var man = <c:out value="${man}"/>;
+    
+     
+     console.log(id+" "+mcn)
+     
+     document.getElementById('delBtn').onclick = delCard;
+      document.getElementById('delBtn2').onclick = delAcc;
+      
+   });
+   var mcn = <c:out value="${mcn}"/>;
+   var id = '<%=userId%>';
+   
+   var cardRadio = document.getElementsByName('mem_card_no');
+   var accRadio = document.getElementsByName('mem_acc_no');
+   var check = null;
+   
+   function delCard(){
+      for(var i = 0; i < cardRadio.length; i++){
+         if(cardRadio[i].checked==true){
+            check = cardRadio[i].value;
+         }
+      }
+      
+      if(check <= 0) {
+         alert("선택된 카드가 없습니다.");
+      }
+      if(check > 0) {
+         $('#delBtn').prop('href', "deleteCard.do?mem_card_no="+check+"&id="+id);
+      }
+   }
+   
+   function delAcc(){
+      for(var i = 0; i < accRadio.length; i++){
+         if(accRadio[i].checked==true){
+            check = accRadio[i].value;
+         }
+      }
+      
+      if(check <= 0) {
+         alert("선택된 계좌가 없습니다.");
+      }
+      if(check > 0) {
+         $('#delBtn2').prop('href', "deleteAccount.do?mem_acc_no="+check+"&id="+id);
+      }
+   }
+   
+   </script>
 </body>
 </html>
