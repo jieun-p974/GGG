@@ -156,7 +156,7 @@
 			<img src="/resources/imgs/our-service/our-service-background.svg" class="shape position-absolute zz">
 			<div class="row">
 				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-black mt-5 mb-3">뉴스 리스트</h2>
+					<h2 class="text-black mt-5 mb-3" style="font-size:2rem;text-align:left">📰뉴스 리스트</h2>
 				</div>
 			</div>
 			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">

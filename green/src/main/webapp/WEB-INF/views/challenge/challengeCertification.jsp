@@ -21,7 +21,7 @@
 		<div class="container position-relative">
 			<div class="d-flex justify-content-center mt-5">
 				<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6">
-					<h2 class="text-black mb-0 mt-5 mb-3">${userId}님의 챌린지인증페이지입니다.</h2>
+					<h2 class="text-black mb-0 mt-5 mb-3" style="font-size:2rem;text-align:left">📢${userId}님의 챌린지인증페이지입니다.</h2>
 					<div class="card position-relative shadow border-0">
 						<div class="card-body p-3">
 							<div class="ms-3 row align-content-between">

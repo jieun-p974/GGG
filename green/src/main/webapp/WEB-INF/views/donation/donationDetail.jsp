@@ -38,12 +38,12 @@ if(msg.length >0 && url.length >0){
 
 <body>
    <%@include file="../layouts/header.jsp"%>
-   <section class="service position-relative overflow-hidden">
+   <section class="service position-relative overflow-hidden mt-5">
       <div class="container position-relative">
          <div class="row">
             <div
                class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-               <h2 class="text-white mb-0">용기 있는 행동에 힘을 보태고 싶습니다.</h2>
+               <h2 class="text-white mb-0" style="font-size:2rem;text-align:left">📢용기 있는 행동에 힘을 보태고 싶습니다.</h2>
             </div>
          </div>
          <div class="row d-flex flex-wrap justify-content-center step-row">

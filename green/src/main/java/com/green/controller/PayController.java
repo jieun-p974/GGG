@@ -48,8 +48,8 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       memberService.cardDelete(vo);
       System.out.println("payC" + vo.getId());
       memberService.cardNo(vo);
-
-      return "redirect:/member/mypage.do";
+      
+      return "redirect:/member/mypage.do?id="+vo.getId();
    }
 
    // member bank account delete
@@ -57,28 +57,27 @@ public class PayController { // 화면만 이동(DB연결은 XX)
    public String accountDelete(MemberVO vo) {
       memberService.accountDelete(vo);
       memberService.accountNo(vo);
-
-      return "redirect:/member/mypage.do";
+      return "redirect:/member/mypage.do?id="+vo.getId();
    }
    
    //간편카드로 결제
    @RequestMapping(value="/payMyCard.do")
    public String payMyCard(Model model,MemberVO vo, ChalPayVO voc,PayVO pvo) {
-	   payService.chalPay(voc);
-	   ChalPayVO res= payService.forPay(voc);
-	   MemberVO myCard=payService.myCard(vo);
-	   model.addAttribute("myCard",myCard);
-	   
-	   pvo.setDogeon_pay_no(res.getDogeon_pay_no());
-	   
-	   payService.cardInsert(pvo);
-	   
-	   HashMap map = new HashMap<String, Object>();
-	   map.put("id", voc.getId());
-	   map.put("dogeon_times", payService.getTimes(pvo.getDogeon_pay_no()));
-	      
-	  payService.payTryNum(map);
-	  
+      payService.chalPay(voc);
+      ChalPayVO res= payService.forPay(voc);
+      MemberVO myCard=payService.myCard(vo);
+      model.addAttribute("myCard",myCard);
+      
+      pvo.setDogeon_pay_no(res.getDogeon_pay_no());
+      
+      payService.cardInsert(pvo);
+      
+      HashMap map = new HashMap<String, Object>();
+      map.put("id", voc.getId());
+      map.put("dogeon_times", payService.getTimes(pvo.getDogeon_pay_no()));
+         
+     payService.payTryNum(map);
+     
       return "redirect:/member/main.do";
    }
 
@@ -115,10 +114,10 @@ public class PayController { // 화면만 이동(DB연결은 XX)
    //간편계좌 선택 결제
    @RequestMapping(value="/payMyAcc.do")
    public void payMyAcc(Model model,MemberVO vo, ChalPayVO voc) throws Exception {
-	   payService.chalPay(voc);
-	   model.addAttribute("forPay", payService.forPay(voc));
-	   MemberVO memAc = payService.myAc(vo);
-	   model.addAttribute("memAc",memAc);
+      payService.chalPay(voc);
+      model.addAttribute("forPay", payService.forPay(voc));
+      MemberVO memAc = payService.myAc(vo);
+      model.addAttribute("memAc",memAc);
    }
    
    // 일반계좌로 결제
@@ -158,6 +157,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
 
          payService.accInsert(vo);
          payService.payTryNum(map);
+      //   payService.deleteChalD(map);
          
          return "redirect:/member/main.do";
       }

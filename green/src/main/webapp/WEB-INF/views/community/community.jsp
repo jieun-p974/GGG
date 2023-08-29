@@ -86,7 +86,7 @@
    <c:if test="${sessionScope.userType == 2}">
       <%@include file="../layouts/adminHeader.jsp"%>
    </c:if>
-   <section class="pricing position-relative overflow-hidden">
+   <section class="pricing position-relative overflow-hidden mt-5">
       <div class="container position-relative">
          <div class="row justify-content-center">
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
