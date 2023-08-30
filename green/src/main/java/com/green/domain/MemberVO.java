@@ -15,7 +15,6 @@ public class MemberVO {
 	private String name;
 	private String tel;
 	private String email;
-	private Date bday;
 	private Date sdate;
 	private String card_reg_YN;
 	private String account_reg_YN;
@@ -23,8 +22,9 @@ public class MemberVO {
 	private String m_img;
 	private String m_img_addr;
 	private int tryNum;
+	private String address;
 	
-	//mem_card 테이블
+	//mem_card table
 	private int mem_card_no;
 	private String card_num;
 	private String expire_date;
@@ -32,7 +32,7 @@ public class MemberVO {
 	private String card_company;
 	private int pass_two;
 	
-	//mem_account 테이블
+	//mem_account table
 	private int mem_acc_no;
 	private String acc_num;
 	private String bank;
@@ -93,20 +93,20 @@ public class MemberVO {
 		this.bank = bank;
 	}
 
-	//내 챌린지 조인
-	private ChallengeVO challengeVO;
-	
-	public ChallengeVO getChallengeVO() {
-		return challengeVO;
-	}
-	public void setChallengeVO(ChallengeVO challengeVO) {
-		this.challengeVO = challengeVO;
-	}
+   //내 챌린지 조인
+   private ChallengeVO challengeVO;
+   
+   public ChallengeVO getChallengeVO() {
+      return challengeVO;
+   }
+   public void setChallengeVO(ChallengeVO challengeVO) {
+      this.challengeVO = challengeVO;
+   }
 
 	public MemberVO() {}
 	
 	//*************************************************
-	MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
+MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	
 	public MultipartFile getFile() {
 		return file;
@@ -142,101 +142,94 @@ public class MemberVO {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
+   public void setId(String id) {
+      this.id = id;
+   }
 
-	public int getMem_type_no() {
-		return mem_type_no;
-	}
+   public int getMem_type_no() {
+      return mem_type_no;
+   }
 
-	public void setMem_type_no(int mem_type_no) {
-		this.mem_type_no = mem_type_no;
-	}
+   public void setMem_type_no(int mem_type_no) {
+      this.mem_type_no = mem_type_no;
+   }
 
-	public String getPassword() {
-		return password;
-	}
+   public String getPassword() {
+      return password;
+   }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+   public void setPassword(String password) {
+      this.password = password;
+   }
 
-	public String getName() {
-		return name;
-	}
+   public String getName() {
+      return name;
+   }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+   public void setName(String name) {
+      this.name = name;
+   }
 
-	public String getTel() {
-		return tel;
-	}
+   public String getTel() {
+      return tel;
+   }
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+   public void setTel(String tel) {
+      this.tel = tel;
+   }
 
-	public String getEmail() {
-		return email;
-	}
+   public String getEmail() {
+      return email;
+   }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public Date getBday() {
-		return bday;
-	}
+   public void setEmail(String email) {
+      this.email = email;
+   }
 
-	public void setBday(Date bday) {
-		this.bday = bday;
-	}
 
-	public Date getSdate() {
-		return sdate;
-	}
+   public Date getSdate() {
+      return sdate;
+   }
 
-	public void setSdate(Date sdate) {
-		this.sdate = sdate;
-	}
+   public void setSdate(Date sdate) {
+      this.sdate = sdate;
+   }
 
-	public String getCard_reg_YN() {
-		return card_reg_YN;
-	}
+   public String getCard_reg_YN() {
+      return card_reg_YN;
+   }
 
-	public void setCard_reg_YN(String card_reg_YN) {
-		this.card_reg_YN = card_reg_YN;
-	}
+   public void setCard_reg_YN(String card_reg_YN) {
+      this.card_reg_YN = card_reg_YN;
+   }
 
-	public String getAccount_reg_YN() {
-		return account_reg_YN;
-	}
+   public String getAccount_reg_YN() {
+      return account_reg_YN;
+   }
 
-	public void setAccount_reg_YN(String account_reg_YN) {
-		this.account_reg_YN = account_reg_YN;
-	}
+   public void setAccount_reg_YN(String account_reg_YN) {
+      this.account_reg_YN = account_reg_YN;
+   }
 
-	public int getRemainder_point() {
-		return remainder_point;
-	}
+   public int getRemainder_point() {
+      return remainder_point;
+   }
 
-	public void setRemainder_point(int remainder_point) {
-		this.remainder_point = remainder_point;
-	}
+   public void setRemainder_point(int remainder_point) {
+      this.remainder_point = remainder_point;
+   }
 
-	public String getM_img() {
-		return m_img;
-	}
+   public String getM_img() {
+      return m_img;
+   }
 
-	public void setM_img(String m_img) {
-		this.m_img = m_img;
-	}
+   public void setM_img(String m_img) {
+      this.m_img = m_img;
+   }
 
-	public String getM_img_addr() {
-		return m_img_addr;
-	}
+   public String getM_img_addr() {
+      return m_img_addr;
+   }
 
 	public void setM_img_addr(String m_img_addr) {
 		this.m_img_addr = m_img_addr;
@@ -247,6 +240,14 @@ public class MemberVO {
 	public void setTryNum(int tryNum) {
 		this.tryNum = tryNum;
 	}
-
-	
+	public void setMemberAuthKey(String memberAuthKey) {
+		
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+   
 }

@@ -3,9 +3,9 @@ package com.green.domain;
 public class ReplyVO {
 	
 	/*
-	 * com_no 댓글번호 int(5) auto_increment (pk)
+	 * com_no 댓글 번호 int(5) auto_increment (pk)
 	 * id 회원id varchar(20)
-	 * board_no 게시판 번호 int(5)
+	 * board_no 게시글 번호 int(5)
 	 * com_content 댓글 내용 varchar(300)
 	 */
 	
@@ -14,6 +14,8 @@ public class ReplyVO {
 	private int com_no;
 	private String com_content;
 	private String m_img_addr;	
+	private String userId;	
+	
 
 	public ReplyVO() {
 		
@@ -59,4 +61,11 @@ public class ReplyVO {
 		this.com_content = com_content;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 }

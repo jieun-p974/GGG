@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .now_lists{
     list-style-type: none;
@@ -26,7 +27,7 @@
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-black mb-0 mt-5 mb-3" style="background: #fff">내 도전목록</h2>
+					<h2 class="text-black mb-0 mt-5 mb-3" style="background: #fff; font-size:2rem;text-align:left">📢내 도전목록</h2>
 				</div>
 			</div>
 			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 mt-4">
@@ -46,7 +47,7 @@
 			</div>
 			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 mt-4">
 				<div class="overflow-hidden position-relative mx-auto">
-					<h3 class="text-black mb-0 mt-5 mb-3">진행중인 챌린지</h2>
+					<h3 class="text-black mb-0 mt-5 mb-3">완료된 챌린지</h2>
 					<ul class="now_lists" style="background: #fff">
 						<c:forEach items="${complete}" var="com">
 							<li class="now_list">${com.chal_name}</li>

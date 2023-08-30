@@ -13,9 +13,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .c_list_img{
-	width: 30%;
+	width: 50%;
 	margin-top: 4%;
 }
 .chall{
@@ -44,10 +45,10 @@ $(function(){
 	}
 	html2 +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 	html2 +='<div class="card position-relative shadow border-0 h-100">';
-	html2 +='<div class="card-body p-4" style="height:275px;">';
+	html2 +='<div class="card-body p-4" style="height:290px;">';
 	html2 +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 	html2 +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-	html2 += '<p class="c_list_txt">${chall.chal_name}</p>';
+	html2 += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 	html2 += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 	html2 += '<p class="c_list_lv">난이도 : ';
 	html2 += star2;
@@ -76,10 +77,10 @@ $("#chall").append(html2);
 				}
 				html +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 				html +='<div class="card position-relative shadow border-0 h-100">';
-				html +='<div class="card-body p-4" style="height:275px;">';
+				html +='<div class="card-body p-4" style="height:290px;">';
 				html +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-				html += '<p class="c_list_txt">${chall.chal_name}</p>';
+				html += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
@@ -103,10 +104,10 @@ $("#chall").append(html2);
 				}
 				html +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 				html +='<div class="card position-relative shadow border-0 h-100">';
-				html +='<div class="card-body p-4" style="height:275px;">';
+				html +='<div class="card-body p-4" style="height:290px;">';
 				html +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-				html += '<p class="c_list_txt">${chall.chal_name}</p>';
+				html += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
@@ -129,10 +130,10 @@ $("#chall").append(html2);
 				}
 				html +='<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center align-middle">';
 				html +='<div class="card position-relative shadow border-0 h-100">';
-				html +='<div class="card-body p-4" style="height:275px;">';
+				html +='<div class="card-body p-4" style="height:290px;">';
 				html +='<a href="../challenge/challengeDetail.do?chal_no=${chall.chal_no}">';
 				html +='<img class="c_list_img" src="/resources/imgs/challImg/${chall.chal_img_addr}"/>';
-				html += '<p class="c_list_txt">${chall.chal_name}</p>';
+				html += '<p class="c_list_txt mt-3">${chall.chal_name}</p>';
 				html += '<p class="c_list_date">기간 : ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>';
 				html += '<p class="c_list_lv">난이도 : ';
 				html += star;
@@ -156,7 +157,7 @@ $("#chall").append(html2);
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-black mt-5 mb-3">현재 진행중인 챌린지 목록입니다.</h2>
+					<h2 class="text-black mt-5 mb-3" style="font-size:2rem;text-align:left">📢현재 진행중인 챌린지 목록입니다.</h2>
 				</div>
 				<div class="calendar">
 					<select class="month" name="challList" id="challList"

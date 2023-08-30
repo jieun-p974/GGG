@@ -20,11 +20,15 @@ String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
 String userSdate = (String) session.getAttribute("userSdate");
+<<<<<<< HEAD
 String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");
 String userImg = (String) session.getAttribute("userImg");
 String userImgAddr = (String) session.getAttribute("userImgAddr");
 int userType = (Integer) session.getAttribute("userType");
+=======
+
+>>>>>>> refs/remotes/origin/gaeun
 System.out.println("현재 세션 : " + userId);
 %>
 <meta charset=" UTF-8">

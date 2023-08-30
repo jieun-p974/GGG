@@ -32,8 +32,10 @@
 	don_end_date=#{don_end_date},
 	don_goal=#{don_goal},
 	don_ex=#{don_ex},
-	don_summary=#{don_summary},
-	d_img1_nn=#{d_img1_nn}
+	don_summary=#{don_summary}
+	<if test="d_img1_nn!=null">,
+	d_img1_nn=#{d_img1_nn},
+	d_img1_addr=#{d_img1_addr}</if>
 	WHERE don_no = #{don_no}
 	</update>
 	
@@ -44,9 +46,9 @@
 	</delete>
 	
 	<!-- 내 기부 내역 -->
-	<select id="myDonaList" resultType="hashmap">
-		SELECT m.m_d_no, m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id}
-	</select>
+   <select id="myDonaList" resultType="hashmap">
+      SELECT DISTINCT m.don_no, d.don_name  FROM mem_don m, donation d WHERE id = #{id} AND m.don_no = d.don_no
+   </select>
 	
 	<!-- 포인트로 기부시 적립 -->
 	<update id="goDona" parameterType="hashmap">
@@ -57,4 +59,16 @@
 	<insert id="memDon" parameterType="hashmap">
 	INSERT INTO mem_don(don_no,id,don_date,don_point)VALUES(#{don_no},#{id},NOW(),#{don_point})
 	</insert>
+	
+	<!-- 대표 캐릭터  숫자 카운팅 -->
+   <select id="countChoice" resultType="Integer">
+   	SELECT COUNT(*) FROM mem_dogam WHERE id=#{id} AND do_choice_YN='Y'
+   </select>
+   
+   <!-- 대표 캐릭터 만렙까지 남은 경험치 -->
+   <select id="remainExp" resultType="Integer">
+   	SELECT lev.lev_max_point-md.do_exp AS possible_point
+	FROM (SELECT do_exp FROM mem_dogam WHERE id=#{id} AND do_choice_YN='Y') md,
+	(SELECT lev_max_point FROM point_level WHERE level_no=3) lev
+   </select>
 </mapper>

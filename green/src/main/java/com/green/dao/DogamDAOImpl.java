@@ -52,7 +52,6 @@ public class DogamDAOImpl implements DogamDAO {
 	@Override
 	public List<HashMap<String, Object>> getMyDogam(HashMap map) {
 		System.out.println("Mybatis => getMyDogam()");
-		System.out.println("여깁니다" + map);
 		List<HashMap<String, Object>> list = mybatis.selectList("DogamDAO.getMyDogam",map);
 		return list;
 	}
@@ -78,7 +77,7 @@ public class DogamDAOImpl implements DogamDAO {
 		
 	@Override
 	public HashMap<String, Object> getDetail(HashMap map) {
-		System.out.println("mybatis==>getMyDogamList()");
+		System.out.println("mybatis==>getDetail()");
 		HashMap<String, Object> returnD = mybatis.selectOne("DogamDAO.getMyDogam",map);
 		return returnD;
 	}
@@ -117,12 +116,6 @@ public class DogamDAOImpl implements DogamDAO {
 		int rs = mybatis.insert("DogamDAO.dogamSinchung", map);
 		return rs;
 	}
-	//기부->exp
-	@Override
-	public void donExp(HashMap<String, Object> map) {
-		System.out.println("==>exp의donExp()호출");
-		mybatis.update("DogamDAO.donExp",map);
-	}
 
 	// my yes
 	@Override
@@ -134,8 +127,61 @@ public class DogamDAOImpl implements DogamDAO {
 		}
 		return do_no;
 	}
+
+	// main animal choice
+	@Override
+	public int mainChoice(HashMap map) {
+		System.out.println("mybatis==>mainChoice()");
+		int rs=mybatis.update("DogamDAO.mainChoice",map);
+		return rs;
+	}
 	
+	// main animal cancle
+	@Override
+	public int mainCancle(HashMap map) {
+		System.out.println("mybatis==>mainCancle()");
+		int rs=mybatis.update("DogamDAO.mainCancle",map);
+		return rs;
+	}
+
+	@Override
+	public int mainCancle3(String id) {
+		System.out.println("mybatis==>mainCancle3()");
+		int rs=mybatis.update("DogamDAO.mainCancle3",id);
+		return rs;
+	}
 
 
+	// name update
+	@Override
+	public int updateDoname(HashMap map) {
+		System.out.println("mybatis==>updateDoname()");
+		System.out.println("d"+map);
+		int rs = mybatis.update("DogamDAO.updateDoname",map);
+		return rs;
+	}
+
+	//기부->exp
+	@Override
+	public void donExp(HashMap<String, Object> map) {
+		System.out.println("==>exp의donExp()호출");
+		System.out.println("donExp: "+ map);
+		mybatis.update("DogamDAO.donExp",map);
+	}
+
+	//insertGoods
+	@Override
+	public int insertGoods(HashMap map) {
+		System.out.println("mybatis ==> insertGoods()");
+		int rs = mybatis.insert("DogamDAO.insertGoods", map);
+		return rs;
+	}
+
+	@Override
+	public int searchGoods(HashMap map) {
+		System.out.println("mybatis ==> searchGoods()");
+		int rs = mybatis.selectOne("DogamDAO.searchGoods", map);
+		return rs;
+	}
 
 }

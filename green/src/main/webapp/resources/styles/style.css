@@ -55,10 +55,10 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 20, 20, 28;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: "Manrope", sans-serif;
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-font-sans-serif: 'S-CoreDream-3Light';
+  --bs-font-monospace: 'S-CoreDream-3Light';
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: 'S-CoreDream-3Light';
   --bs-body-font-size: 1.125rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1;
@@ -80,7 +80,7 @@
   --bs-highlight-bg: #fff3e3;
 }
 @font-face {
-	font-family: 'S-CoreDream-3Light';
+	font-family: 'S-CoreDream-3Light' !important;
 	src:
 		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
 		format('woff');
@@ -91,7 +91,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family:'S-CoreDream-3Light' ;
+  font-family:'S-CoreDream-3Light' !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -102,7 +102,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: 'S-CoreDream-3Light';
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -272,16 +272,15 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--bs-font-monospace);
+  font-family: 'S-CoreDream-3Light';
   font-size: 1em;
 }
 
 pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  overflow: auto;
-  font-size: 0.875em;
+   width: 100%;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+ 
 }
 pre code {
   font-size: inherit;
@@ -366,7 +365,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
+  font-family: 'S-CoreDream-3Light';
   font-size: inherit;
   line-height: inherit;
 }
@@ -2878,7 +2877,7 @@ textarea.form-control-lg {
   --bs-btn-focus-box-shadow: 0 0 0 0px rgba(var(--bs-btn-focus-shadow-rgb), .5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-  font-family: var(--bs-btn-font-family);
+  font-family: 'S-CoreDream-3Light';
   font-size: var(--bs-btn-font-size);
   font-weight: var(--bs-btn-font-weight);
   line-height: var(--bs-btn-line-height);
@@ -5542,7 +5541,7 @@ textarea.form-control-lg {
   display: block;
   padding: var(--bs-tooltip-arrow-height);
   margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'S-CoreDream-3Light';
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -5652,7 +5651,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'S-CoreDream-3Light';
   font-style: normal;
   font-weight: 400;
   line-height: 1;
@@ -7904,7 +7903,7 @@ textarea.form-control-lg {
 }
 
 .font-monospace {
-  font-family: var(--bs-font-monospace) !important;
+  font-family: 'S-CoreDream-3Light' !important;
 }
 
 .fs-1 {
@@ -10940,7 +10939,7 @@ textarea.form-control-lg {
   /* background-image: url(/resources/imgs/hero/right-background.svg); */
   background-color: #8AB6A9;
   background-repeat: no-repeat;
-  z-index: -1;
+  z-index: -1;	
 }
 .hero-banner .left-hero-color {
   padding-top: 250px;
@@ -10998,7 +10997,8 @@ textarea.form-control-lg {
   height: 20rem;
 }
 .service {
-  padding: 150px 0;
+  padding: 70px 0;
+   background-image: url(/resources/imgs/service/service-backlayer.svg);
 }
 .service::before {
   position: absolute;
@@ -11067,6 +11067,7 @@ textarea.form-control-lg {
 .our-service {
   padding: 150px 0;
   background-color: #F9F9FB;
+  
 }
 .our-service::before {
   position: absolute;
@@ -11076,7 +11077,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(/resources/imgs/our-service/our-service-background.svg);
+   background-image: url(/resources/imgs/service/service-backlayer.svg);
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
@@ -11119,7 +11120,6 @@ textarea.form-control-lg {
   width: 100%;
   height: 92%;
   background-size: contain;
-  background-image: url(/resources/imgs/portfolio/portfolio-backoverlay.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11137,7 +11137,7 @@ textarea.form-control-lg {
 }
 .portfolio .step-row {
   padding-top: 70px;
-  padding-bottom: 80px;
+  padding-bottom: 40px;
 }
 .portfolio .card {
   border-radius: 30px;
@@ -11213,7 +11213,7 @@ textarea.form-control-lg {
   width: 130px;
   height: 130px;
   background-size: contain;
-  background-image: url(/resources/imgs/price-plans/dot-shape.png);
+ background-image: url(/resources/imgs/price-plans/dot-shape.png);
   background-repeat: no-repeat;
   z-index: -1;
   background-position: center;

@@ -7,7 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/styles/header.css">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css"
@@ -38,8 +37,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--===============================================================================================-->
-
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <title>결제수단관리 | 카드등록</title>
 </head>
 <script type="text/javascript">
@@ -87,10 +85,10 @@ function check() {
 				<form class="login100-form validate-form" name="form"
 					action="cardSave.do"  method="post">
 					<input type="hidden" name="id" value="${userId}"/>
-					<h4 class="mb-5">간편결제 계좌등록</h4>
+					<h4 class="mb-5">간편결제 | 계좌등록</h4>
 					<label class="d-block">
-					<div class="d-flex position-relative">
-							<p>카드사</p>
+					<div class="d-flex position-relative flex-wrap">
+							<p class="col-12 text-start ps-0">카드사</p>
 							<select name=card_company id="card_company" class="card_company mt-2 mb-3 me-3" style="height:40px;">
 								<option value="" selected>-카드사 선택 -</option>
 								<option value='KB국민카드'>KB국민카드</option>
@@ -133,10 +131,6 @@ function check() {
 					</div>
 					</div>
 					</label>
-					
-					
-						
-					
 						<div class="container-login100-form-btn">
 						<button class="login100-form-btn" id="registBtn">등록</button>
 					</div>

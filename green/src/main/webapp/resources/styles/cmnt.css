@@ -11,7 +11,7 @@
 }
 .r_img{
 	display: block;
-	height: 5rem;
+	height: 3rem;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-ms-border-radius: 50%;
@@ -22,7 +22,7 @@
 }
 .r_p_img{
 	display: block;
-	height: 3rem;
+	height: 2rem;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-ms-border-radius: 50%;
@@ -38,4 +38,5 @@
 }
 .board_img{
 	width:30%;
+	height:400px;
 }

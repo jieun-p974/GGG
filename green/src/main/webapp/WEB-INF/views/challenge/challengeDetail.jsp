@@ -14,7 +14,6 @@ var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
 
 if(msg.length >0 && url.length >0){
-	
 	alert(msg);
 	location.href=url;
 }
@@ -31,24 +30,25 @@ $(function(){
 	}
 	$("#d_level").append(star2);
 	
-	${""}
+	
 });
 </script>
-<title>뉴스 상세</title>
+<link rel="stylesheet" href="/resources/styles/font.css">
+<title>챌린지 상세</title>
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row justify-content-center mt-5">
-			<h3 class="mb-5" style="font-weight: bold;">‘${chall.chal_name}’</span>를 선택하셨군요!</h3>
+			<h3 class="mb-5" style="font-weight: bold; font-size:2rem;text-align:left">📢‘${chall.chal_name}’</span>를 선택하셨군요!</h3>
 				<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
 					<div class="card position-relative shadow border-0 h-100">
 						<div class="card-body p-3">
 							<div class="chall_detail">
-								<img class="detail_img"
+								<img class="detail_img col-12"
 									src="/resources/imgs/challImg/${chall.chal_img_addr}" />
-								<div class="detail_content">
+								<div class="detail_content mt-5">
 									<p class="d_title">챌린지: ${chall.chal_name}</p>
 									<p class="d_gigan">기 간: ${chall.chal_start_date} ~
 										${chall.chal_end_date}</p>
@@ -67,9 +67,10 @@ $(function(){
 								</div>
 								<div class="check_btn d-flex justify-content-between">
 									<div></div>
-									<a
-										href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
+									<c:if test="${userId ne null}">
+										<a href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
 										class="btn btn-white-back2 btn-hover-secondery text-capitalize">신청하기</a>
+									</c:if>
 								</div>
 							</div>
 						</div>

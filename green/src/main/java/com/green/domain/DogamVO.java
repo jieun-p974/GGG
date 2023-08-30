@@ -8,25 +8,27 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class DogamVO {
 
-   // dogam 테이블
+   // dogam table
    private int do_no;
    private String do_title;
    private String do_content;
    private String do_yoyak;
-   
-   // lv_dogam 테이블
+   private String do_realimg;
+   private String do_realimg_addr;
+
+   // lv_dogam table
    private int lv_do_no;
    private int do_lev;
    private String do_img;
    private String do_img_addr;
-   
-   // mem_dogam 테이블
+
+   // mem_dogam table
    private int mem_do_no;
    private String do_name;
    private String do_choice_YN;
    private int do_exp;
-   
-   // point_level 테이블
+
+   // point_level table
    private int level_no;
    private int lev_mim_point;
    private int lev_max_point;
@@ -37,9 +39,10 @@ public class DogamVO {
    private int nowLv;
    private String lv_img;
 
-   public DogamVO() {}
+   private int goods_no; 
+   public DogamVO() {
+   }
 
-   
    public int getDo_no() {
       return do_no;
    }
@@ -64,13 +67,28 @@ public class DogamVO {
       this.do_yoyak = do_yoyak;
    }
 
-
    public String getDo_content() {
       return do_content;
    }
 
    public void setDo_content(String do_content) {
       this.do_content = do_content;
+   }
+
+   public String getDo_realimg() {
+      return do_realimg;
+   }
+
+   public void setDo_realimg(String do_realimg) {
+      this.do_realimg = do_realimg;
+   }
+
+   public String getDo_realimg_addr() {
+      return do_realimg_addr;
+   }
+
+   public void setDo_realimg_addr(String do_realimg_addr) {
+      this.do_realimg_addr = do_realimg_addr;
    }
 
    public int getLv_do_no() {
@@ -136,7 +154,7 @@ public class DogamVO {
    public void setDo_exp(int do_exp) {
       this.do_exp = do_exp;
    };
-      
+
    public int getLevel_no() {
       return level_no;
    }
@@ -197,45 +215,83 @@ public class DogamVO {
       return lv_img;
    }
 
-
    public void setLv_img(String lv_img) {
       this.lv_img = lv_img;
    }
-
-
-
-//*************************************************
-   MultipartFile file;   // write.jsp에 파일첨부시 name="file"과 동일한 변수명
    
+   public int getGoods_no() {
+      return goods_no;
+   }
+
+   public void setGoods_no(int goods_no) {
+      this.goods_no = goods_no;
+   }
+
+   //*************************************************
+   MultipartFile file; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+
    public MultipartFile getFile() {
       return file;
    }
+
    public void setFile(MultipartFile file) {
       this.file = file;
-      
       // 업로드 파일 접근
-      if(! file.isEmpty()){
+      if (!file.isEmpty()) {
          this.do_img = file.getOriginalFilename();
-         
+
          // 실제 저장된 파일명 만들기
          UUID uuid = UUID.randomUUID();
          do_img_addr = uuid.toString() + "_" + do_img;
-         
-         //***********************************************
+
+         // ***********************************************
          // 해당 경로로 변경
-         File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\dogam\\"+do_img_addr);
-         
+         File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\dogam\\" + do_img_addr);
+
          try {
             file.transferTo(f);
-            
-         } catch (IllegalStateException e) {            
+
+         } catch (IllegalStateException e) {
             e.printStackTrace();
          } catch (IOException e) {
-            
+
             e.printStackTrace();
          }
       }
    }
 
-      
+   // *************************************************
+   MultipartFile file2; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
+
+   public MultipartFile getFile2() {
+      return file2;
+   }
+
+   public void setFile2(MultipartFile file2) {
+      this.file2 = file2;
+
+      // 실제 저장된 파일명 만들기
+      if (!file2.isEmpty()) {
+         this.do_realimg = file2.getOriginalFilename();
+
+         // 실제 저장된 파일명 만들기
+         UUID uuid = UUID.randomUUID();
+         do_realimg_addr = uuid.toString() + "_" + do_realimg;
+
+         // ***********************************************
+         // 해당 경로로 변경
+         File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\dogam\\" + do_realimg_addr);
+
+         try {
+            file2.transferTo(f);
+
+         } catch (IllegalStateException e) {
+            e.printStackTrace();
+         } catch (IOException e) {
+
+            e.printStackTrace();
+         }
+      }
+   }
+
 }

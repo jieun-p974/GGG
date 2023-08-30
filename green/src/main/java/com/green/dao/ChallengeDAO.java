@@ -11,12 +11,15 @@ public interface ChallengeDAO {
 	public void challengeWrite(ChallengeVO vo);
 
 	public int challengeSinchung(HashMap map);
+	public int challengeSinchungInf(HashMap map);
 	
 	public List<ChallengeVO> getChallengeList();
 	
 	public ChallengeVO getChallengeDetail(ChallengeVO vo);
 	
 	public void updateChallenge(ChallengeVO vo);
+	
+	public void deleteChall(int chal_no);
 	
 	public List<ChallengeVO> getMyChallengeList(String userId);
 	
@@ -30,7 +33,15 @@ public interface ChallengeDAO {
 	
 	public MemChallengeVO redirectCheckPage(ChallengeCheckVO vo);
 	
-	public List<ChallengeCheckVO> adminCerCheckList();
+	public List<ChallengeCheckVO> adminCerCheckList(int chal_no);
 	
 	public void updatePassYN(HashMap<String, List<String>> arr);
+	
+	public void endDateCheck(ChallengeVO vo);
+	
+	public List<HashMap<String , Object>> paramSql(HashMap<String, List<String>> arr);
+	
+	public void getPassNCheckSu(HashMap param);
+	
+	public List<HashMap<String , Object>> newCert();
 }

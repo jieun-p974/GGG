@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -9,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../../../resources/styles/donation.css" rel="stylesheet"
-	type="text/css">
+<link href="../../../resources/styles/donation.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/resources/styles/font.css">
 <style type="text/css">
 .tabs {
     position: fixed;
@@ -23,12 +22,11 @@
 </head>
 <body>
 	<%@include file="../layouts/header.jsp"%>
-	<section class="service position-relative">
-		<div class="container position-relative">
+	<section class="service position-relative mt-5">
+		<div class="container position-relative mt-5">
 			<div class="row">
-				<div
-					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-white mt-5 mb-3">열심히 모은 포인트를 지구를 위해 사용해 보세요</h2>
+				<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+					<h2 class="text-black mt-5 mb-3 col-12" style="font-size:2rem;text-align:left">📢열심히 모은 포인트를 지구를 위해 사용해 보세요</h2>
 				</div>
 			</div>
 			<div class="gibu_list">
@@ -36,29 +34,28 @@
 					<div class="gibu">
 						<div class="card">
 							<div class="card-body" style="height: 600px;">
-								<div
-									class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+								<div class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
 	
 									<c:set var="total" value="${total+dona.don_point_sum}" />
 									<div class="gibu">
 										<div class="rectangel">
-											<a href="donationDetail.do?don_no=${dona.don_no}"> <img class="gibu_img"
-													src="/resources/imgs/donaImg/${dona.d_img1_addr}" /></a>
+											<a href="donationDetail.do?don_no=${dona.don_no}">
+												<img class="gibu_img" src="/resources/imgs/donaImg/${dona.d_img1_addr}" />
+											</a>
 										</div>
 										<div class="dona_text">
 											<p class="dona">${dona.don_name}</p>
 											<!-- 프로그래스바해서 진행도 따라서 표시하기 -->
 											<div class="bar">
-												<progress id=progress max=100 min=0
-													value="${dona.don_point_sum/dona.don_goal*100}"></progress>
-	
+												<progress id=progress max=100 min=0 value="${dona.don_point_sum/dona.don_goal*100}"></progress>
 											</div>
 											<div class="points">
 												<fmt:formatNumber type="percent" value="${dona.don_point_sum/dona.don_goal}"
 													var="percent" pattern="0%" />
 												<p class="percent">${percent}</p>
-												<p class="point">${dona.don_point_sum}P</p>
+												<p class="point">${dona.don_goal}P</p>
 											</div>
+											<p class="point">현재 기부 포인트:${dona.don_point_sum}P</p>
 										</div>
 									</div>
 	
@@ -75,8 +72,7 @@
 						<h4 class="text-black">여러분의 참여로 이만큼 모였어요</h4>
 					</div>
 					<div class="col-sm-12">
-						<p class="text-black">총 기부 포인트 <c:out value="${total}" />P</p>
-						<p class="text-black">기부 참여 인원 11,521명</p>
+						<p class="text-black">🌏총 기부 포인트 <c:out value="${total}" />P</p>
 					</div>
 				</div>
 			</div>

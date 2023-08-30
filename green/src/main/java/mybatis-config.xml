@@ -20,8 +20,9 @@
 		<typeAlias alias="like" type="com.green.domain.HeartVO" />   
 		<typeAlias alias="member" type="com.green.domain.MemberVO" />   
 		<typeAlias alias="dogam" type="com.green.domain.DogamVO" />
-		<typeAlias alias="pay" type="com.green.domain.PayVO" />   
-		   
+		<typeAlias alias="pay" type="com.green.domain.PayVO" />    
+		<typeAlias alias="chalPay" type="com.green.domain.ChalPayVO"/>	
+		<typeAlias alias="hashTag" type="com.green.domain.HashTagVO"/>	
 	</typeAliases>
 	
 </configuration> 
