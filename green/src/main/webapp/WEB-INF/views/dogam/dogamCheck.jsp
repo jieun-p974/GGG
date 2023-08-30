@@ -26,14 +26,14 @@
          <div class="row mt-5">
             <div
                class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-               <h2 class="text-black mt-3 mb-0 mt-5 mb-3">도감 관리 페이지</h2>
+               <h2 class="text-black mt-3 mb-0 mt-5 mb-3" style="font-size:2rem;text-align:left">🐾도감 관리 페이지</h2>
             </div>
          </div>
          <div
             class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
             <div class="calendar d-flex justify-content-between mb-5">
             <p class="text-warning fw-500 mt-3">* 상세 내용을 보려면 행을 클릭하세요.</p>
-               <a class="btn btn-white-back btn-hover-third" href="dogamWrite.do">동물추가하기
+               <a class="btn btn-white-back btn-hover-third" href="dogamWrite.do">추가하기
                </a>
                
             </div>
@@ -44,8 +44,8 @@
                      <table class="type09" id="chall_list">
                         <thead>
                            <th class="do-th-2">이름</th>
-                           <th class="do-th-3">미리보기</th>
-                           <th class="do-th-btn">사진</th>
+                           <th class="do-th-3">설명 미리보기</th>
+                           <th class="do-th-btn">레벨별 사진</th>
                            <th class="do-th-btn">수정</th>
                            <th class="do-th-btn">삭제</th>
                         </thead>
@@ -58,7 +58,7 @@
                                  <a href="dogamCheckImg.do?do_no=${dogam.do_no}">${dogam.do_yoyak}</a>
                               </td>
                               <td><a class="btn btn-white-back2 btn-hover-secondery"
-                                 href="dogamImg.do?do_no=${dogam.do_no}">추가</a></td>
+                                 href="dogamImg.do?do_no=${dogam.do_no}">등록</a></td>
                               <td><a class="btn btn-white-back2 btn-hover-secondery"
                                  href="dogamModify.do?do_no=${dogam.do_no}">수정</a></td>
                               <td><a class="btn btn-white-back2 btn-hover-secondery"

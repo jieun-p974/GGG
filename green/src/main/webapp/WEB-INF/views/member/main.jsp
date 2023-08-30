@@ -207,7 +207,6 @@
                class="col-xxl-12 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
                <p class="pricing-head text-black mb-0 position-relative fw-bold fs-3 mb-3">지금 바로 도전권을 구매하고, </p>
                <p class="pricing-head text-black mb-0 position-relative fw-bold fs-3 mb-5"> 지구를 지키는 챌린지에 참여해보세요</p>
-         <a  class="btn btn-warning btn-hover-secondery text-capitalize mt-5" href="/member/mypage.do">도전권 결제</a>
          </div>
          <div class="row justify-content-center price-plan">
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">

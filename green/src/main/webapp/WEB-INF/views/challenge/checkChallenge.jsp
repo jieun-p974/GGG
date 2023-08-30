@@ -20,7 +20,7 @@
 	padding-left: 0;
 	display: flex;
 	justify-content: space-evenly;
-	width: 30%;
+	width: 50%;
 	background-color: #8AB6A9;
 	padding: 1% 3%;
 	border-radius: 15px;

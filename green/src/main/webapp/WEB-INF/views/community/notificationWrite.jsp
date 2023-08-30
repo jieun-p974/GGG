@@ -15,7 +15,7 @@
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-black mb-0 mt-5 mb-3">공지 등록</h2>
+					<h2 class="text-black mb-0 mt-5 mb-3" style="font-size:2rem;text-align:left">📢공지 등록</h2>
 				</div>
 			</div>
 			<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
@@ -33,7 +33,7 @@
 									<textarea class="form-control" name="ann_content" id="ann_content" autofocus="autofocus" placeholder="공지  내용을 입력해주세요."></textarea>
 								</div>
 								<div class="buttons d-flex justify-content-between mb-5 p-3">
-									<button class="btn btn-white-back btn-hover-third" id="adding" type="button">등록</button>
+									<button class="btn btn-white-back btn-hover-third" id="adding" type="submit" >등록</button>
 									<button class="btn btn-white-back btn-hover-third" id="cancel" type="button" onclick="cancleWrite()">취소</button>
 								</div>
 							</form>

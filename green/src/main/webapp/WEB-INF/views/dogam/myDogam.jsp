@@ -22,13 +22,13 @@
 <link rel="stylesheet" href="/resources/styles/font.css">
 <script type="text/javascript">
 var msg= "<c:out value='${msg}' />"
-		 var url= "<c:out value='${url}' />"
+       var url= "<c:out value='${url}' />"
 
-	 if(msg.length >0 && url.length >0){
-	  		
-	 alert(msg);
-	 location.href=url;
-	 }
+    if(msg.length >0 && url.length >0){
+           
+    alert(msg);
+    location.href=url;
+    }
 </script>
 <title>🌏my도감</title>
 </head>
@@ -87,11 +87,7 @@ var msg= "<c:out value='${msg}' />"
                                        멋진 이름을 지어주세요.
                               </p>
                            </c:if>
-                            <c:if test="${mydogam.nowLv eq 3 && mydogam.do_name eq null}">
-                              <p>  ${mydogam.do_title}가 모두 자랐어요. <br/>
-                                  	멋진 이름을 지어주세요.
-                              </p>
-                           </c:if>
+                            
                         </a>
                      </div>
                   </div>
@@ -99,7 +95,7 @@ var msg= "<c:out value='${msg}' />"
             </div>
          </c:forEach>
          </div>
-      	<c:if test="${nCount eq count}">
+         <c:if test="${nCount eq count}">
          <div class="pickme align-items-center mt-3" >
                <img src="../resources/imgs/pickme.png">
             <div class="mb-3">

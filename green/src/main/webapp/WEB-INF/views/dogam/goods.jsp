@@ -37,7 +37,7 @@
 	
 		<div class="container position-relative mt-5"></div>
 		<div class="container position-relative mt-5" style="width: 70%;">
-			<h2 class="mb-5">만렙 달성 기념으로 굿즈를 보내드려요💚</h2>
+			<h2 class="mb-5"style="font-size:2rem;text-align:left">🐾만렙 달성 기념으로 굿즈를 보내드려요💚</h2>
 			<form action="goodsSinchung.do" method="post">
 				<input name="do_no" hidden="hidden" value="<%=do_no%>">
 				<input name="id"  hidden="hidden"  value="${userId}">

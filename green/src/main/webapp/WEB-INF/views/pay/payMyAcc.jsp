@@ -56,7 +56,7 @@
                <input type="hidden" name="mem_acc_no" value="${memAc.mem_acc_no}"> 
                
                <input type="hidden" name="dogeon_pay_no" value="${forPay.dogeon_pay_no}" />
-               <h4 class="mb-5">일반 계좌 결제</h4>
+               <h4 class="mb-5">간편 계좌 결제</h4>
                <label class="d-block">
                   <div class="d-flex position-relative flex-wrap">
                      <p class="col-12 text-start ps-0">은행사</p>

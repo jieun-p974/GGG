@@ -228,7 +228,7 @@ public class DogamVO {
 	}
 
 	//*************************************************
-	MultipartFile file; // write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�
+	MultipartFile file; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 
 	public MultipartFile getFile() {
 		return file;
@@ -240,12 +240,12 @@ public class DogamVO {
 		if (!file.isEmpty()) {
 			this.do_img = file.getOriginalFilename();
 
-			// �떎�젣 ���옣�맂 �뙆�씪紐� 留뚮뱾湲�
+			// 실제 저장된 파일명 만들기
 			UUID uuid = UUID.randomUUID();
 			do_img_addr = uuid.toString() + "_" + do_img;
 
 			// ***********************************************
-			// �빐�떦 寃쎈줈濡� 蹂�寃�
+			// 해당 경로로 변경
 			File f = new File("D:\\git2\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\dogam\\" + do_img_addr);
 
 			try {
@@ -261,7 +261,7 @@ public class DogamVO {
 	}
 
 	// *************************************************
-	MultipartFile file2; // write.jsp�뿉 �뙆�씪泥⑤��떆 name="file"怨� �룞�씪�븳 蹂��닔紐�
+	MultipartFile file2; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 
 	public MultipartFile getFile2() {
 		return file2;
@@ -270,11 +270,11 @@ public class DogamVO {
 	public void setFile2(MultipartFile file2) {
 		this.file2 = file2;
 
-		// �뾽濡쒕뱶 �뙆�씪 �젒洹�
+		// 실제 저장된 파일명 만들기
 		if (!file2.isEmpty()) {
 			this.do_realimg = file2.getOriginalFilename();
 
-			// �떎�젣 ���옣�맂 �뙆�씪紐� 留뚮뱾湲�
+			// 실제 저장된 파일명 만들기
 			UUID uuid = UUID.randomUUID();
 			do_realimg_addr = uuid.toString() + "_" + do_realimg;
 

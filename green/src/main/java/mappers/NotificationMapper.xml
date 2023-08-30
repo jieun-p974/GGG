@@ -2,61 +2,95 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NotificationDAO">
-	
-	<!-- insert announcement -->
-	<insert id="notificationWrite" parameterType="noti">
-		INSERT INTO announcement (id, ann_title, ann_content)
-		VALUES(#{id}, #{ann_title}, #{ann_content})
-	</insert>
-	
-	<!-- select ann_no -->
-	<select id="getAnnNo" resultType="int">
-		SELECT MAX(ann_no) FROM announcement 
-	</select>
-	
-	<!-- select all member -->
-	<select id="getAllMem" resultType="string">
-		SELECT id FROM member WHERE mem_type_no = 1
-	</select>
-	
-	<!-- insert ann_check -->
-	<insert id="annCheckInsert" parameterType="hashmap">
-		INSERT INTO ann_check (id, ann_no) VALUES 
-		<foreach collection="list" item="item" separator=",">
-		(#{item.id}, #{item.ann_no})
-		</foreach>
-	</insert>
-	
-	<!-- show all list -->
-	<select id="getNotificationList" resultType="noti">
-		SELECT * from announcement order by ann_no desc
-	</select>
-	
-	<!-- select one Notification -->
-	<select id="getNotificationDetail" parameterType="noti" resultType="noti">
-		SELECT * FROM announcement WHERE ann_no = #{ann_no}
-	</select>
-	
-	<!-- 공지 수정   Notification modify -->
-	<update id="updateNotification" parameterType="noti">
-		UPDATE announcement SET 
-		ann_title=#{ann_title},
-		ann_content=#{ann_content}
-		WHERE ann_no = #{ann_no}
-	</update>
-	
-	<!-- 공지 삭제   Notification delete -->
-	<delete id="deleteNotification" parameterType="noti">
-		DELETE FROM announcement WHERE ann_no = #{ann_no}
-	</delete>
-	
-	<!-- 읽은 공지 삭제 -->
-	<delete id="deleteReadNoti" parameterType="int">
-		DELETE FROM ann_check WHERE ann_ck_no = #{ann_ck_no}
-	</delete>
-	
-	<!-- 안읽은 공지 조회 -->
-	<select id="getUnreadNoti" resultType="hashmap">
-		SELECT ann_ck_no, a.id AS writer, a.ann_no, ann_date, ann_title, ann_content FROM ann_check c,announcement a WHERE c.ann_no = a.ann_no AND c.id = #{id}
-	</select>
+   
+   <!-- insert announcement -->
+   <insert id="notificationWrite" parameterType="noti">
+      INSERT INTO announcement (id, ann_title, ann_content)
+      VALUES(#{id}, #{ann_title}, #{ann_content})
+   </insert>
+   
+   <!-- select ann_no -->
+   <select id="getAnnNo" resultType="int">
+      SELECT MAX(ann_no) FROM announcement 
+   </select>
+   
+   <!-- select all member -->
+   <select id="getAllMem" resultType="string">
+      SELECT id FROM member WHERE mem_type_no = 1
+   </select>
+   
+   <!-- insert ann_check -->
+   <insert id="annCheckInsert" parameterType="hashmap">
+      INSERT INTO ann_check (id, ann_no) VALUES 
+      <foreach collection="list" item="item" separator=",">
+      (#{item.id}, #{item.ann_no})
+      </foreach>
+   </insert>
+   
+   <!-- show all list -->
+   <select id="getNotificationList" resultType="noti">
+      SELECT * from announcement order by ann_no desc
+   </select>
+   
+   <!-- select one Notification -->
+   <select id="getNotificationDetail" parameterType="noti" resultType="noti">
+      SELECT * FROM announcement WHERE ann_no = #{ann_no}
+   </select>
+   
+   <!-- 공지 수정   Notification modify -->
+   <update id="updateNotification" parameterType="noti">
+      UPDATE announcement SET 
+      ann_title=#{ann_title},
+      ann_content=#{ann_content}
+      WHERE ann_no = #{ann_no}
+   </update>
+   
+   <!-- 공지 삭제   Notification delete -->
+   <delete id="deleteNotification" parameterType="noti">
+      DELETE FROM announcement WHERE ann_no = #{ann_no}
+   </delete>
+   
+   <!-- 읽은 공지 삭제 -->
+   <delete id="deleteReadNoti" parameterType="int">
+      DELETE FROM ann_check WHERE ann_ck_no = #{ann_ck_no}
+   </delete>
+   
+   <!-- 안읽은 공지 조회 -->
+   <select id="getUnreadNoti" resultType="hashmap">
+      SELECT ann_ck_no, a.id AS writer, a.ann_no, ann_date AS d, ann_title, ann_content FROM ann_check c,announcement a WHERE c.ann_no = a.ann_no AND c.id = #{id}
+   </select>
+   
+   <!-- 내 글에 좋아요 찍힌거 조회 -->
+   <select id="getUnreadLike" resultType="hashmap">
+      SELECT m.like_no, m.id AS who, m.like_date AS d, m.read_YN, b.id 
+      FROM b_m_like m, board b 
+      WHERE b.board_no=m.board_no AND read_YN='N' AND b.id=#{id}
+      ORDER BY d
+   </select>
+   
+   <!-- 알림 확인하면 update하기 -->
+   <update id="updateRead_YN" parameterType="int">
+      UPDATE b_m_like SET read_YN='Y' WHERE like_no = #{like_no}
+   </update>
+   
+   <!-- 댓글 알림 체크 -->
+   <update id="comment_YN">
+      UPDATE reply SET read_YN='Y' WHERE board_no = (SELECT board_no FROM reply WHERE com_no = #{com_no})
+   </update>
+   
+   <!-- 모든 알림 한번에 출력하는 쿼리 -->
+   <select id="getAllNotis" resultType="hashmap">
+      SELECT m.like_no AS num, m.id AS who, m.like_date AS d, m.read_YN ck, b.id AS gets
+      FROM b_m_like m, board b 
+      WHERE b.board_no=m.board_no AND read_YN='N' AND b.id=#{id}
+      UNION 
+      SELECT a.ann_no AS num, a.id AS who, ann_date AS d, ann_ck_no AS ck,  ann_title AS gets
+      FROM ann_check c,announcement a 
+      WHERE c.ann_no = a.ann_no AND c.id = #{id}
+      UNION
+      SELECT r.com_no AS num, r.id AS who, r.re_date AS d, r.read_YN AS ck, rb.id AS gets
+      FROM reply r, board rb
+      WHERE r.board_no = rb.board_no AND rb.id =#{id} AND read_YN='NO'
+      ORDER BY d desc
+   </select>
 </mapper>

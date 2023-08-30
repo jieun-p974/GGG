@@ -48,8 +48,8 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       memberService.cardDelete(vo);
       System.out.println("payC" + vo.getId());
       memberService.cardNo(vo);
-
-      return "redirect:/member/mypage.do";
+      
+      return "redirect:/member/mypage.do?id="+vo.getId();
    }
 
    // member bank account delete
@@ -57,8 +57,7 @@ public class PayController { // 화면만 이동(DB연결은 XX)
    public String accountDelete(MemberVO vo) {
       memberService.accountDelete(vo);
       memberService.accountNo(vo);
-
-      return "redirect:/member/mypage.do";
+      return "redirect:/member/mypage.do?id="+vo.getId();
    }
    
    //간편카드로 결제
@@ -96,7 +95,6 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       HashMap map = new HashMap<String, Object>();
       
       map.put("id", voc.getId());
-      payService.deleteChalD(map);
    }
 
    // 결제하기 버튼 누르면
@@ -133,7 +131,6 @@ public class PayController { // 화면만 이동(DB연결은 XX)
       HashMap map = new HashMap<String, Object>();
       
       map.put("id", voc.getId());
-      payService.deleteChalD(map);
 
    }
 

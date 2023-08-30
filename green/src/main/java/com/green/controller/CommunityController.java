@@ -178,8 +178,8 @@ public class CommunityController {
 		return "redirect:/community/community.do?userId="+vo.getUserId();
 	}
 	
-	// announcement notification
-	// notification insert
+/*	announcement notification   */
+/*	notification insert   */
 	@RequestMapping(value="/saveNoti.do")
 	public String notificationInsert(NotificationVO vo) throws IOException{
 		notificationService.insertNotification(vo);
@@ -199,7 +199,7 @@ public class CommunityController {
 		return "redirect:/community/notificationList.do";
 	}
 
-	// notification list 
+/*	notification list   */
 	@RequestMapping(value= {"/notificationList.do","/notificationListUser.do"})
 	public void getNotificationList(Model model) {
 		List<NotificationVO> listNO = null;
@@ -207,20 +207,20 @@ public class CommunityController {
 		model.addAttribute("listNO", listNO);
 	}
 	
-	// get one notification
+/*	get one notification   */
 	@RequestMapping(value= {"/notificationModify.do","/notificationDetail.do"})
 	public void getNotificationDetail(NotificationVO vo, Model model) {
 		model.addAttribute("noti", notificationService.getNotificationDetail(vo));
 	}
 	
-	// notification modify
+/*	notification modify  */	
 	@RequestMapping(value = "/updateNotification.do")
 	public String updateNotification(@ModelAttribute("notificatioin") NotificationVO vo) {
 		notificationService.updateNotification(vo);
 		return "redirect:/community/notificationList.do";
 	}
 	
-	// notification delete
+/*	notification delete  */	
 	@RequestMapping(value = "/deleteNotification.do")
 	public String deleteNotification(NotificationVO vo) {
 		notificationService.deleteNotification(vo);

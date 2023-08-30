@@ -40,7 +40,7 @@ public class MemberController {
 
 	@RequestMapping(value = "{url}.do")
 	public String url(@PathVariable String url) {
-		System.out.println("memberController ��û -----> " + url);
+		System.out.println("memberController 요청 -----> " + url);
 		return "/member/" + url;
 	}
 
@@ -62,10 +62,10 @@ public class MemberController {
 	@ResponseBody
 	public String idcheck(MemberVO vo) {
 		MemberVO memberVo = memberService.idCheck_Login(vo);
-		String result = "ID ��� �����մϴ�.";
+		String result = "ID 사용 가능합니다.";
 
 		if (memberVo != null)
-			result = "�ߺ��� ���̵� �Դϴ�.";
+			result = "중복된 아이디 입니다.";
 		return result;
 	}
 
@@ -75,9 +75,9 @@ public class MemberController {
 
 		int result = memberService.memberInsert(vo);
 
-		String message = "���Ե��� �ʾҽ��ϴ�";
+		String message = "가입되지 않았습니다.";
 		if (result > 0) {
-			message = vo.getId() + "��, ������ ���ϵ帳�ϴ�!";
+			message = vo.getId() + "님, 가입을 축하드립니다!";
 		}
 
 		ModelAndView mv = new ModelAndView();
@@ -87,7 +87,7 @@ public class MemberController {
 		return mv;
 	}
 			
-	//�̸��� ����
+	//이메일 인증
 	@RequestMapping("/mailCheck.do")
 	public @ResponseBody String mailCheck(String email) {
 		return mailService.joinEmail(email);
@@ -105,8 +105,8 @@ public class MemberController {
 		if (result == null || result.getId() == null) {
 			return "/member/login";
 		} else {
-			System.out.println("[" + result.getId() + "] �α��� ���� ");
-			session.setMaxInactiveInterval(60 * 60); // ���������ð� 60��
+			System.out.println("[" + result.getId() + "] 로그인 접속 ");
+			session.setMaxInactiveInterval(60 * 60); // 세션유지시간 60분
 			session.setAttribute("sessionTime", new Date().toLocaleString());
 			session.setAttribute("userId", memberVo.getId());
 			session.setAttribute("userType", memberVo.getMem_type_no());
@@ -177,7 +177,7 @@ public class MemberController {
 	public String cardInsert(MemberVO vo) throws IOException {
 		memberService.cardInsert(vo);
 		memberService.cardYes(vo);
-		return "redirect:/member/mypage.do";
+		return "redirect:/member/mypage.do?id="+vo.getId();
 	}
 
 	// member bank account insert
@@ -185,10 +185,10 @@ public class MemberController {
 	public String accountInsert(MemberVO vo) throws IOException {
 		memberService.accountInsert(vo);
 		memberService.accountYes(vo);
-		return "redirect:/member/mypage.do";
+		return "redirect:/member/mypage.do?id="+vo.getId();
 	}
 
-	// �������������� ���� ����, �������� ç����, ��γ��� ����
+	// 마이페이지에서 나의 도감, 진행중인 챌린지, 기부내역 띄우기
 	@RequestMapping(value = {"/mypage.do"})
 	public void challAndDona(String id, Model model, MemberVO vo) {
 		ChalPayVO pvo = new ChalPayVO();
@@ -243,14 +243,14 @@ public class MemberController {
 
 	}
 
-	// amdinMain�� ���� ���� �Ǽ�, �ݾ�, �����ο��� ���
+	// amdinMain에 오늘 결제 건수, 금액, 가입인원수 출력
 	@RequestMapping(value = "/adminMain.do")
 	public void todayPayAndMem(Model model) {
-		// ���� ����
+		// 오늘 집계
 		List<HashMap<String, Object>> todayPay = memberService.todayPay();
 		int todayMem = memberService.todayMem();
 		
-		// ���� ��� �ֱ� 3��
+		// 인증 목록 최근 3개
 		List<HashMap<String, Object>> memChal = challengeService.newCert();
 
 		String nonePay = "";
@@ -261,7 +261,7 @@ public class MemberController {
 			int paySum = Integer.parseInt(String.valueOf(d.get("pay_sum")));
 
 			if (payCount < 1) {
-				nonePay = "���� ������ ȸ���� �����ϴ�.";
+				nonePay = "오늘 결제한 회원이 없습니다.";
 				System.out.println(nonePay);
 				model.addAttribute("nonePay", nonePay);
 				model.addAttribute("payCount", 0);
@@ -275,7 +275,7 @@ public class MemberController {
 		if (todayMem > 0) {
 			model.addAttribute("todayMem", todayMem);
 		} else {
-			noneMem = "���� ������ ȸ���� �����ϴ�.";
+			noneMem = "오늘 가입한 회원이 없습니다.";
 			System.out.println(noneMem);
 			model.addAttribute("noneMem", noneMem);
 			model.addAttribute("todayMem", 0);
@@ -286,7 +286,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/chartsData.do")
 	public @ResponseBody List weekPayAndMem(Model model) {
-		// ������ ��¥ ���ϱ�
+		// 일주일 날짜 구하기
 		List<String> weekList = new ArrayList();
 		for (int i = 0; i < 7; i++) {
 			Calendar cal = Calendar.getInstance();
@@ -297,7 +297,7 @@ public class MemberController {
 			weekList.add(dtFormat.format(cal.getTime()));
 		}
 
-		// �����ϰ� ����
+		// 일주일간 집계
 		List<HashMap<String, Object>> weekMemCount = memberService.weekMem();
 		List<HashMap<String, Object>> weekPayCount = memberService.weekPay();
 		List<HashMap<String, Object>> dogeonRate = memberService.dogeonRate();
@@ -307,7 +307,7 @@ public class MemberController {
 		List<HashMap<String, Object>> ajaxList = new ArrayList();
 
 		if (weekMemCount.size() < 1) {
-			noneWeekMem = "�����ϰ� ������ ȸ���� �����ϴ�.";
+			noneWeekMem = "일주일간 가입한 회원이 없습니다.";
 			model.addAttribute("noneWeekMem", noneWeekMem);
 		} else {
 			for (String d : weekList) {
@@ -328,7 +328,7 @@ public class MemberController {
 		}
 
 		if (weekPayCount.size() < 1) {
-			noneWeekPay = "�����ϰ� ������ ȸ���� �����ϴ�.";
+			noneWeekPay = "일주일간 결제한 회원이 없습니다.";
 			model.addAttribute("noneWeekPay", noneWeekPay);
 		} else {
 			for (HashMap p : weekPayCount) {
@@ -354,7 +354,7 @@ public class MemberController {
 		return ajaxList;
 	}
 	
-	// ������������ ��������
+	// 정보수정에서 정보띄우기
 	@RequestMapping(value="/infoEdit.do")
 	public void myInfos(MemberVO vo, Model model) {
 		MemberVO meminfo = memberService.memberInfo(vo);

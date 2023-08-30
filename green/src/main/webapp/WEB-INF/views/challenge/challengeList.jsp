@@ -157,7 +157,7 @@ $("#chall").append(html2);
 			<div class="row">
 				<div
 					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-					<h2 class="text-black mt-5 mb-3">현재 진행중인 챌린지 목록입니다.</h2>
+					<h2 class="text-black mt-5 mb-3" style="font-size:2rem;text-align:left">📢현재 진행중인 챌린지 목록입니다.</h2>
 				</div>
 				<div class="calendar">
 					<select class="month" name="challList" id="challList"

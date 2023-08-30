@@ -101,7 +101,6 @@ public class PayDAOImpl implements PayDAO {
 	@Override
 	public void deleteChalD(HashMap map) {
 		// TODO Auto-generated method stub
-		System.out.println("야 니가 범인이냐?!");
 		mybatis.delete("payDAO.deleteChalD",map);
 	}
 

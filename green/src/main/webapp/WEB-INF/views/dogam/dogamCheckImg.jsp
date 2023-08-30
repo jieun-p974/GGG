@@ -24,11 +24,11 @@ img{
 </head>
 <body>
 <%@include file="../layouts/adminHeader.jsp"%>
-<section class="service position-relative overflow-hidden">
-	<div class="container position-relative">
+<section class="service position-relative overflow-hidden mt-5">
+	<div class="container position-relative mt-5">
 		<div class="row">
 			<div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-				<h2 class="text-black mt-3 mb-0 mt-5 mb-3">도감 관리 페이지</h2>
+				<h2 class="text-black mt-3 mb-0 mt-5 mb-3" style="font-size:2rem;text-align:left">🐾도감 관리 페이지</h2>
 				<button class="btn btn-white-back2 btn-hover-secondery" id="add" onclick="location.href='dogamCheck.do'">뒤로</button>
 			</div>
 		</div>

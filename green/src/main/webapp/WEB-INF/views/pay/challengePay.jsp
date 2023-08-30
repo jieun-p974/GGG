@@ -54,19 +54,19 @@
    <section class="service position-relative overflow-hidden">
       <div class="container position-relative">
          <div class="row">
-            <div class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+            <div class="mt-5 pt-5 col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
                <h2 class="text-black mt-5 mb-3">결제 페이지</h2>
             </div>
          </div>
       <form class="jjj" id="jjj" method="post">
-       	<input type="hidden" name="id" value="${userId}" />
+          <input type="hidden" name="id" value="${userId}" />
 
-         <div class="mem_info">
+         <div class="mem_info mt-3">
             <h4>결제자</h4>
             <h6>${userName}(${userTel})</h6>
          </div>
 
-         <div class="kind mt-4">
+         <div class="kind mt-5">
             <h4 class="txt">결제권 종류</h4>
             <select name="dogeon_no" id="dogeon_no">
                <option name="dogeon_name" value="1">3회 도전권 (3,000원)</option>
@@ -74,9 +74,10 @@
                <option name="dogeon_name" value="3">무제한 도전권 (10,000원)</option>
             </select>
          </div>
+                <p class="text-warning mt-2">※ 챌린지 기간은 결제일로부터 30일 까지 입니다.</p>
 
-         <div class="pay_method mt-4">
-            <h4>결제수단</h4><!-- pay_method_no -->
+         <div class="pay_method mt-5">
+            <h4 >결제수단</h4><!-- pay_method_no -->
             <div class="selecting">
                <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
@@ -150,25 +151,25 @@
             </div>
          </div>
       </form>
-      <label>※ 공지: 챌린지 기간은 결제일로부터 30일 까지 입니다.</label>
+     
       </div>
    </section>
    <%@include file="../layouts/footer.jsp"%>
    <script type="text/javascript">
    $(function(){
-	   $("#cBtn").on("click",function(){
-		  $("#jjj").attr("action","card.do").submit();
-	   });
-	   
-	   $("#aBtn").on("click",function(){
-			  $("#jjj").attr("action","account.do").submit();
-		   });
- 	   $("#MABtn").on("click",function(){
-			  $("#jjj").attr("action","payMyAcc.do").submit();
-		   }); 
- 	   $("#MCBtn").on("click",function(){
-			  $("#jjj").attr("action","payMyCard.do").submit(); 
-		   }); 
+      $("#cBtn").on("click",function(){
+        $("#jjj").attr("action","card.do").submit();
+      });
+      
+      $("#aBtn").on("click",function(){
+           $("#jjj").attr("action","account.do").submit();
+         });
+       $("#MABtn").on("click",function(){
+           $("#jjj").attr("action","payMyAcc.do").submit();
+         }); 
+       $("#MCBtn").on("click",function(){
+           $("#jjj").attr("action","payMyCard.do").submit(); 
+         }); 
    });
    </script>
 </body>

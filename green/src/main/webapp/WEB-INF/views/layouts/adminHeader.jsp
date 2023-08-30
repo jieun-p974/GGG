@@ -11,9 +11,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
-<!-- 
 <script src="${pageContext.request.contextPath}/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
- -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/dropDown.css">
@@ -61,17 +59,17 @@ System.out.println("현재 세션 : " + userId);
                   <li class="nav-item position-relative ms-5">
                      관리 메뉴 ▼
                      <ul class="depth_2 p-4">
+                        <li class="nav-item"><a class="nav-link text-capitalize" href="../community/notificationList.do">공지관리</a></li>
+                        <li><hr/></li>
                         <li class="nav-item"><a class="nav-link text-capitalize" aria-current="page" href="../community/community.do?userId=${userId}">커뮤니티관리</a></li>
                         <li><hr/></li>
                         <li class="nav-item"><a class="nav-link text-capitalize" href="../challenge/adminChallenge.do">챌린지관리</a></li>
                         <li><hr/></li>
-                        <li class="nav-item"><a class="nav-link text-capitalize" href="../dogam/dogamCheck.do">도감관리</a></li>
+                        <li class="nav-item"><a class="nav-link text-capitalize" href="../dogam/dogamCheck.do">캐릭터도감관리</a></li>
                         <li><hr/></li>
                         <li class="nav-item"><a class="nav-link text-capitalize" href="../donation/adDonationList.do">기부관리 </a></li>
                         <li><hr/></li>
                         <li class="nav-item"><a class="nav-link text-capitalize" href="../news/newsCheck.do">뉴스관리</a></li>
-                        <li><hr/></li>
-                        <li class="nav-item"><a class="nav-link text-capitalize" href="../community/notificationList.do">공지관리</a></li>
                      </ul>
                   </li>
                   <li class="nav-item ms-3"><a class="nav-link text-capitalize" href="../member/adminMain.do">&nbsp&nbsp관리자 메인</a></li>

@@ -41,7 +41,7 @@ $(function(){
 	<section class="pricing position-relative overflow-hidden">
 		<div class="container position-relative">
 			<div class="row justify-content-center mt-5">
-			<h3 class="mb-5" style="font-weight: bold;">‘${chall.chal_name}’</span>를 선택하셨군요!</h3>
+			<h3 class="mb-5" style="font-weight: bold; font-size:2rem;text-align:left">📢‘${chall.chal_name}’</span>를 선택하셨군요!</h3>
 				<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
 					<div class="card position-relative shadow border-0 h-100">
 						<div class="card-body p-3">

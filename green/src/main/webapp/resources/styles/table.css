@@ -25,3 +25,21 @@ table.type09 td {
   vertical-align: top;
   border-bottom: 1px solid #ccc;
 }
+.th-1 {
+	width: 10%;
+}
+.th-2 {
+	width: 10%;
+}
+.th-3 {
+	width: 20%;
+}
+.th-4 {
+	width: 30%;
+}
+.th-edit {
+	width: 10%;
+}
+.th-del {
+	width: 10%;
+}
