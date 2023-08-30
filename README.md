@@ -27,4 +27,4 @@
 ![개발환경](https://github.com/jieun-p974/GGG/assets/84063843/70e9100b-db85-4def-b8f6-499e6f290ae2)
 
 ### 3. 시연영상
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C07XoKCxHSY?si=TNGLsn_ScjMT5gdT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![GGG](https://www.youtube.com/embed/C07XoKCxHSY?si=TNGLsn_ScjMT5gdT/0.jpg)]([https://youtu.be/QYNwbZHmh8g?t=0s](https://www.youtube.com/embed/C07XoKCxHSY?si=TNGLsn_ScjMT5gdT)https://www.youtube.com/embed/C07XoKCxHSY?si=TNGLsn_ScjMT5gdT) 
