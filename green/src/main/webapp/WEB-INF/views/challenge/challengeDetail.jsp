@@ -9,10 +9,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/challengeDetail.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
 <script type="text/javascript">
 var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
@@ -29,7 +25,7 @@ $(function(){
 	
 	for(var i = 0; i < ${chall.difficulty}; i++){
 		star2 += "★";
-	}
+	} 
 	for(var i = 0; i < 5-${chall.difficulty}; i++){
 		star2 += "☆";
 	}
@@ -41,41 +37,48 @@ $(function(){
 <title>뉴스 상세</title>
 </head>
 <body>
-	<div class="container ">
-		<%@include file="../layouts/header.jsp"%>
-		<div class="c_details">
-			<div class="challenge_title">
-				<p>
-					<span class="span_t">‘${chall.chal_name}’</span>를 선택하셨군요!
-				</p>
-			</div>
-
-			<div class="chall_detail">
-				<img class="detail_img" src="/resources/imgs/challImg/${chall.chal_img_addr}" />
-				<div class="detail_content">
-					<p class="d_title">챌린지: ${chall.chal_name}</p>
-					<p class="d_gigan">기 간: ${chall.chal_start_date} ~ ${chall.chal_end_date}</p>
-					<p class="d_level" id="d_level">난이도 : </p>
-					<p class="d_content">
-						${chall.chal_ex}
-					</p>
-				</div>
-			</div>
-
-			<div class="checking">
-				<div class="checking_content">
-					<p class="span_t check">&lt;인증횟수&gt;</p>
-					<p>챌린지를 진행하는 동안 총 ${chall.chal_check_su} 회 인증하셔야 합니다.</p>
-					<c:forEach var="word" items="${keywordArr}">
-						${word}<br/><br/>
-					</c:forEach>
-				</div>
-				<div class="check_btn">
-					<button><a href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}">신청하기</a></button>
+	<%@include file="../layouts/header.jsp"%>
+	<section class="pricing position-relative overflow-hidden">
+		<div class="container position-relative">
+			<div class="row justify-content-center mt-5">
+			<h3 class="mb-5" style="font-weight: bold;">‘${chall.chal_name}’</span>를 선택하셨군요!</h3>
+				<div class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12">
+					<div class="card position-relative shadow border-0 h-100">
+						<div class="card-body p-3">
+							<div class="chall_detail">
+								<img class="detail_img"
+									src="/resources/imgs/challImg/${chall.chal_img_addr}" />
+								<div class="detail_content">
+									<p class="d_title">챌린지: ${chall.chal_name}</p>
+									<p class="d_gigan">기 간: ${chall.chal_start_date} ~
+										${chall.chal_end_date}</p>
+									<p class="d_level" id="d_level">난이도 :</p>
+									<p class="d_content">${chall.chal_ex}</p>
+								</div>
+							</div>
+							<div class="checking">
+								<div class="checking_content">
+									<p class="span_t check">&lt;인증횟수&gt;</p>
+									<p>챌린지를 진행하는 동안 총 ${chall.chal_check_su} 회 인증하셔야 합니다.</p>
+									<c:forEach var="word" items="${keywordArr}">
+										${word}<br />
+										<br />
+									</c:forEach>
+								</div>
+								<div class="check_btn d-flex justify-content-between">
+									<div></div>
+									<a
+										href="sinchung.do?chal_no=${chall.chal_no}&userId=${sessionScope.userId}"
+										class="btn btn-white-back2 btn-hover-secondery text-capitalize">신청하기</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
+
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

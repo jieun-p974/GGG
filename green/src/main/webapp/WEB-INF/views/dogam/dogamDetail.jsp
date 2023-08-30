@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -8,45 +8,80 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/dogamDetail.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link href="../../../resources/styles/myDogamDetail.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	var msg = "<c:out value='${msg}' />"
+	var url = "<c:out value='${url}' />"
+
+	if (msg.length > 0 && url.length > 0) {
+
+		alert(msg);
+		location.href = url;
+	}
+</script>
 <title>동물도감 | 상세보기</title>
 </head>
 <body>
-<div class="container">
-		<%@include file="../layouts/header.jsp"%>
+	<%@include file="../layouts/header.jsp"%>
+	<section class="pricing position-relative overflow-hidden">
 		<c:forEach items="${list}" var="dogam">
-		<div class="animal_explain">
-		<input value="${dogam.do_no}" type="hidden"/>
-      <h1 class="animal_title">멸종위기 동물 '${dogam.do_title}'을 소개합니다.</h1>
-      <h3> 제 성장 과정이 궁금하세요?</h3>
-	<div class="animal">
-	
-      <div class="animal_level">
-      
-        <img class="level_img1" src="/resources/imgs/dogam/${dogam.img1}">
-        <img class="arrow1" src="../../../resources/imgs/arrow.png" />
-        <a class=lv1>Lv.1</a>    
-        <img class="level_img2" src="/resources/imgs/dogam/${dogam.img2}">
-        <img class="arrow2" src="../../../resources/imgs/arrow.png" />
-        <a class=lv2>Lv.2</a>
-        <img class="level_img3" src="/resources/imgs/dogam/${dogam.img3}">
-        <a class=lv3>Lv.3</a>
-      </div>
-
-    </div>
-
-      <div class="animal_content">
-       ${dogam.do_content}
-      </div>
-      <button class="dogamBtn" onclick="location.href='dogam.do'">도감보기</button>
-      	<c:if test="${userId ne null}">
-		<button class="getBtn">키우기</button>
-		</c:if>
-    </div>
-    </c:forEach>
-		</div>
+			<div class="container position-relative">
+				<div class="row justify-content-center mt-5">
+					<div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+						<div class="card position-relative shadow border-0 h-100">
+							<div class="card-body p-3">
+								<div class="animal_info">
+									<input value="${dogam.do_no}" type="hidden" />
+									<h3 class="mb-5" style="font-weight: bold;">
+										멸종위기 동물<br /> '${dogam.do_title}'을 소개합니다.	</h3>
+										<h4 class="mb-5 pb-5">제 성장 과정이 궁금하세요?</h4>
+								</div>
+								<div class="animal_level_d pt-5">
+									<div class="row">
+										<img class="level_img1_d"
+											src="../resources/imgs/dogam/${dogam.img1}" />
+										<p class="text-black text-center">Lv.1</p>
+									</div>
+									<img class="arrow1" src="../../../resources/imgs/arrow.png" />
+									<div class="row">
+										<img class="level_img2_d"
+											src="../resources/imgs/dogam/${dogam.img2}" />
+										<p class="text-black text-center">Lv.2</p>
+									</div>
+									<img class="arrow2" src="../../../resources/imgs/arrow.png" />
+									<div class="row">
+										<img class="level_img3_d"
+											src="../resources/imgs/dogam/${dogam.img3}" />
+										<p class="text-black text-center">Lv.3</p>
+									</div>
+								</div>
+								<div
+									class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 mt-5">
+									<c:if test="${userId ne null}">
+										<a href="sinchung.do?do_no=${dogam.do_no}&userId=${userId}"
+											class="btn btn-white-back btn-hover-third">키우기</a>
+									</c:if>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12">
+						<div class="card position-relative shadow border-0 h-100">
+							<div class="card-body pb-4">
+								<p style="line-height: 2rem">${dogam.do_content}</p>
+							</div>
+							<div
+								class="card-action text-end pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4 me-5">
+								<a href="dogam.do"
+									class="btn btn-white-back btn-hover-third">도감보기</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</section>
+	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

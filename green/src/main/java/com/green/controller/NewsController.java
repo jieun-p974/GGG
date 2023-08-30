@@ -45,6 +45,12 @@ public class NewsController {
 	//news insert
 	@RequestMapping(value="/saveNews.do")
 	public String insertNews(NewsVO vo) throws IOException{
+		System.out.println("됨?"+vo.getCat_no());
+		System.out.println("됨?"+vo.getId_manager());
+		System.out.println("됨?"+vo.getN_content());
+		System.out.println("됨?"+vo.getN_title());
+		System.out.println("됨?"+vo.getN_img1_nn());
+		System.out.println("됨?"+vo.getN_img1_addr());
 		newsService.newsInsert(vo);
 		return "redirect:/news/newsCheck.do";
 	}

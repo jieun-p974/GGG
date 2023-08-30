@@ -2,9 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <head>
+<script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script>
+<!-- <script src="/resources/js/jquery.min.js"></script> -->
+<script src="/resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/custom.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles/iconfont/tabler-icons.css">
 <%
-String userId = (String) session.getAttribute("userId");
+	String userId = (String) session.getAttribute("userId");
 String userName = (String) session.getAttribute("userName");
 String userTel = (String) session.getAttribute("userTel");
 String userEmail = (String) session.getAttribute("userEmail");
@@ -13,55 +20,103 @@ String userCard = (String) session.getAttribute("userCard");
 String userAccount = (String) session.getAttribute("userAccount");
 String userImg = (String) session.getAttribute("userImg");
 String userImgAddr = (String) session.getAttribute("userImgAddr");
-
+int userType = (Integer) session.getAttribute("userType");
 System.out.println("현재 세션 : " + userId);
 %>
-
-<meta charset="UTF-8">
-<link rel="stylesheet" href="/resources/styles/header.css">
-<script type="text/javascript">
-
-</script>
+<meta charset=" UTF-8">
 </head>
+
 <body>
-	<div class="header">
-		<div>
-			<a href="../member/main.do"> <img class="logo" src="../../resources/imgs/logo.png" /></a>
-		</div>
-		
-		<div class="menu_grop">
-			<ul class="menu_list">
-				<li><a href="../community/community.do">커뮤니티 관리&nbsp&nbsp</a></li>
-				<li><a href="../challenge/adminChallenge.do">&nbsp&nbsp챌린지관리&nbsp&nbsp</a></li>
-<<<<<<< HEAD
-				<li><a href="../dogam/dogamCheck.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
-				<li><a href="../donation/donation.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
-=======
-				<li><a href="../dogam/adminDogam.do">&nbsp&nbsp도감관리&nbsp&nbsp</a></li>
-				<li><a href="../donation/adDonationList.do">&nbsp&nbsp기부관리&nbsp&nbsp</a></li>
->>>>>>> refs/remotes/origin/ayoung
-				<li><a href="../news/newsCheck.do">&nbsp&nbsp뉴스관리</a></li>
-				
+	<header class="main-header position-fixed w-100">
 
-
-			</ul>
-		</div>
-		
-			<c:if test="${userId ne null}">
-			<div class="login">
-				<button class="loginBtn"
-					onclick="location.href='../member/logout.do'">로그아웃</button>
+		<div class="container">
+			<div
+				class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block  justify-content-xxl-end justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-sm-end justify-content-sm-center ">
+				<h6 style="fontcolor=red"> ${userId} ${userName} ${sessionTime} 접속  </h6>
 			</div>
-		</c:if>
+			<nav class="navbar navbar-expand-xl py-0">
+				<div class="logo">
+					<a class="navbar-brand py-0 me-0" href="../../index.jsp"> <img
+						src="../../resources/imgs/logo.png" alt="로고이미지"
+						style="width: 15rem">
+					</a>
+				</div>
+				<a
+					class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"
+					data-bs-toggle="offcanvas" href="#offcanvasExample"
+					aria-controls="offcanvasExample"> <i
+					class="ti ti-menu-2 text-warning"></i>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto p-0">
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							aria-current="page" href="../community/community.do">커뮤니티관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../challenge/adminChallenge.do">챌린지관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../dogam/dogamCheck.do">도감관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../donation/adDonationList.do">기부관리 </a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize"
+							href="../news/newsCheck.do">뉴스관리</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../community/notificationList.do">&nbsp&nbsp공지관리&nbsp&nbsp</a></li>
+						<li class="nav-item"><a class="nav-link text-capitalize" href="../member/adminMain.do">&nbsp&nbsp관리자페이지</a></li>
+					</ul>
+					<c:if test="${userId ne null}">
+						<div class="d-flex align-items-center">
+							<a class="btn btn-warning btn-hover-secondery text-capitalize "
+								href="../member/logout.do">로그아웃</a>
+						</div>
+					</c:if>
+					<c:if test="${userId eq null}">
+						<div class="d-flex align-items-center">
+							<a class="btn btn-warning btn-hover-secondery text-capitalize "
+								href="../member/login.do">로그인</a>
+						</div>
+					</c:if>
+				</div>
+			</nav>
+		</div>
 
-		<c:if test="${userId eq null}">
-			<div class="login">
-				<button class="loginBtn"
-					onclick="location.href='../member/adminLogin.do'">로그인</button>
+		<div class="offcanvas offcanvas-start" tabindex="-1"
+			id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+			<div class="offcanvas-header">
+				<div class="logo">
+					<a class="navbar-brand py-0 me-0" href="../../index.jsp"> <img
+						src="../../resources/imgs/logo.png" alt="로고이미지"
+						style="width: 15rem">
+					</a>
+				</div>
+				<button type="button" class="btn-close text-reset  ms-auto"
+					data-bs-dismiss="offcanvas" aria-label="Close">
+					<i class="ti ti-x text-warning"></i>
+				</button>
 			</div>
-		</c:if>
-		
-		
-	</div>
-	</body>
-	
+			<div class="offcanvas-body pt-0">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						aria-current="page" href="../community/community.do">커뮤니티 관리</a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../challenge/adminChallenge.do">챌린지관리</a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../dogam/dogamCheck.do">도감관리 </a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../donation/adDonationList.do">기부관리 </a></li>
+					<li class="nav-item"><a class="nav-link text-capitalize"
+						href="../news/newsCheck.do">뉴스관리 </a></li>
+				</ul>
+				<c:if test="${userId ne null}">
+					<div class="d-flex align-items-center">
+						<a class="btn btn-warning btn-hover-secondery text-capitalize "
+							href="../member/logout.do">로그아웃</a>
+					</div>
+				</c:if>
+				<c:if test="${userId eq null}">
+					<div class="d-flex align-items-center">
+						<a class="btn btn-warning btn-hover-secondery text-capitalize "
+							href="../member/login.do">로그인</a>
+					</div>
+				</c:if>
+			</div>
+		</div>
+	</header>

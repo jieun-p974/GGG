@@ -27,4 +27,10 @@ public interface ChallengeDAO {
 	public Integer countCheck(HashMap param);
 	
 	public void insertCertification(ChallengeCheckVO vo);
+	
+	public MemChallengeVO redirectCheckPage(ChallengeCheckVO vo);
+	
+	public List<ChallengeCheckVO> adminCerCheckList();
+	
+	public void updatePassYN(HashMap<String, List<String>> arr);
 }

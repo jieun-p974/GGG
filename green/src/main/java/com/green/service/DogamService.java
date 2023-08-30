@@ -1,5 +1,6 @@
 package com.green.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.green.domain.DogamVO;
@@ -7,26 +8,41 @@ import com.green.domain.DogamVO;
 public interface DogamService {
 
 	// get admin list
-	List<DogamVO> getAdminDogam();
+	public List<DogamVO> getAdminDogam();
 	
 	// get admin list with img
-	List<DogamVO> getAdminImgDogam(int do_no);
+	public List<DogamVO> getAdminImgDogam(int do_no);
 	
 	// get dogam list
-	List<DogamVO> getDogamList();
+	public List<DogamVO> getDogamList();
 	
 	// get dogam detail
-	DogamVO getDogam(DogamVO vo);
+	public DogamVO getDogam(DogamVO vo);
+	
+	// get my dogam list
+	public List<HashMap<String, Object>> getMyDogam(HashMap map);
+	public List<HashMap<String, Object>> getMyDogamList(HashMap map);
+	public HashMap<String, Object> getDetail(HashMap map);
 	
 	// insert
-	void dogamInsert(DogamVO vo);
+	public void dogamInsert(DogamVO vo);
 	
 	// img insert
-	void dogamImgInsert(DogamVO vo);
+	public void dogamImgInsert(DogamVO vo);
 	
 	// update
-	void dogamUpdate(DogamVO vo);
+	public void dogamUpdate(DogamVO vo);
 
 	// delete
-	void dogamDelete(DogamVO vo);
+	public void dogamDelete(DogamVO vo);
+	
+	// sinchung
+	public int dogamSinchung(HashMap map);
+
+	//기부->exp
+	void donExp(HashMap<String, Object> map);
+	
+	//my yes
+		public int myYes(String id);
+		
 }

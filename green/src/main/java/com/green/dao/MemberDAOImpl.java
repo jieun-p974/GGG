@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.util.HashMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,63 +10,111 @@ import com.green.domain.MemberVO;
 
 @Repository("memberDAO")
 public class MemberDAOImpl implements MemberDAO {
-	
+
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
+
+	// id using check
 	@Override
 	public MemberVO idCheck(MemberVO vo) {
-		System.out.println("===> idCheck() 호출");
+		System.out.println("mybatis ==> idCheck()");
 		return mybatis.selectOne("member.idCheck", vo);
 	}
-	
+
+	// sign up
 	@Override
-	public int memberInsert(MemberVO vo)  {
-		System.out.println("===> memberInsert() 호출");
+	public int memberInsert(MemberVO vo) {
+		System.out.println("mybatis ==> memberInsert()");
 		return mybatis.insert("member.memberInsert", vo);
 	}
 
-	@Override
-	public MemberVO memberLogin(MemberVO vo) {
-		System.out.println("===> idCheck() 호출");
-		return (MemberVO) mybatis.selectOne("member.idCheck", vo);
-	}
-
-	@Override
-	public MemberVO memberInfo(MemberVO vo) {
-		System.out.println("===> memberInfo() 호출");
-		return mybatis.selectOne("member.memberInfo", vo);
-	}
-
-	@Override
-	public int memberUpdate(MemberVO vo) {
-		System.out.println("===> memberUpdate() 호출");
-		return mybatis.update("member.memberUpdate", vo);
-	}
-
+	// login
+//	@Override
+//	public MemberVO memberLogin(MemberVO vo) {
+//		System.out.println("mybatis ==> idCheck()");
+//		return (MemberVO) mybatis.selectOne("member.idCheck", vo);
+//	}
 	@Override
 	public MemberVO login(MemberVO vo) {
-		System.out.println("===> login() 호출");
+		System.out.println("mybatis ==> login()");
 		return mybatis.selectOne("member.login", vo);
 	}
 
+	// member info
+	@Override
+	public MemberVO memberInfo(MemberVO vo) {
+		System.out.println("mybatis ==> memberInfo()");
+		return mybatis.selectOne("member.memberInfo", vo);
+	}
+
+	// member info edit
+	@Override
+	public int memberUpdate(MemberVO vo) {
+		System.out.println("mybatis ==> memberUpdate()");
+		return mybatis.update("member.memberUpdate", vo);
+	}
+
+	// search id
 	@Override
 	public String searchID(String email) {
-		System.out.println("===> searhID() 호출");
+		System.out.println("mybatis ==> searhID()");
 		return mybatis.selectOne("member.searchID", email);
 	}
 
+	// search pw
 	@Override
 	public String searchPass(String email) {
-		System.out.println("===> searhID() 호출");
+		System.out.println("mybatis ==> searhID()");
 		return mybatis.selectOne("member.searchPass", email);
+	}
+
+	// member card insert
+	@Override
+	public void cardInsert(MemberVO vo) {
+		System.out.println("mybatis ==> cardInsert()");
+		mybatis.insert("member.cardInsert", vo);
+	}
+
+	@Override
+	public void cardYes(MemberVO vo) {
+		System.out.println("mybatis ==> cardYes()");
+		mybatis.update("member.cardYes", vo);
+	}
+	
+	// member bank account insert
+	@Override
+	public void accountInsert(MemberVO vo) {
+		System.out.println("mybatis ==> accountInsert()");
+		mybatis.insert("member.accountInsert", vo);
 	}
 	
 	@Override
-	public void goDona(MemberVO vo) {
-		System.out.println("==>goDona()호출");
-		mybatis.update("MemberDAO.goDona",vo);
-		
+	public void accountYes(MemberVO vo) {
+		System.out.println("mybatis ==> accountYes()");
+		mybatis.update("member.accountYes", vo);
 	}
 	
+	// member card delete
+	@Override
+	public void cardDelete(MemberVO vo) {
+		System.out.println("mybatis ==> cardDelete()");
+		mybatis.delete("member.cardDelete", vo);
+	}
+	
+	// member bank account delete
+	@Override
+	public void accountDelete(MemberVO vo) {
+		System.out.println("mybatis ==> accountDelete()");
+		mybatis.delete("member.accountDelete", vo);
+	}
+
+	@Override
+	public void goDona(HashMap<String, Object> map) {
+		System.out.println("==>goDona()호출");
+		mybatis.update("member.goDona",map);
+		
+	}
+
+
+
 }

@@ -31,8 +31,20 @@ public class CommunityVO {
 	private String b_img2_addr;
 	private String b_img3;
 	private String b_img3_addr;
+	
 	private String m_img_addr;
+	private int com_no;
 	private String com_content;
+	private int like_no;
+	private int like_chk;
+
+	public int getLike_chk() {
+		return like_chk;
+	}
+
+	public void setLike_chk(int like_chk) {
+		this.like_chk = like_chk;
+	}
 
 	MultipartFile file1; // write.jsp에 파일첨부시 name="file"과 동일한 변수명
 	MultipartFile file2;
@@ -40,19 +52,6 @@ public class CommunityVO {
 	
 	public CommunityVO() {
 
-	}
-
-	public CommunityVO(int board_no ,String id, String b_content, String b_img1,String m_img_addr, String b_img1_addr, String b_img2, String b_img2_addr, String b_img3, String b_img3_addr,String com_content) {
-		this.board_no = board_no;
-		this.id = id;
-		this.b_content = b_content;
-		this.b_img1 = b_img1;
-		this.b_img1_addr = b_img1_addr;
-		this.b_img2 = b_img2;
-		this.b_img2_addr = b_img2_addr;
-		this.b_img3 = b_img3;
-		this.b_img3_addr = b_img3_addr;
-		this.com_content = com_content;
 	}
 
 	public MultipartFile getFile1() {
@@ -74,14 +73,11 @@ public class CommunityVO {
 			// 해당 경로로 변경
 			File f = new File(
 					"C:\\Users\\koreavc\\git\\GGG\\green\\src\\main\\webapp\\resources\\imgs\\communityImg\\" + b_img1_addr);
-
 			try {
 				file1.transferTo(f);
-
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-
 				e.printStackTrace();
 			}
 		}
@@ -238,7 +234,7 @@ public class CommunityVO {
 	public void setB_img3(String b_img3) {
 		this.b_img3 = b_img3;
 	}
-
+	
 	public String getCom_content() {
 		return com_content;
 	}
@@ -247,5 +243,20 @@ public class CommunityVO {
 		this.com_content = com_content;
 	}
 	
+	public int getCom_no() {
+		return com_no;
+	}
+
+	public void setCom_no(int com_no) {
+		this.com_no = com_no;
+	}
+	
+	public int getLike_no() {
+		return like_no;
+	}
+
+	public void setLike_no(int like_no) {
+		this.like_no = like_no;
+	}
 
 }

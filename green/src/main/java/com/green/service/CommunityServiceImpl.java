@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.green.dao.CommunityDAO;
 import com.green.domain.CommunityVO;
+import com.green.domain.HeartVO;
+import com.green.domain.ReplyVO;
 
 @Service("CommunityService")
 public class CommunityServiceImpl implements CommunityService{
 	@Autowired
 	private CommunityDAO communityDAO;
 	
+	// community
 	//insert
 	@Override
 	public void insertCommunity(CommunityVO vo) {
@@ -25,14 +28,7 @@ public class CommunityServiceImpl implements CommunityService{
 	public List<CommunityVO> getCommunityList() {
 		// TODO Auto-generated method stub
 		return communityDAO.getCommunityList();
-	}
-	
-	// Reply List
-	@Override
-	public List<CommunityVO> getReplyList(int board_no) {
-		// TODO Auto-generated method stub
-		return communityDAO.getReplyList(board_no);
-	}
+	}	
 	
 	//get one
 	@Override
@@ -61,11 +57,45 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDAO.getMyCommunityList(id);
 	}
 	
+	// reply
+	// Reply List
+	@Override
+	public List<ReplyVO> getReplyList() {
+		// TODO Auto-generated method stub
+		return communityDAO.getReplyList();
+	}
+	
+	@Override
+	public ReplyVO getReplyDetail(ReplyVO vo) {
+		return communityDAO.getReplyDetail(vo);
+	}
+	
+	@Override
+	public void deleteReply(ReplyVO vo)	 {
+		// TODO Auto-generated method stub
+		communityDAO.deleteReply(vo);
+	}
+	
+	@Override
+	public void updateReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.updateReply(vo);
+	}
+	
 	//insert reply
 	@Override
-	public void insertReply(CommunityVO vo) {
+	public void insertReply(ReplyVO vo) {
 		// TODO Auto-generated method stub
 		communityDAO.replyWrite(vo);
 	}
+	
+	// like
+	// dolike
+	@Override
+	public void insertLike(HeartVO vo) {
+		// TODO Auto-generated method stub
+		communityDAO.likeInsert(vo);
+	}
+	
 	
 }

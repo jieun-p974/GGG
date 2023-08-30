@@ -9,34 +9,24 @@
 		VALUES(#{id}, #{b_content}, #{b_img1}, #{b_img1_addr}, #{b_img2}, #{b_img2_addr}, #{b_img3}, #{b_img3_addr})
 	</insert>
 	
-	<!-- insert reply -->
-	<insert id="replyWrite" parameterType="community">
-		INSERT INTO reply (id, board_no, com_content) 
-		VALUES(#{id},#{board_no},#{com_content})
-	</insert>
-	
-	<!-- show all list -->
+	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
-		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
-				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
-		FROM board b, member m 
-		WHERE m.id= b.id 
+		SELECT distinct b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr
+		FROM board b, member m, b_m_like l
+		WHERE m.id = b.id 
 		ORDER BY b.regist_date desc
 	</select>
 	
-	<!-- show my list -->
+	<!-- show id search list -->
 	<select id="getMyCommunityList" resultType="community">
-		SELECT * FROM board WHERE id = #{id} ORDER BY board_no desc	
+		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
+		FROM board b, member m 
+		WHERE b.id = #{id} and m.id= b.id 
+		ORDER BY b.regist_date desc
 	</select>
-	
-	<!-- show reply -->
-	<select id="getReplyList" resultType="community">
-		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
-		FROM reply r, member m 
-		WHERE m.id = r.id AND r.board_no = #{board_no} 
-		ORDER BY com_no desc
-	</select>
-	
+
 	<!-- select one Community -->
 	<select id="getCommunityDetail" parameterType="community" resultType="community">
 		SELECT * FROM board WHERE board_no = #{board_no}
@@ -65,5 +55,49 @@
 	<delete id="deleteCommunity" parameterType="community">
 		DELETE FROM board WHERE board_no = #{board_no}
 	</delete>
+	
+	
+	<!-- insert reply -->
+	<insert id="replyWrite" parameterType="community">
+		INSERT INTO reply (id, board_no, com_content) 
+		VALUES(#{id},#{board_no},#{com_content})
+	</insert>
+	
+	<!-- update reply -->
+	<update id="updateReply" parameterType="reply">
+		UPDATE reply SET
+		com_content=#{com_content}
+		WHERE com_no=#{com_no}
+	</update>
+	
+	<!-- delete reply -->
+	<delete id="deleteReply" parameterType="reply">
+		DELETE FROM reply WHERE com_no=#{com_no}
+	</delete>
+	
+	<!-- show reply -->
+	<select id="getReplyList" resultType="reply">
+		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
+		FROM reply r, member m 
+		WHERE m.id = r.id 
+		ORDER BY com_no desc
+	</select>
+	
+	
+	<!-- insertLike -->
+	<insert id="likeInsert" parameterType="like">
+		INSERT INTO b_m_like ( id, board_no)
+		VALUES( #{id}, #{board_no})
+	</insert>
+	
+	
+	
+	<select id="autocomplete" parameterType="map" resultType="map">
+		SELECT
+			 id
+		FROM member
+		WHERE id LIKE  '%||#{value}||%'
+	</select>
+	
 	
 </mapper>

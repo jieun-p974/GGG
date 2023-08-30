@@ -11,14 +11,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="../../../resources/styles/header.css">
-<link href="../../../resources/styles/adminChall.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="../../../resources/styles/footer.css">
+<link rel="stylesheet" href="/resources/styles/table.css">
 <script type="text/javascript">
- 	function insert() {
-		location.href = "challengeInsert.do"
-	} 
 	$(function() {	
 		$("#challList").change(function(){
 			var selected = $("#challList").val();
@@ -31,11 +25,12 @@
 				<c:forEach items="${list}" var="chall">
 				<c:if test="${chall.chal_end_date > today}">
 					html += '<tbody>';
-					html += '<td>${chall.chal_no}</td>';
+					html += '<input type="hidden" value="${chall.chal_no}"></input>';
 					html += '<td>${chall.chal_name}</td>';
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
-					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -46,11 +41,12 @@
 				<c:forEach items="${list}" var="chall">
 				<c:if test="${chall.chal_end_date < today}">
 					html += '<tbody>';
-					html += '<td>${chall.chal_no}</td>';
+					html += '<input type="hidden" value="${chall.chal_no}"></input>';
 					html += '<td>${chall.chal_name}</td>';
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
-					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>';
 					html += '</tbody>';
 				</c:if>
 				</c:forEach>
@@ -61,11 +57,12 @@
 				<c:forEach items="${list}" var="chall">
 				
 					html += '<tbody>';
-					html += '<td>${chall.chal_no}</td>';
+					html += '<input type="hidden" value="${chall.chal_no}"></input>';
 					html += '<td>${chall.chal_name}</td>';
 					html += '<td>${chall.chal_start_date}</td>';
 					html += '<td>${chall.chal_end_date}</td>';
-					html += '<td><button class="modify"><a href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></button></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>';
+					html += '<td><a class="btn btn-white-back btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>';
 					html += '</tbody>';
 				
 				</c:forEach>
@@ -74,50 +71,58 @@
 			}
 		});
 	});
-	function insert() {
-		location.href = "challengeInsert.do"
-	}
 </script>
 <title>챌린지 관리</title>
 </head>
 <body>
-	<div class="container">
-		<%@include file="../layouts/adminHeader.jsp"%>
-		<div class="admin_chall">
-			<p class="admin_title">챌린지 리스트 관리</p>
-
-			<div class="calendar">
-				<select class="month" name="challList" id="challList">
-					<option value="all">전체</option>
-					<option value="ing">진행중인 챌린지</option>
-					<option value="end">종료된 챌린지</option>
-				</select>
-				<button class="add" id="add" onclick="insert()">추가하기</button>
+	<%@include file="../layouts/adminHeader.jsp"%>
+	<section class="pricing position-relative overflow-hidden">
+		<div class="container position-relative">
+			<div class="row">
+				<div
+					class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
+					<h2 class="text-black mb-0 mt-5 mb-3">챌린지 관리 리스트</h2>
+				</div>
 			</div>
-			<div class="chall_lists">
-				<table class="list" id="chall_list">
-					<thead>
-						<th>순서</th>
-						<th>챌린지 명</th>
-						<th>챌린지 시작일</th>
-						<th>챌린지 종료일</th>
-						<th>수정</th>
-					</thead>
-					<c:forEach items="${list}" var="chall">
-						<tbody>
-							<td>${chall.chal_no}</td>
-							<td>${chall.chal_name}</td>
-							<td>${chall.chal_start_date}</td>
-							<td>${chall.chal_end_date}</td>
-							<td><button class="modify">
-									<a href="challengeModify.do?chal_no=${chall.chal_no}"> 수정 </a>
-								</button></td>
-						</tbody>
-					</c:forEach>
-				</table>
+			<div
+				class="col-xxl-12 col-xl-12 col-lg-12 col-md-6 col-sm-6 col-12 text-center mt-4">
+				<div class="calendar d-flex justify-content-between mb-5">
+					<select class="month" name="challList" id="challList">
+						<option value="all">전체</option>
+						<option value="ing">진행중인 챌린지</option>
+						<option value="end">종료된 챌린지</option>
+					</select>
+					<a class="btn btn-white-back btn-hover-third" href="challengeInsert.do">추가하기</a>
+				</div>
+				<div class="card border-0 shadow">
+					<div class="card-body">
+						<div
+							class="overflow-hidden position-relative d-flex align-items-center justify-content-center mx-auto text-center">
+							<table class="type09" id="chall_list">
+								<thead>
+									<th>챌린지 명</th>
+									<th>챌린지 시작일</th>
+									<th>챌린지 종료일</th>
+									<th>수정</th>
+									<th>인증관리</th>
+								</thead>
+								<c:forEach items="${list}" var="chall">
+									<tbody>
+										<input type="hidden" value="${chall.chal_no}"></input>
+										<td>${chall.chal_name}</td>
+										<td>${chall.chal_start_date}</td>
+										<td>${chall.chal_end_date}</td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="challengeModify.do?chal_no=${chall.chal_no}">수정</a></td>
+										<td><a class="btn btn-white-back2 btn-hover-secondery" href="adminChallengeCertList.do?chal_name=${chall.chal_name}">인증관리</a></td>
+									</tbody>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 	<%@include file="../layouts/footer.jsp"%>
 </body>
 </html>

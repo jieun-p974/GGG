@@ -2,13 +2,89 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CommunityDAO">
+
+	<!-- insert community -->
 	<insert id="communityWrite" parameterType="community">
-		INSERT INTO board (id, b_content,b_img1,b_img2,b_img3)
-		VALUES('seul', #{b_content}, #{b_img1}, #{b_img2}, #{b_img3})
+		INSERT INTO board (id, b_content,b_img1,b_img1_addr,b_img2,b_img2_addr,b_img3,b_img3_addr)
+		VALUES(#{id}, #{b_content}, #{b_img1}, #{b_img1_addr}, #{b_img2}, #{b_img2_addr}, #{b_img3}, #{b_img3_addr})
 	</insert>
 	
+	<!-- show all community list -->
 	<select id="getCommunityList" resultType="community">
-		SELECT * FROM board ORDER BY board_no desc
+		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
+		FROM board b, member m 
+		WHERE m.id= b.id 
+		ORDER BY b.regist_date desc
 	</select>
+	
+	<!-- show id search list -->
+	<select id="getMyCommunityList" resultType="community">
+		SELECT b.board_no, b.id, b.b_content, b.regist_date, m.m_img_addr, b.b_img1, b.b_img1_addr, 
+				b.b_img2, b.b_img2_addr, b.b_img3, b.b_img3_addr 
+		FROM board b, member m 
+		WHERE b.id = #{id} and m.id= b.id 
+		ORDER BY b.regist_date desc
+	</select>
+
+	<!-- select one Community -->
+	<select id="getCommunityDetail" parameterType="community" resultType="community">
+		SELECT * FROM board WHERE board_no = #{board_no}
+	</select>
+	
+	<!-- updateCommunity -->
+	<update id="updateCommunity" parameterType="community">
+		UPDATE board SET 
+		b_content=#{b_content}
+		<if test="b_img1_addr != null">,
+		b_img1=#{b_img1},
+		b_img1_addr=#{b_img1_addr}
+		</if>
+		<if test="b_img2_addr != null">,
+		b_img2=#{b_img2},
+		b_img2_addr=#{b_img2_addr}
+		</if>
+		<if test="b_img3_addr != null">,
+		b_img3=#{b_img3},
+		b_img3_addr=#{b_img3_addr}
+		</if>		
+		WHERE board_no = #{board_no}
+	</update>
+	
+	<!-- delete Community -->
+	<delete id="deleteCommunity" parameterType="community">
+		DELETE FROM board WHERE board_no = #{board_no}
+	</delete>
+	
+	
+	<!-- insert reply -->
+	<insert id="replyWrite" parameterType="community">
+		INSERT INTO reply (id, board_no, com_content) 
+		VALUES(#{id},#{board_no},#{com_content})
+	</insert>
+	
+	<!-- show reply -->
+	<select id="getReplyList" resultType="reply">
+		SELECT r.com_no, r.id, r.board_no, r.com_content, m.m_img_addr 
+		FROM reply r, member m 
+		WHERE m.id = r.id 
+		ORDER BY com_no desc
+	</select>
+	
+	
+	<!-- insertLike -->
+	<insert id="likeInsert" parameterType="like">
+		INSERT INTO b_m_like (like_no, id, board_no)
+		VALUES(#{like_no}, #{id}, #{board_no})
+	</insert>
+	
+	
+	<select id="autocomplete" parameterType="map" resultType="map">
+	SELECT
+		 id
+	FROM member
+	WHERE id LIKE  '%||#{value}||%'
+</select>
+	
 	
 </mapper>

@@ -7,14 +7,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="../../../resources/styles/login.css">
+
 <title>로그인</title>
 </head>
 <script>
 	window.onload = function(){
+		document.getElementById('Submit').onclick = enter;	
 		document.getElementById('Submit').onclick = check;	
 	}
 
+	function enter() {
+		if(window.event.keyCode == 13){
+			check();
+		} 
+	}
+	
 	function check() {
 		if(document.form.id.value==""){
 			alert("ID를 입력하세요.")
@@ -28,10 +37,10 @@
 			return false;
 		}
 
-		
-		document.form.submit();	//전송
-					
+		document.form.submit();	//전송			
 	}
+
+
 
 </script>
 
@@ -49,7 +58,7 @@
 
 				<div class="info">
 					<p class="label">비밀번호&nbsp&nbsp</p>
-					<input class="insert" type="password" name="password" id="password">
+					<input class="insert" type="password" name="password" id="password" onkeyup="enter()">
 				</div>
 
 				<div class="menu">
@@ -58,7 +67,6 @@
 						<li><a href="../member/searchPass.do">비밀번호 찾기&nbsp&nbsp&nbsp</a>|</li>
 						<li><a href="../member/signup.do">회원가입</a></li>
 					</ul>
-					<input type="button" class="adminBtn" value="관리자로그인" onclick="location.href='../member/adminLogin.do'">
 				</div>
 				<input type="button" class="loginBtn" value="로그인" name="Submit" id="Submit">
 			</div>
@@ -66,4 +74,3 @@
 	</div>
 </body>
 </html>
-

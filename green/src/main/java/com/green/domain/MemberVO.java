@@ -22,15 +22,17 @@ public class MemberVO {
 	private int remainder_point;
 	private String m_img;
 	private String m_img_addr;
+	private int tryNum;
 	
-	//결제수단 조인
+	//mem_card 테이블
 	private int mem_card_no;
 	private String card_num;
-	private String expiry_date;
+	private String expire_date;
 	private int CVC;
 	private String card_company;
 	private int pass_two;
 	
+	//mem_account 테이블
 	private int mem_acc_no;
 	private String acc_num;
 	private String bank;
@@ -48,11 +50,11 @@ public class MemberVO {
 	public void setCard_num(String card_num) {
 		this.card_num = card_num;
 	}
-	public String getExpiry_date() {
-		return expiry_date;
+	public String getExpire_date() {
+		return expire_date;
 	}
-	public void setExpiry_date(String expiry_date) {
-		this.expiry_date = expiry_date;
+	public void setExpire_date(String expire_date) {
+		this.expire_date = expire_date;
 	}
 	public int getCVC() {
 		return CVC;
@@ -238,6 +240,12 @@ public class MemberVO {
 
 	public void setM_img_addr(String m_img_addr) {
 		this.m_img_addr = m_img_addr;
+	}
+	public int getTryNum() {
+		return tryNum;
+	}
+	public void setTryNum(int tryNum) {
+		this.tryNum = tryNum;
 	}
 
 	
