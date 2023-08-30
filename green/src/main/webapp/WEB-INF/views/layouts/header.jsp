@@ -4,11 +4,6 @@
 
 <head>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- <script src="/resources/libs/OwlCarousel-2/dist/owl.carousel.min.js"></script> -->
-<!-- <script src="/resources/js/jquery.min.js"></script> -->
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/custom.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
@@ -102,7 +97,11 @@ $(function(){
 				}else{
 					for(var i = 0; i < rs.length; i++){
 						if(isNaN(rs[i].ck)){
-							$('#notis').append('<li class="nav-item"><a href="../noti/updateRead_YN.do?like_no='+rs[i].num+'&id='+rs[i].gets+'">'+rs[i].who+'님이 '+rs[i].gets+'님의 게시글을 좋아합니다.</a></li>')
+							if(rs[i].ck.length > 1){
+								$('#notis').append('<li class="nav-item"><a href="../noti/comment_YN.do?com_no='+rs[i].num+'&id='+rs[i].gets+'">'+rs[i].who+'님이 '+rs[i].gets+'님의 게시글에 댓글을 달았습니다.</a></li>')
+							}else{
+								$('#notis').append('<li class="nav-item"><a href="../noti/updateRead_YN.do?like_no='+rs[i].num+'&id='+rs[i].gets+'">'+rs[i].who+'님이 '+rs[i].gets+'님의 게시글을 좋아합니다.</a></li>')
+							}
 						}else{
 							$('#notis').append('<li class="nav-item"><a href="../noti/deleteReadNoti.do?ann_ck_no='+rs[i].ck+'&ann_no='+rs[i].num+'">'+rs[i].who+' : '+rs[i].gets+'</a></li>')
 						}

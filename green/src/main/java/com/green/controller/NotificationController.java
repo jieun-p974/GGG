@@ -68,12 +68,12 @@ public class NotificationController {
 	public String updateRead_YN(int like_no, String id) {
 		System.out.println("id"+id);
 		notificationService.updateRead_YN(like_no);
-		return "redirect:../community/community.do?id="+id;
+		return "redirect:../community/community.do?id="+id+"&userId="+id;
 	}
 	
 	@RequestMapping(value="/comment_YN.do")
 	public String comment_YN(int com_no, String id) {
 		notificationService.comment_YN(com_no);
-		return "redirect:../community/community.do?id="+id;
+		return "redirect:../community/community.do?id="+id+"&userId="+id;
 	}
 }

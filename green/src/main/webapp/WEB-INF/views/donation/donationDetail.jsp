@@ -29,9 +29,9 @@ var msg= "<c:out value='${msg}' />"
 var url= "<c:out value='${url}' />"
 
 if(msg.length >0 && url.length >0){
-	
-	alert(msg);
-	location.href=url;
+   
+   alert(msg);
+   location.href=url;
 }
 </script>
 </head>
@@ -40,13 +40,7 @@ if(msg.length >0 && url.length >0){
    <%@include file="../layouts/header.jsp"%>
    <section class="service position-relative overflow-hidden mt-5">
       <div class="container position-relative">
-         <div class="row">
-            <div
-               class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-               <h2 class="text-white mb-0" style="font-size:2rem;text-align:left">📢용기 있는 행동에 힘을 보태고 싶습니다.</h2>
-            </div>
-         </div>
-         <div class="row d-flex flex-wrap justify-content-center step-row">
+         <div class="row d-flex flex-wrap justify-content-center step-row mt-5">
             <div
                class="col-xxl-8 col-xl-8 col-lg-8 col-md-6 col-sm-6 col-12 text-center">
                <div class="d-flex justify-content-between mb-5">  
@@ -99,8 +93,8 @@ if(msg.length >0 && url.length >0){
                            </div>
                         </div>
                      </div>
-               		
-                		<h4 class="fs-4 text-black mt-5" style="font-weight:bolder"value="${dona.don_name }">"${dona.don_summary}"</h4>
+                     
+                      <h4 class="fs-4 text-black mt-5" style="font-weight:bolder"value="${dona.don_name }">"${dona.don_summary}"</h4>
                     <pre class="fs-6 text-black mt-4" style="line-height:1.4em;font-weight:lighter;" value="${dona.don_name }">${dona.don_ex}</pre>
                      <img class="img-fluid" src="/resources/imgs/donaImg/${dona.d_img1_addr}" alt="">
                   </div>

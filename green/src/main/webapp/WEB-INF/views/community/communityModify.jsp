@@ -67,7 +67,7 @@ color: #858585;
                               <input type="hidden" value="${ghtlist.size()}" name="htlistsize" id="htlistsize"/> 
                               <li class="tag-item ms-2 list-unstyled" style="padding-left:10px">#${hashTag.t_content}
                               <input type="hidden" value="${hashTag.t_content}" class="t_content" name="t_content" id="t_content"/> 
-                                 <span class='del-btn' id="${htlist.index+1}">❌</span>
+                                 <span class='del-btn' id="${htlist.index+1}">✕</span>
                               </li>
                            </c:if> 
                         </c:forEach>
