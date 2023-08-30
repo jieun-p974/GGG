@@ -27,4 +27,4 @@
 ![개발환경](https://github.com/jieun-p974/GGG/assets/84063843/70e9100b-db85-4def-b8f6-499e6f290ae2)
 
 ### 3. 시연영상
-(https://youtu.be/C07XoKCxHSY?si=j0Z47I5y35Q9rQjN)
+(<https://youtu.be/C07XoKCxHSY?si=j0Z47I5y35Q9rQjN>)
