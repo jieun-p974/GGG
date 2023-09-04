@@ -55,4 +55,4 @@
 </details>
 
 ### 4. 시연영상
-(<https://www.youtube.com/watch?v=bEyw9_uLEvM>)
+(<https://youtu.be/h9LsXr-TqQw?si=HxBX060r8YIDD2_Y>)
