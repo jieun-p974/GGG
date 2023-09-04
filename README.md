@@ -17,14 +17,42 @@
   * 프로젝트 명인 GGG는 Green Guardian Guild의 줄임말로, 지구를 보호하는 단체라는 의미를 담고 있습니다.
   * 프로젝트는 2023.07.31부터 2023.08.31까지 진행했습니다.
   * 팀원은 김다슬(<wonju421@gmail.com>), 심가은(<sims0929@gmail.com>), 장아영(<qqaa1212@naver.com>), 박지은(<jieun.p974@gmail.com>)으로 구성되었습니다.
-    | 팀원   | 역할분담                         |
-    |--------|----------------------------------------|
-    | 김다슬 | 커뮤니티 기능, 공지 기능               |
-    | 심가은 | 회원 관련 기능, 캐릭터 도감 기능       |
-    | 장아영 | 기부 기능, 결제 기능                   |
-    | 박지은 | 챌린지 기능, 뉴스/지도 기능, 알림 기능 |
   * 개발환경
 ![개발환경](https://github.com/jieun-p974/GGG/assets/84063843/70e9100b-db85-4def-b8f6-499e6f290ae2)
 
-### 3. 시연영상
+### 3. 역할분담
+<details>
+  <summary><b>김다슬 : 커뮤니티 기능, 공지 기능</b></summary>
+  <div markdown="1">
+    <ul>
+      <li style="list-style:none;"><img src="https://github.com/jieun-p974/GGG/assets/84063843/7d0042bf-ced1-4256-a815-39ecfd71920e" /></li>
+    </ul>
+  </div>
+</details>
+<details>
+  <summary><b>심가은 : 회원 관련 기능, 캐릭터 도감 기능</b></summary>
+  <div markdown="1">
+    <ul>
+      <li style="list-style:none;"><img src="https://github.com/jieun-p974/GGG/assets/84063843/6c093540-216a-498f-8a3f-4299929a5fdb"/></li>
+    </ul>
+  </div>
+</details>
+<details>
+  <summary><b>장아영 : 기부 기능, 결제 기능</b></summary>
+  <div markdown="1">
+    <ul>
+      <li style="list-style:none;"><img src="https://github.com/jieun-p974/GGG/assets/84063843/8473c630-1684-47db-9c37-a1cc30ddd228"/></li>
+    </ul>
+  </div>
+</details>
+<details>
+  <summary><b>박지은 : 챌린지 기능, 뉴스/지도 기능, 알림 기능</b></summary>
+  <div markdown="1">
+    <ul>
+      <li style="list-style:none;"><img src="https://github.com/jieun-p974/GGG/assets/84063843/542ef109-645c-4cad-a6a2-171b13fac805"/></li>
+    </ul>
+  </div>
+</details>
+
+### 4. 시연영상
 (<https://www.youtube.com/watch?v=bEyw9_uLEvM>)
