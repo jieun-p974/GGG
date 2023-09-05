@@ -16,7 +16,7 @@
 ![로고](https://github.com/jieun-p974/GGG/assets/84063843/04ea1f0a-d05c-48d0-b395-47dfadcdd966)
   * 프로젝트 명인 GGG는 Green Guardian Guild의 줄임말로, 지구를 보호하는 단체라는 의미를 담고 있습니다.
   * 프로젝트는 2023.07.31부터 2023.08.31까지 진행했습니다.
-  * 팀원은 김다슬(<wonju421@gmail.com>), 심가은(<sims0929@gmail.com>), 장아영(<qqaa1212@naver.com>), 박지은(<jieun.p974@gmail.com>)으로 구성되었습니다.
+  * 팀원은 김다슬(<wonju421@gmail.com>), 심가은(<sims0929@gmail.com>), 장아영(<torii0@naver.com>), 박지은(<jieun.p974@gmail.com>)으로 구성되었습니다.
   * 개발환경
 ![개발환경](https://github.com/jieun-p974/GGG/assets/84063843/70e9100b-db85-4def-b8f6-499e6f290ae2)
 
